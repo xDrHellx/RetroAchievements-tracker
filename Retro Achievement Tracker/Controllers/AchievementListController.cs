@@ -227,7 +227,7 @@ namespace Retro_Achievement_Tracker.Controllers
                     achievementRowIndex = 0;
                 }
 
-                if(yCoord <= WindowSizeY)
+                if (yCoord <= WindowSizeY)
                 {
                     await Task.Delay(50);
                 }

@@ -23,10 +23,11 @@ namespace Retro_Achievement_Tracker
         }
 
         protected abstract Task InitializeAsync();
-        
+
         #endregion
 
         #region JS init
+
         public void AssignJavaScriptVariables()
         {
             webView21.ExecuteScriptAsync("assignJavaScriptVariables();");

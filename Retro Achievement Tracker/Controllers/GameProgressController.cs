@@ -119,7 +119,7 @@ namespace Retro_Achievement_Tracker.Controllers
 
             if (IsOpen)
             {
-                GameProgressWindow.SetGamePointsValue(pointsEarned + " " + DividerCharacter + " " + pointsPossible); 
+                GameProgressWindow.SetGamePointsValue(pointsEarned + " " + DividerCharacter + " " + pointsPossible);
                 SetAllSettings();
             }
         }

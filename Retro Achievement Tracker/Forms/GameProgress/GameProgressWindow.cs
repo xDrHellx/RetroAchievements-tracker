@@ -127,7 +127,8 @@ namespace Retro_Achievement_Tracker.Forms
         }
         public void SetClientSize()
         {
-            Invoke(new Action(() => {
+            Invoke(new Action(() =>
+            {
                 ClientSize = new Size(805, 350);
             }));
         }

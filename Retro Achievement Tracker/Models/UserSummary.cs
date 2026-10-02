@@ -16,7 +16,7 @@
         public string Motto { get; set; }
         public string UserPic { get; set; }
         public List<Achievement> Achievements { get; set; }
-        
+
         public string RetroRatio
         {
             get
@@ -26,7 +26,7 @@
         }
         public bool Equals(UserSummary other)
         {
-            return other != null 
+            return other != null
                 && LastGameID == other.LastGameID
                 && TotalPoints == other.TotalPoints
                 && TotalTruePoints == other.TotalTruePoints
@@ -36,5 +36,5 @@
         {
             return MemberwiseClone();
         }
-    }    
+    }
 }

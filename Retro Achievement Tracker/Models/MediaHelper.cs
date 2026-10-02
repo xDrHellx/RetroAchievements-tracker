@@ -18,12 +18,12 @@ namespace Retro_Achievement_Tracker.Models
         {
             if (File.Exists(input))
             {
-                var inputFile = new MediaFile { Filename = input };
-                using (var engine = new Engine())
+                MediaFile inputFile = new MediaFile { Filename = input };
+                using (Engine engine = new Engine())
                 {
                     engine.GetMetadata(inputFile);
                 }
-                var frameSize = inputFile.Metadata.VideoData.FrameSize;
+                string frameSize = inputFile.Metadata.VideoData.FrameSize;
 
                 return Convert.ToInt32(frameSize.Substring(0, frameSize.IndexOf("x")));
             }
@@ -34,9 +34,9 @@ namespace Retro_Achievement_Tracker.Models
         {
             if (File.Exists(input))
             {
-                var inputFile = new MediaFile { Filename = input };
+                MediaFile inputFile = new MediaFile { Filename = input };
 
-                using (var engine = new Engine())
+                using (Engine engine = new Engine())
                 {
                     engine.GetMetadata(inputFile);
                 }

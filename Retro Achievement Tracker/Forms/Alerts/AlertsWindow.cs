@@ -41,7 +41,7 @@ namespace Retro_Achievement_Tracker.Forms
         public void SetCustomAchievementDirectorMapping()
         {
             // Check if the selected file is valid
-            string  file = AlertsController.Instance.CustomAchievementFile;
+            string file = AlertsController.Instance.CustomAchievementFile;
             if (File.Exists(file))
             {
                 webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("appassets.customachievement", new FileInfo(file).Directory.FullName, CoreWebView2HostResourceAccessKind.DenyCors);
@@ -50,9 +50,9 @@ namespace Retro_Achievement_Tracker.Forms
         }
         public void SetCustomMasteryDirectorMapping()
         {
-            
+
             // Check if the selected file is valid
-            string  file = AlertsController.Instance.CustomMasteryFile;
+            string file = AlertsController.Instance.CustomMasteryFile;
             if (File.Exists(file))
             {
                 webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("appassets.custommastery", new FileInfo(file).Directory.FullName, CoreWebView2HostResourceAccessKind.DenyCors);

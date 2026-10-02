@@ -110,7 +110,7 @@ namespace Retro_Achievement_Tracker.Controllers
                 else
                 {
                     SetSimpleSettings();
-                }               
+                }
             }
         }
         public void UpdateGameInfo()
