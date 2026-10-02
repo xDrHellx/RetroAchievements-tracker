@@ -6,26 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Retro_Achievement_Tracker.Forms
 {
-    public partial class AchievementListWindow : Form
+    public partial class AchievementListWindow : AbstractForm
     {
         public AchievementListWindow()
         {
             InitializeComponent();
         }
-        protected override async void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            await InitializeAsync();
-        }
-        private async Task InitializeAsync()
+        protected override async Task InitializeAsync()
         {
             await webView21.EnsureCoreWebView2Async(null);
-
             webView21.NavigateToString(Resources.achievement_list_window);
         }
         protected override void OnClosed(EventArgs e)
@@ -33,14 +25,6 @@ namespace Retro_Achievement_Tracker.Forms
             base.OnClosed(e);
 
             AchievementListController.Instance.IsOpen = false;
-        }
-        public void AssignJavaScriptVariables()
-        {
-            webView21.ExecuteScriptAsync("assignJavaScriptVariables();");
-        }
-        public void SetWindowBackgroundColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setWindowBackgroundColor(\"{0}\");", value));
         }
         public void AddAchievement(Achievement achievement, int xCoord, int yCoord)
         {

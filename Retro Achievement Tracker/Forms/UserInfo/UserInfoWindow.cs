@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Retro_Achievement_Tracker
 {
-    public partial class UserInfoWindow : Form
+    public partial class UserInfoWindow : AbstractForm
     {
         public UserInfoWindow()
         {
@@ -18,46 +18,16 @@ namespace Retro_Achievement_Tracker
             UserInfoController.Instance.IsOpen = true;
             UserInfoController.Instance.UpdateUserInfo();
         }
-        protected override async void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
 
-            await InitializeAsync();
-        }
-
-        private async Task InitializeAsync()
+        protected override async Task InitializeAsync()
         {
             await webView21.EnsureCoreWebView2Async(null);
-
             webView21.NavigateToString(Resources.user_info_window);
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
             UserInfoController.Instance.IsOpen = false;
-        }
-        public void AssignJavaScriptVariables()
-        {
-            webView21.ExecuteScriptAsync("assignJavaScriptVariables();");
-        }
-        public void SetWindowBackgroundColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setWindowBackgroundColor(\"{0}\");", value));
-        }
-        public void SetSimpleFontFamily(FontFamily value)
-        {
-            int lineSpacing = value.GetLineSpacing(FontStyle.Regular) / value.GetEmHeight(FontStyle.Regular);
-
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontFamily(\"{0}\", \"{1}\");", value.Name.Replace(":", "\\:"), (lineSpacing == 0 ? 1 : lineSpacing).ToString()));
-        }
-        public void SetSimpleFontColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontColor(\"{0}\");", value));
-        }
-        public void SetSimpleFontOutline(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontOutline(\"{0}\");", value));
         }
         public void SetNameFontFamily(FontFamily value)
         {

@@ -8,38 +8,22 @@ using System.Windows.Forms;
 
 namespace Retro_Achievement_Tracker.Forms
 {
-    public partial class RelatedMediaWindow : Form
+    public partial class RelatedMediaWindow : AbstractForm
     {
         public RelatedMediaWindow()
         {
             InitializeComponent();
         }
-        protected override async void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            await InitializeAsync();
-        }
-        private async Task InitializeAsync()
+        protected override async Task InitializeAsync()
         {
             await webView21.EnsureCoreWebView2Async(null);
-
             webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("appassets.tracker", RelatedMediaController.Instance.LaunchBoxFilePath.Replace("\\", "/"), CoreWebView2HostResourceAccessKind.DenyCors);
             webView21.NavigateToString(Resources.related_media_window);
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
             RelatedMediaController.Instance.IsOpen = false;
-        }
-        public void AssignJavaScriptVariables()
-        {
-            webView21.ExecuteScriptAsync("assignJavaScriptVariables();");
-        }
-        public void SetWindowBackgroundColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setWindowBackgroundColor(\"{0}\");", value));
         }
         public void SetImage(string imageUri)
         {

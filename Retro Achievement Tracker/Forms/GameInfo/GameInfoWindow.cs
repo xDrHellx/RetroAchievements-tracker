@@ -3,66 +3,33 @@ using Retro_Achievement_Tracker.Properties;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Retro_Achievement_Tracker
 {
-    public partial class GameInfoWindow : Form
+    public partial class GameInfoWindow : AbstractForm
     {
         public GameInfoWindow()
         {
             InitializeComponent();
         }
-        protected override async void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            await InitializeAsync();
-        }
-        private async Task InitializeAsync()
+        protected override async Task InitializeAsync()
         {
             await webView21.EnsureCoreWebView2Async(null);
-
             webView21.NavigateToString(Resources.game_info_window);
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
             GameInfoController.Instance.IsOpen = false;
-        }
-        public void AssignJavaScriptVariables()
-        {
-            webView21.ExecuteScriptAsync("assignJavaScriptVariables();");
-        }
-        public void SetWindowBackgroundColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setWindowBackgroundColor(\"{0}\");", value));
-        }
-        public void SetSimpleFontFamily(FontFamily value)
-        {
-            int lineSpacing = value.GetLineSpacing(FontStyle.Regular) / value.GetEmHeight(FontStyle.Regular);
-
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontFamily(\"{0}\", \"{1}\");", value.Name.Replace(":", "\\:"), (lineSpacing == 0 ? 1 : lineSpacing).ToString()));
-        }
-        public void SetSimpleFontColor(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontColor(\"{0}\");", value));
-        }
-        public void SetSimpleFontOutline(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setSimpleFontOutline(\"{0}\");", value));
         }
         public void SetNameFontFamily(FontFamily value)
         {
             int lineSpacing = value.GetLineSpacing(FontStyle.Regular) / value.GetEmHeight(FontStyle.Regular);
-
             webView21.ExecuteScriptAsync(string.Format("setNameFontFamily(\"{0}\", \"{1}\");", value.Name.Replace(":", "\\:"), (lineSpacing == 0 ? 1 : lineSpacing).ToString()));
         }
         public void SetValueFontFamily(FontFamily value)
         {
             int lineSpacing = value.GetLineSpacing(FontStyle.Regular) / value.GetEmHeight(FontStyle.Regular);
-
             webView21.ExecuteScriptAsync(string.Format("setValueFontFamily(\"{0}\", \"{1}\");", value.Name.Replace(":", "\\:"), (lineSpacing == 0 ? 1 : lineSpacing).ToString()));
         }
         public void SetNameColor(string value)
@@ -82,10 +49,6 @@ namespace Retro_Achievement_Tracker
             webView21.ExecuteScriptAsync(string.Format("setValueFontOutline(\"{0}\");", value));
         }
         //Title
-        public void SetTitleName(string value)
-        {
-            webView21.ExecuteScriptAsync(string.Format("setTitleName(\"{0}\");", string.IsNullOrEmpty(value.Trim()) ? string.Empty : value.Trim() + ":"));
-        }
         public void SetTitleValue(string value)
         {
             if (value.Contains(", The"))
@@ -185,7 +148,6 @@ namespace Retro_Achievement_Tracker
         private void NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
             GameInfoController.Instance.IsOpen = true;
-
             GameInfoController.Instance.UpdateGameInfo();
         }
     }

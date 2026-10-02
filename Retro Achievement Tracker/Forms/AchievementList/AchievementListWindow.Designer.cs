@@ -1,15 +1,12 @@
-﻿namespace Retro_Achievement_Tracker.Forms
+﻿
+namespace Retro_Achievement_Tracker.Forms
 {
-    partial class AlertsWindow
+    partial class AchievementListWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        /// <summary>Required designer variable.</summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        /// <summary>Clean up any resources being used.</summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -21,9 +18,11 @@
         }
 
         #region Windows Form Designer generated code
+
+        /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlertsWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AchievementListWindow));
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
@@ -40,21 +39,21 @@
             this.webView21.ZoomFactor = 1D;
             this.webView21.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.NavigationCompleted);
             // 
-            // AlertsWindow
+            // AchievementListWindow
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(120, 0);
             this.Controls.Add(this.webView21);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "AlertsWindow";
-            this.Text = "RA Tracker - Alerts";
+            this.Name = "AchievementListWindow";
+            this.Text = "RA Tracker - Achievement List";
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
-
         }
-        #endregion
 
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        #endregion
     }
 }

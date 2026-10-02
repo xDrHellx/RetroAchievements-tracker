@@ -176,55 +176,55 @@
     <Compile Include="Controllers\RecentUnlocksController.cs" />
     <Compile Include="Controllers\GameProgressController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
-    <Compile Include="Forms\AchievementListWindow.cs">
+    <Compile Include="Forms\AchievementList\AchievementListWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AbstractForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AchievementListWindow.Designer.cs">
+    <Compile Include="Forms\AchievementList\AchievementListWindow.Designer.cs">
       <DependentUpon>AchievementListWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GameProgressWindow.cs">
+    <Compile Include="Forms\GameProgress\GameProgressWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GameProgressWindow.Designer.cs">
+    <Compile Include="Forms\GameProgress\GameProgressWindow.Designer.cs">
       <DependentUpon>GameProgressWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RelatedMediaWindow.cs">
+    <Compile Include="Forms\RelatedMedia\RelatedMediaWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RelatedMediaWindow.Designer.cs">
+    <Compile Include="Forms\RelatedMedia\RelatedMediaWindow.Designer.cs">
       <DependentUpon>RelatedMediaWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RecentAchievementsWindow.cs">
+    <Compile Include="Forms\RecentAchievements\RecentAchievementsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RecentAchievementsWindow.Designer.cs">
+    <Compile Include="Forms\RecentAchievements\RecentAchievementsWindow.Designer.cs">
       <DependentUpon>RecentAchievementsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AlertsWindow.cs">
+    <Compile Include="Forms\Alerts\AlertsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AlertsWindow.Designer.cs">
+    <Compile Include="Forms\Alerts\AlertsWindow.Designer.cs">
       <DependentUpon>AlertsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GameInfoWindow.cs">
+    <Compile Include="Forms\GameInfo\GameInfoWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GameInfoWindow.Designer.cs">
+    <Compile Include="Forms\GameInfo\GameInfoWindow.Designer.cs">
       <DependentUpon>GameInfoWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserInfoWindow.cs">
+    <Compile Include="Forms\UserInfo\UserInfoWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserInfoWindow.Designer.cs">
+    <Compile Include="Forms\UserInfo\UserInfoWindow.Designer.cs">
       <DependentUpon>UserInfoWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FocusWindow.cs">
+    <Compile Include="Forms\Focus\FocusWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FocusWindow.Designer.cs">
+    <Compile Include="Forms\Focus\FocusWindow.Designer.cs">
       <DependentUpon>FocusWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Achievement.cs" />
@@ -240,39 +240,39 @@
     <Compile Include="Models\UserSummaryConverter.cs" />
     <Compile Include="Models\UserSummary.cs" />
     <Compile Include="Http\RetroAchievementAPIClient.cs" />
-    <Compile Include="Forms\MainWindow.cs">
+    <Compile Include="Forms\Main\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainWindow.Designer.cs">
+    <Compile Include="Forms\Main\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AchievementListWindow.resx">
+    <EmbeddedResource Include="Forms\AchievementList\AchievementListWindow.resx">
       <DependentUpon>AchievementListWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GameProgressWindow.resx">
+    <EmbeddedResource Include="Forms\GameProgress\GameProgressWindow.resx">
       <DependentUpon>GameProgressWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RecentAchievementsWindow.resx">
+    <EmbeddedResource Include="Forms\RecentAchievements\RecentAchievementsWindow.resx">
       <DependentUpon>RecentAchievementsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AlertsWindow.resx">
+    <EmbeddedResource Include="Forms\Alerts\AlertsWindow.resx">
       <DependentUpon>AlertsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FocusWindow.resx">
+    <EmbeddedResource Include="Forms\Focus\FocusWindow.resx">
       <DependentUpon>FocusWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GameInfoWindow.resx">
+    <EmbeddedResource Include="Forms\GameInfo\GameInfoWindow.resx">
       <DependentUpon>GameInfoWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RelatedMediaWindow.resx">
+    <EmbeddedResource Include="Forms\RelatedMedia\RelatedMediaWindow.resx">
       <DependentUpon>RelatedMediaWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserInfoWindow.resx">
+    <EmbeddedResource Include="Forms\UserInfo\UserInfoWindow.resx">
       <DependentUpon>UserInfoWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainWindow.resx">
+    <EmbeddedResource Include="Forms\Main\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

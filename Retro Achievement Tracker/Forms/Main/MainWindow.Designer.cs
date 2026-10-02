@@ -4,14 +4,10 @@ namespace Retro_Achievement_Tracker
 {
     partial class MainWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        /// <summary>Required designer variable.</summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        /// <summary>Clean up any resources being used.</summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -24,10 +20,7 @@ namespace Retro_Achievement_Tracker
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
@@ -9073,10 +9066,10 @@ namespace Retro_Achievement_Tracker
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
+
         private Label usernameLabel;
         private Label apiKeyLabel;
         private TextBox apiKeyTextBox;
