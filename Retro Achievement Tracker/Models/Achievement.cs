@@ -21,28 +21,33 @@ namespace Retro_Achievement_Tracker.Models
         {
             if (other.DateEarned.HasValue)
             {
-                if (DateEarned.HasValue)
+                if (!DateEarned.HasValue)
                 {
-                    if (DateEarned.Value.Equals(other.DateEarned.Value))
-                    {
-                        if (DisplayOrder.Equals(other.DisplayOrder))
-                        {
-                            return Id.CompareTo(other.Id);
-                        }
-                        return DisplayOrder.CompareTo(other.DisplayOrder);
-                    }
+                    return -1;
+                }
+
+                if (!DateEarned.Value.Equals(other.DateEarned.Value))
+                {
                     return DateEarned.Value.CompareTo(other.DateEarned.Value);
                 }
-                return -1;
+
+                if (DisplayOrder.Equals(other.DisplayOrder))
+                {
+                    return Id.CompareTo(other.Id);
+                }
+
+                return DisplayOrder.CompareTo(other.DisplayOrder);
             }
             else if (DateEarned.HasValue)
             {
                 return 1;
             }
+
             if (DisplayOrder.Equals(other.DisplayOrder))
             {
                 return Id.CompareTo(other.Id);
             }
+
             return other.DisplayOrder.CompareTo(DisplayOrder);
         }
 
