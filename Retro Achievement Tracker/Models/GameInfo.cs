@@ -6,7 +6,7 @@ using System.Linq;
 namespace Retro_Achievement_Tracker.Models
 {
     [JsonConverter(typeof(GameInfoConverter))]
-    public partial class GameInfo : IComparable<GameInfo>
+    public class GameInfo : IComparable<GameInfo>
     {
         public long Id { get; set; }
         public string Title { get; set; }

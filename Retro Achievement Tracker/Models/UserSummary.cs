@@ -6,7 +6,7 @@
     using System.Collections.Generic;
 
     [JsonConverter(typeof(UserSummaryConverter))]
-    public partial class UserSummary : IEquatable<UserSummary>, ICloneable
+    public class UserSummary : IEquatable<UserSummary>, ICloneable
     {
         public string UserName { get; set; }
         public int LastGameID { get; set; }

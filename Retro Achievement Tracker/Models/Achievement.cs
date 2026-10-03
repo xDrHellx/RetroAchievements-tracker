@@ -4,7 +4,7 @@ using System;
 namespace Retro_Achievement_Tracker.Models
 {
     [JsonConverter(typeof(AchievementConverter))]
-    public partial class Achievement : IEquatable<Achievement>, IComparable<Achievement>, ICloneable
+    public class Achievement : IEquatable<Achievement>, IComparable<Achievement>, ICloneable
     {
         public int Id { get; set; }
         public int GameId { get; set; }
