@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils\WinFormHelpers.cs" />
     <Compile Include="Controllers\AchievementListController.cs" />
     <Compile Include="Controllers\RelatedMediaController.cs" />
     <Compile Include="Controllers\AlertsController.cs" />
