@@ -1,9 +1,10 @@
 ﻿using Retro_Achievement_Tracker.Properties;
+using Retro_Achievement_Tracker.Utils;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 
-namespace Retro_Achievement_Tracker
+namespace Retro_Achievement_Tracker.Forms
 {
     partial class FocusWindow
     {
@@ -27,20 +28,9 @@ namespace Retro_Achievement_Tracker
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FocusWindow));
-            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.webView21 = WinFormHelpers.CreateWebView2("webView21", new System.Drawing.Point(0, 0), new System.Drawing.Size(1920, 1080));
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
-            // 
-            // webView21
-            // 
-            this.webView21.AllowExternalDrop = true;
-            this.webView21.CreationProperties = null;
-            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(0, 0);
-            this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(1920, 1080);
-            this.webView21.TabIndex = 0;
-            this.webView21.ZoomFactor = 1D;
             this.webView21.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.NavigationCompleted);
             // 
             // FocusWindow

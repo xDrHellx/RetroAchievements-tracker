@@ -1,4 +1,5 @@
-﻿using Retro_Achievement_Tracker.Properties;
+﻿using Retro_Achievement_Tracker.Forms;
+using Retro_Achievement_Tracker.Properties;
 using System.Drawing;
 using System.Linq;
 

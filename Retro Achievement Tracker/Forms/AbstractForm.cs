@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Retro_Achievement_Tracker
+namespace Retro_Achievement_Tracker.Forms
 {
     /// <summary>Abstract class to simplify and shorten subwindow classes</summary>
     public abstract class AbstractForm : Form

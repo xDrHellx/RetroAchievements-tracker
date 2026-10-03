@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Threading.Tasks;
 
-namespace Retro_Achievement_Tracker
+namespace Retro_Achievement_Tracker.Forms
 {
     public partial class GameInfoWindow : AbstractForm
     {
