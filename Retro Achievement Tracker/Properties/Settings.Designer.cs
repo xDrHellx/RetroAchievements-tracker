@@ -8,16 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Retro_Achievement_Tracker.Properties {
-    
-    
+namespace Retro_Achievement_Tracker.Properties
+{
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
+    {
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
-        public static Settings Default {
+        public static Settings Default
+        {
             get {
                 return defaultInstance;
             }
@@ -26,7 +25,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ra_username {
+        public string ra_username
+        {
             get {
                 return ((string)(this["ra_username"]));
             }
@@ -38,7 +38,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ra_key {
+        public string ra_key
+        {
             get {
                 return ((string)(this["ra_key"]));
             }
@@ -98,7 +99,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string stats_font_color_hex_code {
+        public string stats_font_color_hex_code
+        {
             get {
                 return ((string)(this["stats_font_color_hex_code"]));
             }
@@ -110,7 +112,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string stats_font_family_name {
+        public string stats_font_family_name
+        {
             get {
                 return ((string)(this["stats_font_family_name"]));
             }
@@ -134,7 +137,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string stats_font_outline_color_hex {
+        public string stats_font_outline_color_hex
+        {
             get {
                 return ((string)(this["stats_font_outline_color_hex"]));
             }
@@ -158,7 +162,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string focus_font_color_hex_code {
+        public string focus_font_color_hex_code
+        {
             get {
                 return ((string)(this["focus_font_color_hex_code"]));
             }
@@ -170,7 +175,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string focus_font_family_name {
+        public string focus_font_family_name
+        {
             get {
                 return ((string)(this["focus_font_family_name"]));
             }
@@ -194,7 +200,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_font_outline_color_hex {
+        public string focus_font_outline_color_hex
+        {
             get {
                 return ((string)(this["focus_font_outline_color_hex"]));
             }
@@ -218,7 +225,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string notification_font_color_hex_code {
+        public string notification_font_color_hex_code
+        {
             get {
                 return ((string)(this["notification_font_color_hex_code"]));
             }
@@ -230,7 +238,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string notification_font_family_name {
+        public string notification_font_family_name
+        {
             get {
                 return ((string)(this["notification_font_family_name"]));
             }
@@ -254,7 +263,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string notification_font_outline_color_hex {
+        public string notification_font_outline_color_hex
+        {
             get {
                 return ((string)(this["notification_font_outline_color_hex"]));
             }
@@ -302,7 +312,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string notification_custom_achievement_file {
+        public string notification_custom_achievement_file
+        {
             get {
                 return ((string)(this["notification_custom_achievement_file"]));
             }
@@ -314,7 +325,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string notification_custom_mastery_file {
+        public string notification_custom_mastery_file
+        {
             get {
                 return ((string)(this["notification_custom_mastery_file"]));
             }
@@ -482,7 +494,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_info_font_color_hex_code {
+        public string game_info_font_color_hex_code
+        {
             get {
                 return ((string)(this["game_info_font_color_hex_code"]));
             }
@@ -494,7 +507,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_info_font_family_name {
+        public string game_info_font_family_name
+        {
             get {
                 return ((string)(this["game_info_font_family_name"]));
             }
@@ -518,7 +532,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string game_info_font_outline_color_hex {
+        public string game_info_font_outline_color_hex
+        {
             get {
                 return ((string)(this["game_info_font_outline_color_hex"]));
             }
@@ -542,7 +557,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string last_five_font_color_hex_code {
+        public string last_five_font_color_hex_code
+        {
             get {
                 return ((string)(this["last_five_font_color_hex_code"]));
             }
@@ -554,7 +570,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string last_five_font_family_name {
+        public string last_five_font_family_name
+        {
             get {
                 return ((string)(this["last_five_font_family_name"]));
             }
@@ -578,7 +595,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string last_five_font_outline_color_hex {
+        public string last_five_font_outline_color_hex
+        {
             get {
                 return ((string)(this["last_five_font_outline_color_hex"]));
             }
@@ -602,7 +620,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Rank")]
-        public string stats_rank_name {
+        public string stats_rank_name
+        {
             get {
                 return ((string)(this["stats_rank_name"]));
             }
@@ -614,7 +633,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Awards")]
-        public string stats_awards_name {
+        public string stats_awards_name
+        {
             get {
                 return ((string)(this["stats_awards_name"]));
             }
@@ -626,7 +646,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Points")]
-        public string stats_points_name {
+        public string stats_points_name
+        {
             get {
                 return ((string)(this["stats_points_name"]));
             }
@@ -638,7 +659,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True Points")]
-        public string stats_true_points_name {
+        public string stats_true_points_name
+        {
             get {
                 return ((string)(this["stats_true_points_name"]));
             }
@@ -650,7 +672,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Ratio")]
-        public string stats_ratio_name {
+        public string stats_ratio_name
+        {
             get {
                 return ((string)(this["stats_ratio_name"]));
             }
@@ -662,7 +685,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Ratio")]
-        public string stats_game_ratio_name {
+        public string stats_game_ratio_name
+        {
             get {
                 return ((string)(this["stats_game_ratio_name"]));
             }
@@ -674,7 +698,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Points")]
-        public string stats_game_points_name {
+        public string stats_game_points_name
+        {
             get {
                 return ((string)(this["stats_game_points_name"]));
             }
@@ -686,7 +711,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True Points")]
-        public string stats_game_true_points_name {
+        public string stats_game_true_points_name
+        {
             get {
                 return ((string)(this["stats_game_true_points_name"]));
             }
@@ -698,7 +724,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Achievements")]
-        public string stats_game_achievements_name {
+        public string stats_game_achievements_name
+        {
             get {
                 return ((string)(this["stats_game_achievements_name"]));
             }
@@ -710,7 +737,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("STATIC")]
-        public string notifications_achievement_in_animation {
+        public string notifications_achievement_in_animation
+        {
             get {
                 return ((string)(this["notifications_achievement_in_animation"]));
             }
@@ -722,7 +750,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("UP")]
-        public string notifications_achievement_out_animation {
+        public string notifications_achievement_out_animation
+        {
             get {
                 return ((string)(this["notifications_achievement_out_animation"]));
             }
@@ -734,7 +763,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("STATIC")]
-        public string notifications_mastery_in_animation {
+        public string notifications_mastery_in_animation
+        {
             get {
                 return ((string)(this["notifications_mastery_in_animation"]));
             }
@@ -746,7 +776,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("UP")]
-        public string notifications_mastery_out_animation {
+        public string notifications_mastery_out_animation
+        {
             get {
                 return ((string)(this["notifications_mastery_out_animation"]));
             }
@@ -830,7 +861,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Console")]
-        public string game_info_console_name {
+        public string game_info_console_name
+        {
             get {
                 return ((string)(this["game_info_console_name"]));
             }
@@ -842,7 +874,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Developer")]
-        public string game_info_developer_name {
+        public string game_info_developer_name
+        {
             get {
                 return ((string)(this["game_info_developer_name"]));
             }
@@ -854,7 +887,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Publisher")]
-        public string game_info_publisher_name {
+        public string game_info_publisher_name
+        {
             get {
                 return ((string)(this["game_info_publisher_name"]));
             }
@@ -866,7 +900,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Genre")]
-        public string game_info_genre_name {
+        public string game_info_genre_name
+        {
             get {
                 return ((string)(this["game_info_genre_name"]));
             }
@@ -878,7 +913,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Released")]
-        public string game_info_release_date_name {
+        public string game_info_release_date_name
+        {
             get {
                 return ((string)(this["game_info_release_date_name"]));
             }
@@ -902,7 +938,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Title")]
-        public string game_info_title_name {
+        public string game_info_title_name
+        {
             get {
                 return ((string)(this["game_info_title_name"]));
             }
@@ -938,7 +975,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Completed")]
-        public string stats_completed_name {
+        public string stats_completed_name
+        {
             get {
                 return ((string)(this["stats_completed_name"]));
             }
@@ -974,7 +1012,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string stats_background_color {
+        public string stats_background_color
+        {
             get {
                 return ((string)(this["stats_background_color"]));
             }
@@ -986,7 +1025,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string notifications_background_color {
+        public string notifications_background_color
+        {
             get {
                 return ((string)(this["notifications_background_color"]));
             }
@@ -998,7 +1038,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string last_five_background_color {
+        public string last_five_background_color
+        {
             get {
                 return ((string)(this["last_five_background_color"]));
             }
@@ -1010,7 +1051,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string focus_background_color {
+        public string focus_background_color
+        {
             get {
                 return ((string)(this["focus_background_color"]));
             }
@@ -1058,7 +1100,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/")]
-        public string game_stats_divider_character_selection {
+        public string game_stats_divider_character_selection
+        {
             get {
                 return ((string)(this["game_stats_divider_character_selection"]));
             }
@@ -1130,7 +1173,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string alerts_title_font_family {
+        public string alerts_title_font_family
+        {
             get {
                 return ((string)(this["alerts_title_font_family"]));
             }
@@ -1142,7 +1186,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_title_color {
+        public string alerts_title_color
+        {
             get {
                 return ((string)(this["alerts_title_color"]));
             }
@@ -1154,7 +1199,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_title_outline_color {
+        public string alerts_title_outline_color
+        {
             get {
                 return ((string)(this["alerts_title_outline_color"]));
             }
@@ -1190,7 +1236,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string alerts_description_font_family {
+        public string alerts_description_font_family
+        {
             get {
                 return ((string)(this["alerts_description_font_family"]));
             }
@@ -1202,7 +1249,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_description_color {
+        public string alerts_description_color
+        {
             get {
                 return ((string)(this["alerts_description_color"]));
             }
@@ -1214,7 +1262,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_description_outline_color {
+        public string alerts_description_outline_color
+        {
             get {
                 return ((string)(this["alerts_description_outline_color"]));
             }
@@ -1250,7 +1299,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string alerts_points_font_family {
+        public string alerts_points_font_family
+        {
             get {
                 return ((string)(this["alerts_points_font_family"]));
             }
@@ -1262,7 +1312,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_points_color {
+        public string alerts_points_color
+        {
             get {
                 return ((string)(this["alerts_points_color"]));
             }
@@ -1274,7 +1325,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_points_outline_color {
+        public string alerts_points_outline_color
+        {
             get {
                 return ((string)(this["alerts_points_outline_color"]));
             }
@@ -1310,7 +1362,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_line_color {
+        public string alerts_line_color
+        {
             get {
                 return ((string)(this["alerts_line_color"]));
             }
@@ -1322,7 +1375,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_line_outline_color {
+        public string alerts_line_outline_color
+        {
             get {
                 return ((string)(this["alerts_line_outline_color"]));
             }
@@ -1370,7 +1424,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string focus_title_font_family {
+        public string focus_title_font_family
+        {
             get {
                 return ((string)(this["focus_title_font_family"]));
             }
@@ -1382,7 +1437,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_title_color {
+        public string focus_title_color
+        {
             get {
                 return ((string)(this["focus_title_color"]));
             }
@@ -1394,7 +1450,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_title_outline_color {
+        public string focus_title_outline_color
+        {
             get {
                 return ((string)(this["focus_title_outline_color"]));
             }
@@ -1430,7 +1487,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string focus_description_font_family {
+        public string focus_description_font_family
+        {
             get {
                 return ((string)(this["focus_description_font_family"]));
             }
@@ -1442,7 +1500,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_description_color {
+        public string focus_description_color
+        {
             get {
                 return ((string)(this["focus_description_color"]));
             }
@@ -1478,7 +1537,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string focus_description_outline_color {
+        public string focus_description_outline_color
+        {
             get {
                 return ((string)(this["focus_description_outline_color"]));
             }
@@ -1490,7 +1550,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_line_color {
+        public string focus_line_color
+        {
             get {
                 return ((string)(this["focus_line_color"]));
             }
@@ -1502,7 +1563,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string focus_points_color {
+        public string focus_points_color
+        {
             get {
                 return ((string)(this["focus_points_color"]));
             }
@@ -1514,7 +1576,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string focus_points_font_family {
+        public string focus_points_font_family
+        {
             get {
                 return ((string)(this["focus_points_font_family"]));
             }
@@ -1538,7 +1601,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string focus_points_outline_color {
+        public string focus_points_outline_color
+        {
             get {
                 return ((string)(this["focus_points_outline_color"]));
             }
@@ -1574,7 +1638,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string focus_line_outline_color {
+        public string focus_line_outline_color
+        {
             get {
                 return ((string)(this["focus_line_outline_color"]));
             }
@@ -1598,7 +1663,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string last_five_title_font_family {
+        public string last_five_title_font_family
+        {
             get {
                 return ((string)(this["last_five_title_font_family"]));
             }
@@ -1610,7 +1676,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string last_five_title_color {
+        public string last_five_title_color
+        {
             get {
                 return ((string)(this["last_five_title_color"]));
             }
@@ -1646,7 +1713,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string last_five_title_outline_color {
+        public string last_five_title_outline_color
+        {
             get {
                 return ((string)(this["last_five_title_outline_color"]));
             }
@@ -1658,7 +1726,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string last_five_date_font_family {
+        public string last_five_date_font_family
+        {
             get {
                 return ((string)(this["last_five_date_font_family"]));
             }
@@ -1670,7 +1739,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string last_five_date_color {
+        public string last_five_date_color
+        {
             get {
                 return ((string)(this["last_five_date_color"]));
             }
@@ -1706,7 +1776,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string last_five_date_outline_color {
+        public string last_five_date_outline_color
+        {
             get {
                 return ((string)(this["last_five_date_outline_color"]));
             }
@@ -1718,7 +1789,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string last_five_points_font_family {
+        public string last_five_points_font_family
+        {
             get {
                 return ((string)(this["last_five_points_font_family"]));
             }
@@ -1730,7 +1802,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string last_five_points_color {
+        public string last_five_points_color
+        {
             get {
                 return ((string)(this["last_five_points_color"]));
             }
@@ -1766,7 +1839,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string last_five_points_outline_color {
+        public string last_five_points_outline_color
+        {
             get {
                 return ((string)(this["last_five_points_outline_color"]));
             }
@@ -1790,7 +1864,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string last_five_line_outline_color {
+        public string last_five_line_outline_color
+        {
             get {
                 return ((string)(this["last_five_line_outline_color"]));
             }
@@ -1814,7 +1889,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string last_five_line_color {
+        public string last_five_line_color
+        {
             get {
                 return ((string)(this["last_five_line_color"]));
             }
@@ -1850,7 +1926,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_info_name_font_family {
+        public string game_info_name_font_family
+        {
             get {
                 return ((string)(this["game_info_name_font_family"]));
             }
@@ -1862,7 +1939,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_info_value_font_family {
+        public string game_info_value_font_family
+        {
             get {
                 return ((string)(this["game_info_value_font_family"]));
             }
@@ -1874,7 +1952,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string game_info_name_color {
+        public string game_info_name_color
+        {
             get {
                 return ((string)(this["game_info_name_color"]));
             }
@@ -1886,7 +1965,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string game_info_value_color {
+        public string game_info_value_color
+        {
             get {
                 return ((string)(this["game_info_value_color"]));
             }
@@ -1922,7 +2002,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_info_name_outline_color {
+        public string game_info_name_outline_color
+        {
             get {
                 return ((string)(this["game_info_name_outline_color"]));
             }
@@ -1934,7 +2015,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_info_value_outline_color {
+        public string game_info_value_outline_color
+        {
             get {
                 return ((string)(this["game_info_value_outline_color"]));
             }
@@ -1982,7 +2064,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string stats_name_font_family {
+        public string stats_name_font_family
+        {
             get {
                 return ((string)(this["stats_name_font_family"]));
             }
@@ -1994,7 +2077,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string stats_value_font_family {
+        public string stats_value_font_family
+        {
             get {
                 return ((string)(this["stats_value_font_family"]));
             }
@@ -2006,7 +2090,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string stats_name_color {
+        public string stats_name_color
+        {
             get {
                 return ((string)(this["stats_name_color"]));
             }
@@ -2018,7 +2103,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFF")]
-        public string stats_value_color {
+        public string stats_value_color
+        {
             get {
                 return ((string)(this["stats_value_color"]));
             }
@@ -2054,7 +2140,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string stats_name_outline_color {
+        public string stats_name_outline_color
+        {
             get {
                 return ((string)(this["stats_name_outline_color"]));
             }
@@ -2066,7 +2153,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string stats_value_outline_color {
+        public string stats_value_outline_color
+        {
             get {
                 return ((string)(this["stats_value_outline_color"]));
             }
@@ -2306,7 +2394,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string stats_window_background_color {
+        public string stats_window_background_color
+        {
             get {
                 return ((string)(this["stats_window_background_color"]));
             }
@@ -2318,7 +2407,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string last_five_window_background_color {
+        public string last_five_window_background_color
+        {
             get {
                 return ((string)(this["last_five_window_background_color"]));
             }
@@ -2330,7 +2420,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string focus_window_background_color {
+        public string focus_window_background_color
+        {
             get {
                 return ((string)(this["focus_window_background_color"]));
             }
@@ -2342,7 +2433,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string alerts_window_background_color {
+        public string alerts_window_background_color
+        {
             get {
                 return ((string)(this["alerts_window_background_color"]));
             }
@@ -2354,7 +2446,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string game_info_window_background_color {
+        public string game_info_window_background_color
+        {
             get {
                 return ((string)(this["game_info_window_background_color"]));
             }
@@ -2366,7 +2459,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#CC9900")]
-        public string achievement_list_border_color {
+        public string achievement_list_border_color
+        {
             get {
                 return ((string)(this["achievement_list_border_color"]));
             }
@@ -2378,7 +2472,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string achievement_list_window_background_color {
+        public string achievement_list_window_background_color
+        {
             get {
                 return ((string)(this["achievement_list_window_background_color"]));
             }
@@ -2492,7 +2587,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_value_outline_color {
+        public string game_stats_value_outline_color
+        {
             get {
                 return ((string)(this["game_stats_value_outline_color"]));
             }
@@ -2504,7 +2600,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_name_outline_color {
+        public string game_stats_name_outline_color
+        {
             get {
                 return ((string)(this["game_stats_name_outline_color"]));
             }
@@ -2540,7 +2637,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_value_color {
+        public string game_stats_value_color
+        {
             get {
                 return ((string)(this["game_stats_value_color"]));
             }
@@ -2552,7 +2650,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_name_color {
+        public string game_stats_name_color
+        {
             get {
                 return ((string)(this["game_stats_name_color"]));
             }
@@ -2564,7 +2663,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_stats_value_font_family {
+        public string game_stats_value_font_family
+        {
             get {
                 return ((string)(this["game_stats_value_font_family"]));
             }
@@ -2576,7 +2676,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_stats_name_font_family {
+        public string game_stats_name_font_family
+        {
             get {
                 return ((string)(this["game_stats_name_font_family"]));
             }
@@ -2612,7 +2713,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_font_outline_color_hex {
+        public string game_stats_font_outline_color_hex
+        {
             get {
                 return ((string)(this["game_stats_font_outline_color_hex"]));
             }
@@ -2624,7 +2726,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#000000")]
-        public string game_stats_font_color_hex_code {
+        public string game_stats_font_color_hex_code
+        {
             get {
                 return ((string)(this["game_stats_font_color_hex_code"]));
             }
@@ -2636,7 +2739,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Calibri")]
-        public string game_stats_font_family_name {
+        public string game_stats_font_family_name
+        {
             get {
                 return ((string)(this["game_stats_font_family_name"]));
             }
@@ -2660,7 +2764,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string game_stats_window_background_color {
+        public string game_stats_window_background_color
+        {
             get {
                 return ((string)(this["game_stats_window_background_color"]));
             }
@@ -2768,7 +2873,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("GO_TO_FIRST")]
-        public string focus_refocus_behavior {
+        public string focus_refocus_behavior
+        {
             get {
                 return ((string)(this["focus_refocus_behavior"]));
             }
@@ -2816,7 +2922,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string related_media_launchbox_filepath {
+        public string related_media_launchbox_filepath
+        {
             get {
                 return ((string)(this["related_media_launchbox_filepath"]));
             }
@@ -2828,7 +2935,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF00FF")]
-        public string related_media_window_background_color {
+        public string related_media_window_background_color
+        {
             get {
                 return ((string)(this["related_media_window_background_color"]));
             }
@@ -2840,7 +2948,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("BADGE_ICON")]
-        public string related_media_selection {
+        public string related_media_selection
+        {
             get {
                 return ((string)(this["related_media_selection"]));
             }
@@ -2864,7 +2973,8 @@ namespace Retro_Achievement_Tracker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1.0.0.0")]
-        public string check_for_update_version {
+        public string check_for_update_version
+        {
             get {
                 return ((string)(this["check_for_update_version"]));
             }

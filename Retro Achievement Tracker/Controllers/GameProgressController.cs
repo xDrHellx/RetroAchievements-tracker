@@ -10,14 +10,13 @@ namespace Retro_Achievement_Tracker.Controllers
         private static readonly GameProgressController instance = new GameProgressController();
         private static GameProgressWindow GameProgressWindow;
         public bool IsOpen;
-
-        private string completed;
-        private string gameAchievementsEarned;
-        private string gameAchievementsPossible;
-        private string gamePointsEarned;
-        private string gamePointsPossible;
-        private string gameTruePointsEarned;
-        private string gameTruePointsPossible;
+        private string completed,
+            gameAchievementsEarned,
+            gameAchievementsPossible,
+            gamePointsEarned,
+            gamePointsPossible,
+            gameTruePointsEarned,
+            gameTruePointsPossible;
 
         private GameProgressController()
         {
@@ -74,7 +73,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 GameProgressWindow.SetCompletedVisibility(CompletedEnabled);
 
                 SetAllSettings();
-
                 GameProgressWindow.SetClientSize();
             }
         }
@@ -116,7 +114,6 @@ namespace Retro_Achievement_Tracker.Controllers
             gamePointsEarned = pointsEarned;
             gamePointsPossible = pointsPossible;
 
-
             if (IsOpen)
             {
                 GameProgressWindow.SetGamePointsValue(pointsEarned + " " + DividerCharacter + " " + pointsPossible);
@@ -128,7 +125,6 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             gameAchievementsEarned = achievementsEarned;
             gameAchievementsPossible = achievementsPossible;
-
 
             if (IsOpen)
             {
@@ -142,7 +138,6 @@ namespace Retro_Achievement_Tracker.Controllers
             gameTruePointsEarned = truePointsEarned;
             gameTruePointsPossible = truePointsPossible;
 
-
             if (IsOpen)
             {
                 GameProgressWindow.SetGameTruePointsValue(truePointsEarned + " " + DividerCharacter + " " + truePointsPossible);
@@ -152,7 +147,6 @@ namespace Retro_Achievement_Tracker.Controllers
 
         public void SetGameRatio()
         {
-
             if (IsOpen)
             {
                 GameProgressWindow.SetGameRatioValue(GameRatio);
@@ -211,7 +205,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_stats_font_family_name))
@@ -219,8 +212,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.game_stats_font_family_name = familyArray[0].Name;
 
+                Settings.Default.game_stats_font_family_name = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -280,7 +273,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_stats_name_font_family))
@@ -288,8 +280,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.game_stats_name_font_family = familyArray[0].Name;
 
+                Settings.Default.game_stats_name_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -305,7 +297,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_stats_value_font_family))
@@ -315,7 +306,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
 
                 Settings.Default.game_stats_value_font_family = familyArray[0].Name;
-
                 return familyArray[0];
             }
             set

@@ -1,10 +1,10 @@
-﻿namespace Retro_Achievement_Tracker
-{
-    using Newtonsoft.Json;
-    using Retro_Achievement_Tracker.Models;
-    using System;
-    using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Retro_Achievement_Tracker.Models;
+using System;
+using System.Collections.Generic;
 
+namespace Retro_Achievement_Tracker
+{
     [JsonConverter(typeof(UserSummaryConverter))]
     public class UserSummary : IEquatable<UserSummary>, ICloneable
     {

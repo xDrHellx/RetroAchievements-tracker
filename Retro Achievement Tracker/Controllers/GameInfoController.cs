@@ -9,14 +9,13 @@ namespace Retro_Achievement_Tracker.Controllers
     {
         private static readonly GameInfoController instance = new GameInfoController();
         private static GameInfoWindow GameInfoWindow;
-
         public bool IsOpen;
-        private string title;
-        private string genre;
-        private string console;
-        private string developer;
-        private string publisher;
-        private string released;
+        private string title,
+            genre,
+            console,
+            developer,
+            publisher,
+            released;
 
         private GameInfoController()
         {
@@ -147,7 +146,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 GameInfoWindow.SetReleaseDateVisibility(ReleasedDateEnabled);
 
                 SetAllSettings();
-
                 GameInfoWindow.SetClientSize();
             }
         }
@@ -329,7 +327,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_info_font_family_name))
@@ -337,8 +334,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.game_info_font_family_name = familyArray[0].Name;
 
+                Settings.Default.game_info_font_family_name = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -398,7 +395,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_info_name_font_family))
@@ -406,8 +402,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.game_info_name_font_family = familyArray[0].Name;
 
+                Settings.Default.game_info_name_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -423,7 +419,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.game_info_value_font_family))
@@ -431,8 +426,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.game_info_value_font_family = familyArray[0].Name;
 
+                Settings.Default.game_info_value_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set

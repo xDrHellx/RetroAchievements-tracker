@@ -16,33 +16,35 @@ namespace Retro_Achievement_Tracker.Models
 
         internal static decimal GetVideoWidth(string input)
         {
-            if (File.Exists(input))
+            if (!File.Exists(input))
             {
-                MediaFile inputFile = new MediaFile { Filename = input };
-                using (Engine engine = new Engine())
-                {
-                    engine.GetMetadata(inputFile);
-                }
-                string frameSize = inputFile.Metadata.VideoData.FrameSize;
-
-                return Convert.ToInt32(frameSize.Substring(0, frameSize.IndexOf("x")));
+                return 0;
             }
-            return 0;
+
+            MediaFile inputFile = new MediaFile { Filename = input };
+            using (Engine engine = new Engine())
+            {
+                engine.GetMetadata(inputFile);
+            }
+
+            string frameSize = inputFile.Metadata.VideoData.FrameSize;
+            return Convert.ToInt32(frameSize.Substring(0, frameSize.IndexOf("x")));
         }
 
         internal static int GetVideoDuration(string input)
         {
-            if (File.Exists(input))
+            if (!File.Exists(input))
             {
-                MediaFile inputFile = new MediaFile { Filename = input };
-
-                using (Engine engine = new Engine())
-                {
-                    engine.GetMetadata(inputFile);
-                }
-                return Convert.ToInt32(inputFile.Metadata.Duration.TotalMilliseconds, CultureInfo.CurrentCulture);
+                return 0;
             }
-            return 0;
+
+            MediaFile inputFile = new MediaFile { Filename = input };
+            using (Engine engine = new Engine())
+            {
+                engine.GetMetadata(inputFile);
+            }
+
+            return Convert.ToInt32(inputFile.Metadata.Duration.TotalMilliseconds, CultureInfo.CurrentCulture);
         }
     }
 }

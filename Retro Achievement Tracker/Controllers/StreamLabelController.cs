@@ -32,7 +32,6 @@ namespace Retro_Achievement_Tracker.Models
         private Tuple<Task, bool> StreamLabelDequeue()
         {
             StreamLabelsRequests.TryDequeue(out Tuple<Task, bool> task);
-
             return task;
         }
         public void RunNotifications()
@@ -102,7 +101,6 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/title.txt", currentlyViewingAchievement.Title);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/description.txt", currentlyViewingAchievement.Description);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/points.txt", currentlyViewingAchievement.Points.ToString());
-
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/data.json", JsonConvert.SerializeObject(currentlyViewingAchievement));
             }
             else
@@ -123,11 +121,10 @@ namespace Retro_Achievement_Tracker.Models
         {
             if (achievements != null && achievements.Count > 0)
             {
-                int max = Math.Min(5, achievements.Count);
-
                 achievements.Sort();
                 achievements.Reverse();
 
+                int max = Math.Min(5, achievements.Count);
                 for (int i = 0; i < max; i++)
                 {
                     if (achievements[i].DateEarned.HasValue)
@@ -169,7 +166,6 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/publisher.txt", gameInfo.Publisher);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/genre.txt", gameInfo.Genre);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/released.txt", gameInfo.Released);
-
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/data.json", JsonConvert.SerializeObject(gameInfo));
             }
         }
@@ -193,7 +189,6 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/title.txt", achievement.Title);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/description.txt", achievement.Description);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/points.txt", achievement.Points.ToString());
-
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/data.json", JsonConvert.SerializeObject(achievement));
             }
             else
@@ -217,32 +212,25 @@ namespace Retro_Achievement_Tracker.Models
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/title.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/description.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/points.txt", string.Empty);
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/data.json", "{}");
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/data.json", "{}");
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/title.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/console.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/developer.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/publisher.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/genre.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/released.txt", string.Empty);
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/ratio.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/points.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/true-points.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/achievements.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/completed.txt", string.Empty);
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/data.json", "{}");
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/rank.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/awards.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/ratio.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/points.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/true-points.txt", string.Empty);
-
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/data.json", "{}");
 
             for (int i = 0; i < 5; i++)
@@ -250,7 +238,6 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/last-five/last-" + (i + 1) + "-title.txt", string.Empty);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/last-five/last-" + (i + 1) + "-description.txt", string.Empty);
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/last-five/last-" + (i + 1) + "-points.txt", string.Empty);
-
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/last-five/last-" + (i + 1) + "-data.json", "{}");
             }
         }

@@ -22,14 +22,14 @@ namespace Retro_Achievement_Tracker.Controllers
         private Stopwatch NotificationsStopwatch;
         private Timer NotificationTimer;
         private ConcurrentQueue<NotificationRequest> NotificationRequests;
-        private bool IsPlaying;
-        private bool AnimationInPlayed;
-        private bool AnimationOutPlayed;
-        private bool PlayingAchievement;
-        private bool IsEditingAchievement;
+        private bool IsPlaying,
+            AnimationInPlayed,
+            AnimationOutPlayed,
+            PlayingAchievement,
+            IsEditingAchievement;
 
-        public float AchievementPlayingTime;
-        public float MasteryPlayingTime;
+        public float AchievementPlayingTime,
+            MasteryPlayingTime;
 
         private AlertsController()
         {
@@ -46,7 +46,6 @@ namespace Retro_Achievement_Tracker.Controllers
             }
 
             NotificationRequests = new ConcurrentQueue<NotificationRequest>();
-
             NotificationsStopwatch = new Stopwatch();
         }
         public static AlertsController Instance
@@ -69,13 +68,7 @@ namespace Retro_Achievement_Tracker.Controllers
                     AlertsWindow = new AlertsWindow();
                 }
 
-                IsPlaying = false;
-
-                AnimationInPlayed = false;
-                AnimationOutPlayed = false;
-
-                PlayingAchievement = false;
-                IsEditingAchievement = false;
+                IsPlaying = AnimationInPlayed = AnimationOutPlayed = PlayingAchievement = IsEditingAchievement = false;
 
                 if (CustomAchievementEnabled && !File.Exists(CustomAchievementFile))
                 {
@@ -142,7 +135,6 @@ namespace Retro_Achievement_Tracker.Controllers
         private NotificationRequest NotificationRequestDequeue()
         {
             NotificationRequests.TryDequeue(out NotificationRequest notificationRequest);
-
             return notificationRequest;
         }
 
@@ -153,7 +145,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 NotificationTimer.Stop();
 
                 NotificationRequest notificationRequest = NotificationRequestDequeue();
-
                 if (notificationRequest != null)
                 {
                     if (notificationRequest.Achievement != null)
@@ -175,23 +166,18 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             NotificationsStopwatch = Stopwatch.StartNew();
 
-            AnimationInPlayed = false;
-            AnimationOutPlayed = false;
+            AnimationInPlayed = AnimationOutPlayed = false;
 
-            AchievementPlayingTime = 0;
-            MasteryPlayingTime = 0;
+            AchievementPlayingTime = MasteryPlayingTime = 0;
 
-            int achievementInSpeed = AchievementInSpeed;
-            int achievementOutSpeed = AchievementOutSpeed;
-
-            int achievementInTime = AchievementInTime;
-            int achievementOutTime = AchievementOutTime;
-
-            int masteryInSpeed = MasteryInSpeed;
-            int masteryOutSpeed = MasteryOutSpeed;
-
-            int masteryInTime = MasteryInTime;
-            int masteryOutTime = MasteryOutTime;
+            int achievementInSpeed = AchievementInSpeed,
+                achievementOutSpeed = AchievementOutSpeed,
+                achievementInTime = AchievementInTime,
+                achievementOutTime = AchievementOutTime,
+                masteryInSpeed = MasteryInSpeed,
+                masteryOutSpeed = MasteryOutSpeed,
+                masteryInTime = MasteryInTime,
+                masteryOutTime = MasteryOutTime;
 
             while (NotificationsStopwatch.IsRunning)
             {
@@ -202,7 +188,6 @@ namespace Retro_Achievement_Tracker.Controllers
                     if (!IsEditingAchievement)
                     {
                         AlertsWindow.HideNotifications();
-
                         await Task.Delay(500);
 
                         StartNewTimer();
@@ -263,7 +248,6 @@ namespace Retro_Achievement_Tracker.Controllers
             };
 
             NotificationTimer.Tick += new EventHandler(CheckForNotifications);
-
             NotificationTimer.Start();
         }
 
@@ -273,7 +257,6 @@ namespace Retro_Achievement_Tracker.Controllers
             if (IsOpen)
             {
                 AlertsWindow.AssignJavaScriptVariables();
-
                 AlertsWindow.SetBorderBackgroundColor(BorderBackgroundColor);
                 AlertsWindow.SetWindowBackgroundColor(WindowBackgroundColor);
 
@@ -387,8 +370,7 @@ namespace Retro_Achievement_Tracker.Controllers
             if (IsOpen)
             {
                 AlertsWindow.DisableMasteryEdit();
-                IsEditingAchievement = false;
-                IsPlaying = false;
+                IsEditingAchievement = IsPlaying = false;
             }
         }
 
@@ -445,7 +427,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.notification_font_family_name))
@@ -455,7 +436,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
 
                 Settings.Default.notification_font_family_name = familyArray[0].Name;
-
                 return familyArray[0];
             }
             set
@@ -515,7 +495,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.alerts_title_font_family))
@@ -523,8 +502,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.alerts_title_font_family = familyArray[0].Name;
 
+                Settings.Default.alerts_title_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -540,7 +519,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.alerts_description_font_family))
@@ -548,8 +526,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.alerts_description_font_family = familyArray[0].Name;
 
+                Settings.Default.alerts_description_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -566,7 +544,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.alerts_points_font_family))
@@ -574,8 +551,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.alerts_points_font_family = familyArray[0].Name;
 
+                Settings.Default.alerts_points_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -987,18 +964,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                switch (Settings.Default.notifications_achievement_in_animation)
-                {
-                    case "DOWN":
-                        return AnimationDirection.DOWN;
-                    case "LEFT":
-                        return AnimationDirection.LEFT;
-                    case "RIGHT":
-                        return AnimationDirection.RIGHT;
-                    case "UP":
-                        return AnimationDirection.UP;
-                }
-                return AnimationDirection.STATIC;
+                return GetAnimationDirection(Settings.Default.notifications_achievement_in_animation);
             }
             set
             {
@@ -1010,18 +976,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                switch (Settings.Default.notifications_achievement_out_animation)
-                {
-                    case "DOWN":
-                        return AnimationDirection.DOWN;
-                    case "LEFT":
-                        return AnimationDirection.LEFT;
-                    case "RIGHT":
-                        return AnimationDirection.RIGHT;
-                    case "UP":
-                        return AnimationDirection.UP;
-                }
-                return AnimationDirection.STATIC;
+                return GetAnimationDirection(Settings.Default.notifications_achievement_out_animation);
             }
             set
             {
@@ -1033,18 +988,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                switch (Settings.Default.notifications_mastery_in_animation)
-                {
-                    case "DOWN":
-                        return AnimationDirection.DOWN;
-                    case "LEFT":
-                        return AnimationDirection.LEFT;
-                    case "RIGHT":
-                        return AnimationDirection.RIGHT;
-                    case "UP":
-                        return AnimationDirection.UP;
-                }
-                return AnimationDirection.STATIC;
+                return GetAnimationDirection(Settings.Default.notifications_mastery_in_animation);
             }
             set
             {
@@ -1056,18 +1000,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                switch (Settings.Default.notifications_mastery_out_animation)
-                {
-                    case "DOWN":
-                        return AnimationDirection.DOWN;
-                    case "LEFT":
-                        return AnimationDirection.LEFT;
-                    case "RIGHT":
-                        return AnimationDirection.RIGHT;
-                    case "UP":
-                        return AnimationDirection.UP;
-                }
-                return AnimationDirection.STATIC;
+                return GetAnimationDirection(Settings.Default.notifications_mastery_out_animation);
             }
             set
             {
@@ -1104,6 +1037,26 @@ namespace Retro_Achievement_Tracker.Controllers
             {
                 Settings.Default.auto_notifications = value;
                 Settings.Default.Save();
+            }
+        }
+
+        /// <summary>Get the direction for an animation</summary>
+        /// <param name="animationName">Name of the animation</param>
+        /// <returns><c>AnimationDirection</c></returns>
+        AnimationDirection GetAnimationDirection(string animationName)
+        {
+            switch (animationName)
+            {
+                case "DOWN":
+                    return AnimationDirection.DOWN;
+                case "LEFT":
+                    return AnimationDirection.LEFT;
+                case "RIGHT":
+                    return AnimationDirection.RIGHT;
+                case "UP":
+                    return AnimationDirection.UP;
+                default:
+                    return AnimationDirection.STATIC;
             }
         }
     }

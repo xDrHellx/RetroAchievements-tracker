@@ -9,13 +9,8 @@ namespace Retro_Achievement_Tracker.Controllers
         private static readonly RelatedMediaController instance = new RelatedMediaController();
         private static RelatedMediaWindow RelatedMediaWindow;
         private static string CurrentImageURI;
-
         public bool IsOpen;
 
-        private RelatedMediaController()
-        {
-
-        }
         public static RelatedMediaController Instance
         {
             get
@@ -121,11 +116,9 @@ namespace Retro_Achievement_Tracker.Controllers
                     if (imageUri.Contains(".png") || imageUri.Contains(".jpg") || imageUri.Contains(".jpeg"))
                     {
                         await Task.Delay(500);
-
                         RelatedMediaWindow.SetImage(imageUri);
 
                         await Task.Delay(500);
-
                         RelatedMediaWindow.ShowImage();
 
                         CurrentImageURI = imageUri;
@@ -182,8 +175,9 @@ namespace Retro_Achievement_Tracker.Controllers
                         return RelatedMediaSelection.LBCartFront;
                     case "LB_CART_BACK":
                         return RelatedMediaSelection.LBCartBack;
+                    default:
+                        return RelatedMediaSelection.None;
                 }
-                return RelatedMediaSelection.None;
             }
             set
             {

@@ -14,14 +14,12 @@ namespace Retro_Achievement_Tracker.Controllers
         private static readonly RecentUnlocksController instance = new RecentUnlocksController();
         private static RecentUnlocksWindow RecentUnlocksWindow;
         public bool IsOpen;
-
-        private List<Achievement> CurrentAchievements;
-        private List<Achievement> VisibileAchievements;
+        private List<Achievement> CurrentAchievements,
+            VisibileAchievements;
 
         private RecentUnlocksController()
         {
             RecentUnlocksWindow = new RecentUnlocksWindow();
-
             CurrentAchievements = new List<Achievement>();
             VisibileAchievements = new List<Achievement>();
         }
@@ -115,9 +113,7 @@ namespace Retro_Achievement_Tracker.Controllers
             if (IsOpen)
             {
                 RecentUnlocksWindow.AssignJavaScriptVariables();
-
                 VisibileAchievements = CurrentAchievements.GetRange(0, Math.Min(CurrentAchievements.Count, MaxListSize));
-
                 PopulateRecentAchievementsWindow();
             }
         }
@@ -202,7 +198,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.last_five_font_family_name))
@@ -210,8 +205,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.last_five_font_family_name = familyArray[0].Name;
 
+                Settings.Default.last_five_font_family_name = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -227,7 +222,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.last_five_title_font_family))
@@ -235,8 +229,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.last_five_title_font_family = familyArray[0].Name;
 
+                Settings.Default.last_five_title_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -252,7 +246,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.last_five_date_font_family))
@@ -260,8 +253,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.last_five_date_font_family = familyArray[0].Name;
 
+                Settings.Default.last_five_date_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -277,7 +270,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.last_five_points_font_family))
@@ -285,8 +277,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.last_five_points_font_family = familyArray[0].Name;
 
+                Settings.Default.last_five_points_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set

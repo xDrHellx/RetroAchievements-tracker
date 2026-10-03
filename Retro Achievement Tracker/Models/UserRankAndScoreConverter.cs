@@ -14,13 +14,8 @@ namespace Retro_Achievement_Tracker.Models
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            UserRankAndScore UserRankAndScore = new UserRankAndScore();
+            UserRankAndScore UserRankAndScore = existingValue != null ? (UserRankAndScore)existingValue : new UserRankAndScore();
             JObject item = JObject.Load(reader);
-
-            if (existingValue != null)
-            {
-                UserRankAndScore = (UserRankAndScore)existingValue;
-            }
 
             JToken Rank = item["Rank"];
             JToken Score = item["Score"];
@@ -29,6 +24,7 @@ namespace Retro_Achievement_Tracker.Models
             {
                 UserRankAndScore.Rank = int.Parse(Rank.ToString());
             }
+
             if (Score != null)
             {
                 UserRankAndScore.Score = int.Parse(Score.ToString());
@@ -44,19 +40,21 @@ namespace Retro_Achievement_Tracker.Models
 
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.CanRead)
+                if (!prop.CanRead)
                 {
-                    object propVal = prop.GetValue(value, null);
-                    if (propVal != null && !propVal.GetType().Name.Equals("List`1"))
+                    continue;
+                }
+
+                object propVal = prop.GetValue(value, null);
+                if (propVal != null && !propVal.GetType().Name.Equals("List`1"))
+                {
+                    if (propVal.GetType().Name.Equals("DateTime"))
                     {
-                        if (propVal.GetType().Name.Equals("DateTime"))
-                        {
-                            jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(((DateTime)propVal).ToString(), serializer));
-                        }
-                        else
-                        {
-                            jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(propVal, serializer));
-                        }
+                        jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(((DateTime)propVal).ToString(), serializer));
+                    }
+                    else
+                    {
+                        jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(propVal, serializer));
                     }
                 }
             }

@@ -33,42 +33,52 @@ namespace Retro_Achievement_Tracker.Models
             {
                 Achievement.Id = int.Parse(ID.ToString());
             }
+
             if (AchievementID != null)
             {
                 Achievement.Id = int.Parse(AchievementID.ToString());
             }
+
             if (GameID != null)
             {
                 Achievement.GameId = int.Parse(GameID.ToString());
             }
+
             if (Description != null)
             {
                 Achievement.Description = Description.ToString();
             }
+
             if (Title != null)
             {
                 Achievement.Title = Title.ToString();
             }
+
             if (Points != null)
             {
                 Achievement.Points = int.Parse(Points.ToString());
             }
+
             if (TrueRatio != null)
             {
                 Achievement.TrueRatio = int.Parse(TrueRatio.ToString());
             }
+
             if (Date != null && !string.IsNullOrEmpty(Date.ToString()))
             {
                 Achievement.DateEarned = DateTime.Parse(Date.ToString());
             }
+
             if (DateEarned != null && !string.IsNullOrEmpty(DateEarned.ToString()))
             {
                 Achievement.DateEarned = DateTime.Parse(DateEarned.ToString());
             }
+
             if (BadgeName != null)
             {
                 Achievement.BadgeUri = Constants.RETRO_ACHIEVEMENTS_MEDIA_URL + "/Badge/" + Convert.ToString(BadgeName) + ".png";
             }
+
             if (DisplayOrder != null)
             {
                 Achievement.DisplayOrder = int.Parse(DisplayOrder.ToString());

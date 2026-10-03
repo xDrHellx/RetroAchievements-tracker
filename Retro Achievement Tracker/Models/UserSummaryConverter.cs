@@ -1,12 +1,12 @@
-﻿namespace Retro_Achievement_Tracker
-{
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using Retro_Achievement_Tracker.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Retro_Achievement_Tracker.Models;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
+namespace Retro_Achievement_Tracker
+{
     public class UserSummaryConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
@@ -16,13 +16,8 @@
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            UserSummary UserSummary = existingValue != null ? (UserSummary)existingValue : new UserSummary();
             JObject item = JObject.Load(reader);
-            UserSummary UserSummary = new UserSummary();
-
-            if (existingValue != null)
-            {
-                UserSummary = (UserSummary)existingValue;
-            }
 
             JToken RecentAchievements = item["RecentAchievements"];
             JToken LastGameID = item["LastGameID"];
@@ -36,7 +31,6 @@
             if (RecentAchievements != null)
             {
                 UserSummary.Achievements = new List<Achievement>();
-
                 foreach (JToken jobject in RecentAchievements.Children<JToken>())
                 {
                     foreach (JToken jobjectJr in jobject.Children<JToken>())
@@ -50,7 +44,6 @@
                         }
                     }
                 }
-
             }
 
             if (LastActivity != null)
@@ -102,13 +95,15 @@
 
             foreach (PropertyInfo prop in type.GetProperties())
             {
-                if (prop.CanRead)
+                if (!prop.CanRead)
                 {
-                    object propVal = prop.GetValue(value, null);
-                    if (propVal != null && !propVal.GetType().Name.Equals("List`1"))
-                    {
-                        jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(propVal, serializer));
-                    }
+                    continue;
+                }
+
+                object propVal = prop.GetValue(value, null);
+                if (propVal != null && !propVal.GetType().Name.Equals("List`1"))
+                {
+                    jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(propVal, serializer));
                 }
             }
             jo.WriteTo(writer);

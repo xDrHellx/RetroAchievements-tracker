@@ -10,11 +10,9 @@ namespace Retro_Achievement_Tracker.Controllers
     {
         private static readonly FocusController instance = new FocusController();
         private static FocusWindow FocusWindow;
-
-        public bool IsOpen;
-
         public Achievement CurrentlyFocusedAchievement;
         public GameInfo CurrentGame;
+        public bool IsOpen;
 
         private FocusController()
         {
@@ -49,7 +47,6 @@ namespace Retro_Achievement_Tracker.Controllers
         public void SetAllSettings()
         {
             FocusWindow.AssignJavaScriptVariables();
-
             FocusWindow.SetWindowBackgroundColor(WindowBackgroundColor);
             FocusWindow.SetBorderBackgroundColor(BorderBackgroundColor);
 
@@ -111,7 +108,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
 
                 SetAllSettings();
-
                 FocusWindow.SetClientSize();
             }
         }
@@ -128,7 +124,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 if (IsOpen)
                 {
                     FocusWindow.SetFocus(CurrentlyFocusedAchievement);
-
                     UpdateFocus();
                 }
             }
@@ -140,7 +135,6 @@ namespace Retro_Achievement_Tracker.Controllers
             if (IsOpen)
             {
                 FocusWindow.SetFocus(gameInfo);
-
                 UpdateFocus();
             }
         }
@@ -160,7 +154,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.focus_font_family_name))
@@ -168,8 +161,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.focus_font_family_name = familyArray[0].Name;
 
+                Settings.Default.focus_font_family_name = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -229,7 +222,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.focus_title_font_family))
@@ -237,8 +229,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.focus_title_font_family = familyArray[0].Name;
 
+                Settings.Default.focus_title_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -254,7 +246,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.focus_description_font_family))
@@ -262,8 +253,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.focus_description_font_family = familyArray[0].Name;
 
+                Settings.Default.focus_description_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -280,7 +271,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.focus_points_font_family))
@@ -288,8 +278,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.focus_points_font_family = familyArray[0].Name;
 
+                Settings.Default.focus_points_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -533,8 +523,9 @@ namespace Retro_Achievement_Tracker.Controllers
                         return RefocusBehaviorEnum.GO_TO_NEXT;
                     case "GO_TO_LAST":
                         return RefocusBehaviorEnum.GO_TO_LAST;
+                    default:
+                        return RefocusBehaviorEnum.GO_TO_FIRST;
                 }
-                return RefocusBehaviorEnum.GO_TO_FIRST;
             }
             set
             {

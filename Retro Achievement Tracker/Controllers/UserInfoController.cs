@@ -9,12 +9,11 @@ namespace Retro_Achievement_Tracker.Controllers
     {
         private static readonly UserInfoController instance = new UserInfoController();
         private static UserInfoWindow UserInfoWindow;
-
         public bool IsOpen;
-        private string rank;
-        private string ratio;
-        private string points;
-        private string truePoints;
+        private string rank,
+            ratio,
+            points,
+            truePoints;
 
         private UserInfoController()
         {
@@ -47,12 +46,10 @@ namespace Retro_Achievement_Tracker.Controllers
             if (IsOpen)
             {
                 UserInfoWindow.AssignJavaScriptVariables();
-
                 UserInfoWindow.SetRankVisibility(RankEnabled);
                 UserInfoWindow.SetPointsVisibility(PointsEnabled);
                 UserInfoWindow.SetTruePointsVisibility(TruePointsEnabled);
                 UserInfoWindow.SetRatioVisibility(RatioEnabled);
-
                 UserInfoWindow.SetRankName(RankName);
                 UserInfoWindow.SetPointsName(PointsName);
                 UserInfoWindow.SetTruePointsName(TruePointsName);
@@ -67,7 +64,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
 
                 SetAllSettings();
-
                 UserInfoWindow.SetClientSize();
             }
         }
@@ -95,7 +91,6 @@ namespace Retro_Achievement_Tracker.Controllers
             UserInfoWindow.SetNameFontFamily(NameFontFamily);
             UserInfoWindow.SetNameColor(NameColor);
             UserInfoWindow.SetNameOutline(NameOutlineEnabled ? NameOutlineColor + " " + NameOutlineSize + "px" : "0px");
-
             UserInfoWindow.SetValueFontFamily(ValueFontFamily);
             UserInfoWindow.SetValueColor(ValueColor);
             UserInfoWindow.SetValueOutline(ValueOutlineEnabled ? ValueOutlineColor + " " + ValueOutlineSize + "px" : "0px");
@@ -173,7 +168,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.stats_font_family_name))
@@ -181,8 +175,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.stats_font_family_name = familyArray[0].Name;
 
+                Settings.Default.stats_font_family_name = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -250,7 +244,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.stats_name_font_family))
@@ -258,8 +251,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.stats_name_font_family = familyArray[0].Name;
 
+                Settings.Default.stats_name_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -275,7 +268,6 @@ namespace Retro_Achievement_Tracker.Controllers
             get
             {
                 FontFamily[] familyArray = FontFamily.Families.ToArray();
-
                 foreach (FontFamily font in familyArray)
                 {
                     if (font.Name.Equals(Settings.Default.stats_value_font_family))
@@ -283,8 +275,8 @@ namespace Retro_Achievement_Tracker.Controllers
                         return font;
                     }
                 }
-                Settings.Default.stats_value_font_family = familyArray[0].Name;
 
+                Settings.Default.stats_value_font_family = familyArray[0].Name;
                 return familyArray[0];
             }
             set
@@ -347,7 +339,6 @@ namespace Retro_Achievement_Tracker.Controllers
             {
                 Settings.Default.stats_name_outline_color = value;
                 Settings.Default.Save();
-
 
                 UpdateUserInfo();
             }
