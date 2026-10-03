@@ -18,26 +18,6 @@ namespace Retro_Achievement_Tracker
 {
     public partial class MainWindow : Form
     {
-        private bool ShouldRun;
-        private bool IsChanging;
-        private bool IsBooting;
-        private bool IsStarting;
-
-        private int CurrentlyViewingIndex;
-        private int UserAndGameTimerCounter;
-        private int MaxCheevoCount = 0;
-
-        private UserSummary UserSummary;
-        private GameInfo GameInfoAndProgress;
-
-        private Achievement CurrentlyViewingAchievement;
-
-        private List<Achievement> OldUnlockedAchievements;
-
-        private Timer UserAndGameUpdateTimer;
-
-        private RetroAchievementAPIClient RetroAchievementsAPIClient;
-
         private List<Achievement> LockedAchievements
         {
             get
