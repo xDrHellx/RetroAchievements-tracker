@@ -11,7 +11,6 @@ namespace Retro_Achievement_Tracker.Controllers
     {
         private static readonly AchievementListController instance = new AchievementListController();
         private static AchievementListWindow AchievementListWindow;
-
         private int AchievementsPerRow
         {
             get
@@ -21,7 +20,6 @@ namespace Retro_Achievement_Tracker.Controllers
         }
 
         public bool IsOpen;
-
         private List<Achievement> CurrentUnlockedAchievements,
             CurrentLockedAchievements;
 
