@@ -48,14 +48,13 @@ namespace Retro_Achievement_Tracker.Models
                 object propVal = prop.GetValue(value, null);
                 if (propVal != null && !propVal.GetType().Name.Equals("List`1"))
                 {
-                    if (propVal.GetType().Name.Equals("DateTime"))
-                    {
-                        jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(((DateTime)propVal).ToString(), serializer));
-                    }
-                    else
-                    {
-                        jo.Add(char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1), JToken.FromObject(propVal, serializer));
-                    }
+                    jo.Add(
+                        char.ToLowerInvariant(prop.Name[0]) + prop.Name.Substring(1),
+                        JToken.FromObject(
+                            propVal.GetType().Name.Equals("DateTime") ? ((DateTime)propVal).ToString() : propVal,
+                            serializer
+                        )
+                    );
                 }
             }
             jo.WriteTo(writer);
