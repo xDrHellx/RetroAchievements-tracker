@@ -6,13 +6,12 @@ using System.Linq;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class FocusController
+    public sealed class FocusController : AbstractController
     {
         private static readonly FocusController instance = new FocusController();
         private static FocusWindow FocusWindow;
         public Achievement CurrentlyFocusedAchievement;
         public GameInfo CurrentGame;
-        public bool IsOpen;
 
         private FocusController()
         {

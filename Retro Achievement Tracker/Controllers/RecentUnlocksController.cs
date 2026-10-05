@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class RecentUnlocksController
+    public sealed class RecentUnlocksController : AbstractController
     {
         private static readonly RecentUnlocksController instance = new RecentUnlocksController();
         private static RecentUnlocksWindow RecentUnlocksWindow;
-        public bool IsOpen;
         private List<Achievement> CurrentAchievements,
             VisibileAchievements;
 

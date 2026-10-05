@@ -14,11 +14,10 @@ using System.Windows.Forms;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class AlertsController
+    public sealed class AlertsController : AbstractController
     {
         private static readonly AlertsController instance = new AlertsController();
         private static AlertsWindow AlertsWindow;
-        public bool IsOpen;
         private Stopwatch NotificationsStopwatch;
         private Timer NotificationTimer;
         private ConcurrentQueue<NotificationRequest> NotificationRequests;

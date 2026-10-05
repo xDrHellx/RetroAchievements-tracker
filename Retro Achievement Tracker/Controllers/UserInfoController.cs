@@ -5,11 +5,10 @@ using System.Linq;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class UserInfoController
+    public sealed class UserInfoController : AbstractController
     {
         private static readonly UserInfoController instance = new UserInfoController();
         private static UserInfoWindow UserInfoWindow;
-        public bool IsOpen;
         private string rank,
             ratio,
             points,
@@ -99,7 +98,6 @@ namespace Retro_Achievement_Tracker.Controllers
         internal void SetRank(string value)
         {
             rank = value;
-
             if (IsOpen)
             {
                 UserInfoWindow.SetRankValue(value);
@@ -109,7 +107,6 @@ namespace Retro_Achievement_Tracker.Controllers
         internal void SetRatio(string value)
         {
             ratio = value;
-
             if (IsOpen)
             {
                 UserInfoWindow.SetRatioValue(value);
@@ -119,7 +116,6 @@ namespace Retro_Achievement_Tracker.Controllers
         internal void SetPoints(string value)
         {
             points = value;
-
             if (IsOpen)
             {
                 UserInfoWindow.SetPointsValue(value);
@@ -129,7 +125,6 @@ namespace Retro_Achievement_Tracker.Controllers
         internal void SetTruePoints(string value)
         {
             truePoints = value;
-
             if (IsOpen)
             {
                 UserInfoWindow.SetTruePointsValue(value);

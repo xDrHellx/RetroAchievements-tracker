@@ -5,11 +5,10 @@ using System.Linq;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class GameInfoController
+    public sealed class GameInfoController : AbstractController
     {
         private static readonly GameInfoController instance = new GameInfoController();
         private static GameInfoWindow GameInfoWindow;
-        public bool IsOpen;
         private string title,
             genre,
             console,

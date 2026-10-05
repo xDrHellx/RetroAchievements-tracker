@@ -4,12 +4,11 @@ using System.Threading.Tasks;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class RelatedMediaController
+    public sealed class RelatedMediaController : AbstractController
     {
         private static readonly RelatedMediaController instance = new RelatedMediaController();
         private static RelatedMediaWindow RelatedMediaWindow;
         private static string CurrentImageURI;
-        public bool IsOpen;
 
         public static RelatedMediaController Instance
         {

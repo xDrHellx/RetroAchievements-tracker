@@ -5,11 +5,10 @@ using System.Linq;
 
 namespace Retro_Achievement_Tracker.Controllers
 {
-    public sealed class GameProgressController
+    public sealed class GameProgressController : AbstractController
     {
         private static readonly GameProgressController instance = new GameProgressController();
         private static GameProgressWindow GameProgressWindow;
-        public bool IsOpen;
         private string completed,
             gameAchievementsEarned,
             gameAchievementsPossible,
