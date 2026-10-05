@@ -10,8 +10,8 @@ namespace Retro_Achievement_Tracker
 {
     class RetroAchievementAPIClient
     {
-        private static readonly HttpClient client = new HttpClient();
-        private readonly string UserName,
+        static readonly HttpClient client = new HttpClient();
+        readonly string UserName,
             ApiKey;
 
         public RetroAchievementAPIClient(string username, string apiKey)

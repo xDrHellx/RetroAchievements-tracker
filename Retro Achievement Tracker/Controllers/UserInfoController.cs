@@ -7,14 +7,14 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class UserInfoController : AbstractController
     {
-        private static readonly UserInfoController instance = new UserInfoController();
-        private static UserInfoWindow UserInfoWindow;
-        private string rank,
+        static readonly UserInfoController instance = new UserInfoController();
+        static UserInfoWindow UserInfoWindow;
+        string rank,
             ratio,
             points,
             truePoints;
 
-        private UserInfoController()
+        UserInfoController()
         {
             UserInfoWindow = new UserInfoWindow();
         }
@@ -79,13 +79,13 @@ namespace Retro_Achievement_Tracker.Controllers
                 SetSimpleSettings();
             }
         }
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             UserInfoWindow.SetSimpleFontFamily(SimpleFontFamily);
             UserInfoWindow.SetSimpleFontColor(SimpleFontColor);
             UserInfoWindow.SetSimpleFontOutline(SimpleFontOutlineEnabled ? SimpleFontOutlineColor + " " + SimpleFontOutlineSize + "px" : "0px");
         }
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             UserInfoWindow.SetNameFontFamily(NameFontFamily);
             UserInfoWindow.SetNameColor(NameColor);

@@ -7,9 +7,9 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class GameProgressController : AbstractController
     {
-        private static readonly GameProgressController instance = new GameProgressController();
-        private static GameProgressWindow GameProgressWindow;
-        private string completed,
+        static readonly GameProgressController instance = new GameProgressController();
+        static GameProgressWindow GameProgressWindow;
+        string completed,
             gameAchievementsEarned,
             gameAchievementsPossible,
             gamePointsEarned,
@@ -17,7 +17,7 @@ namespace Retro_Achievement_Tracker.Controllers
             gameTruePointsEarned,
             gameTruePointsPossible;
 
-        private GameProgressController()
+        GameProgressController()
         {
             GameProgressWindow = new GameProgressWindow();
         }
@@ -91,13 +91,13 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
             }
         }
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             GameProgressWindow.SetSimpleFontFamily(SimpleFontFamily);
             GameProgressWindow.SetSimpleFontColor(SimpleFontColor);
             GameProgressWindow.SetSimpleFontOutline(SimpleFontOutlineEnabled ? SimpleFontOutlineColor + " " + SimpleFontOutlineSize + "px" : "0px");
         }
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             GameProgressWindow.SetNameFontFamily(NameFontFamily);
             GameProgressWindow.SetNameColor(NameColor);

@@ -10,7 +10,7 @@ namespace Retro_Achievement_Tracker.Models
     {
         public long Id { get; set; }
         public string Title { get; set; }
-        private long _consoleId;
+        long _consoleId;
         public long ConsoleId
         {
             get => _consoleId;

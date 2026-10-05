@@ -12,11 +12,11 @@ namespace Retro_Achievement_Tracker.Models
 {
     public sealed class StreamLabelController
     {
-        private static readonly StreamLabelController instance = new StreamLabelController();
-        private Stopwatch StreamLabelsStopwatch;
-        private Task StreamLabelsTask;
-        private readonly ConcurrentQueue<Tuple<Task, bool>> StreamLabelsRequests;
-        private StreamLabelController()
+        static readonly StreamLabelController instance = new StreamLabelController();
+        Stopwatch StreamLabelsStopwatch;
+        Task StreamLabelsTask;
+        readonly ConcurrentQueue<Tuple<Task, bool>> StreamLabelsRequests;
+        StreamLabelController()
         {
             StreamLabelsRequests = new ConcurrentQueue<Tuple<Task, bool>>();
             StreamLabelsStopwatch = new Stopwatch();
@@ -29,7 +29,7 @@ namespace Retro_Achievement_Tracker.Models
                 return instance;
             }
         }
-        private Tuple<Task, bool> StreamLabelDequeue()
+        Tuple<Task, bool> StreamLabelDequeue()
         {
             StreamLabelsRequests.TryDequeue(out Tuple<Task, bool> task);
             return task;
@@ -41,7 +41,7 @@ namespace Retro_Achievement_Tracker.Models
                 StreamLabelsTask = Task.Factory.StartNew(RunStreamLabelsTask, System.Threading.CancellationToken.None);
             }
         }
-        private async void RunStreamLabelsTask()
+        async void RunStreamLabelsTask()
         {
             StreamLabelsStopwatch = Stopwatch.StartNew();
 
@@ -94,7 +94,7 @@ namespace Retro_Achievement_Tracker.Models
         {
             WriteLastFiveStreamLabels(achievements);
         }
-        private void WriteFocusStreamLabels(Achievement currentlyViewingAchievement)
+        void WriteFocusStreamLabels(Achievement currentlyViewingAchievement)
         {
             if (currentlyViewingAchievement != null)
             {
@@ -109,7 +109,7 @@ namespace Retro_Achievement_Tracker.Models
             }
         }
 
-        private void ClearFocusStreamLabels()
+        void ClearFocusStreamLabels()
         {
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/title.txt", string.Empty);
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/description.txt", string.Empty);
@@ -117,7 +117,7 @@ namespace Retro_Achievement_Tracker.Models
             File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/focus/data.json", "{}");
         }
 
-        private void WriteLastFiveStreamLabels(List<Achievement> achievements)
+        void WriteLastFiveStreamLabels(List<Achievement> achievements)
         {
             if (achievements != null && achievements.Count > 0)
             {
@@ -145,7 +145,7 @@ namespace Retro_Achievement_Tracker.Models
             }
         }
 
-        private void WriteUserInfoStreamLabels(UserSummary userSummary)
+        void WriteUserInfoStreamLabels(UserSummary userSummary)
         {
             if (userSummary != null)
             {
@@ -156,7 +156,7 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/user-info/data.json", JsonConvert.SerializeObject(userSummary));
             }
         }
-        private void WriteGameInfoStreamLabels(GameInfo gameInfo)
+        void WriteGameInfoStreamLabels(GameInfo gameInfo)
         {
             if (gameInfo != null)
             {
@@ -169,7 +169,7 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/game-info/data.json", JsonConvert.SerializeObject(gameInfo));
             }
         }
-        private void WriteGameProgressStreamLabels(GameInfo gameInfo)
+        void WriteGameProgressStreamLabels(GameInfo gameInfo)
         {
             if (gameInfo != null)
             {
@@ -182,7 +182,7 @@ namespace Retro_Achievement_Tracker.Models
                     gameInfo.Achievements.Count, CultureInfo.CurrentCulture) * 100)).ToString("0.00") + " %");
             }
         }
-        private void WriteAlertsStreamLabels(Achievement achievement)
+        void WriteAlertsStreamLabels(Achievement achievement)
         {
             if (achievement != null)
             {
@@ -196,7 +196,7 @@ namespace Retro_Achievement_Tracker.Models
                 File.WriteAllText(@Directory.GetCurrentDirectory() + "/stream-labels/alerts/data.json", "{}");
             }
         }
-        private void WriteAlertsStreamLabels(GameInfo gameInfo)
+        void WriteAlertsStreamLabels(GameInfo gameInfo)
         {
             if (gameInfo != null)
             {

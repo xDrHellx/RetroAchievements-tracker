@@ -11,12 +11,12 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class RecentUnlocksController : AbstractController
     {
-        private static readonly RecentUnlocksController instance = new RecentUnlocksController();
-        private static RecentUnlocksWindow RecentUnlocksWindow;
-        private List<Achievement> CurrentAchievements,
+        static readonly RecentUnlocksController instance = new RecentUnlocksController();
+        static RecentUnlocksWindow RecentUnlocksWindow;
+        List<Achievement> CurrentAchievements,
             VisibileAchievements;
 
-        private RecentUnlocksController()
+        RecentUnlocksController()
         {
             RecentUnlocksWindow = new RecentUnlocksWindow();
             CurrentAchievements = new List<Achievement>();
@@ -75,7 +75,7 @@ namespace Retro_Achievement_Tracker.Controllers
             }
         }
 
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             RecentUnlocksWindow.SetTitleFontFamily(TitleFontFamily);
             RecentUnlocksWindow.SetTitleColor(TitleColor);
@@ -93,7 +93,7 @@ namespace Retro_Achievement_Tracker.Controllers
             RecentUnlocksWindow.SetLineOutline(LineOutlineEnabled ? LineOutlineSize + "px solid " + LineOutlineColor : "0px");
         }
 
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             RecentUnlocksWindow.SetSimpleFontFamily(SimpleFontFamily);
             RecentUnlocksWindow.SetSimpleFontColor(SimpleFontColor);

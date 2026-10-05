@@ -145,7 +145,7 @@ namespace Retro_Achievement_Tracker.Forms
                 ClientSize = new Size(1190, 645);
             }));
         }
-        private void NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        void NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
             GameInfoController.Instance.IsOpen = true;
             GameInfoController.Instance.UpdateGameInfo();

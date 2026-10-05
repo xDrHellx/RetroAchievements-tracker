@@ -9,9 +9,9 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class AchievementListController : AbstractController
     {
-        private static readonly AchievementListController instance = new AchievementListController();
-        private static AchievementListWindow AchievementListWindow;
-        private int AchievementsPerRow
+        static readonly AchievementListController instance = new AchievementListController();
+        static AchievementListWindow AchievementListWindow;
+        int AchievementsPerRow
         {
             get
             {
@@ -19,10 +19,10 @@ namespace Retro_Achievement_Tracker.Controllers
             }
         }
 
-        private List<Achievement> CurrentUnlockedAchievements,
+        List<Achievement> CurrentUnlockedAchievements,
             CurrentLockedAchievements;
 
-        private AchievementListController()
+        AchievementListController()
         {
             AchievementListWindow = new AchievementListWindow();
             CurrentUnlockedAchievements = CurrentLockedAchievements = new List<Achievement>();
@@ -65,7 +65,7 @@ namespace Retro_Achievement_Tracker.Controllers
             UpdateAchievementList(CurrentUnlockedAchievements, CurrentLockedAchievements, true);
         }
 
-        private void UpdateAchievementPositions()
+        void UpdateAchievementPositions()
         {
             UpdateAchievementList(CurrentUnlockedAchievements, CurrentLockedAchievements, false);
         }

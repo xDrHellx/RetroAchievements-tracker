@@ -8,12 +8,12 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class FocusController : AbstractController
     {
-        private static readonly FocusController instance = new FocusController();
-        private static FocusWindow FocusWindow;
+        static readonly FocusController instance = new FocusController();
+        static FocusWindow FocusWindow;
         public Achievement CurrentlyFocusedAchievement;
         public GameInfo CurrentGame;
 
-        private FocusController()
+        FocusController()
         {
             FocusWindow = new FocusWindow();
         }
@@ -68,7 +68,7 @@ namespace Retro_Achievement_Tracker.Controllers
             }
         }
 
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             FocusWindow.SetTitleFontFamily(TitleFontFamily);
             FocusWindow.SetTitleColor(TitleColor);
@@ -86,7 +86,7 @@ namespace Retro_Achievement_Tracker.Controllers
             FocusWindow.SetLineOutline(LineOutlineEnabled ? LineOutlineSize + "px solid " + LineOutlineColor : "0px");
         }
 
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             FocusWindow.SetSimpleFontFamily(SimpleFontFamily);
             FocusWindow.SetSimpleFontColor(SimpleFontColor);

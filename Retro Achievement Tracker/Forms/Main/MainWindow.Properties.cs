@@ -8,30 +8,30 @@ namespace Retro_Achievement_Tracker
     {
         #region Main
 
-        private bool ShouldRun,
+        bool ShouldRun,
             IsChanging,
             IsBooting,
             IsStarting;
 
-        private int CurrentlyViewingIndex,
+        int CurrentlyViewingIndex,
             UserAndGameTimerCounter,
             MaxCheevoCount = 0;
 
-        private UserSummary UserSummary;
-        private GameInfo GameInfoAndProgress;
-        private Achievement CurrentlyViewingAchievement;
-        private List<Achievement> OldUnlockedAchievements;
-        private Timer UserAndGameUpdateTimer;
-        private RetroAchievementAPIClient RetroAchievementsAPIClient;
+        UserSummary UserSummary;
+        GameInfo GameInfoAndProgress;
+        Achievement CurrentlyViewingAchievement;
+        List<Achievement> OldUnlockedAchievements;
+        Timer UserAndGameUpdateTimer;
+        RetroAchievementAPIClient RetroAchievementsAPIClient;
 
         #endregion
 
         #region WinForm
 
-        private OpenFileDialog openFileDialog1;
-        private ColorDialog colorDialog1;
-        private FolderBrowserDialog folderBrowserDialog1;
-        private Label usernameLabel,
+        OpenFileDialog openFileDialog1;
+        ColorDialog colorDialog1;
+        FolderBrowserDialog folderBrowserDialog1;
+        Label usernameLabel,
             apiKeyLabel,
             autoPollingStatusLabel,
             recentAchievementsMaxListLabel,
@@ -212,7 +212,7 @@ namespace Retro_Achievement_Tracker
             gameProgressTruePoints2Label,
             manualSearchLabel,
             achievementListWindowSizeLabel;
-        private NumericUpDown alertsCustomAchievementScaleNumericUpDown,
+        NumericUpDown alertsCustomAchievementScaleNumericUpDown,
             alertsCustomAchievementYNumericUpDown,
             alertsCustomAchievementInSpeedUpDown,
             alertsCustomAchievementOutSpeedUpDown,
@@ -247,7 +247,7 @@ namespace Retro_Achievement_Tracker
             recentAchievementsLineOutlineNumericUpDown,
             achievementListWindowSizeXUpDown,
             achievementListWindowSizeYUpDown;
-        private TextBox apiKeyTextBox,
+        TextBox apiKeyTextBox,
             usernameTextBox,
             userInfoTruePointsTextBox,
             userInfoPointsTextBox,
@@ -265,7 +265,7 @@ namespace Retro_Achievement_Tracker
             gameInfoDeveloperTextBox,
             gameInfoReleaseDateTextBox,
             manualSearchTextBox;
-        private PictureBox userProfilePictureBox,
+        PictureBox userProfilePictureBox,
             autoPollingStatusPictureBox,
             gameInfoPictureBox,
             focusAchievementPictureBox,
@@ -341,7 +341,7 @@ namespace Retro_Achievement_Tracker
             relatedMediaBackgroundColorPictureBox,
             pictureBox19,
             relatedMediaLBLinePictureBox;
-        private Button startButton,
+        Button startButton,
             stopButton,
             userInfoOpenWindowButton,
             userInfoDefaultButton,
@@ -365,7 +365,7 @@ namespace Retro_Achievement_Tracker
             checkForUpdatesButton,
             manualSearchButton,
             unlockAchievementButton;
-        private CheckBox autoStartCheckbox,
+        CheckBox autoStartCheckbox,
             userInfoAutoOpenWindowCheckbox,
             alertsCustomAchievementEnableCheckbox,
             alertsAchievementEditOutlineCheckbox,
@@ -424,7 +424,7 @@ namespace Retro_Achievement_Tracker
             achievementListAutoOpenWindowCheckbox,
             achievementListAutoScrollCheckBox,
             relatedMediaAutoOpenWindowCheckbox;
-        private ComboBox alertsCustomAchievementAnimationInComboBox,
+        ComboBox alertsCustomAchievementAnimationInComboBox,
             alertsCustomAchievementAnimationOutComboBox,
             alertsCustomMasteryAnimationOutComboBox,
             alertsCustomMasteryAnimationInComboBox,
@@ -443,7 +443,7 @@ namespace Retro_Achievement_Tracker
             recentAchievementsPointsFontComboBox,
             recentAchievementsDescriptionFontComboBox,
             recentAchievementsTitleFontComboBox;
-        private RadioButton focusBehaviorGoToLastRadioButton,
+        RadioButton focusBehaviorGoToLastRadioButton,
             focusBehaviorGoToNextRadioButton,
             focusBehaviorGoToPreviousRadioButton,
             focusBehaviorGoToFirstRadioButton,
@@ -466,7 +466,7 @@ namespace Retro_Achievement_Tracker
             relatedMediaLBClearLogoRadioButton,
             relatedMediaLBBannerRadioButton,
             relatedMediaLBTitleScreenRadioButton;
-        private Panel panel1,
+        Panel panel1,
             panel2,
             panel3,
             panel6,
@@ -592,7 +592,7 @@ namespace Retro_Achievement_Tracker
             panel124,
             panel8,
             panel9;
-        private TabPage focusTabPage,
+        TabPage focusTabPage,
             alertsTabPage2,
             userInfoTabPage,
             gameInfoTabPage,
@@ -602,7 +602,7 @@ namespace Retro_Achievement_Tracker
             relatedMediaTabPage,
             tabPage1,
             tabPage2;
-        private TabControl mainTabControl,
+        TabControl mainTabControl,
             alertTabControl;
 
         #endregion

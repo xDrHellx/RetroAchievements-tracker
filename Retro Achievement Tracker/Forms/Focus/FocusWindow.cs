@@ -68,7 +68,7 @@ namespace Retro_Achievement_Tracker.Forms
                 ClientSize = new Size(700, 165);
             }));
         }
-        private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             FocusController.Instance.IsOpen = true;
             FocusController.Instance.UpdateFocus();

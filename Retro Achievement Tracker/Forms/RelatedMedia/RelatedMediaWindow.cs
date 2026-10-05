@@ -43,7 +43,7 @@ namespace Retro_Achievement_Tracker.Forms
                 ClientSize = new Size(640, 480);
             }));
         }
-        private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             if (e.IsSuccess)
             {

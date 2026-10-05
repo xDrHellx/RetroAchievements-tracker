@@ -6,9 +6,9 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class RelatedMediaController : AbstractController
     {
-        private static readonly RelatedMediaController instance = new RelatedMediaController();
-        private static RelatedMediaWindow RelatedMediaWindow;
-        private static string CurrentImageURI;
+        static readonly RelatedMediaController instance = new RelatedMediaController();
+        static RelatedMediaWindow RelatedMediaWindow;
+        static string CurrentImageURI;
 
         public static RelatedMediaController Instance
         {

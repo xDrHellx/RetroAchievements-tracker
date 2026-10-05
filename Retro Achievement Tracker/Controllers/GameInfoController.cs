@@ -7,16 +7,16 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class GameInfoController : AbstractController
     {
-        private static readonly GameInfoController instance = new GameInfoController();
-        private static GameInfoWindow GameInfoWindow;
-        private string title,
+        static readonly GameInfoController instance = new GameInfoController();
+        static GameInfoWindow GameInfoWindow;
+        string title,
             genre,
             console,
             developer,
             publisher,
             released;
 
-        private GameInfoController()
+        GameInfoController()
         {
             GameInfoWindow = new GameInfoWindow();
         }
@@ -148,13 +148,13 @@ namespace Retro_Achievement_Tracker.Controllers
                 GameInfoWindow.SetClientSize();
             }
         }
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             GameInfoWindow.SetSimpleFontFamily(SimpleFontFamily);
             GameInfoWindow.SetSimpleFontColor(SimpleFontColor);
             GameInfoWindow.SetSimpleFontOutline(SimpleFontOutlineEnabled ? SimpleFontOutlineColor + " " + SimpleFontOutlineSize + "px" : "0px");
         }
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             GameInfoWindow.SetNameFontFamily(NameFontFamily);
             GameInfoWindow.SetNameColor(NameColor);

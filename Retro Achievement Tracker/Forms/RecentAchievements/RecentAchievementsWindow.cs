@@ -74,7 +74,7 @@ namespace Retro_Achievement_Tracker.Forms
                 ClientSize = new Size(511, 600);
             }));
         }
-        private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             RecentUnlocksController.Instance.IsOpen = true;
             RecentUnlocksController.Instance.SetAchievements();

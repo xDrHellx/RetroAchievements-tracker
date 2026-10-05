@@ -59,7 +59,7 @@ namespace Retro_Achievement_Tracker.Forms
                 webView21.NavigateToString(Resources.alerts_window);
             }
         }
-        private void MessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
+        void MessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
             string content = args.TryGetWebMessageAsString();
             if (content.Equals("setIsPlayingTrue"))
@@ -261,7 +261,7 @@ namespace Retro_Achievement_Tracker.Forms
                 ClientSize = new Size(1024, 768);
             }));
         }
-        private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             AlertsController.Instance.IsOpen = true;
             AlertsController.Instance.SetAllSettings();

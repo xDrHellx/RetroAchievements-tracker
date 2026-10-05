@@ -16,12 +16,12 @@ namespace Retro_Achievement_Tracker.Controllers
 {
     public sealed class AlertsController : AbstractController
     {
-        private static readonly AlertsController instance = new AlertsController();
-        private static AlertsWindow AlertsWindow;
-        private Stopwatch NotificationsStopwatch;
-        private Timer NotificationTimer;
-        private ConcurrentQueue<NotificationRequest> NotificationRequests;
-        private bool IsPlaying,
+        static readonly AlertsController instance = new AlertsController();
+        static AlertsWindow AlertsWindow;
+        Stopwatch NotificationsStopwatch;
+        Timer NotificationTimer;
+        ConcurrentQueue<NotificationRequest> NotificationRequests;
+        bool IsPlaying,
             AnimationInPlayed,
             AnimationOutPlayed,
             PlayingAchievement,
@@ -30,7 +30,7 @@ namespace Retro_Achievement_Tracker.Controllers
         public float AchievementPlayingTime,
             MasteryPlayingTime;
 
-        private AlertsController()
+        AlertsController()
         {
             AlertsWindow = new AlertsWindow();
 
@@ -131,7 +131,7 @@ namespace Retro_Achievement_Tracker.Controllers
                 NotificationRequests.Enqueue(notificationRequest);
             }
         }
-        private NotificationRequest NotificationRequestDequeue()
+        NotificationRequest NotificationRequestDequeue()
         {
             NotificationRequests.TryDequeue(out NotificationRequest notificationRequest);
             return notificationRequest;
@@ -161,7 +161,7 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
             }
         }
-        private async void RunNotificationTask()
+        async void RunNotificationTask()
         {
             NotificationsStopwatch = Stopwatch.StartNew();
 
@@ -238,7 +238,7 @@ namespace Retro_Achievement_Tracker.Controllers
                 await Task.Delay(10);
             }
         }
-        private void StartNewTimer()
+        void StartNewTimer()
         {
             NotificationTimer = new Timer
             {
@@ -283,13 +283,13 @@ namespace Retro_Achievement_Tracker.Controllers
                 AlertsWindow.SetClientSize();
             }
         }
-        private void SetSimpleSettings()
+        void SetSimpleSettings()
         {
             AlertsWindow.SetSimpleFontFamily(SimpleFontFamily);
             AlertsWindow.SetSimpleFontColor(SimpleFontColor);
             AlertsWindow.SetSimpleFontOutline(SimpleFontOutlineEnabled ? SimpleFontOutlineColor + " " + SimpleFontOutlineSize + "px" : "0px", SimpleFontOutlineEnabled ? SimpleFontOutlineSize + "px solid " + SimpleFontOutlineColor : "0px");
         }
-        private void SetAdvancedSettings()
+        void SetAdvancedSettings()
         {
             AlertsWindow.SetTitleFontFamily(TitleFontFamily);
             AlertsWindow.SetTitleColor(TitleColor);
@@ -376,18 +376,18 @@ namespace Retro_Achievement_Tracker.Controllers
         /**
          * Variables
          */
-        private AnimationDirection MasteryOutDirection => CustomMasteryEnabled ? MasteryAnimationOut : AnimationDirection.UP;
-        private AnimationDirection MasteryInDirection => CustomMasteryEnabled ? MasteryAnimationIn : AnimationDirection.STATIC;
-        private AnimationDirection AchievementOutDirection => CustomAchievementEnabled ? AchievementAnimationOut : AnimationDirection.UP;
-        private AnimationDirection AchievementInDirection => CustomAchievementEnabled ? AchievementAnimationIn : AnimationDirection.STATIC;
-        private int MasteryOutTime => CustomMasteryEnabled ? CustomMasteryOutTime : 5200;
-        private int MasteryInTime => CustomMasteryEnabled ? CustomMasteryInTime : 0;
-        private int MasteryOutSpeed => CustomMasteryEnabled ? CustomMasteryOutSpeed : 700;
-        private int MasteryInSpeed => CustomMasteryEnabled ? CustomMasteryInSpeed : 0;
-        private int AchievementOutTime => CustomAchievementEnabled ? CustomAchievementOutTime : 5200;
-        private int AchievementInTime => CustomAchievementEnabled ? CustomAchievementInTime : 0;
-        private int AchievementOutSpeed => CustomAchievementEnabled ? CustomAchievementOutSpeed : 700;
-        private int AchievementInSpeed => CustomAchievementEnabled ? CustomAchievementInSpeed : 0;
+        AnimationDirection MasteryOutDirection => CustomMasteryEnabled ? MasteryAnimationOut : AnimationDirection.UP;
+        AnimationDirection MasteryInDirection => CustomMasteryEnabled ? MasteryAnimationIn : AnimationDirection.STATIC;
+        AnimationDirection AchievementOutDirection => CustomAchievementEnabled ? AchievementAnimationOut : AnimationDirection.UP;
+        AnimationDirection AchievementInDirection => CustomAchievementEnabled ? AchievementAnimationIn : AnimationDirection.STATIC;
+        int MasteryOutTime => CustomMasteryEnabled ? CustomMasteryOutTime : 5200;
+        int MasteryInTime => CustomMasteryEnabled ? CustomMasteryInTime : 0;
+        int MasteryOutSpeed => CustomMasteryEnabled ? CustomMasteryOutSpeed : 700;
+        int MasteryInSpeed => CustomMasteryEnabled ? CustomMasteryInSpeed : 0;
+        int AchievementOutTime => CustomAchievementEnabled ? CustomAchievementOutTime : 5200;
+        int AchievementInTime => CustomAchievementEnabled ? CustomAchievementInTime : 0;
+        int AchievementOutSpeed => CustomAchievementEnabled ? CustomAchievementOutSpeed : 700;
+        int AchievementInSpeed => CustomAchievementEnabled ? CustomAchievementInSpeed : 0;
         public bool AchievementAlertEnable
         {
             get => Settings.Default.alerts_achievement_enable;

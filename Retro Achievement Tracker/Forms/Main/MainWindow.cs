@@ -18,7 +18,7 @@ namespace Retro_Achievement_Tracker
 {
     public partial class MainWindow : Form
     {
-        private List<Achievement> LockedAchievements
+        List<Achievement> LockedAchievements
         {
             get
             {
@@ -30,7 +30,7 @@ namespace Retro_Achievement_Tracker
             }
         }
 
-        private List<Achievement> UnlockedAchievements
+        List<Achievement> UnlockedAchievements
         {
             get
             {
@@ -54,13 +54,13 @@ namespace Retro_Achievement_Tracker
             InitializeComponent();
         }
 
-        private void CheckForUpdatesButton_Click(object sender, EventArgs e)
+        void CheckForUpdatesButton_Click(object sender, EventArgs e)
         {
             Settings.Default.check_for_update_on_version = true;
             AutoUpdate();
         }
 
-        private void TabControlExtra1_TabIndexChanged(object sender, EventArgs e)
+        void TabControlExtra1_TabIndexChanged(object sender, EventArgs e)
         {
             foreach (TabPage tab in mainTabControl.TabPages)
             {
@@ -75,7 +75,7 @@ namespace Retro_Achievement_Tracker
             }
         }
 
-        private void AutoUpdate()
+        void AutoUpdate()
         {
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
 
@@ -135,7 +135,7 @@ namespace Retro_Achievement_Tracker
             RelatedMediaController.Instance.Close();
         }
 
-        private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
+        void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
         {
             if (args != null)
             {
@@ -170,7 +170,7 @@ namespace Retro_Achievement_Tracker
             }
         }
 
-        private async void UpdateFromSite(object sender, EventArgs e)
+        async void UpdateFromSite(object sender, EventArgs e)
         {
             if (!ShouldRun)
             {
@@ -288,7 +288,7 @@ namespace Retro_Achievement_Tracker
             }
         }
 
-        private bool UpdateGameProgress(bool sameGame)
+        bool UpdateGameProgress(bool sameGame)
         {
             bool needsUpdate = !sameGame;
             bool triggeredUpdate = false;
@@ -379,7 +379,7 @@ namespace Retro_Achievement_Tracker
             return triggeredUpdate;
         }
 
-        private void FindNewFocus()
+        void FindNewFocus()
         {
             int currentIndex = GameInfoAndProgress.Achievements.IndexOf(FocusController.Instance.CurrentlyFocusedAchievement);
 
@@ -460,7 +460,7 @@ namespace Retro_Achievement_Tracker
                 UpdateFocusButtons();
             }
         }
-        private void SetFocus()
+        void SetFocus()
         {
             if (CurrentlyViewingAchievement != null)
             {
@@ -481,7 +481,7 @@ namespace Retro_Achievement_Tracker
                 StreamLabelController.Instance.ClearFocus();
             }
         }
-        private void CreateFolders()
+        void CreateFolders()
         {
             Directory.CreateDirectory(@"stream-labels");
             Directory.CreateDirectory(@"stream-labels\user-info");
@@ -491,15 +491,15 @@ namespace Retro_Achievement_Tracker
             Directory.CreateDirectory(@"stream-labels\alerts");
             Directory.CreateDirectory(@"game-progress");
         }
-        private bool CanStart()
+        bool CanStart()
         {
             return !(string.IsNullOrEmpty(usernameTextBox.Text) || string.IsNullOrEmpty(apiKeyTextBox.Text));
         }
-        private void UpdateActivePollingLabel(string s)
+        void UpdateActivePollingLabel(string s)
         {
             autoPollingStatusLabel.Text = s;
         }
-        private void StartTimer()
+        void StartTimer()
         {
             UserAndGameTimerCounter = (IsStarting || IsBooting) ? 0 : 60;
             UserAndGameUpdateTimer = new Timer
@@ -511,7 +511,7 @@ namespace Retro_Achievement_Tracker
             UserAndGameUpdateTimer.Tick += new EventHandler(UpdateFromSite);
             UserAndGameUpdateTimer.Start();
         }
-        private void UpdateUserInfo()
+        void UpdateUserInfo()
         {
             autoPollingStatusPictureBox.Image = Resources.green_button;
             userProfilePictureBox.ImageLocation = string.Format(Constants.RETRO_ACHIEVEMENTS_PROFILE_PIC_URL, UserSummary.UserName);
@@ -529,7 +529,7 @@ namespace Retro_Achievement_Tracker
             UserInfoController.Instance.SetRatio(UserSummary.RetroRatio);
             StreamLabelController.Instance.EnqueueUserInfo(UserSummary);
         }
-        private void UpdateGameInfo()
+        void UpdateGameInfo()
         {
             gameInfoPictureBox.ImageLocation = GameInfoAndProgress.BadgeUri;
             gameInfoTitleLabel.Text = GameInfoAndProgress.Title + " (" + GameInfoAndProgress.ConsoleName + ")";
@@ -610,7 +610,7 @@ namespace Retro_Achievement_Tracker
             RelatedMediaController.Instance.RABoxArtURI = GameInfoAndProgress.ImageBoxArt;
             RelatedMediaController.Instance.UpdateImage(false);
         }
-        private void UpdateFocusButtons()
+        void UpdateFocusButtons()
         {
             if (LockedAchievements.Count == 0)
             {
@@ -639,7 +639,7 @@ namespace Retro_Achievement_Tracker
                 }
             }
         }
-        private void StartButton_Click(object sender, EventArgs e)
+        void StartButton_Click(object sender, EventArgs e)
         {
             IsStarting = true;
 
@@ -665,7 +665,7 @@ namespace Retro_Achievement_Tracker
 
             IsStarting = false;
         }
-        private void StopButton_Click(object sender, EventArgs e)
+        void StopButton_Click(object sender, EventArgs e)
         {
             ShouldRun = false;
 
@@ -693,18 +693,18 @@ namespace Retro_Achievement_Tracker
             IsBooting = false;
             IsChanging = false;
         }
-        private void RequiredField_TextChanged(object sender, EventArgs e)
+        void RequiredField_TextChanged(object sender, EventArgs e)
         {
             startButton.Enabled = CanStart();
         }
-        private void ManualSearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        void ManualSearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-        private async void ManualSearchButton_Click(object sender, EventArgs e)
+        async void ManualSearchButton_Click(object sender, EventArgs e)
         {
             if (!ShouldRun && !UserAndGameUpdateTimer.Enabled && manualSearchTextBox.Text.Length > 0)
             {
@@ -754,12 +754,12 @@ namespace Retro_Achievement_Tracker
                 UpdateGameProgress(false);
             }
         }
-        private void UnlockAchievementButton_Click(object sender, EventArgs e)
+        void UnlockAchievementButton_Click(object sender, EventArgs e)
         {
             CurrentlyViewingAchievement.DateEarned = DateTime.Now;
             UpdateGameProgress(true);
         }
-        private void CustomAlertsCheckBox_CheckedChanged(object sender, EventArgs eventArgs)
+        void CustomAlertsCheckBox_CheckedChanged(object sender, EventArgs eventArgs)
         {
             if (!IsChanging)
             {
@@ -823,7 +823,7 @@ namespace Retro_Achievement_Tracker
                 IsChanging = false;
             }
         }
-        private void UpdateAlertsEnabledControls()
+        void UpdateAlertsEnabledControls()
         {
             alertsAchievementEnableCheckbox.Checked = AlertsController.Instance.AchievementAlertEnable;
             alertsMasteryEnableCheckbox.Checked = AlertsController.Instance.MasteryAlertEnable;
@@ -885,7 +885,7 @@ namespace Retro_Achievement_Tracker
                 alertsMasteryEditOutlineCheckbox.Enabled = false;
             }
         }
-        private void CustomNumericUpDown_ValueChanged(object sender, EventArgs eventArgs)
+        void CustomNumericUpDown_ValueChanged(object sender, EventArgs eventArgs)
         {
             if (IsChanging)
             {
@@ -1049,7 +1049,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void SelectCustomAlertButton_Click(object sender, EventArgs eventArgs)
+        void SelectCustomAlertButton_Click(object sender, EventArgs eventArgs)
         {
             Button button = (Button)sender;
             switch (button.Name)
@@ -1062,7 +1062,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void SelectCustomAchievementFile()
+        void SelectCustomAchievementFile()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -1074,7 +1074,7 @@ namespace Retro_Achievement_Tracker
                 alertsCustomAchievementEnableCheckbox.Checked = false;
             }
         }
-        private void SelectCustomMasteryFile()
+        void SelectCustomMasteryFile()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -1086,7 +1086,7 @@ namespace Retro_Achievement_Tracker
                 alertsCustomMasteryEnableCheckbox.Checked = false;
             }
         }
-        private void ShowAlertButton_Click(object sender, EventArgs eventArgs)
+        void ShowAlertButton_Click(object sender, EventArgs eventArgs)
         {
             Button button = (Button)sender;
             switch (button.Name)
@@ -1123,12 +1123,12 @@ namespace Retro_Achievement_Tracker
 
             StreamLabelController.Instance.RunNotifications();
         }
-        private void SetFocusButton_Click(object sender, EventArgs e)
+        void SetFocusButton_Click(object sender, EventArgs e)
         {
             SetFocus();
             StreamLabelController.Instance.RunNotifications();
         }
-        private void MoveFocusIndexPrev_Click(object sender, EventArgs e)
+        void MoveFocusIndexPrev_Click(object sender, EventArgs e)
         {
             CurrentlyViewingIndex--;
 
@@ -1139,7 +1139,7 @@ namespace Retro_Achievement_Tracker
 
             UpdateCurrentlyViewingAchievement();
         }
-        private void MoveFocusIndexNext_Click(object sender, EventArgs e)
+        void MoveFocusIndexNext_Click(object sender, EventArgs e)
         {
             CurrentlyViewingIndex++;
 
@@ -1150,7 +1150,7 @@ namespace Retro_Achievement_Tracker
 
             UpdateCurrentlyViewingAchievement();
         }
-        private void ShowWindowButton_Click(object sender, EventArgs e)
+        void ShowWindowButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             switch (button.Name)
@@ -1184,7 +1184,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void SetRelatedMediaPathButton_Click(object sender, EventArgs e)
+        void SetRelatedMediaPathButton_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -1193,7 +1193,7 @@ namespace Retro_Achievement_Tracker
                 UpdateLaunchBoxReferences();
             }
         }
-        private void SetFontFamilyBox(ComboBox comboBox, FontFamily fontFamily)
+        void SetFontFamilyBox(ComboBox comboBox, FontFamily fontFamily)
         {
             comboBox.Items.Clear();
 
@@ -1205,7 +1205,7 @@ namespace Retro_Achievement_Tracker
 
             comboBox.SelectedIndex = Array.FindIndex(familyArray, row => row.Name == fontFamily.Name);
         }
-        private void FontColorPictureBox_Click(object sender, EventArgs e)
+        void FontColorPictureBox_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() != DialogResult.OK)
             {
@@ -1489,7 +1489,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void FontFamilyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        void FontFamilyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -1611,7 +1611,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void NotificationAnimationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        void NotificationAnimationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -1707,7 +1707,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void FeatureEnablementCheckBox_CheckedChanged(object sender, EventArgs e)
+        void FeatureEnablementCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -1907,7 +1907,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void DividerCharacter_RadioButtonClicked(object sender, EventArgs e)
+        void DividerCharacter_RadioButtonClicked(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -1937,7 +1937,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void UpdateDividerCharacterRadioButtons()
+        void UpdateDividerCharacterRadioButtons()
         {
             switch (GameProgressController.Instance.DividerCharacter)
             {
@@ -1958,7 +1958,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void RefocusBehavior_RadioButtonCheckChanged(object sender, EventArgs e)
+        void RefocusBehavior_RadioButtonCheckChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -1991,7 +1991,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void UpdateRefocusBehaviorRadioButtons()
+        void UpdateRefocusBehaviorRadioButtons()
         {
             switch (FocusController.Instance.RefocusBehavior)
             {
@@ -2021,7 +2021,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void RelatedMedia_RadioButtonCheckChanged(object sender, EventArgs e)
+        void RelatedMedia_RadioButtonCheckChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -2167,7 +2167,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void UpdateRelatedMediaRadioButtons()
+        void UpdateRelatedMediaRadioButtons()
         {
             UpdateLaunchBoxIntegrationState();
 
@@ -2465,7 +2465,7 @@ namespace Retro_Achievement_Tracker
 
             RelatedMediaController.Instance.SetAllSettings(false);
         }
-        private void UpdateLaunchBoxIntegrationState()
+        void UpdateLaunchBoxIntegrationState()
         {
             if (!Directory.Exists(RelatedMediaController.Instance.LaunchBoxFilePath) || (Directory.Exists(RelatedMediaController.Instance.LaunchBoxFilePath) && !File.Exists(RelatedMediaController.Instance.LaunchBoxFilePath + "\\LaunchBox.exe")))
             {
@@ -2522,7 +2522,7 @@ namespace Retro_Achievement_Tracker
                 relatedMediaLBCartBackRadioButton.Enabled = true;
             }
         }
-        private void UpdateLaunchBoxReferences()
+        void UpdateLaunchBoxReferences()
         {
             if (GameInfoAndProgress != null || !Directory.Exists(Settings.Default.related_media_launchbox_filepath))
             {
@@ -3271,7 +3271,7 @@ namespace Retro_Achievement_Tracker
             }
         }
 
-        private void AdvancedCheckBox_Click(object sender, EventArgs e)
+        void AdvancedCheckBox_Click(object sender, EventArgs e)
         {
             if (!IsChanging)
             {
@@ -3303,7 +3303,7 @@ namespace Retro_Achievement_Tracker
                 IsChanging = false;
             }
         }
-        private void UpdateAdvancedSettings()
+        void UpdateAdvancedSettings()
         {
             if (FocusController.Instance.AdvancedSettingsEnabled)
             {
@@ -3491,7 +3491,7 @@ namespace Retro_Achievement_Tracker
                 recentAchievementsLineOutlinePanel.Enabled = false;
             }
         }
-        private void DefaultButton_Click(object sender, EventArgs e)
+        void DefaultButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             switch (button.Name)
@@ -3519,7 +3519,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void OverrideTextBox_TextChanged(object sender, EventArgs e)
+        void OverrideTextBox_TextChanged(object sender, EventArgs e)
         {
             if (IsChanging)
             {
@@ -3579,7 +3579,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
-        private void BrowserSensitiveControl_Click(object sender, EventArgs e)
+        void BrowserSensitiveControl_Click(object sender, EventArgs e)
         {
             Control control = (Control)sender;
             switch (control.Name)
@@ -3610,7 +3610,7 @@ namespace Retro_Achievement_Tracker
                     break;
             }
         }
-        private void LoadProperties()
+        void LoadProperties()
         {
             if (Settings.Default.UpdateSettings)
             {
@@ -4029,17 +4029,17 @@ namespace Retro_Achievement_Tracker
             UpdateRefocusBehaviorRadioButtons();
             UpdateDividerCharacterRadioButtons();
         }
-        private string Username
+        string Username
         {
             get => Settings.Default.ra_username;
             set => Settings.Default.ra_username = value;
         }
-        private string WebAPIKey
+        string WebAPIKey
         {
             get => Settings.Default.ra_key;
             set => Settings.Default.ra_key = value;
         }
-        private long PreviouslyPlayedGameId
+        long PreviouslyPlayedGameId
         {
             get => Settings.Default.previously_played_game;
             set => Settings.Default.previously_played_game = (int)value;
