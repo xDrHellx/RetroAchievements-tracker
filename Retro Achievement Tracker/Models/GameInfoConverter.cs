@@ -22,20 +22,20 @@ namespace Retro_Achievement_Tracker
             {
                 JObject item = JObject.Load(reader);
 
-                JToken ID = item["ID"];
-                JToken GameID = item["GameID"];
-                JToken Title = item["Title"];
-                JToken ConsoleID = item["ConsoleID"];
-                JToken ImageIcon = item["ImageIcon"];
-                JToken ImageTitle = item["ImageTitle"];
-                JToken ImageIngame = item["ImageIngame"];
-                JToken ImageBoxArt = item["ImageBoxArt"];
-                JToken Publisher = item["Publisher"];
-                JToken Developer = item["Developer"];
-                JToken Genre = item["Genre"];
-                JToken Released = item["Released"];
-                JToken LastPlayed = item["LastPlayed"];
-                JToken Achievements = item["Achievements"];
+                JToken ID = item["ID"],
+                    GameID = item["GameID"],
+                    Title = item["Title"],
+                    ConsoleID = item["ConsoleID"],
+                    ImageIcon = item["ImageIcon"],
+                    ImageTitle = item["ImageTitle"],
+                    ImageIngame = item["ImageIngame"],
+                    ImageBoxArt = item["ImageBoxArt"],
+                    Publisher = item["Publisher"],
+                    Developer = item["Developer"],
+                    Genre = item["Genre"],
+                    Released = item["Released"],
+                    LastPlayed = item["LastPlayed"],
+                    Achievements = item["Achievements"];
 
                 if (Released != null)
                 {

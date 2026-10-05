@@ -19,14 +19,14 @@ namespace Retro_Achievement_Tracker
             UserSummary UserSummary = existingValue != null ? (UserSummary)existingValue : new UserSummary();
             JObject item = JObject.Load(reader);
 
-            JToken RecentAchievements = item["RecentAchievements"];
-            JToken LastGameID = item["LastGameID"];
-            JToken Motto = item["Motto"];
-            JToken UserPic = item["UserPic"];
-            JToken Rank = item["Rank"];
-            JToken TotalPoints = item["TotalPoints"];
-            JToken TotalTruePoints = item["TotalTruePoints"];
-            JToken LastActivity = item["LastActivity"];
+            JToken RecentAchievements = item["RecentAchievements"],
+                LastGameID = item["LastGameID"],
+                Motto = item["Motto"],
+                UserPic = item["UserPic"],
+                Rank = item["Rank"],
+                TotalPoints = item["TotalPoints"],
+                TotalTruePoints = item["TotalTruePoints"],
+                LastActivity = item["LastActivity"];
 
             if (RecentAchievements != null)
             {

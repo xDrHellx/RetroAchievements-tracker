@@ -1,15 +1,15 @@
 ﻿using Retro_Achievement_Tracker.Properties;
 using Retro_Achievement_Tracker.Utils;
+using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
+using System.ComponentModel;
 
 namespace Retro_Achievement_Tracker.Forms
 {
     partial class FocusWindow
     {
         /// <summary>Required designer variable.</summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>Clean up any resources being used.</summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -27,22 +27,22 @@ namespace Retro_Achievement_Tracker.Forms
         /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FocusWindow));
-            this.webView21 = WinFormHelpers.CreateWebView2("webView21", new System.Drawing.Point(0, 0), new System.Drawing.Size(1920, 1080));
-            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(FocusWindow));
+            this.webView21 = WinFormHelpers.CreateWebView2("webView21", new Point(0, 0), new Size(1920, 1080));
+            ((ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             this.webView21.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.NavigationCompleted);
             // 
             // FocusWindow
             // 
-            this.ClientSize = new System.Drawing.Size(120, 0);
+            this.ClientSize = new Size(120, 0);
             this.Controls.Add(this.webView21);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.Icon = ((Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FocusWindow";
             this.Text = "RA Tracker - Focus";
-            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
+            ((ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
         }
 

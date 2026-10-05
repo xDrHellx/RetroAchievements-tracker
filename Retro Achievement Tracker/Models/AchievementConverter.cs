@@ -17,17 +17,17 @@ namespace Retro_Achievement_Tracker.Models
             Achievement Achievement = existingValue != null ? (Achievement)existingValue : new Achievement();
             JObject item = JObject.Load(reader);
 
-            JToken ID = item["ID"];
-            JToken AchievementID = item["AchievementID"];
-            JToken GameID = item["GameID"];
-            JToken Title = item["Title"];
-            JToken Description = item["Description"];
-            JToken Points = item["Points"];
-            JToken TrueRatio = item["TrueRatio"];
-            JToken Date = item["Date"];
-            JToken DateEarned = item["DateEarnedHardcore"];
-            JToken BadgeName = item["BadgeName"];
-            JToken DisplayOrder = item["DisplayOrder"];
+            JToken ID = item["ID"],
+                AchievementID = item["AchievementID"],
+                GameID = item["GameID"],
+                Title = item["Title"],
+                Description = item["Description"],
+                Points = item["Points"],
+                TrueRatio = item["TrueRatio"],
+                Date = item["Date"],
+                DateEarned = item["DateEarnedHardcore"],
+                BadgeName = item["BadgeName"],
+                DisplayOrder = item["DisplayOrder"];
 
             if (ID != null)
             {

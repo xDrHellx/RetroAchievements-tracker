@@ -57,7 +57,6 @@ namespace Retro_Achievement_Tracker
         private void CheckForUpdatesButton_Click(object sender, EventArgs e)
         {
             Settings.Default.check_for_update_on_version = true;
-
             AutoUpdate();
         }
 
@@ -127,7 +126,6 @@ namespace Retro_Achievement_Tracker
             Settings.Default.Save();
 
             StreamLabelController.Instance.ClearAllStreamLabels();
-
             FocusController.Instance.Close();
             UserInfoController.Instance.Close();
             AlertsController.Instance.Close();
@@ -148,14 +146,15 @@ namespace Retro_Achievement_Tracker
                     try
                     {
                         DialogResult dialogResult = MessageBox.Show("Old version: " + args.InstalledVersion + "\nNew version: " + args.CurrentVersion, "New Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
                         if (dialogResult.Equals(DialogResult.Yes))
                         {
                             if (AutoUpdater.DownloadUpdate(args))
                                 Close();
                         }
                         else
+                        {
                             Settings.Default.check_for_update_on_version = false;
+                        }
                     }
                     catch (Exception exception)
                     {
@@ -176,7 +175,6 @@ namespace Retro_Achievement_Tracker
             if (!ShouldRun)
             {
                 UserAndGameUpdateTimer.Stop();
-
                 return;
             }
 
@@ -228,7 +226,6 @@ namespace Retro_Achievement_Tracker
                     if (UserSummary != null && UserSummary.LastGameID > 0)
                     {
                         List<GameInfo> previouslyPlayed = await RetroAchievementsAPIClient.GetRecentlyPlayedGames();
-
                         if (previouslyPlayed.Count > 0)
                         {
                             List<Achievement> recentlyUnlockedAchievements = await RetroAchievementsAPIClient.GetRecentAchievements();
@@ -252,13 +249,19 @@ namespace Retro_Achievement_Tracker
                             }
 
                             if (GameInfoAndProgress == null)
+                            {
                                 ShouldRun = false;
+                            }
                         }
 
                         if (ShouldRun)
+                        {
                             StartTimer();
+                        }
                         else
+                        {
                             StopButton_Click(null, null);
+                        }
                     }
                 }
             }
@@ -266,8 +269,7 @@ namespace Retro_Achievement_Tracker
             {
                 if (ex.Message.Contains("RA backend"))
                 {
-                    ShouldRun = false;
-                    IsBooting = false;
+                    ShouldRun = IsBooting = false;
 
                     UpdateActivePollingLabel("API_GetGameInfoAndUserProgress is down.");
 
@@ -276,9 +278,13 @@ namespace Retro_Achievement_Tracker
                 }
 
                 if (ShouldRun)
+                {
                     StartTimer();
+                }
                 else
+                {
                     StopButton_Click(null, null);
+                }
             }
         }
 
@@ -300,8 +306,8 @@ namespace Retro_Achievement_Tracker
                 if (sameGame)
                 {
                     List<Achievement> achievementNotificationList = UnlockedAchievements
-                                                                    .FindAll(unlockedAchievement => !OldUnlockedAchievements.Contains(unlockedAchievement))
-                                                                    .ToList();
+                        .FindAll(unlockedAchievement => !OldUnlockedAchievements.Contains(unlockedAchievement))
+                        .ToList();
 
                     achievementNotificationList.ForEach((achievement) => StreamLabelController.Instance.EnqueueAlert(achievement));
 
@@ -448,9 +454,7 @@ namespace Retro_Achievement_Tracker
                     CurrentlyViewingIndex = -1;
                     CurrentlyViewingAchievement = null;
 
-                    focusAchievementPictureBox.ImageLocation = "";
-                    focusAchievementTitleLabel.Text = "";
-                    focusAchievementDescriptionLabel.Text = "";
+                    focusAchievementPictureBox.ImageLocation = focusAchievementTitleLabel.Text = focusAchievementDescriptionLabel.Text = "";
                 }
 
                 UpdateFocusButtons();
@@ -883,165 +887,167 @@ namespace Retro_Achievement_Tracker
         }
         private void CustomNumericUpDown_ValueChanged(object sender, EventArgs eventArgs)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-                NumericUpDown numericUpDown = sender as NumericUpDown;
-
-                switch (numericUpDown.Name)
-                {
-                    case "focusTitleFontOutlineNumericUpDown":
-                        if (FocusController.Instance.AdvancedSettingsEnabled)
-                        {
-                            FocusController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            FocusController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "focusDescriptionFontOutlineNumericUpDown":
-                        FocusController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "focusPointsFontOutlineNumericUpDown":
-                        FocusController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "focusLineOutlineNumericUpDown":
-                        FocusController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsTitleFontOutlineNumericUpDown":
-                        if (AlertsController.Instance.AdvancedSettingsEnabled)
-                        {
-                            AlertsController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            AlertsController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "alertsDescriptionFontOutlineNumericUpDown":
-                        AlertsController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsPointsFontOutlineNumericUpDown":
-                        AlertsController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsLineOutlineNumericUpDown":
-                        AlertsController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementXNumericUpDown":
-                        AlertsController.Instance.CustomAchievementX = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementYNumericUpDown":
-                        AlertsController.Instance.CustomAchievementY = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementScaleNumericUpDown":
-                        AlertsController.Instance.CustomAchievementScale = Convert.ToInt32(numericUpDown.Value, CultureInfo.CurrentCulture);
-                        break;
-                    case "alertsCustomAchievementInNumericUpDown":
-                        AlertsController.Instance.CustomAchievementInTime = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementInSpeedUpDown":
-                        AlertsController.Instance.CustomAchievementInSpeed = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementOutNumericUpDown":
-                        AlertsController.Instance.CustomAchievementOutTime = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomAchievementOutSpeedUpDown":
-                        AlertsController.Instance.CustomAchievementOutSpeed = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryXNumericUpDown":
-                        AlertsController.Instance.CustomMasteryX = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryYNumericUpDown":
-                        AlertsController.Instance.CustomMasteryY = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryScaleNumericUpDown":
-                        AlertsController.Instance.CustomMasteryScale = Convert.ToInt32(numericUpDown.Value, CultureInfo.CurrentCulture);
-                        break;
-                    case "alertsCustomMasteryInNumericUpDown":
-                        AlertsController.Instance.CustomMasteryInTime = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryInSpeedUpDown":
-                        AlertsController.Instance.CustomMasteryInSpeed = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryOutNumericUpDown":
-                        AlertsController.Instance.CustomMasteryOutTime = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "alertsCustomMasteryOutSpeedUpDown":
-                        AlertsController.Instance.CustomMasteryOutSpeed = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "userInfoNamesFontOutlineNumericUpDown":
-                        if (UserInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            UserInfoController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            UserInfoController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "userInfoValuesFontOutlineNumericUpDown":
-                        UserInfoController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "gameInfoNamesFontOutlineNumericUpDown":
-                        if (GameInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameInfoController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            GameInfoController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "gameInfoValuesFontOutlineNumericUpDown":
-                        GameInfoController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "gameProgressNamesFontOutlineNumericUpDown":
-                        if (GameProgressController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameProgressController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            GameProgressController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "gameProgressValuesFontOutlineNumericUpDown":
-                        GameProgressController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "recentAchievementsTitleFontOutlineNumericUpDown":
-                        if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-                        {
-                            RecentUnlocksController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        else
-                        {
-                            RecentUnlocksController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        }
-                        break;
-                    case "recentAchievementsDescriptionFontOutlineNumericUpDown":
-                        RecentUnlocksController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "recentAchievementsPointsFontOutlineNumericUpDown":
-                        RecentUnlocksController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "recentAchievementsLineOutlineNumericUpDown":
-                        RecentUnlocksController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "recentAchievementsMaxListNumericUpDown":
-                        RecentUnlocksController.Instance.MaxListSize = Convert.ToInt32(numericUpDown.Value);
-                        RecentUnlocksController.Instance.SetAchievements(UnlockedAchievements.ToList());
-                        break;
-                    case "achievementListWindowSizeXUpDown":
-                        AchievementListController.Instance.WindowSizeX = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                    case "achievementListWindowSizeYUpDown":
-                        AchievementListController.Instance.WindowSizeY = Convert.ToInt32(numericUpDown.Value);
-                        break;
-                }
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+            NumericUpDown numericUpDown = sender as NumericUpDown;
+
+            switch (numericUpDown.Name)
+            {
+                case "focusTitleFontOutlineNumericUpDown":
+                    if (FocusController.Instance.AdvancedSettingsEnabled)
+                    {
+                        FocusController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        FocusController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "focusDescriptionFontOutlineNumericUpDown":
+                    FocusController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "focusPointsFontOutlineNumericUpDown":
+                    FocusController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "focusLineOutlineNumericUpDown":
+                    FocusController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsTitleFontOutlineNumericUpDown":
+                    if (AlertsController.Instance.AdvancedSettingsEnabled)
+                    {
+                        AlertsController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        AlertsController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "alertsDescriptionFontOutlineNumericUpDown":
+                    AlertsController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsPointsFontOutlineNumericUpDown":
+                    AlertsController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsLineOutlineNumericUpDown":
+                    AlertsController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementXNumericUpDown":
+                    AlertsController.Instance.CustomAchievementX = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementYNumericUpDown":
+                    AlertsController.Instance.CustomAchievementY = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementScaleNumericUpDown":
+                    AlertsController.Instance.CustomAchievementScale = Convert.ToInt32(numericUpDown.Value, CultureInfo.CurrentCulture);
+                    break;
+                case "alertsCustomAchievementInNumericUpDown":
+                    AlertsController.Instance.CustomAchievementInTime = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementInSpeedUpDown":
+                    AlertsController.Instance.CustomAchievementInSpeed = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementOutNumericUpDown":
+                    AlertsController.Instance.CustomAchievementOutTime = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomAchievementOutSpeedUpDown":
+                    AlertsController.Instance.CustomAchievementOutSpeed = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryXNumericUpDown":
+                    AlertsController.Instance.CustomMasteryX = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryYNumericUpDown":
+                    AlertsController.Instance.CustomMasteryY = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryScaleNumericUpDown":
+                    AlertsController.Instance.CustomMasteryScale = Convert.ToInt32(numericUpDown.Value, CultureInfo.CurrentCulture);
+                    break;
+                case "alertsCustomMasteryInNumericUpDown":
+                    AlertsController.Instance.CustomMasteryInTime = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryInSpeedUpDown":
+                    AlertsController.Instance.CustomMasteryInSpeed = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryOutNumericUpDown":
+                    AlertsController.Instance.CustomMasteryOutTime = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "alertsCustomMasteryOutSpeedUpDown":
+                    AlertsController.Instance.CustomMasteryOutSpeed = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "userInfoNamesFontOutlineNumericUpDown":
+                    if (UserInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        UserInfoController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        UserInfoController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "userInfoValuesFontOutlineNumericUpDown":
+                    UserInfoController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "gameInfoNamesFontOutlineNumericUpDown":
+                    if (GameInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameInfoController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        GameInfoController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "gameInfoValuesFontOutlineNumericUpDown":
+                    GameInfoController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "gameProgressNamesFontOutlineNumericUpDown":
+                    if (GameProgressController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameProgressController.Instance.NameOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        GameProgressController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "gameProgressValuesFontOutlineNumericUpDown":
+                    GameProgressController.Instance.ValueOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "recentAchievementsTitleFontOutlineNumericUpDown":
+                    if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
+                    {
+                        RecentUnlocksController.Instance.TitleOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    else
+                    {
+                        RecentUnlocksController.Instance.SimpleFontOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    }
+                    break;
+                case "recentAchievementsDescriptionFontOutlineNumericUpDown":
+                    RecentUnlocksController.Instance.DescriptionOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "recentAchievementsPointsFontOutlineNumericUpDown":
+                    RecentUnlocksController.Instance.PointsOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "recentAchievementsLineOutlineNumericUpDown":
+                    RecentUnlocksController.Instance.LineOutlineSize = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "recentAchievementsMaxListNumericUpDown":
+                    RecentUnlocksController.Instance.MaxListSize = Convert.ToInt32(numericUpDown.Value);
+                    RecentUnlocksController.Instance.SetAchievements(UnlockedAchievements.ToList());
+                    break;
+                case "achievementListWindowSizeXUpDown":
+                    AchievementListController.Instance.WindowSizeX = Convert.ToInt32(numericUpDown.Value);
+                    break;
+                case "achievementListWindowSizeYUpDown":
+                    AchievementListController.Instance.WindowSizeY = Convert.ToInt32(numericUpDown.Value);
+                    break;
+            }
+
+            IsChanging = false;
         }
         private void SelectCustomAlertButton_Click(object sender, EventArgs eventArgs)
         {
@@ -1083,12 +1089,10 @@ namespace Retro_Achievement_Tracker
         private void ShowAlertButton_Click(object sender, EventArgs eventArgs)
         {
             Button button = (Button)sender;
-
             switch (button.Name)
             {
                 case "alertsPlayAchievementButton":
                     List<Achievement> unlockedAchievements = UnlockedAchievements.ToList();
-
                     if (unlockedAchievements.Count > 0)
                     {
                         unlockedAchievements.Sort();
@@ -1116,6 +1120,7 @@ namespace Retro_Achievement_Tracker
                     StreamLabelController.Instance.EnqueueAlert(GameInfoAndProgress);
                     break;
             }
+
             StreamLabelController.Instance.RunNotifications();
         }
         private void SetFocusButton_Click(object sender, EventArgs e)
@@ -1202,725 +1207,735 @@ namespace Retro_Achievement_Tracker
         }
         private void FontColorPictureBox_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorDialog1.ShowDialog() != DialogResult.OK)
             {
-                PictureBox pictureBox = sender as PictureBox;
-                switch (pictureBox.Name)
-                {
-                    case "focusBackgroundColorPictureBox":
-                        FocusController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusBorderColorPictureBox":
-                        FocusController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusBorderColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusTitleFontColorPictureBox":
-                        if (FocusController.Instance.AdvancedSettingsEnabled)
-                        {
-                            FocusController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color); ;
-                        }
-                        else
-                        {
-                            FocusController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color); ;
-                        }
-                        focusTitleFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusDescriptionFontColorPictureBox":
-                        FocusController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusPointsFontColorPictureBox":
-                        FocusController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusPointsFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusLineColorPictureBox":
-                        FocusController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusLineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusTitleFontOutlineColorPictureBox":
-                        if (FocusController.Instance.AdvancedSettingsEnabled)
-                        {
-                            FocusController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            FocusController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        focusTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusDescriptionFontOutlineColorPictureBox":
-                        FocusController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusPointsFontOutlineColorPictureBox":
-                        FocusController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "focusLineOutlineColorPictureBox":
-                        FocusController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        focusLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsBackgroundColorPictureBox":
-                        AlertsController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsBorderColorPictureBox":
-                        AlertsController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsBorderColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsTitleFontColorPictureBox":
-                        if (AlertsController.Instance.AdvancedSettingsEnabled)
-                        {
-                            AlertsController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            AlertsController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        alertsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsDescriptionFontColorPictureBox":
-                        AlertsController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsPointsFontColorPictureBox":
-                        AlertsController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsLineColorPictureBox":
-                        AlertsController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsLineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsTitleFontOutlineColorPictureBox":
-                        if (AlertsController.Instance.AdvancedSettingsEnabled)
-                        {
-                            AlertsController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            AlertsController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsDescriptionFontOutlineColorPictureBox":
-                        AlertsController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsPointsFontOutlineColorPictureBox":
-                        AlertsController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "alertsLineOutlineColorPictureBox":
-                        AlertsController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        alertsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "userInfoBackgroundColorPictureBox":
-                        UserInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        userInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "userInfoNamesFontColorPictureBox":
-                        if (UserInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            UserInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            UserInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        userInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "userInfoValuesFontColorPictureBox":
-                        UserInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        userInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "userInfoNamesFontOutlineColorPictureBox":
-                        if (UserInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            UserInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            UserInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "userInfoValuesFontOutlineColorPictureBox":
-                        UserInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameInfoBackgroundColorPictureBox":
-                        GameInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameInfoNamesFontColorPictureBox":
-                        if (GameInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            GameInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        gameInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameInfoValuesFontColorPictureBox":
-                        GameInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameInfoNamesFontOutlineColorPictureBox":
-                        if (GameInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            GameInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameInfoValuesFontOutlineColorPictureBox":
-                        GameInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameProgressBackgroundColorPictureBox":
-                        GameProgressController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameProgressBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameProgressNamesFontColorPictureBox":
-                        if (GameProgressController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameProgressController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            GameProgressController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        gameProgressNamesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameProgressValuesFontColorPictureBox":
-                        GameProgressController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameProgressValuesFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameProgressNamesFontOutlineColorPictureBox":
-                        if (GameProgressController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameProgressController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            GameProgressController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "gameProgressValuesFontOutlineColorPictureBox":
-                        GameProgressController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsBackgroundColorPictureBox":
-                        RecentUnlocksController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsBorderColorPictureBox":
-                        RecentUnlocksController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsBorderColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsTitleFontColorPictureBox":
-                        if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-                        {
-                            RecentUnlocksController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            RecentUnlocksController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsDateFontColorPictureBox":
-                        RecentUnlocksController.Instance.DateColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsDateFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsPointsFontColorPictureBox":
-                        RecentUnlocksController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsLineColorPictureBox":
-                        RecentUnlocksController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsLineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsTitleFontOutlineColorPictureBox":
-                        if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-                        {
-                            RecentUnlocksController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        else
-                        {
-                            RecentUnlocksController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        }
-                        recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsDateFontOutlineColorPictureBox":
-                        RecentUnlocksController.Instance.DateOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsPointsFontOutlineColorPictureBox":
-                        RecentUnlocksController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "recentAchievementsLineOutlineColorPictureBox":
-                        RecentUnlocksController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "achievementListBackgroundColorPictureBox":
-                        AchievementListController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        achievementListBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                    case "relatedMediaBackgroundColorPictureBox":
-                        RelatedMediaController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                        relatedMediaBackgroundColorPictureBox.BackColor = colorDialog1.Color;
-                        break;
-                }
+                return;
+            }
+
+            PictureBox pictureBox = sender as PictureBox;
+            switch (pictureBox.Name)
+            {
+                case "focusBackgroundColorPictureBox":
+                    FocusController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusBorderColorPictureBox":
+                    FocusController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusTitleFontColorPictureBox":
+                    if (FocusController.Instance.AdvancedSettingsEnabled)
+                    {
+                        FocusController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color); ;
+                    }
+                    else
+                    {
+                        FocusController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color); ;
+                    }
+                    focusTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusDescriptionFontColorPictureBox":
+                    FocusController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusPointsFontColorPictureBox":
+                    FocusController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusLineColorPictureBox":
+                    FocusController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusLineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusTitleFontOutlineColorPictureBox":
+                    if (FocusController.Instance.AdvancedSettingsEnabled)
+                    {
+                        FocusController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        FocusController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    focusTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusDescriptionFontOutlineColorPictureBox":
+                    FocusController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusPointsFontOutlineColorPictureBox":
+                    FocusController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "focusLineOutlineColorPictureBox":
+                    FocusController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    focusLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsBackgroundColorPictureBox":
+                    AlertsController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsBorderColorPictureBox":
+                    AlertsController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsTitleFontColorPictureBox":
+                    if (AlertsController.Instance.AdvancedSettingsEnabled)
+                    {
+                        AlertsController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        AlertsController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    alertsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsDescriptionFontColorPictureBox":
+                    AlertsController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsPointsFontColorPictureBox":
+                    AlertsController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsLineColorPictureBox":
+                    AlertsController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsLineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsTitleFontOutlineColorPictureBox":
+                    if (AlertsController.Instance.AdvancedSettingsEnabled)
+                    {
+                        AlertsController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        AlertsController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsDescriptionFontOutlineColorPictureBox":
+                    AlertsController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsPointsFontOutlineColorPictureBox":
+                    AlertsController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "alertsLineOutlineColorPictureBox":
+                    AlertsController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    alertsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "userInfoBackgroundColorPictureBox":
+                    UserInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    userInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "userInfoNamesFontColorPictureBox":
+                    if (UserInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        UserInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        UserInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    userInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "userInfoValuesFontColorPictureBox":
+                    UserInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    userInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "userInfoNamesFontOutlineColorPictureBox":
+                    if (UserInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        UserInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        UserInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "userInfoValuesFontOutlineColorPictureBox":
+                    UserInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameInfoBackgroundColorPictureBox":
+                    GameInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameInfoNamesFontColorPictureBox":
+                    if (GameInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        GameInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    gameInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameInfoValuesFontColorPictureBox":
+                    GameInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameInfoNamesFontOutlineColorPictureBox":
+                    if (GameInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        GameInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameInfoValuesFontOutlineColorPictureBox":
+                    GameInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameProgressBackgroundColorPictureBox":
+                    GameProgressController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameProgressBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameProgressNamesFontColorPictureBox":
+                    if (GameProgressController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameProgressController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        GameProgressController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    gameProgressNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameProgressValuesFontColorPictureBox":
+                    GameProgressController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameProgressValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameProgressNamesFontOutlineColorPictureBox":
+                    if (GameProgressController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameProgressController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        GameProgressController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "gameProgressValuesFontOutlineColorPictureBox":
+                    GameProgressController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsBackgroundColorPictureBox":
+                    RecentUnlocksController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsBorderColorPictureBox":
+                    RecentUnlocksController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsTitleFontColorPictureBox":
+                    if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
+                    {
+                        RecentUnlocksController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        RecentUnlocksController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsDateFontColorPictureBox":
+                    RecentUnlocksController.Instance.DateColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsDateFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsPointsFontColorPictureBox":
+                    RecentUnlocksController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsLineColorPictureBox":
+                    RecentUnlocksController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsLineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsTitleFontOutlineColorPictureBox":
+                    if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
+                    {
+                        RecentUnlocksController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    else
+                    {
+                        RecentUnlocksController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    }
+                    recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsDateFontOutlineColorPictureBox":
+                    RecentUnlocksController.Instance.DateOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsPointsFontOutlineColorPictureBox":
+                    RecentUnlocksController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "recentAchievementsLineOutlineColorPictureBox":
+                    RecentUnlocksController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "achievementListBackgroundColorPictureBox":
+                    AchievementListController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    achievementListBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
+                case "relatedMediaBackgroundColorPictureBox":
+                    RelatedMediaController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
+                    relatedMediaBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    break;
             }
         }
         private void FontFamilyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-
-                FontFamily[] familyArray = FontFamily.Families.ToArray();
-                FontFamily fontFamily = null;
-                ComboBox comboBox = sender as ComboBox;
-
-                foreach (FontFamily fontFamilyEntity in familyArray)
-                {
-                    if (fontFamilyEntity.Name.Equals((string)comboBox.SelectedItem))
-                    {
-                        fontFamily = fontFamilyEntity;
-                        break;
-                    }
-                }
-
-                if (fontFamily != null)
-                {
-                    switch (comboBox.Name)
-                    {
-                        case "focusTitleFontComboBox":
-                            if (FocusController.Instance.AdvancedSettingsEnabled)
-                            {
-                                FocusController.Instance.TitleFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                FocusController.Instance.SimpleFontFamily = fontFamily;
-                            }
-                            break;
-                        case "focusDescriptionFontComboBox":
-                            FocusController.Instance.DescriptionFontFamily = fontFamily;
-                            break;
-                        case "focusPointsFontComboBox":
-                            FocusController.Instance.PointsFontFamily = fontFamily;
-                            break;
-                        case "alertsTitleFontComboBox":
-                            if (AlertsController.Instance.AdvancedSettingsEnabled)
-                            {
-                                AlertsController.Instance.TitleFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                AlertsController.Instance.SimpleFontFamily = fontFamily;
-                            }
-                            break;
-                        case "alertsDescriptionFontComboBox":
-                            AlertsController.Instance.DescriptionFontFamily = fontFamily;
-                            break;
-                        case "alertsPointsFontComboBox":
-                            AlertsController.Instance.PointsFontFamily = fontFamily;
-                            break;
-                        case "userInfoNamesFontComboBox":
-                            if (UserInfoController.Instance.AdvancedSettingsEnabled)
-                            {
-                                UserInfoController.Instance.NameFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                UserInfoController.Instance.SimpleFontFamily = fontFamily;
-                            }
-                            break;
-                        case "userInfoValuesFontComboBox":
-                            UserInfoController.Instance.ValueFontFamily = fontFamily;
-                            break;
-                        case "gameInfoNamesFontComboBox":
-                            if (GameInfoController.Instance.AdvancedSettingsEnabled)
-                            {
-                                GameInfoController.Instance.NameFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                GameInfoController.Instance.SimpleFontFamily = fontFamily;
-                            }
-                            break;
-                        case "gameInfoValuesFontComboBox":
-                            GameInfoController.Instance.ValueFontFamily = fontFamily;
-                            break;
-                        case "gameProgressNamesFontComboBox":
-                            if (GameProgressController.Instance.AdvancedSettingsEnabled)
-                            {
-                                GameProgressController.Instance.NameFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                GameProgressController.Instance.SimpleFontFamily = fontFamily;
-                            }
-                            break;
-                        case "gameProgressValuesFontComboBox":
-                            GameProgressController.Instance.ValueFontFamily = fontFamily;
-                            break;
-                        case "recentAchievementsTitleFontComboBox":
-                            if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-                            {
-                                RecentUnlocksController.Instance.TitleFontFamily = fontFamily;
-                            }
-                            else
-                            {
-                                RecentUnlocksController.Instance.SimpleFontFamily = fontFamily;
-                            }
-
-                            RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
-                            break;
-                        case "recentAchievementsDescriptionFontComboBox":
-                            RecentUnlocksController.Instance.DateFontFamily = fontFamily;
-                            RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
-                            break;
-                        case "recentAchievementsPointsFontComboBox":
-                            RecentUnlocksController.Instance.PointsFontFamily = fontFamily;
-                            RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
-                            break;
-                    }
-                }
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+
+            FontFamily[] familyArray = FontFamily.Families.ToArray();
+            FontFamily fontFamily = null;
+            ComboBox comboBox = sender as ComboBox;
+
+            foreach (FontFamily fontFamilyEntity in familyArray)
+            {
+                if (fontFamilyEntity.Name.Equals((string)comboBox.SelectedItem))
+                {
+                    fontFamily = fontFamilyEntity;
+                    break;
+                }
+            }
+
+            if (fontFamily != null)
+            {
+                switch (comboBox.Name)
+                {
+                    case "focusTitleFontComboBox":
+                        if (FocusController.Instance.AdvancedSettingsEnabled)
+                        {
+                            FocusController.Instance.TitleFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            FocusController.Instance.SimpleFontFamily = fontFamily;
+                        }
+                        break;
+                    case "focusDescriptionFontComboBox":
+                        FocusController.Instance.DescriptionFontFamily = fontFamily;
+                        break;
+                    case "focusPointsFontComboBox":
+                        FocusController.Instance.PointsFontFamily = fontFamily;
+                        break;
+                    case "alertsTitleFontComboBox":
+                        if (AlertsController.Instance.AdvancedSettingsEnabled)
+                        {
+                            AlertsController.Instance.TitleFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            AlertsController.Instance.SimpleFontFamily = fontFamily;
+                        }
+                        break;
+                    case "alertsDescriptionFontComboBox":
+                        AlertsController.Instance.DescriptionFontFamily = fontFamily;
+                        break;
+                    case "alertsPointsFontComboBox":
+                        AlertsController.Instance.PointsFontFamily = fontFamily;
+                        break;
+                    case "userInfoNamesFontComboBox":
+                        if (UserInfoController.Instance.AdvancedSettingsEnabled)
+                        {
+                            UserInfoController.Instance.NameFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            UserInfoController.Instance.SimpleFontFamily = fontFamily;
+                        }
+                        break;
+                    case "userInfoValuesFontComboBox":
+                        UserInfoController.Instance.ValueFontFamily = fontFamily;
+                        break;
+                    case "gameInfoNamesFontComboBox":
+                        if (GameInfoController.Instance.AdvancedSettingsEnabled)
+                        {
+                            GameInfoController.Instance.NameFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            GameInfoController.Instance.SimpleFontFamily = fontFamily;
+                        }
+                        break;
+                    case "gameInfoValuesFontComboBox":
+                        GameInfoController.Instance.ValueFontFamily = fontFamily;
+                        break;
+                    case "gameProgressNamesFontComboBox":
+                        if (GameProgressController.Instance.AdvancedSettingsEnabled)
+                        {
+                            GameProgressController.Instance.NameFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            GameProgressController.Instance.SimpleFontFamily = fontFamily;
+                        }
+                        break;
+                    case "gameProgressValuesFontComboBox":
+                        GameProgressController.Instance.ValueFontFamily = fontFamily;
+                        break;
+                    case "recentAchievementsTitleFontComboBox":
+                        if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
+                        {
+                            RecentUnlocksController.Instance.TitleFontFamily = fontFamily;
+                        }
+                        else
+                        {
+                            RecentUnlocksController.Instance.SimpleFontFamily = fontFamily;
+                        }
+
+                        RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
+                        break;
+                    case "recentAchievementsDescriptionFontComboBox":
+                        RecentUnlocksController.Instance.DateFontFamily = fontFamily;
+                        RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
+                        break;
+                    case "recentAchievementsPointsFontComboBox":
+                        RecentUnlocksController.Instance.PointsFontFamily = fontFamily;
+                        RecentUnlocksController.Instance.PopulateRecentAchievementsWindow();
+                        break;
+                }
+            }
+
+            IsChanging = false;
         }
         private void NotificationAnimationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-
-                ComboBox comboBox = sender as ComboBox;
-                switch (comboBox.Name)
-                {
-                    case "alertsCustomAchievementAnimationInComboBox":
-                        switch ((string)(sender as ComboBox).SelectedItem)
-                        {
-                            case "DOWN":
-                                AlertsController.Instance.AchievementAnimationIn = AnimationDirection.DOWN;
-                                break;
-                            case "LEFT":
-                                AlertsController.Instance.AchievementAnimationIn = AnimationDirection.LEFT;
-                                break;
-                            case "RIGHT":
-                                AlertsController.Instance.AchievementAnimationIn = AnimationDirection.RIGHT;
-                                break;
-                            case "UP":
-                                AlertsController.Instance.AchievementAnimationIn = AnimationDirection.UP;
-                                break;
-                            default:
-                                AlertsController.Instance.AchievementAnimationIn = AnimationDirection.STATIC;
-                                break;
-                        }
-                        break;
-                    case "alertsCustomAchievementAnimationOutComboBox":
-                        switch ((string)alertsCustomAchievementAnimationOutComboBox.SelectedItem)
-                        {
-                            case "DOWN":
-                                AlertsController.Instance.AchievementAnimationOut = AnimationDirection.DOWN;
-                                break;
-                            case "LEFT":
-                                AlertsController.Instance.AchievementAnimationOut = AnimationDirection.LEFT;
-                                break;
-                            case "RIGHT":
-                                AlertsController.Instance.AchievementAnimationOut = AnimationDirection.RIGHT;
-                                break;
-                            case "UP":
-                                AlertsController.Instance.AchievementAnimationOut = AnimationDirection.UP;
-                                break;
-                            default:
-                                AlertsController.Instance.AchievementAnimationOut = AnimationDirection.STATIC;
-                                break;
-                        }
-                        break;
-                    case "alertsCustomMasteryAnimationInComboBox":
-                        switch ((string)alertsCustomMasteryAnimationInComboBox.SelectedItem)
-                        {
-                            case "DOWN":
-                                AlertsController.Instance.MasteryAnimationIn = AnimationDirection.DOWN;
-                                break;
-                            case "LEFT":
-                                AlertsController.Instance.MasteryAnimationIn = AnimationDirection.LEFT;
-                                break;
-                            case "RIGHT":
-                                AlertsController.Instance.MasteryAnimationIn = AnimationDirection.RIGHT;
-                                break;
-                            case "UP":
-                                AlertsController.Instance.MasteryAnimationIn = AnimationDirection.UP;
-                                break;
-                            default:
-                                AlertsController.Instance.MasteryAnimationIn = AnimationDirection.STATIC;
-                                break;
-                        }
-                        break;
-                    case "alertsCustomMasteryAnimationOutComboBox":
-                        switch ((string)alertsCustomMasteryAnimationOutComboBox.SelectedItem)
-                        {
-                            case "DOWN":
-                                AlertsController.Instance.MasteryAnimationOut = AnimationDirection.DOWN;
-                                break;
-                            case "LEFT":
-                                AlertsController.Instance.MasteryAnimationOut = AnimationDirection.LEFT;
-                                break;
-                            case "RIGHT":
-                                AlertsController.Instance.MasteryAnimationOut = AnimationDirection.RIGHT;
-                                break;
-                            case "UP":
-                                AlertsController.Instance.MasteryAnimationOut = AnimationDirection.UP;
-                                break;
-                            default:
-                                AlertsController.Instance.MasteryAnimationOut = AnimationDirection.STATIC;
-                                break;
-                        }
-                        break;
-                }
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+
+            ComboBox comboBox = sender as ComboBox;
+            switch (comboBox.Name)
+            {
+                case "alertsCustomAchievementAnimationInComboBox":
+                    switch ((string)(sender as ComboBox).SelectedItem)
+                    {
+                        case "DOWN":
+                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.DOWN;
+                            break;
+                        case "LEFT":
+                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.LEFT;
+                            break;
+                        case "RIGHT":
+                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.RIGHT;
+                            break;
+                        case "UP":
+                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.UP;
+                            break;
+                        default:
+                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.STATIC;
+                            break;
+                    }
+                    break;
+                case "alertsCustomAchievementAnimationOutComboBox":
+                    switch ((string)alertsCustomAchievementAnimationOutComboBox.SelectedItem)
+                    {
+                        case "DOWN":
+                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.DOWN;
+                            break;
+                        case "LEFT":
+                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.LEFT;
+                            break;
+                        case "RIGHT":
+                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.RIGHT;
+                            break;
+                        case "UP":
+                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.UP;
+                            break;
+                        default:
+                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.STATIC;
+                            break;
+                    }
+                    break;
+                case "alertsCustomMasteryAnimationInComboBox":
+                    switch ((string)alertsCustomMasteryAnimationInComboBox.SelectedItem)
+                    {
+                        case "DOWN":
+                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.DOWN;
+                            break;
+                        case "LEFT":
+                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.LEFT;
+                            break;
+                        case "RIGHT":
+                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.RIGHT;
+                            break;
+                        case "UP":
+                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.UP;
+                            break;
+                        default:
+                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.STATIC;
+                            break;
+                    }
+                    break;
+                case "alertsCustomMasteryAnimationOutComboBox":
+                    switch ((string)alertsCustomMasteryAnimationOutComboBox.SelectedItem)
+                    {
+                        case "DOWN":
+                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.DOWN;
+                            break;
+                        case "LEFT":
+                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.LEFT;
+                            break;
+                        case "RIGHT":
+                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.RIGHT;
+                            break;
+                        case "UP":
+                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.UP;
+                            break;
+                        default:
+                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.STATIC;
+                            break;
+                    }
+                    break;
+            }
+
+            IsChanging = false;
         }
         private void FeatureEnablementCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-
-                CheckBox checkBox = sender as CheckBox;
-                switch (checkBox.Name)
-                {
-                    case "recentAchievementsAutoOpenWindowCheckbox":
-                        RecentUnlocksController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "gameInfoAutoOpenWindowCheckbox":
-                        GameInfoController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "alertsAutoOpenWindowCheckbox":
-                        AlertsController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "focusAutoOpenWindowCheckBox":
-                        FocusController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "userInfoAutoOpenWindowCheckbox":
-                        UserInfoController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "gameProgressAutoOpenWindowCheckbox":
-                        GameProgressController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "achievementListAutoOpenWindowCheckbox":
-                        AchievementListController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "relatedMediaAutoOpenWindowCheckbox":
-                        RelatedMediaController.Instance.AutoLaunch = checkBox.Checked;
-                        break;
-                    case "autoStartCheckbox":
-                        Settings.Default.auto_start_checked = checkBox.Checked;
-                        Settings.Default.Save();
-                        break;
-                    case "achievementListAutoScrollCheckBox":
-                        AchievementListController.Instance.AutoScroll = checkBox.Checked;
-                        break;
-                    case "recentAchievementsAutoScrollCheckBox":
-                        RecentUnlocksController.Instance.AutoScroll = checkBox.Checked;
-                        break;
-                    case "focusBorderCheckBox":
-                        FocusController.Instance.BorderEnabled = checkBox.Checked;
-                        break;
-                    case "alertsBorderCheckBox":
-                        AlertsController.Instance.BorderEnabled = checkBox.Checked;
-                        break;
-                    case "recentAchievementsBorderCheckBox":
-                        RecentUnlocksController.Instance.BorderEnabled = checkBox.Checked;
-                        break;
-                    case "focusTitleOutlineCheckBox":
-                        if (FocusController.Instance.AdvancedSettingsEnabled)
-                        {
-                            FocusController.Instance.TitleOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            FocusController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "focusDescriptionOutlineCheckBox":
-                        FocusController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "focusPointsOutlineCheckBox":
-                        FocusController.Instance.PointsOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "focusLineOutlineCheckBox":
-                        FocusController.Instance.LineOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "alertsTitleOutlineCheckBox":
-                        if (AlertsController.Instance.AdvancedSettingsEnabled)
-                        {
-                            AlertsController.Instance.TitleOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            AlertsController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "alertsDescriptionOutlineCheckBox":
-                        AlertsController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "alertsPointsOutlineCheckBox":
-                        AlertsController.Instance.PointsOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "alertsLineOutlineCheckBox":
-                        AlertsController.Instance.LineOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoNamesOutlineCheckBox":
-                        if (UserInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            UserInfoController.Instance.NameOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            UserInfoController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "userInfoValuesOutlineCheckBox":
-                        UserInfoController.Instance.ValueOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoNamesOutlineCheckBox":
-                        if (GameInfoController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameInfoController.Instance.NameOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            GameInfoController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "gameInfoValuesOutlineCheckBox":
-                        GameInfoController.Instance.ValueOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressNamesOutlineCheckBox":
-                        if (GameProgressController.Instance.AdvancedSettingsEnabled)
-                        {
-                            GameProgressController.Instance.NameOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            GameProgressController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "gameProgressValuesOutlineCheckBox":
-                        GameProgressController.Instance.ValueOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "recentAchievementsTitleFontOutlineCheckBox":
-                        if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-                        {
-                            RecentUnlocksController.Instance.TitleOutlineEnabled = checkBox.Checked;
-                        }
-                        else
-                        {
-                            RecentUnlocksController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
-                        }
-                        break;
-                    case "recentAchievementsDateFontOutlineCheckBox":
-                        RecentUnlocksController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "recentAchievementsPointsFontOutlineCheckBox":
-                        RecentUnlocksController.Instance.PointsOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "recentAchievementsLineOutlineCheckBox":
-                        RecentUnlocksController.Instance.LineOutlineEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoRankCheckBox":
-                        UserInfoController.Instance.RankEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoPointsCheckBox":
-                        UserInfoController.Instance.PointsEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoTruePointsCheckBox":
-                        UserInfoController.Instance.TruePointsEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoRatioCheckBox":
-                        UserInfoController.Instance.RatioEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoTitleCheckBox":
-                        GameInfoController.Instance.TitleEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoDeveloperCheckBox":
-                        GameInfoController.Instance.DeveloperEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoPublisherCheckBox":
-                        GameInfoController.Instance.PublisherEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoConsoleCheckBox":
-                        GameInfoController.Instance.ConsoleEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoGenreCheckBox":
-                        GameInfoController.Instance.GenreEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoReleasedCheckBox":
-                        GameInfoController.Instance.ReleasedDateEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressAchievementsCheckBox":
-                        GameProgressController.Instance.AchievementsEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressPointsCheckBox":
-                        GameProgressController.Instance.PointsEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressTruePointsCheckBox":
-                        GameProgressController.Instance.TruePointsEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressCompletedCheckBox":
-                        GameProgressController.Instance.CompletedEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressRatioCheckBox":
-                        GameProgressController.Instance.RatioEnabled = checkBox.Checked;
-                        break;
-                }
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            switch (checkBox.Name)
+            {
+                case "recentAchievementsAutoOpenWindowCheckbox":
+                    RecentUnlocksController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "gameInfoAutoOpenWindowCheckbox":
+                    GameInfoController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "alertsAutoOpenWindowCheckbox":
+                    AlertsController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "focusAutoOpenWindowCheckBox":
+                    FocusController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "userInfoAutoOpenWindowCheckbox":
+                    UserInfoController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "gameProgressAutoOpenWindowCheckbox":
+                    GameProgressController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "achievementListAutoOpenWindowCheckbox":
+                    AchievementListController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "relatedMediaAutoOpenWindowCheckbox":
+                    RelatedMediaController.Instance.AutoLaunch = checkBox.Checked;
+                    break;
+                case "autoStartCheckbox":
+                    Settings.Default.auto_start_checked = checkBox.Checked;
+                    Settings.Default.Save();
+                    break;
+                case "achievementListAutoScrollCheckBox":
+                    AchievementListController.Instance.AutoScroll = checkBox.Checked;
+                    break;
+                case "recentAchievementsAutoScrollCheckBox":
+                    RecentUnlocksController.Instance.AutoScroll = checkBox.Checked;
+                    break;
+                case "focusBorderCheckBox":
+                    FocusController.Instance.BorderEnabled = checkBox.Checked;
+                    break;
+                case "alertsBorderCheckBox":
+                    AlertsController.Instance.BorderEnabled = checkBox.Checked;
+                    break;
+                case "recentAchievementsBorderCheckBox":
+                    RecentUnlocksController.Instance.BorderEnabled = checkBox.Checked;
+                    break;
+                case "focusTitleOutlineCheckBox":
+                    if (FocusController.Instance.AdvancedSettingsEnabled)
+                    {
+                        FocusController.Instance.TitleOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        FocusController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "focusDescriptionOutlineCheckBox":
+                    FocusController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
+                    break;
+                case "focusPointsOutlineCheckBox":
+                    FocusController.Instance.PointsOutlineEnabled = checkBox.Checked;
+                    break;
+                case "focusLineOutlineCheckBox":
+                    FocusController.Instance.LineOutlineEnabled = checkBox.Checked;
+                    break;
+                case "alertsTitleOutlineCheckBox":
+                    if (AlertsController.Instance.AdvancedSettingsEnabled)
+                    {
+                        AlertsController.Instance.TitleOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        AlertsController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "alertsDescriptionOutlineCheckBox":
+                    AlertsController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
+                    break;
+                case "alertsPointsOutlineCheckBox":
+                    AlertsController.Instance.PointsOutlineEnabled = checkBox.Checked;
+                    break;
+                case "alertsLineOutlineCheckBox":
+                    AlertsController.Instance.LineOutlineEnabled = checkBox.Checked;
+                    break;
+                case "userInfoNamesOutlineCheckBox":
+                    if (UserInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        UserInfoController.Instance.NameOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        UserInfoController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "userInfoValuesOutlineCheckBox":
+                    UserInfoController.Instance.ValueOutlineEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoNamesOutlineCheckBox":
+                    if (GameInfoController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameInfoController.Instance.NameOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        GameInfoController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "gameInfoValuesOutlineCheckBox":
+                    GameInfoController.Instance.ValueOutlineEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressNamesOutlineCheckBox":
+                    if (GameProgressController.Instance.AdvancedSettingsEnabled)
+                    {
+                        GameProgressController.Instance.NameOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        GameProgressController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "gameProgressValuesOutlineCheckBox":
+                    GameProgressController.Instance.ValueOutlineEnabled = checkBox.Checked;
+                    break;
+                case "recentAchievementsTitleFontOutlineCheckBox":
+                    if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
+                    {
+                        RecentUnlocksController.Instance.TitleOutlineEnabled = checkBox.Checked;
+                    }
+                    else
+                    {
+                        RecentUnlocksController.Instance.SimpleFontOutlineEnabled = checkBox.Checked;
+                    }
+                    break;
+                case "recentAchievementsDateFontOutlineCheckBox":
+                    RecentUnlocksController.Instance.DescriptionOutlineEnabled = checkBox.Checked;
+                    break;
+                case "recentAchievementsPointsFontOutlineCheckBox":
+                    RecentUnlocksController.Instance.PointsOutlineEnabled = checkBox.Checked;
+                    break;
+                case "recentAchievementsLineOutlineCheckBox":
+                    RecentUnlocksController.Instance.LineOutlineEnabled = checkBox.Checked;
+                    break;
+                case "userInfoRankCheckBox":
+                    UserInfoController.Instance.RankEnabled = checkBox.Checked;
+                    break;
+                case "userInfoPointsCheckBox":
+                    UserInfoController.Instance.PointsEnabled = checkBox.Checked;
+                    break;
+                case "userInfoTruePointsCheckBox":
+                    UserInfoController.Instance.TruePointsEnabled = checkBox.Checked;
+                    break;
+                case "userInfoRatioCheckBox":
+                    UserInfoController.Instance.RatioEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoTitleCheckBox":
+                    GameInfoController.Instance.TitleEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoDeveloperCheckBox":
+                    GameInfoController.Instance.DeveloperEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoPublisherCheckBox":
+                    GameInfoController.Instance.PublisherEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoConsoleCheckBox":
+                    GameInfoController.Instance.ConsoleEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoGenreCheckBox":
+                    GameInfoController.Instance.GenreEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoReleasedCheckBox":
+                    GameInfoController.Instance.ReleasedDateEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressAchievementsCheckBox":
+                    GameProgressController.Instance.AchievementsEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressPointsCheckBox":
+                    GameProgressController.Instance.PointsEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressTruePointsCheckBox":
+                    GameProgressController.Instance.TruePointsEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressCompletedCheckBox":
+                    GameProgressController.Instance.CompletedEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressRatioCheckBox":
+                    GameProgressController.Instance.RatioEnabled = checkBox.Checked;
+                    break;
+            }
+
+            IsChanging = false;
         }
         private void DividerCharacter_RadioButtonClicked(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
+                return;
+            }
 
-                RadioButton radioButton = sender as RadioButton;
-                if (radioButton.Checked)
+            IsChanging = true;
+
+            RadioButton radioButton = sender as RadioButton;
+            if (radioButton.Checked)
+            {
+                switch (radioButton.Name)
                 {
-                    switch (radioButton.Name)
-                    {
-                        case "gameProgressRadioButtonBackslash":
-                            GameProgressController.Instance.DividerCharacter = "/";
-                            break;
-                        case "gameProgressRadioButtonColon":
-                            GameProgressController.Instance.DividerCharacter = ":";
-                            break;
-                        case "gameProgressRadioButtonPeriod":
-                            GameProgressController.Instance.DividerCharacter = ".";
-                            break;
-                    }
-
-                    UpdateDividerCharacterRadioButtons();
+                    case "gameProgressRadioButtonBackslash":
+                        GameProgressController.Instance.DividerCharacter = "/";
+                        break;
+                    case "gameProgressRadioButtonColon":
+                        GameProgressController.Instance.DividerCharacter = ":";
+                        break;
+                    case "gameProgressRadioButtonPeriod":
+                        GameProgressController.Instance.DividerCharacter = ".";
+                        break;
                 }
 
-                IsChanging = false;
+                UpdateDividerCharacterRadioButtons();
             }
+
+            IsChanging = false;
         }
         private void UpdateDividerCharacterRadioButtons()
         {
@@ -1945,34 +1960,36 @@ namespace Retro_Achievement_Tracker
         }
         private void RefocusBehavior_RadioButtonCheckChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-                RadioButton radioButton = sender as RadioButton;
+                return;
+            }
 
-                if (radioButton.Checked)
+            IsChanging = true;
+            RadioButton radioButton = sender as RadioButton;
+
+            if (radioButton.Checked)
+            {
+                switch (radioButton.Name)
                 {
-                    switch (radioButton.Name)
-                    {
-                        case "focusBehaviorGoToFirstRadioButton":
-                            FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_FIRST;
-                            break;
-                        case "focusBehaviorGoToPreviousRadioButton":
-                            FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_PREVIOUS;
-                            break;
-                        case "focusBehaviorGoToNextRadioButton":
-                            FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_NEXT;
-                            break;
-                        case "focusBehaviorGoToLastRadioButton":
-                            FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_LAST;
-                            break;
-                    }
-
-                    UpdateRefocusBehaviorRadioButtons();
+                    case "focusBehaviorGoToFirstRadioButton":
+                        FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_FIRST;
+                        break;
+                    case "focusBehaviorGoToPreviousRadioButton":
+                        FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_PREVIOUS;
+                        break;
+                    case "focusBehaviorGoToNextRadioButton":
+                        FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_NEXT;
+                        break;
+                    case "focusBehaviorGoToLastRadioButton":
+                        FocusController.Instance.RefocusBehavior = RefocusBehaviorEnum.GO_TO_LAST;
+                        break;
                 }
 
-                IsChanging = false;
+                UpdateRefocusBehaviorRadioButtons();
             }
+
+            IsChanging = false;
         }
         private void UpdateRefocusBehaviorRadioButtons()
         {
@@ -2006,147 +2023,149 @@ namespace Retro_Achievement_Tracker
         }
         private void RelatedMedia_RadioButtonCheckChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-
-                RadioButton radioButton = sender as RadioButton;
-                switch (radioButton.Name)
-                {
-                    case "relatedMediaRABadgeIconRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RABadgeIcon)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RABadgeIcon;
-                        break;
-                    case "relatedMediaRABoxArtRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RABoxArt)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RABoxArt;
-                        break;
-                    case "relatedMediaRATitleScreenRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RATitleScreen)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RATitleScreen;
-                        break;
-                    case "relatedMediaRAScreenshotRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RAIngameScreen)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RAIngameScreen;
-                        break;
-                    case "relatedMediaLBBoxFrontRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFront)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFront;
-                        break;
-                    case "relatedMediaLBBoxBackRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtBack)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtBack;
-                        break;
-                    case "relatedMediaLBBox3DRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArt3D)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArt3D;
-                        break;
-                    case "relatedMediaLBBoxFrontReconRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFrontRecon)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFrontRecon;
-                        break;
-                    case "relatedMediaLBBoxBackReconRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtBackRecon)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtBackRecon;
-                        break;
-                    case "relatedMediaLBBoxFullRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFull)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFull;
-                        break;
-                    case "relatedMediaLBBoxSpineRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtSpine)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtSpine;
-                        break;
-                    case "relatedMediaLBBannerRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBanner)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBanner;
-                        break;
-                    case "relatedMediaLBTitleScreenRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBTitleScreen)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBTitleScreen;
-                        break;
-                    case "relatedMediaLBClearLogoRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBClearLogo)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBClearLogo;
-                        break;
-                    case "relatedMediaLBCartFrontRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBCartFront)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBCartFront;
-                        break;
-                    case "relatedMediaLBCartBackRadioButton":
-                        if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBCartBack)
-                        {
-                            IsChanging = false;
-                            return;
-                        }
-                        RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBCartBack;
-                        break;
-                }
-
-                UpdateRelatedMediaRadioButtons();
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+
+            RadioButton radioButton = sender as RadioButton;
+            switch (radioButton.Name)
+            {
+                case "relatedMediaRABadgeIconRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RABadgeIcon)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RABadgeIcon;
+                    break;
+                case "relatedMediaRABoxArtRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RABoxArt)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RABoxArt;
+                    break;
+                case "relatedMediaRATitleScreenRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RATitleScreen)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RATitleScreen;
+                    break;
+                case "relatedMediaRAScreenshotRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.RAIngameScreen)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RAIngameScreen;
+                    break;
+                case "relatedMediaLBBoxFrontRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFront)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFront;
+                    break;
+                case "relatedMediaLBBoxBackRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtBack)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtBack;
+                    break;
+                case "relatedMediaLBBox3DRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArt3D)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArt3D;
+                    break;
+                case "relatedMediaLBBoxFrontReconRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFrontRecon)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFrontRecon;
+                    break;
+                case "relatedMediaLBBoxBackReconRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtBackRecon)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtBackRecon;
+                    break;
+                case "relatedMediaLBBoxFullRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtFull)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtFull;
+                    break;
+                case "relatedMediaLBBoxSpineRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBoxArtSpine)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBoxArtSpine;
+                    break;
+                case "relatedMediaLBBannerRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBBanner)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBBanner;
+                    break;
+                case "relatedMediaLBTitleScreenRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBTitleScreen)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBTitleScreen;
+                    break;
+                case "relatedMediaLBClearLogoRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBClearLogo)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBClearLogo;
+                    break;
+                case "relatedMediaLBCartFrontRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBCartFront)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBCartFront;
+                    break;
+                case "relatedMediaLBCartBackRadioButton":
+                    if (RelatedMediaController.Instance.RelatedMediaSelection == RelatedMediaSelection.LBCartBack)
+                    {
+                        IsChanging = false;
+                        return;
+                    }
+                    RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.LBCartBack;
+                    break;
+            }
+
+            UpdateRelatedMediaRadioButtons();
+
+            IsChanging = false;
         }
         private void UpdateRelatedMediaRadioButtons()
         {
@@ -3258,7 +3277,6 @@ namespace Retro_Achievement_Tracker
             {
                 IsChanging = true;
                 CheckBox checkBox = (CheckBox)sender;
-
                 switch (checkBox.Name)
                 {
                     case "focusAdvancedCheckBox":
@@ -3282,7 +3300,6 @@ namespace Retro_Achievement_Tracker
                 }
 
                 UpdateAdvancedSettings();
-
                 IsChanging = false;
             }
         }
@@ -3294,9 +3311,7 @@ namespace Retro_Achievement_Tracker
                 focusTitleOutlineLabel.Text = "Title OutlineColor";
 
                 SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.TitleFontFamily);
-
                 focusTitleOutlineCheckBox.Checked = FocusController.Instance.TitleOutlineEnabled;
-
                 focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleColor);
                 focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleOutlineColor);
 
@@ -3313,9 +3328,7 @@ namespace Retro_Achievement_Tracker
                 focusTitleOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.SimpleFontFamily);
-
                 focusTitleOutlineCheckBox.Checked = FocusController.Instance.SimpleFontOutlineEnabled;
-
                 focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.SimpleFontColor);
                 focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.SimpleFontOutlineColor);
 
@@ -3333,9 +3346,7 @@ namespace Retro_Achievement_Tracker
                 alertsTitleOutlineLabel.Text = "Title OutlineColor";
 
                 SetFontFamilyBox(alertsTitleFontComboBox, AlertsController.Instance.TitleFontFamily);
-
                 alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.TitleOutlineEnabled;
-
                 alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.TitleColor);
                 alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.TitleOutlineColor);
 
@@ -3352,9 +3363,7 @@ namespace Retro_Achievement_Tracker
                 alertsTitleOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(alertsTitleFontComboBox, AlertsController.Instance.SimpleFontFamily);
-
                 alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.SimpleFontOutlineEnabled;
-
                 alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.SimpleFontColor);
                 alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.SimpleFontOutlineColor);
 
@@ -3372,9 +3381,7 @@ namespace Retro_Achievement_Tracker
                 userInfoNamesOutlineLabel.Text = "Names OutlineColor";
 
                 SetFontFamilyBox(userInfoNamesFontComboBox, UserInfoController.Instance.NameFontFamily);
-
                 userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.NameOutlineEnabled;
-
                 userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.NameColor);
                 userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.NameOutlineColor);
 
@@ -3387,9 +3394,7 @@ namespace Retro_Achievement_Tracker
                 userInfoNamesOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(userInfoNamesFontComboBox, UserInfoController.Instance.SimpleFontFamily);
-
                 userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.SimpleFontOutlineEnabled;
-
                 userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.SimpleFontColor);
                 userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.SimpleFontOutlineColor);
 
@@ -3403,9 +3408,7 @@ namespace Retro_Achievement_Tracker
                 gameInfoNamesOutlineLabel.Text = "Names OutlineColor";
 
                 SetFontFamilyBox(gameInfoNamesFontComboBox, GameInfoController.Instance.NameFontFamily);
-
                 gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.NameOutlineEnabled;
-
                 gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.NameColor);
                 gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.NameOutlineColor);
 
@@ -3418,9 +3421,7 @@ namespace Retro_Achievement_Tracker
                 gameInfoNamesOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(gameInfoNamesFontComboBox, GameInfoController.Instance.SimpleFontFamily);
-
                 gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.SimpleFontOutlineEnabled;
-
                 gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.SimpleFontColor);
                 gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.SimpleFontOutlineColor);
 
@@ -3434,9 +3435,7 @@ namespace Retro_Achievement_Tracker
                 gameProgressNamesOutlineLabel.Text = "Names OutlineColor";
 
                 SetFontFamilyBox(gameProgressNamesFontComboBox, GameProgressController.Instance.NameFontFamily);
-
                 gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.NameOutlineEnabled;
-
                 gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.NameColor);
                 gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.NameOutlineColor);
 
@@ -3449,9 +3448,7 @@ namespace Retro_Achievement_Tracker
                 gameProgressNamesOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(gameProgressNamesFontComboBox, GameProgressController.Instance.SimpleFontFamily);
-
                 gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.SimpleFontOutlineEnabled;
-
                 gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.SimpleFontColor);
                 gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.SimpleFontOutlineColor);
 
@@ -3465,9 +3462,7 @@ namespace Retro_Achievement_Tracker
                 recentAchievementsTitleOutlineLabel.Text = "Title OutlineColor";
 
                 SetFontFamilyBox(recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.TitleFontFamily);
-
                 recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.TitleOutlineEnabled;
-
                 recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleColor);
                 recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleOutlineColor);
 
@@ -3484,9 +3479,7 @@ namespace Retro_Achievement_Tracker
                 recentAchievementsTitleOutlineLabel.Text = "Font OutlineColor";
 
                 SetFontFamilyBox(recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.SimpleFontFamily);
-
                 recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.SimpleFontOutlineEnabled;
-
                 recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.SimpleFontColor);
                 recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.SimpleFontOutlineColor);
 
@@ -3501,7 +3494,6 @@ namespace Retro_Achievement_Tracker
         private void DefaultButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-
             switch (button.Name)
             {
                 case "gameInfoDefaultButton":
@@ -3529,67 +3521,67 @@ namespace Retro_Achievement_Tracker
         }
         private void OverrideTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-                TextBox textBox = sender as TextBox;
-
-                switch (textBox.Name)
-                {
-                    case "userInfoRankTextBox":
-                        UserInfoController.Instance.RankName = textBox.Text;
-                        break;
-                    case "userInfoPointsTextBox":
-                        UserInfoController.Instance.PointsName = textBox.Text;
-                        break;
-                    case "userInfoTruePointsTextBox":
-                        UserInfoController.Instance.TruePointsName = textBox.Text;
-                        break;
-                    case "userInfoRatioTextBox":
-                        UserInfoController.Instance.RatioName = textBox.Text;
-                        break;
-                    case "gameProgressAchievementsTextBox":
-                        GameProgressController.Instance.AchievementsName = textBox.Text;
-                        break;
-                    case "gameProgressPointsTextBox":
-                        GameProgressController.Instance.PointsName = textBox.Text;
-                        break;
-                    case "gameProgressTruePointsTextBox":
-                        GameProgressController.Instance.TruePointsName = textBox.Text;
-                        break;
-                    case "gameProgressCompletedTextBox":
-                        GameProgressController.Instance.CompletedName = textBox.Text;
-                        break;
-                    case "gameProgressRatioTextBox":
-                        GameProgressController.Instance.RatioName = textBox.Text;
-                        break;
-                    case "gameInfoConsoleTextBox":
-                        GameInfoController.Instance.ConsoleName = textBox.Text;
-                        break;
-                    case "gameInfoDeveloperTextBox":
-                        GameInfoController.Instance.DeveloperName = textBox.Text;
-                        break;
-                    case "gameInfoPublisherTextBox":
-                        GameInfoController.Instance.PublisherName = textBox.Text;
-                        break;
-                    case "gameInfoGenreTextBox":
-                        GameInfoController.Instance.GenreName = textBox.Text;
-                        break;
-                    case "gameInfoReleaseDateTextBox":
-                        GameInfoController.Instance.ReleasedDateName = textBox.Text;
-                        break;
-                    case "gameInfoTitleTextBox":
-                        GameInfoController.Instance.TitleName = textBox.Text;
-                        break;
-                }
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+            TextBox textBox = sender as TextBox;
+            switch (textBox.Name)
+            {
+                case "userInfoRankTextBox":
+                    UserInfoController.Instance.RankName = textBox.Text;
+                    break;
+                case "userInfoPointsTextBox":
+                    UserInfoController.Instance.PointsName = textBox.Text;
+                    break;
+                case "userInfoTruePointsTextBox":
+                    UserInfoController.Instance.TruePointsName = textBox.Text;
+                    break;
+                case "userInfoRatioTextBox":
+                    UserInfoController.Instance.RatioName = textBox.Text;
+                    break;
+                case "gameProgressAchievementsTextBox":
+                    GameProgressController.Instance.AchievementsName = textBox.Text;
+                    break;
+                case "gameProgressPointsTextBox":
+                    GameProgressController.Instance.PointsName = textBox.Text;
+                    break;
+                case "gameProgressTruePointsTextBox":
+                    GameProgressController.Instance.TruePointsName = textBox.Text;
+                    break;
+                case "gameProgressCompletedTextBox":
+                    GameProgressController.Instance.CompletedName = textBox.Text;
+                    break;
+                case "gameProgressRatioTextBox":
+                    GameProgressController.Instance.RatioName = textBox.Text;
+                    break;
+                case "gameInfoConsoleTextBox":
+                    GameInfoController.Instance.ConsoleName = textBox.Text;
+                    break;
+                case "gameInfoDeveloperTextBox":
+                    GameInfoController.Instance.DeveloperName = textBox.Text;
+                    break;
+                case "gameInfoPublisherTextBox":
+                    GameInfoController.Instance.PublisherName = textBox.Text;
+                    break;
+                case "gameInfoGenreTextBox":
+                    GameInfoController.Instance.GenreName = textBox.Text;
+                    break;
+                case "gameInfoReleaseDateTextBox":
+                    GameInfoController.Instance.ReleasedDateName = textBox.Text;
+                    break;
+                case "gameInfoTitleTextBox":
+                    GameInfoController.Instance.TitleName = textBox.Text;
+                    break;
+            }
+
+            IsChanging = false;
         }
         private void BrowserSensitiveControl_Click(object sender, EventArgs e)
         {
             Control control = (Control)sender;
-
             switch (control.Name)
             {
                 case "userProfilePictureBox":
@@ -3623,9 +3615,7 @@ namespace Retro_Achievement_Tracker
             if (Settings.Default.UpdateSettings)
             {
                 Settings.Default.Upgrade();
-
                 Settings.Default.UpdateSettings = false;
-
                 Settings.Default.Save();
             }
 

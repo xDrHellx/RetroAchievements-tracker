@@ -17,8 +17,8 @@ namespace Retro_Achievement_Tracker.Models
             UserRankAndScore UserRankAndScore = existingValue != null ? (UserRankAndScore)existingValue : new UserRankAndScore();
             JObject item = JObject.Load(reader);
 
-            JToken Rank = item["Rank"];
-            JToken Score = item["Score"];
+            JToken Rank = item["Rank"],
+                Score = item["Score"];
 
             if (Rank != null)
             {
