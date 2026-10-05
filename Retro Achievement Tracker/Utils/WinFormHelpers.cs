@@ -28,5 +28,29 @@ namespace Retro_Achievement_Tracker.Utils
         }
 
         #endregion
+
+        #region Misc
+
+        /// <summary>Get the direction for an animation</summary>
+        /// <param name="animationName">Name of the animation</param>
+        /// <returns><c>AnimationDirection</c></returns>
+        public static AnimationDirection GetAnimationDirection(string animationName)
+        {
+            switch (animationName)
+            {
+                case "DOWN":
+                    return AnimationDirection.DOWN;
+                case "LEFT":
+                    return AnimationDirection.LEFT;
+                case "RIGHT":
+                    return AnimationDirection.RIGHT;
+                case "UP":
+                    return AnimationDirection.UP;
+                default:
+                    return AnimationDirection.STATIC;
+            }
+        }
+
+        #endregion
     }
 }

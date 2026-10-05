@@ -1,6 +1,7 @@
 ﻿using Retro_Achievement_Tracker.Forms;
 using Retro_Achievement_Tracker.Models;
 using Retro_Achievement_Tracker.Properties;
+using Retro_Achievement_Tracker.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -963,7 +964,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                return GetAnimationDirection(Settings.Default.notifications_achievement_in_animation);
+                return WinFormHelpers.GetAnimationDirection(Settings.Default.notifications_achievement_in_animation);
             }
             set
             {
@@ -975,7 +976,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                return GetAnimationDirection(Settings.Default.notifications_achievement_out_animation);
+                return WinFormHelpers.GetAnimationDirection(Settings.Default.notifications_achievement_out_animation);
             }
             set
             {
@@ -987,7 +988,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                return GetAnimationDirection(Settings.Default.notifications_mastery_in_animation);
+                return WinFormHelpers.GetAnimationDirection(Settings.Default.notifications_mastery_in_animation);
             }
             set
             {
@@ -999,7 +1000,7 @@ namespace Retro_Achievement_Tracker.Controllers
         {
             get
             {
-                return GetAnimationDirection(Settings.Default.notifications_mastery_out_animation);
+                return WinFormHelpers.GetAnimationDirection(Settings.Default.notifications_mastery_out_animation);
             }
             set
             {
@@ -1036,26 +1037,6 @@ namespace Retro_Achievement_Tracker.Controllers
             {
                 Settings.Default.auto_notifications = value;
                 Settings.Default.Save();
-            }
-        }
-
-        /// <summary>Get the direction for an animation</summary>
-        /// <param name="animationName">Name of the animation</param>
-        /// <returns><c>AnimationDirection</c></returns>
-        AnimationDirection GetAnimationDirection(string animationName)
-        {
-            switch (animationName)
-            {
-                case "DOWN":
-                    return AnimationDirection.DOWN;
-                case "LEFT":
-                    return AnimationDirection.LEFT;
-                case "RIGHT":
-                    return AnimationDirection.RIGHT;
-                case "UP":
-                    return AnimationDirection.UP;
-                default:
-                    return AnimationDirection.STATIC;
             }
         }
     }

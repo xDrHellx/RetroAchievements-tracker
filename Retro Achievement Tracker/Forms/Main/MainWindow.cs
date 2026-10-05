@@ -13,6 +13,7 @@ using FontFamily = System.Drawing.FontFamily;
 using File = System.IO.File;
 using System.Globalization;
 using Newtonsoft.Json;
+using Retro_Achievement_Tracker.Utils;
 
 namespace Retro_Achievement_Tracker
 {
@@ -1624,84 +1625,16 @@ namespace Retro_Achievement_Tracker
             switch (comboBox.Name)
             {
                 case "alertsCustomAchievementAnimationInComboBox":
-                    switch ((string)(sender as ComboBox).SelectedItem)
-                    {
-                        case "DOWN":
-                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.DOWN;
-                            break;
-                        case "LEFT":
-                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.LEFT;
-                            break;
-                        case "RIGHT":
-                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.RIGHT;
-                            break;
-                        case "UP":
-                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.UP;
-                            break;
-                        default:
-                            AlertsController.Instance.AchievementAnimationIn = AnimationDirection.STATIC;
-                            break;
-                    }
+                    AlertsController.Instance.AchievementAnimationIn = WinFormHelpers.GetAnimationDirection((string)(sender as ComboBox).SelectedItem);
                     break;
                 case "alertsCustomAchievementAnimationOutComboBox":
-                    switch ((string)alertsCustomAchievementAnimationOutComboBox.SelectedItem)
-                    {
-                        case "DOWN":
-                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.DOWN;
-                            break;
-                        case "LEFT":
-                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.LEFT;
-                            break;
-                        case "RIGHT":
-                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.RIGHT;
-                            break;
-                        case "UP":
-                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.UP;
-                            break;
-                        default:
-                            AlertsController.Instance.AchievementAnimationOut = AnimationDirection.STATIC;
-                            break;
-                    }
+                    AlertsController.Instance.AchievementAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsCustomAchievementAnimationOutComboBox.SelectedItem);
                     break;
                 case "alertsCustomMasteryAnimationInComboBox":
-                    switch ((string)alertsCustomMasteryAnimationInComboBox.SelectedItem)
-                    {
-                        case "DOWN":
-                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.DOWN;
-                            break;
-                        case "LEFT":
-                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.LEFT;
-                            break;
-                        case "RIGHT":
-                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.RIGHT;
-                            break;
-                        case "UP":
-                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.UP;
-                            break;
-                        default:
-                            AlertsController.Instance.MasteryAnimationIn = AnimationDirection.STATIC;
-                            break;
-                    }
+                    AlertsController.Instance.MasteryAnimationIn = WinFormHelpers.GetAnimationDirection((string)alertsCustomMasteryAnimationInComboBox.SelectedItem);
                     break;
                 case "alertsCustomMasteryAnimationOutComboBox":
-                    switch ((string)alertsCustomMasteryAnimationOutComboBox.SelectedItem)
-                    {
-                        case "DOWN":
-                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.DOWN;
-                            break;
-                        case "LEFT":
-                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.LEFT;
-                            break;
-                        case "RIGHT":
-                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.RIGHT;
-                            break;
-                        case "UP":
-                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.UP;
-                            break;
-                        default:
-                            AlertsController.Instance.MasteryAnimationOut = AnimationDirection.STATIC;
-                            break;
-                    }
+                    AlertsController.Instance.MasteryAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsCustomMasteryAnimationOutComboBox.SelectedItem);
                     break;
             }
 
