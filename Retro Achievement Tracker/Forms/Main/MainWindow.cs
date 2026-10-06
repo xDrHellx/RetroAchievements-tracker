@@ -3305,7 +3305,6 @@ namespace Retro_Achievement_Tracker
                     break;
                 case "rssFeedListView":
                     ListView listView = (ListView)sender;
-
                     if (listView.SelectedItems.Count > 0)
                     {
                         if (listView.SelectedItems[0].SubItems[0].Text.Contains("[FORUM] ") || listView.SelectedItems[0].SubItems[0].Text.Contains("[CHEEVO] "))
@@ -3348,11 +3347,8 @@ namespace Retro_Achievement_Tracker
             gameProgressRatioTextBox.Text = GameProgressController.Instance.RatioName;
             gameProgressCompletedTextBox.Text = GameProgressController.Instance.CompletedName;
 
-            /*
-             * Auto-Launch/Starting
-             */
+            // Auto-Launch/Starting
             autoStartCheckbox.Checked = Settings.Default.auto_start_checked;
-
             focusAutoOpenWindowCheckBox.Checked = FocusController.Instance.AutoLaunch;
             alertsAutoOpenWindowCheckbox.Checked = AlertsController.Instance.AutoLaunch;
             userInfoAutoOpenWindowCheckbox.Checked = UserInfoController.Instance.AutoLaunch;
@@ -3362,9 +3358,7 @@ namespace Retro_Achievement_Tracker
             achievementListAutoOpenWindowCheckbox.Checked = AchievementListController.Instance.AutoLaunch;
             relatedMediaAutoOpenWindowCheckbox.Checked = RelatedMediaController.Instance.AutoLaunch;
 
-            /*
-             * Window Background Color
-             */
+            // Window Background Color
             focusBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.WindowBackgroundColor);
             alertsBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.WindowBackgroundColor);
             userInfoBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.WindowBackgroundColor);
@@ -3374,29 +3368,21 @@ namespace Retro_Achievement_Tracker
             achievementListBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AchievementListController.Instance.WindowBackgroundColor);
             relatedMediaBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(RelatedMediaController.Instance.WindowBackgroundColor);
 
-            /*
-             * Window Static Sizes
-             */
+            // Window Static Sizes
             achievementListWindowSizeXUpDown.Value = AchievementListController.Instance.WindowSizeX;
             achievementListWindowSizeYUpDown.Value = AchievementListController.Instance.WindowSizeY;
 
-            /*
-             * Border Background Color
-             */
+            // Border Background Color
             focusBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.BorderBackgroundColor);
             alertsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.BorderBackgroundColor);
             recentAchievementsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.BorderBackgroundColor);
 
-            /*
-             * Border Enabled
-             */
+            // Border Enabled
             focusBorderCheckBox.Checked = FocusController.Instance.BorderEnabled;
             alertsBorderCheckBox.Checked = AlertsController.Instance.BorderEnabled;
             recentAchievementsBorderCheckBox.Checked = RecentUnlocksController.Instance.BorderEnabled;
 
-            /*
-             * Advanced Settings
-             */
+            // Advanced Settings
             focusAdvancedCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled;
             alertsAdvancedCheckBox.Checked = AlertsController.Instance.AdvancedSettingsEnabled;
             userInfoAdvancedCheckBox.Checked = UserInfoController.Instance.AdvancedSettingsEnabled;
@@ -3422,9 +3408,7 @@ namespace Retro_Achievement_Tracker
             gameProgressCompletedCheckBox.Checked = GameProgressController.Instance.CompletedEnabled;
             gameProgressRatioCheckBox.Checked = GameProgressController.Instance.RatioEnabled;
 
-            /*
-             * Set Font Family ComboBoxes
-             */
+            // Set Font Family ComboBoxes
             SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleFontFamily : FocusController.Instance.SimpleFontFamily);
             SetFontFamilyBox(focusDescriptionFontComboBox, FocusController.Instance.DescriptionFontFamily);
             SetFontFamilyBox(focusPointsFontComboBox, FocusController.Instance.PointsFontFamily);
@@ -3446,9 +3430,7 @@ namespace Retro_Achievement_Tracker
             SetFontFamilyBox(recentAchievementsDescriptionFontComboBox, RecentUnlocksController.Instance.DateFontFamily);
             SetFontFamilyBox(recentAchievementsPointsFontComboBox, RecentUnlocksController.Instance.PointsFontFamily);
 
-            /*
-             * Font & Outline Enablement
-             */
+            // Font & Outline Enablement
             focusTitleOutlineCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineEnabled : FocusController.Instance.SimpleFontOutlineEnabled;
             focusDescriptionOutlineCheckBox.Checked = FocusController.Instance.DescriptionOutlineEnabled;
             focusPointsOutlineCheckBox.Checked = FocusController.Instance.PointsOutlineEnabled;
@@ -3473,9 +3455,7 @@ namespace Retro_Achievement_Tracker
             recentAchievementsPointsFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.PointsOutlineEnabled;
             recentAchievementsLineOutlineCheckBox.Checked = RecentUnlocksController.Instance.LineOutlineEnabled;
 
-            /*
-             * Font Color PictureBox Assignment
-             */
+            // Font Color PictureBox Assignment
             focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleColor : FocusController.Instance.SimpleFontColor);
             focusDescriptionFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.DescriptionColor);
             focusPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.PointsColor);
@@ -3524,9 +3504,7 @@ namespace Retro_Achievement_Tracker
             recentAchievementsPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.PointsOutlineColor);
             recentAchievementsLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.LineOutlineColor);
 
-            /*
-             * Font Outline Size NumericUpDown Assignment
-             */
+            // Font Outline Size NumericUpDown Assignment
             focusTitleFontOutlineNumericUpDown.Value = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineSize : FocusController.Instance.SimpleFontOutlineSize;
             focusDescriptionFontOutlineNumericUpDown.Value = FocusController.Instance.DescriptionOutlineSize;
             focusPointsFontOutlineNumericUpDown.Value = FocusController.Instance.PointsOutlineSize;
@@ -3679,22 +3657,14 @@ namespace Retro_Achievement_Tracker
                 AlertsController.Instance.CustomMasteryOutSpeed = (int)alertsCustomMasteryOutSpeedUpDown.Minimum;
             }
 
-            List<AnimationDirection> animationDirections = new List<AnimationDirection>
+            foreach (AnimationDirection direction in Enum.GetValues(typeof(AnimationDirection)))
             {
-                AnimationDirection.DOWN,
-                AnimationDirection.LEFT,
-                AnimationDirection.RIGHT,
-                AnimationDirection.STATIC,
-                AnimationDirection.UP
-            };
-
-            animationDirections.ForEach(animationDirection =>
-            {
-                alertsCustomAchievementAnimationInComboBox.Items.Add(animationDirection.ToString());
-                alertsCustomAchievementAnimationOutComboBox.Items.Add(animationDirection.ToString());
-                alertsCustomMasteryAnimationInComboBox.Items.Add(animationDirection.ToString());
-                alertsCustomMasteryAnimationOutComboBox.Items.Add(animationDirection.ToString());
-            });
+                string value = direction.ToString();
+                alertsCustomAchievementAnimationInComboBox.Items.Add(value);
+                alertsCustomAchievementAnimationOutComboBox.Items.Add(value);
+                alertsCustomMasteryAnimationInComboBox.Items.Add(value);
+                alertsCustomMasteryAnimationOutComboBox.Items.Add(value);
+            }
 
             alertsCustomAchievementAnimationInComboBox.SelectedIndex = alertsCustomAchievementAnimationInComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationIn.ToString());
             alertsCustomAchievementAnimationOutComboBox.SelectedIndex = alertsCustomAchievementAnimationOutComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationOut.ToString());
@@ -3722,9 +3692,7 @@ namespace Retro_Achievement_Tracker
             alertsCustomMasteryXNumericUpDown.Value = AlertsController.Instance.CustomMasteryX;
             alertsCustomMasteryYNumericUpDown.Value = AlertsController.Instance.CustomMasteryY;
 
-            /*
-             * Auto-Scrolling
-             */
+            // Auto-Scrolling
             recentAchievementsAutoScrollCheckBox.Checked = RecentUnlocksController.Instance.AutoScroll;
             achievementListAutoScrollCheckBox.Checked = AchievementListController.Instance.AutoScroll;
 
