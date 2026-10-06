@@ -1,12 +1,53 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Retro_Achievement_Tracker.Models;
+using Retro_Achievement_Tracker.Properties;
 
 namespace Retro_Achievement_Tracker
 {
     public partial class MainWindow : Form
     {
         #region Main
+
+        string Username
+        {
+            get => Settings.Default.ra_username;
+            set => Settings.Default.ra_username = value;
+        }
+        string WebAPIKey
+        {
+            get => Settings.Default.ra_key;
+            set => Settings.Default.ra_key = value;
+        }
+        long PreviouslyPlayedGameId
+        {
+            get => Settings.Default.previously_played_game;
+            set => Settings.Default.previously_played_game = (int)value;
+        }
+
+        List<Achievement> LockedAchievements
+        {
+            get
+            {
+                if (GameInfoAndProgress != null && GameInfoAndProgress.Achievements != null)
+                {
+                    return GameInfoAndProgress.Achievements.FindAll(x => !x.DateEarned.HasValue);
+                }
+                return new List<Achievement>();
+            }
+        }
+
+        List<Achievement> UnlockedAchievements
+        {
+            get
+            {
+                if (GameInfoAndProgress != null && GameInfoAndProgress.Achievements != null)
+                {
+                    return GameInfoAndProgress.Achievements.FindAll(x => x.DateEarned.HasValue);
+                }
+                return new List<Achievement>();
+            }
+        }
 
         bool ShouldRun,
             IsChanging,

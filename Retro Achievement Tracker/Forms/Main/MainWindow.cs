@@ -19,30 +19,6 @@ namespace Retro_Achievement_Tracker
 {
     public partial class MainWindow : Form
     {
-        List<Achievement> LockedAchievements
-        {
-            get
-            {
-                if (GameInfoAndProgress != null && GameInfoAndProgress.Achievements != null)
-                {
-                    return GameInfoAndProgress.Achievements.FindAll(x => !x.DateEarned.HasValue);
-                }
-                return new List<Achievement>();
-            }
-        }
-
-        List<Achievement> UnlockedAchievements
-        {
-            get
-            {
-                if (GameInfoAndProgress != null && GameInfoAndProgress.Achievements != null)
-                {
-                    return GameInfoAndProgress.Achievements.FindAll(x => x.DateEarned.HasValue);
-                }
-                return new List<Achievement>();
-            }
-        }
-
         public MainWindow()
         {
             MaximizeBox = false;
@@ -3703,22 +3679,8 @@ namespace Retro_Achievement_Tracker
             UpdateRefocusBehaviorRadioButtons();
             UpdateDividerCharacterRadioButtons();
         }
-        string Username
-        {
-            get => Settings.Default.ra_username;
-            set => Settings.Default.ra_username = value;
-        }
-        string WebAPIKey
-        {
-            get => Settings.Default.ra_key;
-            set => Settings.Default.ra_key = value;
-        }
-        long PreviouslyPlayedGameId
-        {
-            get => Settings.Default.previously_played_game;
-            set => Settings.Default.previously_played_game = (int)value;
-        }
     }
+
     public enum AnimationDirection
     {
         STATIC,
