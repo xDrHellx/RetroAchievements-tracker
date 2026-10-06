@@ -46,9 +46,7 @@ namespace Retro_Achievement_Tracker
         public MainWindow()
         {
             MaximizeBox = false;
-
-            IsBooting = true;
-            IsChanging = true;
+            IsBooting = IsChanging = true;
             CurrentlyViewingIndex = -1;
 
             AutoUpdate();
@@ -79,16 +77,13 @@ namespace Retro_Achievement_Tracker
         void AutoUpdate()
         {
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
-
             AutoUpdater.ReportErrors = false;
             AutoUpdater.Synchronous = true;
-
             AutoUpdater.Start(Constants.GITHUB_AUTO_UPDATE_URL);
         }
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
             UserAndGameUpdateTimer = new Timer
             {
                 Enabled = false
@@ -98,11 +93,9 @@ namespace Retro_Achievement_Tracker
             UserAndGameUpdateTimer.Interval = 500;
 
             mainTabControl.TabIndexChanged += TabControlExtra1_TabIndexChanged;
-
             checkForUpdatesButton.Click += CheckForUpdatesButton_Click;
 
             LoadProperties();
-
             CreateFolders();
 
             if (CanStart())
@@ -179,31 +172,28 @@ namespace Retro_Achievement_Tracker
                 return;
             }
 
-            if (UserSummary != null && GameInfoAndProgress != null)
+            if (UserSummary != null && GameInfoAndProgress != null && IsBooting)
             {
-                if (IsBooting)
-                {
-                    if (FocusController.Instance.AutoLaunch && !FocusController.Instance.IsOpen)
-                        FocusController.Instance.Show();
-                    else if (AlertsController.Instance.AutoLaunch && !AlertsController.Instance.IsOpen)
-                        AlertsController.Instance.Show();
-                    else if (UserInfoController.Instance.AutoLaunch && !UserInfoController.Instance.IsOpen)
-                        UserInfoController.Instance.Show();
-                    else if (GameInfoController.Instance.AutoLaunch && !GameInfoController.Instance.IsOpen)
-                        GameInfoController.Instance.Show();
-                    else if (GameProgressController.Instance.AutoLaunch && !GameProgressController.Instance.IsOpen)
-                        GameProgressController.Instance.Show();
-                    else if (RecentUnlocksController.Instance.AutoLaunch && !RecentUnlocksController.Instance.IsOpen)
-                        RecentUnlocksController.Instance.Show();
-                    else if (AchievementListController.Instance.AutoLaunch && !AchievementListController.Instance.IsOpen)
-                        AchievementListController.Instance.Show();
-                    else if (RelatedMediaController.Instance.AutoLaunch && !RelatedMediaController.Instance.IsOpen)
-                        RelatedMediaController.Instance.Show();
-                    else if (AlertsController.Instance.AutoLaunch && !AlertsController.Instance.IsOpen)
-                        AlertsController.Instance.Show();
-                    else
-                        IsBooting = false;
-                }
+                if (FocusController.Instance.AutoLaunch && !FocusController.Instance.IsOpen)
+                    FocusController.Instance.Show();
+                else if (AlertsController.Instance.AutoLaunch && !AlertsController.Instance.IsOpen)
+                    AlertsController.Instance.Show();
+                else if (UserInfoController.Instance.AutoLaunch && !UserInfoController.Instance.IsOpen)
+                    UserInfoController.Instance.Show();
+                else if (GameInfoController.Instance.AutoLaunch && !GameInfoController.Instance.IsOpen)
+                    GameInfoController.Instance.Show();
+                else if (GameProgressController.Instance.AutoLaunch && !GameProgressController.Instance.IsOpen)
+                    GameProgressController.Instance.Show();
+                else if (RecentUnlocksController.Instance.AutoLaunch && !RecentUnlocksController.Instance.IsOpen)
+                    RecentUnlocksController.Instance.Show();
+                else if (AchievementListController.Instance.AutoLaunch && !AchievementListController.Instance.IsOpen)
+                    AchievementListController.Instance.Show();
+                else if (RelatedMediaController.Instance.AutoLaunch && !RelatedMediaController.Instance.IsOpen)
+                    RelatedMediaController.Instance.Show();
+                else if (AlertsController.Instance.AutoLaunch && !AlertsController.Instance.IsOpen)
+                    AlertsController.Instance.Show();
+                else
+                    IsBooting = false;
             }
 
             UserAndGameTimerCounter--;
@@ -220,7 +210,6 @@ namespace Retro_Achievement_Tracker
                     {
                         UpdateActivePollingLabel(Constants.RETRO_ACHIEVEMENTS_LABEL_MSG_UPDATING_USER_INFO);
                         UserSummary = await RetroAchievementsAPIClient.GetUserSummary();
-
                         UpdateUserInfo();
                     }
 
@@ -254,15 +243,6 @@ namespace Retro_Achievement_Tracker
                                 ShouldRun = false;
                             }
                         }
-
-                        if (ShouldRun)
-                        {
-                            StartTimer();
-                        }
-                        else
-                        {
-                            StopButton_Click(null, null);
-                        }
                     }
                 }
             }
@@ -277,22 +257,22 @@ namespace Retro_Achievement_Tracker
                     if (PreviouslyPlayedGameId != 0)
                         ManualSearchButton_Click(null, null);
                 }
+            }
 
-                if (ShouldRun)
-                {
-                    StartTimer();
-                }
-                else
-                {
-                    StopButton_Click(null, null);
-                }
+            if (ShouldRun)
+            {
+                StartTimer();
+            }
+            else
+            {
+                StopButton_Click(null, null);
             }
         }
 
         bool UpdateGameProgress(bool sameGame)
         {
-            bool needsUpdate = !sameGame;
-            bool triggeredUpdate = false;
+            bool needsUpdate = !sameGame,
+                triggeredUpdate = false;
 
             try
             {
@@ -420,46 +400,45 @@ namespace Retro_Achievement_Tracker
         }
         public void UpdateCurrentlyViewingAchievement()
         {
-            if (Visible)
+            if (!Visible)
             {
-                if (LockedAchievements.Count > 0)
-                {
-                    if (CurrentlyViewingIndex >= GameInfoAndProgress.Achievements.Count)
-                    {
-                        CurrentlyViewingIndex = GameInfoAndProgress.Achievements.Count - 1;
-
-                        while (CurrentlyViewingIndex > 0 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
-                        {
-                            CurrentlyViewingIndex--;
-                        }
-
-                    }
-                    else if (CurrentlyViewingIndex < 0)
-                    {
-                        CurrentlyViewingIndex = 0;
-
-                        while (CurrentlyViewingIndex < GameInfoAndProgress.Achievements.Count - 1 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
-                        {
-                            CurrentlyViewingIndex++;
-                        }
-                    }
-
-                    CurrentlyViewingAchievement = GameInfoAndProgress.Achievements[CurrentlyViewingIndex];
-
-                    focusAchievementPictureBox.ImageLocation = CurrentlyViewingAchievement.BadgeUri;
-                    focusAchievementTitleLabel.Text = "[" + CurrentlyViewingAchievement.Points + "] - " + CurrentlyViewingAchievement.Title;
-                    focusAchievementDescriptionLabel.Text = CurrentlyViewingAchievement.Description;
-                }
-                else
-                {
-                    CurrentlyViewingIndex = -1;
-                    CurrentlyViewingAchievement = null;
-
-                    focusAchievementPictureBox.ImageLocation = focusAchievementTitleLabel.Text = focusAchievementDescriptionLabel.Text = "";
-                }
-
-                UpdateFocusButtons();
+                return;
             }
+
+            if (LockedAchievements.Count > 0)
+            {
+                if (CurrentlyViewingIndex >= GameInfoAndProgress.Achievements.Count)
+                {
+                    CurrentlyViewingIndex = GameInfoAndProgress.Achievements.Count - 1;
+                    while (CurrentlyViewingIndex > 0 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
+                    {
+                        CurrentlyViewingIndex--;
+                    }
+
+                }
+                else if (CurrentlyViewingIndex < 0)
+                {
+                    CurrentlyViewingIndex = 0;
+                    while (CurrentlyViewingIndex < GameInfoAndProgress.Achievements.Count - 1 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
+                    {
+                        CurrentlyViewingIndex++;
+                    }
+                }
+
+                CurrentlyViewingAchievement = GameInfoAndProgress.Achievements[CurrentlyViewingIndex];
+
+                focusAchievementPictureBox.ImageLocation = CurrentlyViewingAchievement.BadgeUri;
+                focusAchievementTitleLabel.Text = "[" + CurrentlyViewingAchievement.Points + "] - " + CurrentlyViewingAchievement.Title;
+                focusAchievementDescriptionLabel.Text = CurrentlyViewingAchievement.Description;
+            }
+            else
+            {
+                CurrentlyViewingIndex = -1;
+                CurrentlyViewingAchievement = null;
+                focusAchievementPictureBox.ImageLocation = focusAchievementTitleLabel.Text = focusAchievementDescriptionLabel.Text = "";
+            }
+
+            UpdateFocusButtons();
         }
         void SetFocus()
         {
@@ -492,14 +471,19 @@ namespace Retro_Achievement_Tracker
             Directory.CreateDirectory(@"stream-labels\alerts");
             Directory.CreateDirectory(@"game-progress");
         }
+
+        /// <summary>Indicate if the Tracker can start</summary>
+        /// <returns><c>bool</c></returns>
         bool CanStart()
         {
             return !(string.IsNullOrEmpty(usernameTextBox.Text) || string.IsNullOrEmpty(apiKeyTextBox.Text));
         }
+
         void UpdateActivePollingLabel(string s)
         {
             autoPollingStatusLabel.Text = s;
         }
+
         void StartTimer()
         {
             UserAndGameTimerCounter = (IsStarting || IsBooting) ? 0 : 60;
@@ -560,9 +544,7 @@ namespace Retro_Achievement_Tracker
             gameProgressAchievements1Label.Text = GameInfoAndProgress.AchievementsPossible.ToString();
             gameProgressPoints1Label.Text = GameInfoAndProgress.GamePointsPossible.ToString();
             gameProgressTruePoints1Label.Text = "(" + GameInfoAndProgress.GameTruePointsPossible.ToString() + ")";
-
             gameProgressPercentCompletePictureBox.Size = new Size((int)(1.82 * percentageCompleted), 2);
-
             gameProgressCompletedLabel.Text = percentageCompleted + "% complete";
 
             if (0 == percentageCompleted)
@@ -646,14 +628,12 @@ namespace Retro_Achievement_Tracker
 
             RetroAchievementsAPIClient = new RetroAchievementAPIClient(usernameTextBox.Text, apiKeyTextBox.Text);
 
-            ShouldRun = true;
-
             startButton.Enabled = false;
-            stopButton.Enabled = true;
-
             usernameTextBox.Enabled = false;
             apiKeyTextBox.Enabled = false;
 
+            ShouldRun = true;
+            stopButton.Enabled = true;
             focusOpenWindowButton.Enabled = true;
             alertsOpenWindowButton.Enabled = true;
             userInfoOpenWindowButton.Enabled = true;
@@ -691,8 +671,7 @@ namespace Retro_Achievement_Tracker
 
             startButton.Enabled = canStart;
 
-            IsBooting = false;
-            IsChanging = false;
+            IsBooting = IsChanging = false;
         }
         void RequiredField_TextChanged(object sender, EventArgs e)
         {
@@ -762,67 +741,68 @@ namespace Retro_Achievement_Tracker
         }
         void CustomAlertsCheckBox_CheckedChanged(object sender, EventArgs eventArgs)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-
-                CheckBox checkBox = sender as CheckBox;
-                bool isChecked = checkBox.Checked;
-
-                switch (checkBox.Name)
-                {
-                    case "alertsAchievementEnableCheckbox":
-                        AlertsController.Instance.AchievementAlertEnable = isChecked;
-                        break;
-                    case "alertsMasteryEnableCheckbox":
-                        AlertsController.Instance.MasteryAlertEnable = isChecked;
-                        break;
-                    case "alertsCustomAchievementEnableCheckbox":
-                        if (isChecked)
-                            if (!File.Exists(AlertsController.Instance.CustomAchievementFile))
-                                SelectCustomAchievementFile();
-
-                        AlertsController.Instance.CustomAchievementEnabled = isChecked;
-                        break;
-                    case "alertsCustomMasteryEnableCheckbox":
-                        if (isChecked)
-                            if (!File.Exists(AlertsController.Instance.CustomMasteryFile))
-                                SelectCustomMasteryFile();
-
-                        AlertsController.Instance.CustomMasteryEnabled = isChecked;
-                        break;
-                    case "alertsAchievementEditOutlineCheckbox":
-                        if (checkBox.Checked)
-                        {
-                            AlertsController.Instance.EnableAchievementEdit();
-                            AlertsController.Instance.SendAchievementNotification(new Achievement()
-                            {
-                                Title = "Thrilling!!!!",
-                                Description = "Color every bit of Dinosaur 2. [Must color white if leaving white]",
-                                BadgeUri = "https://retroachievements.org/Badge/49987.png",
-                                Points = 1
-                            });
-                        }
-                        else
-                            AlertsController.Instance.DisableAchievementEdit();
-                        break;
-                    case "alertsMasteryEditOutlineCheckbox":
-                        if (checkBox.Checked)
-                        {
-                            AlertsController.Instance.EnableMasteryEdit();
-                            AlertsController.Instance.SendMasteryNotification(GameInfoAndProgress);
-                        }
-                        else
-                        {
-                            AlertsController.Instance.DisableMasteryEdit();
-                        }
-                        break;
-                }
-
-                UpdateAlertsEnabledControls();
-
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+
+            CheckBox checkBox = sender as CheckBox;
+            bool isChecked = checkBox.Checked;
+
+            switch (checkBox.Name)
+            {
+                case "alertsAchievementEnableCheckbox":
+                    AlertsController.Instance.AchievementAlertEnable = isChecked;
+                    break;
+                case "alertsMasteryEnableCheckbox":
+                    AlertsController.Instance.MasteryAlertEnable = isChecked;
+                    break;
+                case "alertsCustomAchievementEnableCheckbox":
+                    if (isChecked)
+                        if (!File.Exists(AlertsController.Instance.CustomAchievementFile))
+                            SelectCustomAchievementFile();
+
+                    AlertsController.Instance.CustomAchievementEnabled = isChecked;
+                    break;
+                case "alertsCustomMasteryEnableCheckbox":
+                    if (isChecked)
+                        if (!File.Exists(AlertsController.Instance.CustomMasteryFile))
+                            SelectCustomMasteryFile();
+
+                    AlertsController.Instance.CustomMasteryEnabled = isChecked;
+                    break;
+                case "alertsAchievementEditOutlineCheckbox":
+                    if (checkBox.Checked)
+                    {
+                        AlertsController.Instance.EnableAchievementEdit();
+                        AlertsController.Instance.SendAchievementNotification(new Achievement()
+                        {
+                            Title = "Thrilling!!!!",
+                            Description = "Color every bit of Dinosaur 2. [Must color white if leaving white]",
+                            BadgeUri = "https://retroachievements.org/Badge/49987.png",
+                            Points = 1
+                        });
+                    }
+                    else
+                        AlertsController.Instance.DisableAchievementEdit();
+                    break;
+                case "alertsMasteryEditOutlineCheckbox":
+                    if (checkBox.Checked)
+                    {
+                        AlertsController.Instance.EnableMasteryEdit();
+                        AlertsController.Instance.SendMasteryNotification(GameInfoAndProgress);
+                    }
+                    else
+                    {
+                        AlertsController.Instance.DisableMasteryEdit();
+                    }
+                    break;
+            }
+
+            UpdateAlertsEnabledControls();
+            IsChanging = false;
         }
         void UpdateAlertsEnabledControls()
         {
@@ -895,7 +875,6 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = true;
             NumericUpDown numericUpDown = sender as NumericUpDown;
-
             switch (numericUpDown.Name)
             {
                 case "focusTitleFontOutlineNumericUpDown":
@@ -1132,7 +1111,6 @@ namespace Retro_Achievement_Tracker
         void MoveFocusIndexPrev_Click(object sender, EventArgs e)
         {
             CurrentlyViewingIndex--;
-
             while (CurrentlyViewingIndex > -1 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
             {
                 CurrentlyViewingIndex--;
@@ -1143,7 +1121,6 @@ namespace Retro_Achievement_Tracker
         void MoveFocusIndexNext_Click(object sender, EventArgs e)
         {
             CurrentlyViewingIndex++;
-
             while (CurrentlyViewingIndex < GameInfoAndProgress.Achievements.Count - 1 && !LockedAchievements.Contains(GameInfoAndProgress.Achievements[CurrentlyViewingIndex]))
             {
                 CurrentlyViewingIndex++;
@@ -1900,7 +1877,6 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = true;
             RadioButton radioButton = sender as RadioButton;
-
             if (radioButton.Checked)
             {
                 switch (radioButton.Name)
@@ -2100,6 +2076,7 @@ namespace Retro_Achievement_Tracker
 
             IsChanging = false;
         }
+
         void UpdateRelatedMediaRadioButtons()
         {
             UpdateLaunchBoxIntegrationState();
@@ -2107,296 +2084,90 @@ namespace Retro_Achievement_Tracker
             switch (RelatedMediaController.Instance.RelatedMediaSelection)
             {
                 case RelatedMediaSelection.RABadgeIcon:
-                    relatedMediaRABadgeIconRadioButton.Checked = true;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaRABadgeIconRadioButton);
                     break;
                 case RelatedMediaSelection.RABoxArt:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = true;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaRABoxArtRadioButton);
                     break;
                 case RelatedMediaSelection.RATitleScreen:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = true;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaRATitleScreenRadioButton);
                     break;
                 case RelatedMediaSelection.RAIngameScreen:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = true;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaRAScreenshotRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFront:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = true;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxFrontRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtBack:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = true;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxBackRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArt3D:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = true;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBox3DRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFrontRecon:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = true;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxFrontReconRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtBackRecon:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = true;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxBackReconRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFull:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = true;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxFullRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtSpine:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = true;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBoxSpineRadioButton);
                     break;
                 case RelatedMediaSelection.LBBanner:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = true;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBBannerRadioButton);
                     break;
                 case RelatedMediaSelection.LBTitleScreen:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = true;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBTitleScreenRadioButton);
                     break;
                 case RelatedMediaSelection.LBClearLogo:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = true;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBClearLogoRadioButton);
                     break;
                 case RelatedMediaSelection.LBCartFront:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = true;
-                    relatedMediaLBCartBackRadioButton.Checked = false;
+                    SetMediaButtonChecks(relatedMediaLBCartFrontRadioButton);
                     break;
                 case RelatedMediaSelection.LBCartBack:
-                    relatedMediaRABadgeIconRadioButton.Checked = false;
-                    relatedMediaRABoxArtRadioButton.Checked = false;
-                    relatedMediaRATitleScreenRadioButton.Checked = false;
-                    relatedMediaRAScreenshotRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontRadioButton.Checked = false;
-                    relatedMediaLBBoxBackRadioButton.Checked = false;
-                    relatedMediaLBBox3DRadioButton.Checked = false;
-                    relatedMediaLBBoxFrontReconRadioButton.Checked = false;
-                    relatedMediaLBBoxBackReconRadioButton.Checked = false;
-                    relatedMediaLBBoxFullRadioButton.Checked = false;
-                    relatedMediaLBBoxSpineRadioButton.Checked = false;
-                    relatedMediaLBBannerRadioButton.Checked = false;
-                    relatedMediaLBTitleScreenRadioButton.Checked = false;
-                    relatedMediaLBClearLogoRadioButton.Checked = false;
-                    relatedMediaLBCartFrontRadioButton.Checked = false;
-                    relatedMediaLBCartBackRadioButton.Checked = true;
+                    SetMediaButtonChecks(relatedMediaLBCartBackRadioButton);
                     break;
             }
 
             RelatedMediaController.Instance.SetAllSettings(false);
+        }
+
+        /// <summary>Uncheck all media buttons, then check the ones parassed as parameters</summary>
+        /// <param name="toCheck">Button to check</param>
+        void SetMediaButtonChecks(params RadioButton[] toCheck)
+        {
+            List<RadioButton> btns = new List<RadioButton>{
+                relatedMediaRABoxArtRadioButton,
+                relatedMediaRATitleScreenRadioButton,
+                relatedMediaRAScreenshotRadioButton,
+                relatedMediaLBBoxFrontRadioButton,
+                relatedMediaLBBoxBackRadioButton,
+                relatedMediaLBBox3DRadioButton,
+                relatedMediaLBBoxFrontReconRadioButton,
+                relatedMediaLBBoxBackReconRadioButton,
+                relatedMediaLBBoxFullRadioButton,
+                relatedMediaLBBoxSpineRadioButton,
+                relatedMediaLBBannerRadioButton,
+                relatedMediaLBTitleScreenRadioButton,
+                relatedMediaLBClearLogoRadioButton,
+                relatedMediaLBCartFrontRadioButton,
+                relatedMediaLBCartBackRadioButton,
+                relatedMediaRABadgeIconRadioButton
+            };
+
+            foreach (RadioButton btn in btns)
+            {
+                btn.Checked = false;
+            }
+
+            foreach (RadioButton btn in toCheck)
+            {
+                btn.Checked = true;
+            }
         }
         void UpdateLaunchBoxIntegrationState()
         {
@@ -3206,35 +2977,37 @@ namespace Retro_Achievement_Tracker
 
         void AdvancedCheckBox_Click(object sender, EventArgs e)
         {
-            if (!IsChanging)
+            if (IsChanging)
             {
-                IsChanging = true;
-                CheckBox checkBox = (CheckBox)sender;
-                switch (checkBox.Name)
-                {
-                    case "focusAdvancedCheckBox":
-                        FocusController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                    case "alertsAdvancedCheckBox":
-                        AlertsController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                    case "userInfoAdvancedCheckBox":
-                        UserInfoController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                    case "gameInfoAdvancedCheckBox":
-                        GameInfoController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                    case "gameProgressAdvancedCheckBox":
-                        GameProgressController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                    case "recentAchievementsAdvancedCheckBox":
-                        RecentUnlocksController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
-                        break;
-                }
-
-                UpdateAdvancedSettings();
-                IsChanging = false;
+                return;
             }
+
+            IsChanging = true;
+            CheckBox checkBox = (CheckBox)sender;
+            switch (checkBox.Name)
+            {
+                case "focusAdvancedCheckBox":
+                    FocusController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+                case "alertsAdvancedCheckBox":
+                    AlertsController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+                case "userInfoAdvancedCheckBox":
+                    UserInfoController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+                case "gameInfoAdvancedCheckBox":
+                    GameInfoController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+                case "gameProgressAdvancedCheckBox":
+                    GameProgressController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+                case "recentAchievementsAdvancedCheckBox":
+                    RecentUnlocksController.Instance.AdvancedSettingsEnabled = checkBox.Checked;
+                    break;
+            }
+
+            UpdateAdvancedSettings();
+            IsChanging = false;
         }
         void UpdateAdvancedSettings()
         {
