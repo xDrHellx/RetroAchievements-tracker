@@ -2,8 +2,9 @@
 using Retro_Achievement_Tracker.Controllers;
 using Retro_Achievement_Tracker.Properties;
 using System;
-using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Retro_Achievement_Tracker.Forms
 {
@@ -15,9 +16,18 @@ namespace Retro_Achievement_Tracker.Forms
         }
         protected override async Task InitializeAsync()
         {
-            await webView21.EnsureCoreWebView2Async(null);
-            webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("appassets.tracker", RelatedMediaController.Instance.LaunchBoxFilePath.Replace("\\", "/"), CoreWebView2HostResourceAccessKind.DenyCors);
-            webView21.NavigateToString(Resources.related_media_window);
+            string path = RelatedMediaController.Instance.LaunchBoxFilePath.Replace("\\", "/");
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("The selected folder doesn't exist. Please choose another.");
+                Close();
+            }
+            else
+            {
+                await webView21.EnsureCoreWebView2Async(null);
+                webView21.CoreWebView2.SetVirtualHostNameToFolderMapping("appassets.tracker", path, CoreWebView2HostResourceAccessKind.DenyCors);
+                webView21.NavigateToString(Resources.related_media_window);
+            }
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -40,7 +50,7 @@ namespace Retro_Achievement_Tracker.Forms
         {
             Invoke(new Action(() =>
             {
-                ClientSize = new Size(640, 480);
+                ClientSize = new System.Drawing.Size(640, 480);
             }));
         }
         void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
