@@ -69,9 +69,9 @@ namespace Retro_Achievement_Tracker
 
         #region WinForm
 
-        OpenFileDialog openFileDialog1;
-        ColorDialog colorDialog1;
-        FolderBrowserDialog folderBrowserDialog1;
+        OpenFileDialog openFileDialog;
+        ColorDialog colorDialog;
+        FolderBrowserDialog folderBrowserDialog;
         Label usernameLabel,
             apiKeyLabel,
             autoPollingStatusLabel,

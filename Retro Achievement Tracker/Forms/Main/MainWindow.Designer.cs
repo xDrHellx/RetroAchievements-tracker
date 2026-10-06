@@ -80,8 +80,8 @@ namespace Retro_Achievement_Tracker
             this.userInfoPointsCheckBox = new CheckBox();
             this.userInfoDefaultButton = new Button();
             this.userInfoRankCheckBox = new CheckBox();
-            this.openFileDialog1 = new OpenFileDialog();
-            this.colorDialog1 = new ColorDialog();
+            this.openFileDialog = new OpenFileDialog();
+            this.colorDialog = new ColorDialog();
             this.focusBehaviorGoToLastRadioButton = new RadioButton();
             this.focusBehaviorGoToNextRadioButton = new RadioButton();
             this.focusBehaviorGoToPreviousRadioButton = new RadioButton();
@@ -600,7 +600,7 @@ namespace Retro_Achievement_Tracker
             this.manualSearchLabel = new Label();
             this.manualSearchTextBox = new TextBox();
             this.manualSearchButton = new Button();
-            this.folderBrowserDialog1 = new FolderBrowserDialog();
+            this.folderBrowserDialog = new FolderBrowserDialog();
             this.panel8 = new Panel();
             ((ISupportInitialize)(this.userProfilePictureBox)).BeginInit();
             ((ISupportInitialize)(this.focusAchievementPictureBox)).BeginInit();
@@ -1817,9 +1817,9 @@ namespace Retro_Achievement_Tracker
             this.userInfoRankCheckBox.UseVisualStyleBackColor = true;
             this.userInfoRankCheckBox.CheckedChanged += new System.EventHandler(this.FeatureEnablementCheckBox_CheckedChanged);
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // focusBehaviorGoToLastRadioButton
             // 

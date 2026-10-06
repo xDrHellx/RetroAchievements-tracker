@@ -1020,9 +1020,9 @@ namespace Retro_Achievement_Tracker
         }
         void SelectCustomAchievementFile()
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                AlertsController.Instance.CustomAchievementFile = openFileDialog1.FileName;
+                AlertsController.Instance.CustomAchievementFile = openFileDialog.FileName;
             }
             else if (AlertsController.Instance.CustomAchievementEnabled && (string.IsNullOrEmpty(AlertsController.Instance.CustomAchievementFile) || !File.Exists(AlertsController.Instance.CustomAchievementFile)))
             {
@@ -1032,9 +1032,9 @@ namespace Retro_Achievement_Tracker
         }
         void SelectCustomMasteryFile()
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                AlertsController.Instance.CustomMasteryFile = openFileDialog1.FileName;
+                AlertsController.Instance.CustomMasteryFile = openFileDialog.FileName;
             }
             else if (AlertsController.Instance.CustomMasteryEnabled && (string.IsNullOrEmpty(AlertsController.Instance.CustomMasteryFile) || !File.Exists(AlertsController.Instance.CustomMasteryFile)))
             {
@@ -1140,9 +1140,9 @@ namespace Retro_Achievement_Tracker
         }
         void SetRelatedMediaPathButton_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                RelatedMediaController.Instance.LaunchBoxFilePath = folderBrowserDialog1.SelectedPath;
+                RelatedMediaController.Instance.LaunchBoxFilePath = folderBrowserDialog.SelectedPath;
                 UpdateRelatedMediaRadioButtons();
                 UpdateLaunchBoxReferences();
             }
@@ -1161,7 +1161,7 @@ namespace Retro_Achievement_Tracker
         }
         void FontColorPictureBox_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() != DialogResult.OK)
+            if (colorDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
@@ -1170,276 +1170,276 @@ namespace Retro_Achievement_Tracker
             switch (pictureBox.Name)
             {
                 case "focusBackgroundColorPictureBox":
-                    FocusController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusBorderColorPictureBox":
-                    FocusController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusTitleFontColorPictureBox":
                     if (FocusController.Instance.AdvancedSettingsEnabled)
                     {
-                        FocusController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color); ;
+                        FocusController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog.Color); ;
                     }
                     else
                     {
-                        FocusController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color); ;
+                        FocusController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color); ;
                     }
-                    focusTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    focusTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusDescriptionFontColorPictureBox":
-                    FocusController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusPointsFontColorPictureBox":
-                    FocusController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusLineColorPictureBox":
-                    FocusController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusLineColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusTitleFontOutlineColorPictureBox":
                     if (FocusController.Instance.AdvancedSettingsEnabled)
                     {
-                        FocusController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        FocusController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        FocusController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        FocusController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    focusTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    focusTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusDescriptionFontOutlineColorPictureBox":
-                    FocusController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusPointsFontOutlineColorPictureBox":
-                    FocusController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusLineOutlineColorPictureBox":
-                    FocusController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    focusLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    FocusController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    focusLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsBackgroundColorPictureBox":
-                    AlertsController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsBorderColorPictureBox":
-                    AlertsController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsTitleFontColorPictureBox":
                     if (AlertsController.Instance.AdvancedSettingsEnabled)
                     {
-                        AlertsController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        AlertsController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        AlertsController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        AlertsController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    alertsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    alertsTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsDescriptionFontColorPictureBox":
-                    AlertsController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsDescriptionFontColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsPointsFontColorPictureBox":
-                    AlertsController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsLineColorPictureBox":
-                    AlertsController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsLineColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsTitleFontOutlineColorPictureBox":
                     if (AlertsController.Instance.AdvancedSettingsEnabled)
                     {
-                        AlertsController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        AlertsController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        AlertsController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        AlertsController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsDescriptionFontOutlineColorPictureBox":
-                    AlertsController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsPointsFontOutlineColorPictureBox":
-                    AlertsController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsLineOutlineColorPictureBox":
-                    AlertsController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    alertsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    AlertsController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    alertsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoBackgroundColorPictureBox":
-                    UserInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    userInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    UserInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    userInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoNamesFontColorPictureBox":
                     if (UserInfoController.Instance.AdvancedSettingsEnabled)
                     {
-                        UserInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        UserInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        UserInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        UserInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    userInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    userInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoValuesFontColorPictureBox":
-                    UserInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    userInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    UserInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
+                    userInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoNamesFontOutlineColorPictureBox":
                     if (UserInfoController.Instance.AdvancedSettingsEnabled)
                     {
-                        UserInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        UserInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        UserInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        UserInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoValuesFontOutlineColorPictureBox":
-                    UserInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    UserInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoBackgroundColorPictureBox":
-                    GameInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameInfoBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    GameInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoNamesFontColorPictureBox":
                     if (GameInfoController.Instance.AdvancedSettingsEnabled)
                     {
-                        GameInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameInfoController.Instance.NameColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        GameInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameInfoNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    gameInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoValuesFontColorPictureBox":
-                    GameInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameInfoValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    GameInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoNamesFontOutlineColorPictureBox":
                     if (GameInfoController.Instance.AdvancedSettingsEnabled)
                     {
-                        GameInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameInfoController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        GameInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoValuesFontOutlineColorPictureBox":
-                    GameInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    GameInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressBackgroundColorPictureBox":
-                    GameProgressController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameProgressBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    GameProgressController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameProgressBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressNamesFontColorPictureBox":
                     if (GameProgressController.Instance.AdvancedSettingsEnabled)
                     {
-                        GameProgressController.Instance.NameColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameProgressController.Instance.NameColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        GameProgressController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameProgressController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameProgressNamesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    gameProgressNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressValuesFontColorPictureBox":
-                    GameProgressController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameProgressValuesFontColorPictureBox.BackColor = colorDialog1.Color;
+                    GameProgressController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameProgressValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressNamesFontOutlineColorPictureBox":
                     if (GameProgressController.Instance.AdvancedSettingsEnabled)
                     {
-                        GameProgressController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameProgressController.Instance.NameOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        GameProgressController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        GameProgressController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressValuesFontOutlineColorPictureBox":
-                    GameProgressController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    GameProgressController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsBackgroundColorPictureBox":
-                    RecentUnlocksController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsBorderColorPictureBox":
-                    RecentUnlocksController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsBorderColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsTitleFontColorPictureBox":
                     if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
                     {
-                        RecentUnlocksController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        RecentUnlocksController.Instance.TitleColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        RecentUnlocksController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        RecentUnlocksController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog1.Color;
+                    recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsDateFontColorPictureBox":
-                    RecentUnlocksController.Instance.DateColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsDateFontColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.DateColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsDateFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsPointsFontColorPictureBox":
-                    RecentUnlocksController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsLineColorPictureBox":
-                    RecentUnlocksController.Instance.LineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsLineColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsTitleFontOutlineColorPictureBox":
                     if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
                     {
-                        RecentUnlocksController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        RecentUnlocksController.Instance.TitleOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
                     else
                     {
-                        RecentUnlocksController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
+                        RecentUnlocksController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsDateFontOutlineColorPictureBox":
-                    RecentUnlocksController.Instance.DateOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.DateOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsPointsFontOutlineColorPictureBox":
-                    RecentUnlocksController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsLineOutlineColorPictureBox":
-                    RecentUnlocksController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog1.Color;
+                    RecentUnlocksController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
+                    recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "achievementListBackgroundColorPictureBox":
-                    AchievementListController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    achievementListBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    AchievementListController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    achievementListBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "relatedMediaBackgroundColorPictureBox":
-                    RelatedMediaController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog1.Color);
-                    relatedMediaBackgroundColorPictureBox.BackColor = colorDialog1.Color;
+                    RelatedMediaController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
+                    relatedMediaBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
             }
         }
