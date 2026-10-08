@@ -242,6 +242,15 @@
     <Compile Include="Models\UserSummaryConverter.cs" />
     <Compile Include="Models\UserSummary.cs" />
     <Compile Include="Http\RetroAchievementAPIClient.cs" />
+    <Compile Include="Tabs\AbstractTab.cs" />
+    <Compile Include="Tabs\FocusTab.cs" />
+    <Compile Include="Tabs\AlertsTab.cs" />
+    <Compile Include="Tabs\UserInfoTab.cs" />
+    <Compile Include="Tabs\GameInfoTab.cs" />
+    <Compile Include="Tabs\GameProgressTab.cs" />
+    <Compile Include="Tabs\RecentAchievementsTab.cs" />
+    <Compile Include="Tabs\AchievementsListTab.cs" />
+    <Compile Include="Tabs\RelatedMediaTab.cs" />
     <Compile Include="Forms\Main\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
