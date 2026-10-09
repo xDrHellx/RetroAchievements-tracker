@@ -57,6 +57,7 @@ namespace Retro_Achievement_Tracker
             AutoUpdater.Synchronous = true;
             AutoUpdater.Start(Constants.GITHUB_AUTO_UPDATE_URL);
         }
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
@@ -74,20 +75,18 @@ namespace Retro_Achievement_Tracker
             LoadProperties();
             CreateFolders();
 
-            if (CanStart())
+            if (CanStart() && autoStartCheckbox.Checked)
             {
-                if (autoStartCheckbox.Checked)
-                {
-                    StartButton_Click(null, null);
-                }
+                StartButton_Click(null, null);
             }
-            else
+            else if (!CanStart())
             {
                 StopButton_Click(null, null);
             }
 
             IsChanging = false;
         }
+
         protected override void OnClosed(EventArgs e)
         {
             Username = usernameTextBox.Text;
@@ -107,36 +106,35 @@ namespace Retro_Achievement_Tracker
 
         void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
         {
-            if (args != null)
-            {
-                if (args.IsUpdateAvailable && (Settings.Default.check_for_update_on_version || (!Settings.Default.check_for_update_version.Equals(args.CurrentVersion) && Settings.Default.check_for_update_on_version)))
-                {
-                    Settings.Default.check_for_update_version = args.CurrentVersion;
-
-                    try
-                    {
-                        DialogResult dialogResult = MessageBox.Show("Old version: " + args.InstalledVersion + "\nNew version: " + args.CurrentVersion, "New Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (dialogResult.Equals(DialogResult.Yes))
-                        {
-                            if (AutoUpdater.DownloadUpdate(args))
-                                Close();
-                        }
-                        else
-                        {
-                            Settings.Default.check_for_update_on_version = false;
-                        }
-                    }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show(exception.Message, exception.GetType().ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    Settings.Default.Save();
-                }
-            }
-            else
+            if (args == null)
             {
                 MessageBox.Show(@"There is a problem reaching update server please check your internet connection and try again later.", @"Update check failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (args.IsUpdateAvailable && (Settings.Default.check_for_update_on_version || (!Settings.Default.check_for_update_version.Equals(args.CurrentVersion) && Settings.Default.check_for_update_on_version)))
+            {
+                Settings.Default.check_for_update_version = args.CurrentVersion;
+
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Old version: " + args.InstalledVersion + "\nNew version: " + args.CurrentVersion, "New Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialogResult.Equals(DialogResult.Yes))
+                    {
+                        if (AutoUpdater.DownloadUpdate(args))
+                            Close();
+                    }
+                    else
+                    {
+                        Settings.Default.check_for_update_on_version = false;
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, exception.GetType().ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                Settings.Default.Save();
             }
         }
 
@@ -178,47 +176,51 @@ namespace Retro_Achievement_Tracker
 
             try
             {
-                if (UserAndGameTimerCounter <= 0)
+                if (UserAndGameTimerCounter > 0)
                 {
-                    UserAndGameUpdateTimer.Stop();
+                    return;
+                }
 
-                    if (UserSummary == null)
+                UserAndGameUpdateTimer.Stop();
+
+                if (UserSummary == null)
+                {
+                    UpdateActivePollingLabel(Constants.RETRO_ACHIEVEMENTS_LABEL_MSG_UPDATING_USER_INFO);
+                    UserSummary = await RetroAchievementsAPIClient.GetUserSummary();
+                    UpdateUserInfo();
+                }
+
+                if (UserSummary == null || UserSummary.LastGameID < 1)
+                {
+                    return;
+                }
+
+                List<GameInfo> previouslyPlayed = await RetroAchievementsAPIClient.GetRecentlyPlayedGames();
+                if (previouslyPlayed.Count > 0)
+                {
+                    List<Achievement> recentlyUnlockedAchievements = await RetroAchievementsAPIClient.GetRecentAchievements();
+
+                    if (GameInfoAndProgress == null || !previouslyPlayed[0].Id.Equals(GameInfoAndProgress.Id) || recentlyUnlockedAchievements.Count(x => LockedAchievements.Contains(x)) > 0)
                     {
-                        UpdateActivePollingLabel(Constants.RETRO_ACHIEVEMENTS_LABEL_MSG_UPDATING_USER_INFO);
-                        UserSummary = await RetroAchievementsAPIClient.GetUserSummary();
-                        UpdateUserInfo();
+                        bool sameGame = GameInfoAndProgress != null && previouslyPlayed[0].Id.Equals(GameInfoAndProgress.Id);
+
+                        UpdateActivePollingLabel(Constants.RETRO_ACHIEVEMENTS_LABEL_MSG_UPDATING_GAME_INFO);
+                        GameInfoAndProgress = await RetroAchievementsAPIClient.GetGameInfoAndProgress(previouslyPlayed[0].Id);
+
+                        if (UpdateGameProgress(sameGame))
+                        {
+                            UserRankAndScore userRankAndScore = await RetroAchievementsAPIClient.GetRankAndScore();
+
+                            UserSummary.Rank = userRankAndScore.Rank;
+                            UserSummary.TotalPoints = userRankAndScore.Score;
+
+                            UpdateUserInfo();
+                        }
                     }
 
-                    if (UserSummary != null && UserSummary.LastGameID > 0)
+                    if (GameInfoAndProgress == null)
                     {
-                        List<GameInfo> previouslyPlayed = await RetroAchievementsAPIClient.GetRecentlyPlayedGames();
-                        if (previouslyPlayed.Count > 0)
-                        {
-                            List<Achievement> recentlyUnlockedAchievements = await RetroAchievementsAPIClient.GetRecentAchievements();
-
-                            if (GameInfoAndProgress == null || !previouslyPlayed[0].Id.Equals(GameInfoAndProgress.Id) || recentlyUnlockedAchievements.Count(x => LockedAchievements.Contains(x)) > 0)
-                            {
-                                bool sameGame = GameInfoAndProgress != null && previouslyPlayed[0].Id.Equals(GameInfoAndProgress.Id);
-
-                                UpdateActivePollingLabel(Constants.RETRO_ACHIEVEMENTS_LABEL_MSG_UPDATING_GAME_INFO);
-                                GameInfoAndProgress = await RetroAchievementsAPIClient.GetGameInfoAndProgress(previouslyPlayed[0].Id);
-
-                                if (UpdateGameProgress(sameGame))
-                                {
-                                    UserRankAndScore userRankAndScore = await RetroAchievementsAPIClient.GetRankAndScore();
-
-                                    UserSummary.Rank = userRankAndScore.Rank;
-                                    UserSummary.TotalPoints = userRankAndScore.Score;
-
-                                    UpdateUserInfo();
-                                }
-                            }
-
-                            if (GameInfoAndProgress == null)
-                            {
-                                ShouldRun = false;
-                            }
-                        }
+                        ShouldRun = false;
                     }
                 }
             }
@@ -403,15 +405,15 @@ namespace Retro_Achievement_Tracker
 
                 CurrentlyViewingAchievement = GameInfoAndProgress.Achievements[CurrentlyViewingIndex];
 
-                focusAchievementPictureBox.ImageLocation = CurrentlyViewingAchievement.BadgeUri;
-                focusAchievementTitleLabel.Text = "[" + CurrentlyViewingAchievement.Points + "] - " + CurrentlyViewingAchievement.Title;
-                focusAchievementDescriptionLabel.Text = CurrentlyViewingAchievement.Description;
+                focusTabPage.focusAchievementPictureBox.ImageLocation = CurrentlyViewingAchievement.BadgeUri;
+                focusTabPage.focusAchievementTitleLabel.Text = "[" + CurrentlyViewingAchievement.Points + "] - " + CurrentlyViewingAchievement.Title;
+                focusTabPage.focusAchievementDescriptionLabel.Text = CurrentlyViewingAchievement.Description;
             }
             else
             {
                 CurrentlyViewingIndex = -1;
                 CurrentlyViewingAchievement = null;
-                focusAchievementPictureBox.ImageLocation = focusAchievementTitleLabel.Text = focusAchievementDescriptionLabel.Text = "";
+                focusTabPage.focusAchievementPictureBox.ImageLocation = focusTabPage.focusAchievementTitleLabel.Text = focusTabPage.focusAchievementDescriptionLabel.Text = "";
             }
 
             UpdateFocusButtons();
@@ -477,12 +479,12 @@ namespace Retro_Achievement_Tracker
             autoPollingStatusPictureBox.Image = Resources.green_button;
             userProfilePictureBox.ImageLocation = string.Format(Constants.RETRO_ACHIEVEMENTS_PROFILE_PIC_URL, UserSummary.UserName);
 
-            userInfoUsernameLabel.Text = UserSummary.UserName;
-            userInfoMottoLabel.Text = UserSummary.Motto;
-            userInfoRankLabel.Text = "Site Rank: " + (UserSummary.Rank == 0 ? "No Rank" : UserSummary.Rank.ToString());
-            userInfoPointsLabel.Text = "Hardcore Points: " + UserSummary.TotalPoints.ToString() + " points";
-            userInfoTruePointsLabel.Text = "(" + UserSummary.TotalTruePoints.ToString() + ")";
-            userInfoRatioLabel.Text = UserSummary.RetroRatio;
+            userInfoTabPage.userInfoUsernameLabel.Text = UserSummary.UserName;
+            userInfoTabPage.userInfoMottoLabel.Text = UserSummary.Motto;
+            userInfoTabPage.userInfoRankLabel.Text = "Site Rank: " + (UserSummary.Rank == 0 ? "No Rank" : UserSummary.Rank.ToString());
+            userInfoTabPage.userInfoPointsLabel.Text = "Hardcore Points: " + UserSummary.TotalPoints.ToString() + " points";
+            userInfoTabPage.userInfoTruePointsLabel.Text = "(" + UserSummary.TotalTruePoints.ToString() + ")";
+            userInfoTabPage.userInfoRatioLabel.Text = UserSummary.RetroRatio;
 
             UserInfoController.Instance.SetRank(UserSummary.Rank == 0 ? "No Rank" : UserSummary.Rank.ToString());
             UserInfoController.Instance.SetPoints(UserSummary.TotalPoints.ToString());
@@ -492,12 +494,12 @@ namespace Retro_Achievement_Tracker
         }
         void UpdateGameInfo()
         {
-            gameInfoPictureBox.ImageLocation = GameInfoAndProgress.BadgeUri;
-            gameInfoTitleLabel.Text = GameInfoAndProgress.Title + " (" + GameInfoAndProgress.ConsoleName + ")";
-            gameInfoDeveloperLabel.Text = GameInfoAndProgress.Developer;
-            gameInfoPublisherLabel.Text = GameInfoAndProgress.Publisher;
-            gameInfoGenreLabel.Text = GameInfoAndProgress.Genre;
-            gameInfoReleasedLabel.Text = GameInfoAndProgress.Released;
+            gameInfoTabPage.gameInfoPictureBox.ImageLocation = GameInfoAndProgress.BadgeUri;
+            gameInfoTabPage.gameInfoTitleLabel.Text = GameInfoAndProgress.Title + " (" + GameInfoAndProgress.ConsoleName + ")";
+            gameInfoTabPage.gameInfoDeveloperLabel.Text = GameInfoAndProgress.Developer;
+            gameInfoTabPage.gameInfoPublisherLabel.Text = GameInfoAndProgress.Publisher;
+            gameInfoTabPage.gameInfoGenreLabel.Text = GameInfoAndProgress.Genre;
+            gameInfoTabPage.gameInfoReleasedLabel.Text = GameInfoAndProgress.Released;
 
             GameInfoController.Instance.SetTitleValue(GameInfoAndProgress.Title);
             GameInfoController.Instance.SetDeveloperValue(GameInfoAndProgress.Developer);
@@ -517,42 +519,42 @@ namespace Retro_Achievement_Tracker
 
             int percentageCompleted = (int)float.Parse(GameInfoAndProgress.PercentComplete);
 
-            gameProgressAchievements1Label.Text = GameInfoAndProgress.AchievementsPossible.ToString();
-            gameProgressPoints1Label.Text = GameInfoAndProgress.GamePointsPossible.ToString();
-            gameProgressTruePoints1Label.Text = "(" + GameInfoAndProgress.GameTruePointsPossible.ToString() + ")";
-            gameProgressPercentCompletePictureBox.Size = new Size((int)(1.82 * percentageCompleted), 2);
-            gameProgressCompletedLabel.Text = percentageCompleted + "% complete";
+            gameProgressTabPage.gameProgressAchievements1Label.Text = GameInfoAndProgress.AchievementsPossible.ToString();
+            gameProgressTabPage.gameProgressPoints1Label.Text = GameInfoAndProgress.GamePointsPossible.ToString();
+            gameProgressTabPage.gameProgressTruePoints1Label.Text = "(" + GameInfoAndProgress.GameTruePointsPossible.ToString() + ")";
+            gameProgressTabPage.gameProgressPercentCompletePictureBox.Size = new Size((int)(1.82 * percentageCompleted), 2);
+            gameProgressTabPage.gameProgressCompletedLabel.Text = percentageCompleted + "% complete";
 
             if (0 == percentageCompleted)
             {
-                gameProgressMasteryPictureBox.Hide();
-                gameProgressHaveEarnedLabel.Text = "You have not earned any achievements for this game.";
+                gameProgressTabPage.gameProgressMasteryPictureBox.Hide();
+                gameProgressTabPage.gameProgressHaveEarnedLabel.Text = "You have not earned any achievements for this game.";
 
-                gameProgressAchievements2Label.Hide();
-                gameProgressHardcoreWorthLabel.Hide();
-                gameProgressPoints2Label.Hide();
-                gameProgressTruePoints2Label.Hide();
-                gameProgressPointsTextLabel.Hide();
+                gameProgressTabPage.gameProgressAchievements2Label.Hide();
+                gameProgressTabPage.gameProgressHardcoreWorthLabel.Hide();
+                gameProgressTabPage.gameProgressPoints2Label.Hide();
+                gameProgressTabPage.gameProgressTruePoints2Label.Hide();
+                gameProgressTabPage.gameProgressPointsTextLabel.Hide();
             }
             else
             {
                 if (percentageCompleted == 100)
                 {
-                    gameProgressMasteryPictureBox.Show();
-                    gameProgressCompletedLabel.Text = "Mastered";
+                    gameProgressTabPage.gameProgressMasteryPictureBox.Show();
+                    gameProgressTabPage.gameProgressCompletedLabel.Text = "Mastered";
                 }
 
-                gameProgressHaveEarnedLabel.Text = "You have earned";
+                gameProgressTabPage.gameProgressHaveEarnedLabel.Text = "You have earned";
 
-                gameProgressAchievements2Label.Show();
-                gameProgressHardcoreWorthLabel.Show();
-                gameProgressPoints2Label.Show();
-                gameProgressTruePoints2Label.Show();
-                gameProgressPointsTextLabel.Show();
+                gameProgressTabPage.gameProgressAchievements2Label.Show();
+                gameProgressTabPage.gameProgressHardcoreWorthLabel.Show();
+                gameProgressTabPage.gameProgressPoints2Label.Show();
+                gameProgressTabPage.gameProgressTruePoints2Label.Show();
+                gameProgressTabPage.gameProgressPointsTextLabel.Show();
 
-                gameProgressAchievements2Label.Text = GameInfoAndProgress.AchievementsEarned.ToString();
-                gameProgressPoints2Label.Text = GameInfoAndProgress.GamePointsEarned.ToString();
-                gameProgressTruePoints2Label.Text = "(" + GameInfoAndProgress.GameTruePointsEarned.ToString() + ")";
+                gameProgressTabPage.gameProgressAchievements2Label.Text = GameInfoAndProgress.AchievementsEarned.ToString();
+                gameProgressTabPage.gameProgressPoints2Label.Text = GameInfoAndProgress.GamePointsEarned.ToString();
+                gameProgressTabPage.gameProgressTruePoints2Label.Text = "(" + GameInfoAndProgress.GameTruePointsEarned.ToString() + ")";
             }
 
             Dictionary<int, DateTime> achievementUnlocks = new Dictionary<int, DateTime>();
@@ -573,28 +575,28 @@ namespace Retro_Achievement_Tracker
         {
             if (LockedAchievements.Count == 0)
             {
-                focusAchievementButtonPrevious.Enabled = false;
-                focusAchievementButtonNext.Enabled = false;
-                focusSetButton.Enabled = false;
+                focusTabPage.focusAchievementButtonPrevious.Enabled = false;
+                focusTabPage.focusAchievementButtonNext.Enabled = false;
+                focusTabPage.focusSetButton.Enabled = false;
             }
             else
             {
-                focusSetButton.Enabled = true;
+                focusTabPage.focusSetButton.Enabled = true;
 
                 if (LockedAchievements.IndexOf(CurrentlyViewingAchievement) == 0)
                 {
-                    focusAchievementButtonPrevious.Enabled = false;
-                    focusAchievementButtonNext.Enabled = LockedAchievements.Count > 1;
+                    focusTabPage.focusAchievementButtonPrevious.Enabled = false;
+                    focusTabPage.focusAchievementButtonNext.Enabled = LockedAchievements.Count > 1;
                 }
                 else if (LockedAchievements.IndexOf(CurrentlyViewingAchievement) == LockedAchievements.Count - 1)
                 {
-                    focusAchievementButtonPrevious.Enabled = true;
-                    focusAchievementButtonNext.Enabled = false;
+                    focusTabPage.focusAchievementButtonPrevious.Enabled = true;
+                    focusTabPage.focusAchievementButtonNext.Enabled = false;
                 }
                 else
                 {
-                    focusAchievementButtonPrevious.Enabled = true;
-                    focusAchievementButtonNext.Enabled = true;
+                    focusTabPage.focusAchievementButtonPrevious.Enabled = true;
+                    focusTabPage.focusAchievementButtonNext.Enabled = true;
                 }
             }
         }
@@ -610,13 +612,13 @@ namespace Retro_Achievement_Tracker
 
             ShouldRun = true;
             stopButton.Enabled = true;
-            focusOpenWindowButton.Enabled = true;
-            alertsOpenWindowButton.Enabled = true;
-            userInfoOpenWindowButton.Enabled = true;
-            gameInfoOpenWindowButton.Enabled = true;
-            relatedMediaOpenWindowButton.Enabled = true;
-            achievementListOpenWindowButton.Enabled = true;
-            recentAchievementsOpenWindowButton.Enabled = true;
+            focusTabPage.focusOpenWindowButton.Enabled = true;
+            alertsTabPage.alertsOpenWindowButton.Enabled = true;
+            userInfoTabPage.userInfoOpenWindowButton.Enabled = true;
+            gameInfoTabPage.gameInfoOpenWindowButton.Enabled = true;
+            relatedMediaTabPage.relatedMediaOpenWindowButton.Enabled = true;
+            achievementsListTabPage.achievementListOpenWindowButton.Enabled = true;
+            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Enabled = true;
 
             StartTimer();
 
@@ -634,13 +636,13 @@ namespace Retro_Achievement_Tracker
 
             bool canStart = CanStart();
 
-            focusOpenWindowButton.Enabled = canStart;
-            alertsOpenWindowButton.Enabled = canStart;
-            userInfoOpenWindowButton.Enabled = canStart;
-            gameInfoOpenWindowButton.Enabled = canStart;
-            relatedMediaOpenWindowButton.Enabled = canStart;
-            achievementListOpenWindowButton.Enabled = canStart;
-            recentAchievementsOpenWindowButton.Enabled = canStart;
+            focusTabPage.focusOpenWindowButton.Enabled = canStart;
+            alertsTabPage.alertsOpenWindowButton.Enabled = canStart;
+            userInfoTabPage.userInfoOpenWindowButton.Enabled = canStart;
+            gameInfoTabPage.gameInfoOpenWindowButton.Enabled = canStart;
+            relatedMediaTabPage.relatedMediaOpenWindowButton.Enabled = canStart;
+            achievementsListTabPage.achievementListOpenWindowButton.Enabled = canStart;
+            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Enabled = canStart;
 
             apiKeyTextBox.Enabled = true;
             usernameTextBox.Enabled = true;
@@ -782,64 +784,64 @@ namespace Retro_Achievement_Tracker
         }
         void UpdateAlertsEnabledControls()
         {
-            alertsAchievementEnableCheckbox.Checked = AlertsController.Instance.AchievementAlertEnable;
-            alertsMasteryEnableCheckbox.Checked = AlertsController.Instance.MasteryAlertEnable;
+            alertsTabPage.alertsAchievementEnableCheckbox.Checked = AlertsController.Instance.AchievementAlertEnable;
+            alertsTabPage.alertsMasteryEnableCheckbox.Checked = AlertsController.Instance.MasteryAlertEnable;
 
-            alertsCustomAchievementEnableCheckbox.Checked = AlertsController.Instance.CustomAchievementEnabled;
-            alertsCustomMasteryEnableCheckbox.Checked = AlertsController.Instance.CustomMasteryEnabled;
+            alertsTabPage.alertsCustomAchievementEnableCheckbox.Checked = AlertsController.Instance.CustomAchievementEnabled;
+            alertsTabPage.alertsCustomMasteryEnableCheckbox.Checked = AlertsController.Instance.CustomMasteryEnabled;
 
             if (AlertsController.Instance.AchievementAlertEnable)
             {
-                alertsPlayAchievementButton.Enabled = true;
-                alertsCustomAchievementEnableCheckbox.Enabled = true;
+                alertsTabPage.alertsPlayAchievementButton.Enabled = true;
+                alertsTabPage.alertsCustomAchievementEnableCheckbox.Enabled = true;
 
                 if (AlertsController.Instance.CustomAchievementEnabled)
                 {
-                    alertsCustomAchievementPanel.Enabled = true;
-                    alertsSelectCustomAchievementFileButton.Enabled = true;
-                    alertsAchievementEditOutlineCheckbox.Enabled = true;
+                    alertsTabPage.alertsCustomAchievementPanel.Enabled = true;
+                    alertsTabPage.alertsSelectCustomAchievementFileButton.Enabled = true;
+                    alertsTabPage.alertsAchievementEditOutlineCheckbox.Enabled = true;
                 }
                 else
                 {
-                    alertsCustomAchievementPanel.Enabled = false;
-                    alertsSelectCustomAchievementFileButton.Enabled = false;
-                    alertsAchievementEditOutlineCheckbox.Enabled = false;
+                    alertsTabPage.alertsCustomAchievementPanel.Enabled = false;
+                    alertsTabPage.alertsSelectCustomAchievementFileButton.Enabled = false;
+                    alertsTabPage.alertsAchievementEditOutlineCheckbox.Enabled = false;
                 }
             }
             else
             {
-                alertsCustomAchievementPanel.Enabled = false;
-                alertsSelectCustomAchievementFileButton.Enabled = false;
-                alertsPlayAchievementButton.Enabled = false;
-                alertsCustomAchievementEnableCheckbox.Enabled = false;
-                alertsAchievementEditOutlineCheckbox.Enabled = false;
+                alertsTabPage.alertsCustomAchievementPanel.Enabled = false;
+                alertsTabPage.alertsSelectCustomAchievementFileButton.Enabled = false;
+                alertsTabPage.alertsPlayAchievementButton.Enabled = false;
+                alertsTabPage.alertsCustomAchievementEnableCheckbox.Enabled = false;
+                alertsTabPage.alertsAchievementEditOutlineCheckbox.Enabled = false;
             }
 
             if (AlertsController.Instance.MasteryAlertEnable)
             {
-                alertsPlayMasteryButton.Enabled = true;
-                alertsCustomMasteryEnableCheckbox.Enabled = true;
+                alertsTabPage.alertsPlayMasteryButton.Enabled = true;
+                alertsTabPage.alertsCustomMasteryEnableCheckbox.Enabled = true;
 
                 if (AlertsController.Instance.CustomMasteryEnabled)
                 {
-                    alertsCustomMasteryPanel.Enabled = true;
-                    alertsSelectCustomMasteryFileButton.Enabled = true;
-                    alertsMasteryEditOutlineCheckbox.Enabled = true;
+                    alertsTabPage.alertsCustomMasteryPanel.Enabled = true;
+                    alertsTabPage.alertsSelectCustomMasteryFileButton.Enabled = true;
+                    alertsTabPage.alertsMasteryEditOutlineCheckbox.Enabled = true;
                 }
                 else
                 {
-                    alertsCustomMasteryPanel.Enabled = false;
-                    alertsSelectCustomMasteryFileButton.Enabled = false;
-                    alertsMasteryEditOutlineCheckbox.Enabled = false;
+                    alertsTabPage.alertsCustomMasteryPanel.Enabled = false;
+                    alertsTabPage.alertsSelectCustomMasteryFileButton.Enabled = false;
+                    alertsTabPage.alertsMasteryEditOutlineCheckbox.Enabled = false;
                 }
             }
             else
             {
-                alertsCustomMasteryPanel.Enabled = false;
-                alertsSelectCustomMasteryFileButton.Enabled = false;
-                alertsPlayMasteryButton.Enabled = false;
-                alertsCustomMasteryEnableCheckbox.Enabled = false;
-                alertsMasteryEditOutlineCheckbox.Enabled = false;
+                alertsTabPage.alertsCustomMasteryPanel.Enabled = false;
+                alertsTabPage.alertsSelectCustomMasteryFileButton.Enabled = false;
+                alertsTabPage.alertsPlayMasteryButton.Enabled = false;
+                alertsTabPage.alertsCustomMasteryEnableCheckbox.Enabled = false;
+                alertsTabPage.alertsMasteryEditOutlineCheckbox.Enabled = false;
             }
         }
         void CustomNumericUpDown_ValueChanged(object sender, EventArgs eventArgs)
@@ -1027,7 +1029,7 @@ namespace Retro_Achievement_Tracker
             else if (AlertsController.Instance.CustomAchievementEnabled && (string.IsNullOrEmpty(AlertsController.Instance.CustomAchievementFile) || !File.Exists(AlertsController.Instance.CustomAchievementFile)))
             {
                 AlertsController.Instance.CustomAchievementEnabled = false;
-                alertsCustomAchievementEnableCheckbox.Checked = false;
+                alertsTabPage.alertsCustomAchievementEnableCheckbox.Checked = false;
             }
         }
         void SelectCustomMasteryFile()
@@ -1039,7 +1041,7 @@ namespace Retro_Achievement_Tracker
             else if (AlertsController.Instance.CustomMasteryEnabled && (string.IsNullOrEmpty(AlertsController.Instance.CustomMasteryFile) || !File.Exists(AlertsController.Instance.CustomMasteryFile)))
             {
                 AlertsController.Instance.CustomMasteryEnabled = false;
-                alertsCustomMasteryEnableCheckbox.Checked = false;
+                alertsTabPage.alertsCustomMasteryEnableCheckbox.Checked = false;
             }
         }
         void ShowAlertButton_Click(object sender, EventArgs eventArgs)
@@ -1171,11 +1173,11 @@ namespace Retro_Achievement_Tracker
             {
                 case "focusBackgroundColorPictureBox":
                     FocusController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusBorderColorPictureBox":
                     FocusController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusBorderColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusTitleFontColorPictureBox":
                     if (FocusController.Instance.AdvancedSettingsEnabled)
@@ -1186,19 +1188,19 @@ namespace Retro_Achievement_Tracker
                     {
                         FocusController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color); ;
                     }
-                    focusTitleFontColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusDescriptionFontColorPictureBox":
                     FocusController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusPointsFontColorPictureBox":
                     FocusController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusPointsFontColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusLineColorPictureBox":
                     FocusController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusLineColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusTitleFontOutlineColorPictureBox":
                     if (FocusController.Instance.AdvancedSettingsEnabled)
@@ -1209,27 +1211,27 @@ namespace Retro_Achievement_Tracker
                     {
                         FocusController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    focusTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusDescriptionFontOutlineColorPictureBox":
                     FocusController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusPointsFontOutlineColorPictureBox":
                     FocusController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "focusLineOutlineColorPictureBox":
                     FocusController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    focusLineOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    focusTabPage.focusLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsBackgroundColorPictureBox":
                     AlertsController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsBorderColorPictureBox":
                     AlertsController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsBorderColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsTitleFontColorPictureBox":
                     if (AlertsController.Instance.AdvancedSettingsEnabled)
@@ -1240,19 +1242,19 @@ namespace Retro_Achievement_Tracker
                     {
                         AlertsController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    alertsTitleFontColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsDescriptionFontColorPictureBox":
                     AlertsController.Instance.DescriptionColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsDescriptionFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsPointsFontColorPictureBox":
                     AlertsController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsPointsFontColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsLineColorPictureBox":
                     AlertsController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsLineColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsTitleFontOutlineColorPictureBox":
                     if (AlertsController.Instance.AdvancedSettingsEnabled)
@@ -1263,23 +1265,23 @@ namespace Retro_Achievement_Tracker
                     {
                         AlertsController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsDescriptionFontOutlineColorPictureBox":
                     AlertsController.Instance.DescriptionOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsPointsFontOutlineColorPictureBox":
                     AlertsController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "alertsLineOutlineColorPictureBox":
                     AlertsController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    alertsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    alertsTabPage.alertsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoBackgroundColorPictureBox":
                     UserInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    userInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    userInfoTabPage.userInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoNamesFontColorPictureBox":
                     if (UserInfoController.Instance.AdvancedSettingsEnabled)
@@ -1290,11 +1292,11 @@ namespace Retro_Achievement_Tracker
                     {
                         UserInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    userInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
+                    userInfoTabPage.userInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoValuesFontColorPictureBox":
                     UserInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
-                    userInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
+                    userInfoTabPage.userInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoNamesFontOutlineColorPictureBox":
                     if (UserInfoController.Instance.AdvancedSettingsEnabled)
@@ -1305,15 +1307,15 @@ namespace Retro_Achievement_Tracker
                     {
                         UserInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "userInfoValuesFontOutlineColorPictureBox":
                     UserInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoBackgroundColorPictureBox":
                     GameInfoController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    gameInfoTabPage.gameInfoBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoNamesFontColorPictureBox":
                     if (GameInfoController.Instance.AdvancedSettingsEnabled)
@@ -1324,11 +1326,11 @@ namespace Retro_Achievement_Tracker
                     {
                         GameInfoController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
+                    gameInfoTabPage.gameInfoNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoValuesFontColorPictureBox":
                     GameInfoController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
+                    gameInfoTabPage.gameInfoValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoNamesFontOutlineColorPictureBox":
                     if (GameInfoController.Instance.AdvancedSettingsEnabled)
@@ -1339,15 +1341,15 @@ namespace Retro_Achievement_Tracker
                     {
                         GameInfoController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameInfoValuesFontOutlineColorPictureBox":
                     GameInfoController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressBackgroundColorPictureBox":
                     GameProgressController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameProgressBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    gameProgressTabPage.gameProgressBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressNamesFontColorPictureBox":
                     if (GameProgressController.Instance.AdvancedSettingsEnabled)
@@ -1358,11 +1360,11 @@ namespace Retro_Achievement_Tracker
                     {
                         GameProgressController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameProgressNamesFontColorPictureBox.BackColor = colorDialog.Color;
+                    gameProgressTabPage.gameProgressNamesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressValuesFontColorPictureBox":
                     GameProgressController.Instance.ValueColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameProgressValuesFontColorPictureBox.BackColor = colorDialog.Color;
+                    gameProgressTabPage.gameProgressValuesFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressNamesFontOutlineColorPictureBox":
                     if (GameProgressController.Instance.AdvancedSettingsEnabled)
@@ -1373,19 +1375,19 @@ namespace Retro_Achievement_Tracker
                     {
                         GameProgressController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "gameProgressValuesFontOutlineColorPictureBox":
                     GameProgressController.Instance.ValueOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsBackgroundColorPictureBox":
                     RecentUnlocksController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsBorderColorPictureBox":
                     RecentUnlocksController.Instance.BorderBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsBorderColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsTitleFontColorPictureBox":
                     if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
@@ -1396,19 +1398,19 @@ namespace Retro_Achievement_Tracker
                     {
                         RecentUnlocksController.Instance.SimpleFontColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsDateFontColorPictureBox":
                     RecentUnlocksController.Instance.DateColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsDateFontColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsPointsFontColorPictureBox":
                     RecentUnlocksController.Instance.PointsColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsLineColorPictureBox":
                     RecentUnlocksController.Instance.LineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsLineColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsLineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsTitleFontOutlineColorPictureBox":
                     if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
@@ -1419,27 +1421,27 @@ namespace Retro_Achievement_Tracker
                     {
                         RecentUnlocksController.Instance.SimpleFontOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
                     }
-                    recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsDateFontOutlineColorPictureBox":
                     RecentUnlocksController.Instance.DateOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsPointsFontOutlineColorPictureBox":
                     RecentUnlocksController.Instance.PointsOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "recentAchievementsLineOutlineColorPictureBox":
                     RecentUnlocksController.Instance.LineOutlineColor = MediaHelper.HexConverter(colorDialog.Color);
-                    recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
+                    recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "achievementListBackgroundColorPictureBox":
                     AchievementListController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    achievementListBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    achievementsListTabPage.achievementListBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
                 case "relatedMediaBackgroundColorPictureBox":
                     RelatedMediaController.Instance.WindowBackgroundColor = MediaHelper.HexConverter(colorDialog.Color);
-                    relatedMediaBackgroundColorPictureBox.BackColor = colorDialog.Color;
+                    relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.BackColor = colorDialog.Color;
                     break;
             }
         }
@@ -1581,13 +1583,13 @@ namespace Retro_Achievement_Tracker
                     AlertsController.Instance.AchievementAnimationIn = WinFormHelpers.GetAnimationDirection((string)(sender as ComboBox).SelectedItem);
                     break;
                 case "alertsCustomAchievementAnimationOutComboBox":
-                    AlertsController.Instance.AchievementAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsCustomAchievementAnimationOutComboBox.SelectedItem);
+                    AlertsController.Instance.AchievementAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsTabPage.alertsCustomAchievementAnimationOutComboBox.SelectedItem);
                     break;
                 case "alertsCustomMasteryAnimationInComboBox":
-                    AlertsController.Instance.MasteryAnimationIn = WinFormHelpers.GetAnimationDirection((string)alertsCustomMasteryAnimationInComboBox.SelectedItem);
+                    AlertsController.Instance.MasteryAnimationIn = WinFormHelpers.GetAnimationDirection((string)alertsTabPage.alertsCustomMasteryAnimationInComboBox.SelectedItem);
                     break;
                 case "alertsCustomMasteryAnimationOutComboBox":
-                    AlertsController.Instance.MasteryAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsCustomMasteryAnimationOutComboBox.SelectedItem);
+                    AlertsController.Instance.MasteryAnimationOut = WinFormHelpers.GetAnimationDirection((string)alertsTabPage.alertsCustomMasteryAnimationOutComboBox.SelectedItem);
                     break;
             }
 
@@ -1828,19 +1830,19 @@ namespace Retro_Achievement_Tracker
             switch (GameProgressController.Instance.DividerCharacter)
             {
                 case "/":
-                    gameProgressRadioButtonBackslash.Checked = true;
-                    gameProgressRadioButtonColon.Checked = false;
-                    gameProgressRadioButtonPeriod.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonBackslash.Checked = true;
+                    gameProgressTabPage.gameProgressRadioButtonColon.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonPeriod.Checked = false;
                     break;
                 case ":":
-                    gameProgressRadioButtonBackslash.Checked = false;
-                    gameProgressRadioButtonColon.Checked = true;
-                    gameProgressRadioButtonPeriod.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonBackslash.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonColon.Checked = true;
+                    gameProgressTabPage.gameProgressRadioButtonPeriod.Checked = false;
                     break;
                 case ".":
-                    gameProgressRadioButtonBackslash.Checked = false;
-                    gameProgressRadioButtonColon.Checked = false;
-                    gameProgressRadioButtonPeriod.Checked = true;
+                    gameProgressTabPage.gameProgressRadioButtonBackslash.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonColon.Checked = false;
+                    gameProgressTabPage.gameProgressRadioButtonPeriod.Checked = true;
                     break;
             }
         }
@@ -1881,28 +1883,28 @@ namespace Retro_Achievement_Tracker
             switch (FocusController.Instance.RefocusBehavior)
             {
                 case RefocusBehaviorEnum.GO_TO_FIRST:
-                    focusBehaviorGoToFirstRadioButton.Checked = true;
-                    focusBehaviorGoToPreviousRadioButton.Checked = false;
-                    focusBehaviorGoToNextRadioButton.Checked = false;
-                    focusBehaviorGoToLastRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToFirstRadioButton.Checked = true;
+                    focusTabPage.focusBehaviorGoToPreviousRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToNextRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToLastRadioButton.Checked = false;
                     break;
                 case RefocusBehaviorEnum.GO_TO_PREVIOUS:
-                    focusBehaviorGoToFirstRadioButton.Checked = false;
-                    focusBehaviorGoToPreviousRadioButton.Checked = true;
-                    focusBehaviorGoToNextRadioButton.Checked = false;
-                    focusBehaviorGoToLastRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToFirstRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToPreviousRadioButton.Checked = true;
+                    focusTabPage.focusBehaviorGoToNextRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToLastRadioButton.Checked = false;
                     break;
                 case RefocusBehaviorEnum.GO_TO_NEXT:
-                    focusBehaviorGoToFirstRadioButton.Checked = false;
-                    focusBehaviorGoToPreviousRadioButton.Checked = false;
-                    focusBehaviorGoToNextRadioButton.Checked = true;
-                    focusBehaviorGoToLastRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToFirstRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToPreviousRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToNextRadioButton.Checked = true;
+                    focusTabPage.focusBehaviorGoToLastRadioButton.Checked = false;
                     break;
                 case RefocusBehaviorEnum.GO_TO_LAST:
-                    focusBehaviorGoToFirstRadioButton.Checked = false;
-                    focusBehaviorGoToPreviousRadioButton.Checked = false;
-                    focusBehaviorGoToNextRadioButton.Checked = false;
-                    focusBehaviorGoToLastRadioButton.Checked = true;
+                    focusTabPage.focusBehaviorGoToFirstRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToPreviousRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToNextRadioButton.Checked = false;
+                    focusTabPage.focusBehaviorGoToLastRadioButton.Checked = true;
                     break;
             }
         }
@@ -2059,52 +2061,52 @@ namespace Retro_Achievement_Tracker
             switch (RelatedMediaController.Instance.RelatedMediaSelection)
             {
                 case RelatedMediaSelection.RABadgeIcon:
-                    SetMediaButtonChecks(relatedMediaRABadgeIconRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaRABadgeIconRadioButton);
                     break;
                 case RelatedMediaSelection.RABoxArt:
-                    SetMediaButtonChecks(relatedMediaRABoxArtRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaRABoxArtRadioButton);
                     break;
                 case RelatedMediaSelection.RATitleScreen:
-                    SetMediaButtonChecks(relatedMediaRATitleScreenRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaRATitleScreenRadioButton);
                     break;
                 case RelatedMediaSelection.RAIngameScreen:
-                    SetMediaButtonChecks(relatedMediaRAScreenshotRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaRAScreenshotRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFront:
-                    SetMediaButtonChecks(relatedMediaLBBoxFrontRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtBack:
-                    SetMediaButtonChecks(relatedMediaLBBoxBackRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxBackRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArt3D:
-                    SetMediaButtonChecks(relatedMediaLBBox3DRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBox3DRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFrontRecon:
-                    SetMediaButtonChecks(relatedMediaLBBoxFrontReconRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtBackRecon:
-                    SetMediaButtonChecks(relatedMediaLBBoxBackReconRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtFull:
-                    SetMediaButtonChecks(relatedMediaLBBoxFullRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxFullRadioButton);
                     break;
                 case RelatedMediaSelection.LBBoxArtSpine:
-                    SetMediaButtonChecks(relatedMediaLBBoxSpineRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton);
                     break;
                 case RelatedMediaSelection.LBBanner:
-                    SetMediaButtonChecks(relatedMediaLBBannerRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBBannerRadioButton);
                     break;
                 case RelatedMediaSelection.LBTitleScreen:
-                    SetMediaButtonChecks(relatedMediaLBTitleScreenRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton);
                     break;
                 case RelatedMediaSelection.LBClearLogo:
-                    SetMediaButtonChecks(relatedMediaLBClearLogoRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBClearLogoRadioButton);
                     break;
                 case RelatedMediaSelection.LBCartFront:
-                    SetMediaButtonChecks(relatedMediaLBCartFrontRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBCartFrontRadioButton);
                     break;
                 case RelatedMediaSelection.LBCartBack:
-                    SetMediaButtonChecks(relatedMediaLBCartBackRadioButton);
+                    SetMediaButtonChecks(relatedMediaTabPage.relatedMediaLBCartBackRadioButton);
                     break;
             }
 
@@ -2116,22 +2118,22 @@ namespace Retro_Achievement_Tracker
         void SetMediaButtonChecks(params RadioButton[] toCheck)
         {
             List<RadioButton> btns = new List<RadioButton>{
-                relatedMediaRABoxArtRadioButton,
-                relatedMediaRATitleScreenRadioButton,
-                relatedMediaRAScreenshotRadioButton,
-                relatedMediaLBBoxFrontRadioButton,
-                relatedMediaLBBoxBackRadioButton,
-                relatedMediaLBBox3DRadioButton,
-                relatedMediaLBBoxFrontReconRadioButton,
-                relatedMediaLBBoxBackReconRadioButton,
-                relatedMediaLBBoxFullRadioButton,
-                relatedMediaLBBoxSpineRadioButton,
-                relatedMediaLBBannerRadioButton,
-                relatedMediaLBTitleScreenRadioButton,
-                relatedMediaLBClearLogoRadioButton,
-                relatedMediaLBCartFrontRadioButton,
-                relatedMediaLBCartBackRadioButton,
-                relatedMediaRABadgeIconRadioButton
+                relatedMediaTabPage.relatedMediaRABoxArtRadioButton,
+                relatedMediaTabPage.relatedMediaRATitleScreenRadioButton,
+                relatedMediaTabPage.relatedMediaRAScreenshotRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxBackRadioButton,
+                relatedMediaTabPage.relatedMediaLBBox3DRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxFullRadioButton,
+                relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton,
+                relatedMediaTabPage.relatedMediaLBBannerRadioButton,
+                relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton,
+                relatedMediaTabPage.relatedMediaLBClearLogoRadioButton,
+                relatedMediaTabPage.relatedMediaLBCartFrontRadioButton,
+                relatedMediaTabPage.relatedMediaLBCartBackRadioButton,
+                relatedMediaTabPage.relatedMediaRABadgeIconRadioButton
             };
 
             foreach (RadioButton btn in btns)
@@ -2148,20 +2150,20 @@ namespace Retro_Achievement_Tracker
         {
             if (!Directory.Exists(RelatedMediaController.Instance.LaunchBoxFilePath) || (Directory.Exists(RelatedMediaController.Instance.LaunchBoxFilePath) && !File.Exists(RelatedMediaController.Instance.LaunchBoxFilePath + "\\LaunchBox.exe")))
             {
-                relatedMediaLBLabel.Enabled = false;
-                relatedMediaLBLinePictureBox.Enabled = false;
-                relatedMediaLBBoxFrontRadioButton.Enabled = false;
-                relatedMediaLBBoxBackRadioButton.Enabled = false;
-                relatedMediaLBBox3DRadioButton.Enabled = false;
-                relatedMediaLBBoxFrontReconRadioButton.Enabled = false;
-                relatedMediaLBBoxBackReconRadioButton.Enabled = false;
-                relatedMediaLBBoxFullRadioButton.Enabled = false;
-                relatedMediaLBBoxSpineRadioButton.Enabled = false;
-                relatedMediaLBBannerRadioButton.Enabled = false;
-                relatedMediaLBTitleScreenRadioButton.Enabled = false;
-                relatedMediaLBClearLogoRadioButton.Enabled = false;
-                relatedMediaLBCartFrontRadioButton.Enabled = false;
-                relatedMediaLBCartBackRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBLabel.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBLinePictureBox.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBBannerRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Enabled = false;
+                relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Enabled = false;
 
                 switch (RelatedMediaController.Instance.RelatedMediaSelection)
                 {
@@ -2177,7 +2179,7 @@ namespace Retro_Achievement_Tracker
                     case RelatedMediaSelection.LBClearLogo:
                     case RelatedMediaSelection.LBCartFront:
                     case RelatedMediaSelection.LBCartBack:
-                        relatedMediaRABadgeIconRadioButton.Checked = true;
+                        relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Checked = true;
 
                         RelatedMediaController.Instance.RelatedMediaSelection = RelatedMediaSelection.RABadgeIcon;
                         break;
@@ -2185,20 +2187,20 @@ namespace Retro_Achievement_Tracker
             }
             else
             {
-                relatedMediaLBLabel.Enabled = true;
-                relatedMediaLBLinePictureBox.Enabled = true;
-                relatedMediaLBBoxFrontRadioButton.Enabled = true;
-                relatedMediaLBBoxBackRadioButton.Enabled = true;
-                relatedMediaLBBox3DRadioButton.Enabled = true;
-                relatedMediaLBBoxFrontReconRadioButton.Enabled = true;
-                relatedMediaLBBoxBackReconRadioButton.Enabled = true;
-                relatedMediaLBBoxFullRadioButton.Enabled = true;
-                relatedMediaLBBoxSpineRadioButton.Enabled = true;
-                relatedMediaLBBannerRadioButton.Enabled = true;
-                relatedMediaLBTitleScreenRadioButton.Enabled = true;
-                relatedMediaLBClearLogoRadioButton.Enabled = true;
-                relatedMediaLBCartFrontRadioButton.Enabled = true;
-                relatedMediaLBCartBackRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBLabel.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBLinePictureBox.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBBannerRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Enabled = true;
+                relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Enabled = true;
             }
         }
         void UpdateLaunchBoxReferences()
@@ -2459,193 +2461,15 @@ namespace Retro_Achievement_Tracker
             UpdateAdvancedSettings();
             IsChanging = false;
         }
+
         void UpdateAdvancedSettings()
         {
-            if (FocusController.Instance.AdvancedSettingsEnabled)
-            {
-                focusTitleLabel.Text = "Title";
-                focusTitleOutlineLabel.Text = "Title OutlineColor";
-
-                SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.TitleFontFamily);
-                focusTitleOutlineCheckBox.Checked = FocusController.Instance.TitleOutlineEnabled;
-                focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleColor);
-                focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleOutlineColor);
-
-                focusDescriptionPanel.Enabled = true;
-                focusPointsPanel.Enabled = true;
-                focusLinePanel.Enabled = true;
-                focusDescriptionOutlinePanel.Enabled = true;
-                focusPointsOutlinePanel.Enabled = true;
-                focusLineOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                focusTitleLabel.Text = "Font";
-                focusTitleOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.SimpleFontFamily);
-                focusTitleOutlineCheckBox.Checked = FocusController.Instance.SimpleFontOutlineEnabled;
-                focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.SimpleFontColor);
-                focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.SimpleFontOutlineColor);
-
-                focusDescriptionPanel.Enabled = false;
-                focusPointsPanel.Enabled = false;
-                focusLinePanel.Enabled = false;
-                focusDescriptionOutlinePanel.Enabled = false;
-                focusPointsOutlinePanel.Enabled = false;
-                focusLineOutlinePanel.Enabled = false;
-            }
-
-            if (AlertsController.Instance.AdvancedSettingsEnabled)
-            {
-                alertsTitleLabel.Text = "Title";
-                alertsTitleOutlineLabel.Text = "Title OutlineColor";
-
-                SetFontFamilyBox(alertsTitleFontComboBox, AlertsController.Instance.TitleFontFamily);
-                alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.TitleOutlineEnabled;
-                alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.TitleColor);
-                alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.TitleOutlineColor);
-
-                alertsDescriptionPanel.Enabled = true;
-                alertsPointsPanel.Enabled = true;
-                alertsLinePanel.Enabled = true;
-                alertsDescriptionOutlinePanel.Enabled = true;
-                alertsPointsOutlinePanel.Enabled = true;
-                alertsLineOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                alertsTitleLabel.Text = "Font";
-                alertsTitleOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(alertsTitleFontComboBox, AlertsController.Instance.SimpleFontFamily);
-                alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.SimpleFontOutlineEnabled;
-                alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.SimpleFontColor);
-                alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.SimpleFontOutlineColor);
-
-                alertsDescriptionPanel.Enabled = false;
-                alertsPointsPanel.Enabled = false;
-                alertsLinePanel.Enabled = false;
-                alertsDescriptionOutlinePanel.Enabled = false;
-                alertsPointsOutlinePanel.Enabled = false;
-                alertsLineOutlinePanel.Enabled = false;
-            }
-
-            if (UserInfoController.Instance.AdvancedSettingsEnabled)
-            {
-                userInfoNamesLabel.Text = "Names";
-                userInfoNamesOutlineLabel.Text = "Names OutlineColor";
-
-                SetFontFamilyBox(userInfoNamesFontComboBox, UserInfoController.Instance.NameFontFamily);
-                userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.NameOutlineEnabled;
-                userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.NameColor);
-                userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.NameOutlineColor);
-
-                userInfoValuesPanel.Enabled = true;
-                userInfoValuesOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                userInfoNamesLabel.Text = "Font";
-                userInfoNamesOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(userInfoNamesFontComboBox, UserInfoController.Instance.SimpleFontFamily);
-                userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.SimpleFontOutlineEnabled;
-                userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.SimpleFontColor);
-                userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.SimpleFontOutlineColor);
-
-                userInfoValuesPanel.Enabled = false;
-                userInfoValuesOutlinePanel.Enabled = false;
-            }
-
-            if (GameInfoController.Instance.AdvancedSettingsEnabled)
-            {
-                gameInfoNamesLabel.Text = "Names";
-                gameInfoNamesOutlineLabel.Text = "Names OutlineColor";
-
-                SetFontFamilyBox(gameInfoNamesFontComboBox, GameInfoController.Instance.NameFontFamily);
-                gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.NameOutlineEnabled;
-                gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.NameColor);
-                gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.NameOutlineColor);
-
-                gameInfoValuesPanel.Enabled = true;
-                gameInfoValuesOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                gameInfoNamesLabel.Text = "Font";
-                gameInfoNamesOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(gameInfoNamesFontComboBox, GameInfoController.Instance.SimpleFontFamily);
-                gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.SimpleFontOutlineEnabled;
-                gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.SimpleFontColor);
-                gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.SimpleFontOutlineColor);
-
-                gameInfoValuesPanel.Enabled = false;
-                gameInfoValuesOutlinePanel.Enabled = false;
-            }
-
-            if (GameProgressController.Instance.AdvancedSettingsEnabled)
-            {
-                gameProgressNamesLabel.Text = "Names";
-                gameProgressNamesOutlineLabel.Text = "Names OutlineColor";
-
-                SetFontFamilyBox(gameProgressNamesFontComboBox, GameProgressController.Instance.NameFontFamily);
-                gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.NameOutlineEnabled;
-                gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.NameColor);
-                gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.NameOutlineColor);
-
-                gameProgressValuesPanel.Enabled = true;
-                gameProgressValuesOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                gameProgressNamesLabel.Text = "Font";
-                gameProgressNamesOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(gameProgressNamesFontComboBox, GameProgressController.Instance.SimpleFontFamily);
-                gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.SimpleFontOutlineEnabled;
-                gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.SimpleFontColor);
-                gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.SimpleFontOutlineColor);
-
-                gameProgressValuesPanel.Enabled = false;
-                gameProgressValuesOutlinePanel.Enabled = false;
-            }
-
-            if (RecentUnlocksController.Instance.AdvancedSettingsEnabled)
-            {
-                recentAchievementsTitleLabel.Text = "Title";
-                recentAchievementsTitleOutlineLabel.Text = "Title OutlineColor";
-
-                SetFontFamilyBox(recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.TitleFontFamily);
-                recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.TitleOutlineEnabled;
-                recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleColor);
-                recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.TitleOutlineColor);
-
-                recentAchievementsDescriptionPanel.Enabled = true;
-                recentAchievementsPointsPanel.Enabled = true;
-                recentAchievementsLinePanel.Enabled = true;
-                recentAchievementsDescriptionOutlinePanel.Enabled = true;
-                recentAchievementsPointsOutlinePanel.Enabled = true;
-                recentAchievementsLineOutlinePanel.Enabled = true;
-            }
-            else
-            {
-                recentAchievementsTitleLabel.Text = "Font";
-                recentAchievementsTitleOutlineLabel.Text = "Font OutlineColor";
-
-                SetFontFamilyBox(recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.SimpleFontFamily);
-                recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.SimpleFontOutlineEnabled;
-                recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.SimpleFontColor);
-                recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.SimpleFontOutlineColor);
-
-                recentAchievementsDescriptionPanel.Enabled = false;
-                recentAchievementsPointsPanel.Enabled = false;
-                recentAchievementsLinePanel.Enabled = false;
-                recentAchievementsDescriptionOutlinePanel.Enabled = false;
-                recentAchievementsPointsOutlinePanel.Enabled = false;
-                recentAchievementsLineOutlinePanel.Enabled = false;
-            }
+            focusTabPage.ToggleTabElements(FocusController.Instance.AdvancedSettingsEnabled);
+            alertsTabPage.ToggleTabElements(AlertsController.Instance.AdvancedSettingsEnabled);
+            userInfoTabPage.ToggleTabElements(UserInfoController.Instance.AdvancedSettingsEnabled);
+            gameInfoTabPage.ToggleTabElements(GameInfoController.Instance.AdvancedSettingsEnabled);
+            gameProgressTabPage.ToggleTabElements(GameProgressController.Instance.AdvancedSettingsEnabled);
+            recentAchievementsTabPage.ToggleTabElements(RecentUnlocksController.Instance.AdvancedSettingsEnabled);
         }
         void DefaultButton_Click(object sender, EventArgs e)
         {
@@ -2653,25 +2477,25 @@ namespace Retro_Achievement_Tracker
             switch (button.Name)
             {
                 case "gameInfoDefaultButton":
-                    gameInfoTitleTextBox.Text = "Title";
-                    gameInfoConsoleTextBox.Text = "Console";
-                    gameInfoDeveloperTextBox.Text = "Developer";
-                    gameInfoPublisherTextBox.Text = "Publisher";
-                    gameInfoGenreTextBox.Text = "Genre";
-                    gameInfoReleaseDateTextBox.Text = "Released";
+                    gameInfoTabPage.gameInfoTitleTextBox.Text = "Title";
+                    gameInfoTabPage.gameInfoConsoleTextBox.Text = "Console";
+                    gameInfoTabPage.gameInfoDeveloperTextBox.Text = "Developer";
+                    gameInfoTabPage.gameInfoPublisherTextBox.Text = "Publisher";
+                    gameInfoTabPage.gameInfoGenreTextBox.Text = "Genre";
+                    gameInfoTabPage.gameInfoReleaseDateTextBox.Text = "Released";
                     break;
                 case "userInfoDefaultButton":
-                    userInfoRankTextBox.Text = "Rank";
-                    userInfoPointsTextBox.Text = "Points";
-                    userInfoTruePointsTextBox.Text = "True Points";
-                    userInfoRatioTextBox.Text = "Retro Ratio";
+                    userInfoTabPage.userInfoRankTextBox.Text = "Rank";
+                    userInfoTabPage.userInfoPointsTextBox.Text = "Points";
+                    userInfoTabPage.userInfoTruePointsTextBox.Text = "True Points";
+                    userInfoTabPage.userInfoRatioTextBox.Text = "Retro Ratio";
                     break;
                 case "gameProgressDefaultButton":
-                    gameProgressRatioTextBox.Text = "Retro Ratio";
-                    gameProgressPointsTextBox.Text = "Points";
-                    gameProgressTruePointsTextBox.Text = "True Points";
-                    gameProgressAchievementsTextBox.Text = "Achievements";
-                    gameProgressCompletedTextBox.Text = "Completed";
+                    gameProgressTabPage.gameProgressRatioTextBox.Text = "Retro Ratio";
+                    gameProgressTabPage.gameProgressPointsTextBox.Text = "Points";
+                    gameProgressTabPage.gameProgressTruePointsTextBox.Text = "True Points";
+                    gameProgressTabPage.gameProgressAchievementsTextBox.Text = "Achievements";
+                    gameProgressTabPage.gameProgressCompletedTextBox.Text = "Completed";
                     break;
             }
         }
@@ -2779,372 +2603,372 @@ namespace Retro_Achievement_Tracker
 
             manualSearchTextBox.Text = PreviouslyPlayedGameId.ToString();
 
-            userInfoRankTextBox.Text = UserInfoController.Instance.RankName;
-            userInfoPointsTextBox.Text = UserInfoController.Instance.PointsName;
-            userInfoTruePointsTextBox.Text = UserInfoController.Instance.TruePointsName;
-            userInfoRatioTextBox.Text = UserInfoController.Instance.RatioName;
+            userInfoTabPage.userInfoRankTextBox.Text = UserInfoController.Instance.RankName;
+            userInfoTabPage.userInfoPointsTextBox.Text = UserInfoController.Instance.PointsName;
+            userInfoTabPage.userInfoTruePointsTextBox.Text = UserInfoController.Instance.TruePointsName;
+            userInfoTabPage.userInfoRatioTextBox.Text = UserInfoController.Instance.RatioName;
 
-            gameInfoTitleTextBox.Text = GameInfoController.Instance.TitleName;
-            gameInfoDeveloperTextBox.Text = GameInfoController.Instance.DeveloperName;
-            gameInfoPublisherTextBox.Text = GameInfoController.Instance.PublisherName;
-            gameInfoConsoleTextBox.Text = GameInfoController.Instance.ConsoleName;
-            gameInfoGenreTextBox.Text = GameInfoController.Instance.GenreName;
-            gameInfoReleaseDateTextBox.Text = GameInfoController.Instance.ReleasedDateName;
+            gameInfoTabPage.gameInfoTitleTextBox.Text = GameInfoController.Instance.TitleName;
+            gameInfoTabPage.gameInfoDeveloperTextBox.Text = GameInfoController.Instance.DeveloperName;
+            gameInfoTabPage.gameInfoPublisherTextBox.Text = GameInfoController.Instance.PublisherName;
+            gameInfoTabPage.gameInfoConsoleTextBox.Text = GameInfoController.Instance.ConsoleName;
+            gameInfoTabPage.gameInfoGenreTextBox.Text = GameInfoController.Instance.GenreName;
+            gameInfoTabPage.gameInfoReleaseDateTextBox.Text = GameInfoController.Instance.ReleasedDateName;
 
-            gameProgressAchievementsTextBox.Text = GameProgressController.Instance.AchievementsName;
-            gameProgressPointsTextBox.Text = GameProgressController.Instance.PointsName;
-            gameProgressTruePointsTextBox.Text = GameProgressController.Instance.TruePointsName;
-            gameProgressRatioTextBox.Text = GameProgressController.Instance.RatioName;
-            gameProgressCompletedTextBox.Text = GameProgressController.Instance.CompletedName;
+            gameProgressTabPage.gameProgressAchievementsTextBox.Text = GameProgressController.Instance.AchievementsName;
+            gameProgressTabPage.gameProgressPointsTextBox.Text = GameProgressController.Instance.PointsName;
+            gameProgressTabPage.gameProgressTruePointsTextBox.Text = GameProgressController.Instance.TruePointsName;
+            gameProgressTabPage.gameProgressRatioTextBox.Text = GameProgressController.Instance.RatioName;
+            gameProgressTabPage.gameProgressCompletedTextBox.Text = GameProgressController.Instance.CompletedName;
 
             // Auto-Launch/Starting
             autoStartCheckbox.Checked = Settings.Default.auto_start_checked;
-            focusAutoOpenWindowCheckBox.Checked = FocusController.Instance.AutoLaunch;
-            alertsAutoOpenWindowCheckbox.Checked = AlertsController.Instance.AutoLaunch;
-            userInfoAutoOpenWindowCheckbox.Checked = UserInfoController.Instance.AutoLaunch;
-            gameInfoAutoOpenWindowCheckbox.Checked = GameInfoController.Instance.AutoLaunch;
-            gameProgressAutoOpenWindowCheckbox.Checked = GameProgressController.Instance.AutoLaunch;
-            recentAchievementsAutoOpenWindowCheckbox.Checked = RecentUnlocksController.Instance.AutoLaunch;
-            achievementListAutoOpenWindowCheckbox.Checked = AchievementListController.Instance.AutoLaunch;
-            relatedMediaAutoOpenWindowCheckbox.Checked = RelatedMediaController.Instance.AutoLaunch;
+            focusTabPage.focusAutoOpenWindowCheckBox.Checked = FocusController.Instance.AutoLaunch;
+            alertsTabPage.alertsAutoOpenWindowCheckbox.Checked = AlertsController.Instance.AutoLaunch;
+            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Checked = UserInfoController.Instance.AutoLaunch;
+            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Checked = GameInfoController.Instance.AutoLaunch;
+            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Checked = GameProgressController.Instance.AutoLaunch;
+            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Checked = RecentUnlocksController.Instance.AutoLaunch;
+            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Checked = AchievementListController.Instance.AutoLaunch;
+            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Checked = RelatedMediaController.Instance.AutoLaunch;
 
             // Window Background Color
-            focusBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.WindowBackgroundColor);
-            alertsBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.WindowBackgroundColor);
-            userInfoBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.WindowBackgroundColor);
-            gameInfoBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.WindowBackgroundColor);
-            gameProgressBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.WindowBackgroundColor);
-            recentAchievementsBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.WindowBackgroundColor);
-            achievementListBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AchievementListController.Instance.WindowBackgroundColor);
-            relatedMediaBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(RelatedMediaController.Instance.WindowBackgroundColor);
+            focusTabPage.focusBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.WindowBackgroundColor);
+            alertsTabPage.alertsBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.WindowBackgroundColor);
+            userInfoTabPage.userInfoBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.WindowBackgroundColor);
+            gameInfoTabPage.gameInfoBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.WindowBackgroundColor);
+            gameProgressTabPage.gameProgressBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.WindowBackgroundColor);
+            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.WindowBackgroundColor);
+            achievementsListTabPage.achievementListBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(AchievementListController.Instance.WindowBackgroundColor);
+            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.BackColor = ColorTranslator.FromHtml(RelatedMediaController.Instance.WindowBackgroundColor);
 
             // Window Static Sizes
-            achievementListWindowSizeXUpDown.Value = AchievementListController.Instance.WindowSizeX;
-            achievementListWindowSizeYUpDown.Value = AchievementListController.Instance.WindowSizeY;
+            achievementsListTabPage.achievementListWindowSizeXUpDown.Value = AchievementListController.Instance.WindowSizeX;
+            achievementsListTabPage.achievementListWindowSizeYUpDown.Value = AchievementListController.Instance.WindowSizeY;
 
             // Border Background Color
-            focusBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.BorderBackgroundColor);
-            alertsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.BorderBackgroundColor);
-            recentAchievementsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.BorderBackgroundColor);
+            focusTabPage.focusBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.BorderBackgroundColor);
+            alertsTabPage.alertsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.BorderBackgroundColor);
+            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.BorderBackgroundColor);
 
             // Border Enabled
-            focusBorderCheckBox.Checked = FocusController.Instance.BorderEnabled;
-            alertsBorderCheckBox.Checked = AlertsController.Instance.BorderEnabled;
-            recentAchievementsBorderCheckBox.Checked = RecentUnlocksController.Instance.BorderEnabled;
+            focusTabPage.focusBorderCheckBox.Checked = FocusController.Instance.BorderEnabled;
+            alertsTabPage.alertsBorderCheckBox.Checked = AlertsController.Instance.BorderEnabled;
+            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Checked = RecentUnlocksController.Instance.BorderEnabled;
 
             // Advanced Settings
-            focusAdvancedCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled;
-            alertsAdvancedCheckBox.Checked = AlertsController.Instance.AdvancedSettingsEnabled;
-            userInfoAdvancedCheckBox.Checked = UserInfoController.Instance.AdvancedSettingsEnabled;
-            gameInfoAdvancedCheckBox.Checked = GameInfoController.Instance.AdvancedSettingsEnabled;
-            gameProgressAdvancedCheckBox.Checked = GameProgressController.Instance.AdvancedSettingsEnabled;
-            recentAchievementsAdvancedCheckBox.Checked = RecentUnlocksController.Instance.AdvancedSettingsEnabled;
+            focusTabPage.focusAdvancedCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled;
+            alertsTabPage.alertsAdvancedCheckBox.Checked = AlertsController.Instance.AdvancedSettingsEnabled;
+            userInfoTabPage.userInfoAdvancedCheckBox.Checked = UserInfoController.Instance.AdvancedSettingsEnabled;
+            gameInfoTabPage.gameInfoAdvancedCheckBox.Checked = GameInfoController.Instance.AdvancedSettingsEnabled;
+            gameProgressTabPage.gameProgressAdvancedCheckBox.Checked = GameProgressController.Instance.AdvancedSettingsEnabled;
+            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Checked = RecentUnlocksController.Instance.AdvancedSettingsEnabled;
 
-            userInfoRankCheckBox.Checked = UserInfoController.Instance.RankEnabled;
-            userInfoPointsCheckBox.Checked = UserInfoController.Instance.PointsEnabled;
-            userInfoTruePointsCheckBox.Checked = UserInfoController.Instance.TruePointsEnabled;
-            userInfoRatioCheckBox.Checked = UserInfoController.Instance.RatioEnabled;
+            userInfoTabPage.userInfoRankCheckBox.Checked = UserInfoController.Instance.RankEnabled;
+            userInfoTabPage.userInfoPointsCheckBox.Checked = UserInfoController.Instance.PointsEnabled;
+            userInfoTabPage.userInfoTruePointsCheckBox.Checked = UserInfoController.Instance.TruePointsEnabled;
+            userInfoTabPage.userInfoRatioCheckBox.Checked = UserInfoController.Instance.RatioEnabled;
 
-            gameInfoTitleCheckBox.Checked = GameInfoController.Instance.TitleEnabled;
-            gameInfoDeveloperCheckBox.Checked = GameInfoController.Instance.DeveloperEnabled;
-            gameInfoPublisherCheckBox.Checked = GameInfoController.Instance.PublisherEnabled;
-            gameInfoConsoleCheckBox.Checked = GameInfoController.Instance.ConsoleEnabled;
-            gameInfoGenreCheckBox.Checked = GameInfoController.Instance.GenreEnabled;
-            gameInfoReleasedCheckBox.Checked = GameInfoController.Instance.ReleasedDateEnabled;
+            gameInfoTabPage.gameInfoTitleCheckBox.Checked = GameInfoController.Instance.TitleEnabled;
+            gameInfoTabPage.gameInfoDeveloperCheckBox.Checked = GameInfoController.Instance.DeveloperEnabled;
+            gameInfoTabPage.gameInfoPublisherCheckBox.Checked = GameInfoController.Instance.PublisherEnabled;
+            gameInfoTabPage.gameInfoConsoleCheckBox.Checked = GameInfoController.Instance.ConsoleEnabled;
+            gameInfoTabPage.gameInfoGenreCheckBox.Checked = GameInfoController.Instance.GenreEnabled;
+            gameInfoTabPage.gameInfoReleasedCheckBox.Checked = GameInfoController.Instance.ReleasedDateEnabled;
 
-            gameProgressAchievementsCheckBox.Checked = GameProgressController.Instance.AchievementsEnabled;
-            gameProgressPointsCheckBox.Checked = GameProgressController.Instance.PointsEnabled;
-            gameProgressTruePointsCheckBox.Checked = GameProgressController.Instance.TruePointsEnabled;
-            gameProgressCompletedCheckBox.Checked = GameProgressController.Instance.CompletedEnabled;
-            gameProgressRatioCheckBox.Checked = GameProgressController.Instance.RatioEnabled;
+            gameProgressTabPage.gameProgressAchievementsCheckBox.Checked = GameProgressController.Instance.AchievementsEnabled;
+            gameProgressTabPage.gameProgressPointsCheckBox.Checked = GameProgressController.Instance.PointsEnabled;
+            gameProgressTabPage.gameProgressTruePointsCheckBox.Checked = GameProgressController.Instance.TruePointsEnabled;
+            gameProgressTabPage.gameProgressCompletedCheckBox.Checked = GameProgressController.Instance.CompletedEnabled;
+            gameProgressTabPage.gameProgressRatioCheckBox.Checked = GameProgressController.Instance.RatioEnabled;
 
             // Set Font Family ComboBoxes
-            SetFontFamilyBox(focusTitleFontComboBox, FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleFontFamily : FocusController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(focusDescriptionFontComboBox, FocusController.Instance.DescriptionFontFamily);
-            SetFontFamilyBox(focusPointsFontComboBox, FocusController.Instance.PointsFontFamily);
+            SetFontFamilyBox(focusTabPage.focusTitleFontComboBox, FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleFontFamily : FocusController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(focusTabPage.focusDescriptionFontComboBox, FocusController.Instance.DescriptionFontFamily);
+            SetFontFamilyBox(focusTabPage.focusPointsFontComboBox, FocusController.Instance.PointsFontFamily);
 
-            SetFontFamilyBox(alertsTitleFontComboBox, AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleFontFamily : AlertsController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(alertsDescriptionFontComboBox, AlertsController.Instance.DescriptionFontFamily);
-            SetFontFamilyBox(alertsPointsFontComboBox, AlertsController.Instance.PointsFontFamily);
+            SetFontFamilyBox(alertsTabPage.alertsTitleFontComboBox, AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleFontFamily : AlertsController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(alertsTabPage.alertsDescriptionFontComboBox, AlertsController.Instance.DescriptionFontFamily);
+            SetFontFamilyBox(alertsTabPage.alertsPointsFontComboBox, AlertsController.Instance.PointsFontFamily);
 
-            SetFontFamilyBox(userInfoNamesFontComboBox, UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameFontFamily : UserInfoController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(userInfoValuesFontComboBox, UserInfoController.Instance.ValueFontFamily);
+            SetFontFamilyBox(userInfoTabPage.userInfoNamesFontComboBox, UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameFontFamily : UserInfoController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(userInfoTabPage.userInfoValuesFontComboBox, UserInfoController.Instance.ValueFontFamily);
 
-            SetFontFamilyBox(gameInfoNamesFontComboBox, GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameFontFamily : GameInfoController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(gameInfoValuesFontComboBox, GameInfoController.Instance.ValueFontFamily);
+            SetFontFamilyBox(gameInfoTabPage.gameInfoNamesFontComboBox, GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameFontFamily : GameInfoController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(gameInfoTabPage.gameInfoValuesFontComboBox, GameInfoController.Instance.ValueFontFamily);
 
-            SetFontFamilyBox(gameProgressNamesFontComboBox, GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameFontFamily : GameProgressController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(gameProgressValuesFontComboBox, GameProgressController.Instance.ValueFontFamily);
+            SetFontFamilyBox(gameProgressTabPage.gameProgressNamesFontComboBox, GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameFontFamily : GameProgressController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(gameProgressTabPage.gameProgressValuesFontComboBox, GameProgressController.Instance.ValueFontFamily);
 
-            SetFontFamilyBox(recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleFontFamily : RecentUnlocksController.Instance.SimpleFontFamily);
-            SetFontFamilyBox(recentAchievementsDescriptionFontComboBox, RecentUnlocksController.Instance.DateFontFamily);
-            SetFontFamilyBox(recentAchievementsPointsFontComboBox, RecentUnlocksController.Instance.PointsFontFamily);
+            SetFontFamilyBox(recentAchievementsTabPage.recentAchievementsTitleFontComboBox, RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleFontFamily : RecentUnlocksController.Instance.SimpleFontFamily);
+            SetFontFamilyBox(recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox, RecentUnlocksController.Instance.DateFontFamily);
+            SetFontFamilyBox(recentAchievementsTabPage.recentAchievementsPointsFontComboBox, RecentUnlocksController.Instance.PointsFontFamily);
 
             // Font & Outline Enablement
-            focusTitleOutlineCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineEnabled : FocusController.Instance.SimpleFontOutlineEnabled;
-            focusDescriptionOutlineCheckBox.Checked = FocusController.Instance.DescriptionOutlineEnabled;
-            focusPointsOutlineCheckBox.Checked = FocusController.Instance.PointsOutlineEnabled;
-            focusLineOutlineCheckBox.Checked = FocusController.Instance.LineOutlineEnabled;
+            focusTabPage.focusTitleOutlineCheckBox.Checked = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineEnabled : FocusController.Instance.SimpleFontOutlineEnabled;
+            focusTabPage.focusDescriptionOutlineCheckBox.Checked = FocusController.Instance.DescriptionOutlineEnabled;
+            focusTabPage.focusPointsOutlineCheckBox.Checked = FocusController.Instance.PointsOutlineEnabled;
+            focusTabPage.focusLineOutlineCheckBox.Checked = FocusController.Instance.LineOutlineEnabled;
 
-            alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineEnabled : AlertsController.Instance.SimpleFontOutlineEnabled;
-            alertsDescriptionOutlineCheckBox.Checked = AlertsController.Instance.DescriptionOutlineEnabled;
-            alertsPointsOutlineCheckBox.Checked = AlertsController.Instance.PointsOutlineEnabled;
-            alertsLineOutlineCheckBox.Checked = AlertsController.Instance.LineOutlineEnabled;
+            alertsTabPage.alertsTitleOutlineCheckBox.Checked = AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineEnabled : AlertsController.Instance.SimpleFontOutlineEnabled;
+            alertsTabPage.alertsDescriptionOutlineCheckBox.Checked = AlertsController.Instance.DescriptionOutlineEnabled;
+            alertsTabPage.alertsPointsOutlineCheckBox.Checked = AlertsController.Instance.PointsOutlineEnabled;
+            alertsTabPage.alertsLineOutlineCheckBox.Checked = AlertsController.Instance.LineOutlineEnabled;
 
-            gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineEnabled : GameInfoController.Instance.SimpleFontOutlineEnabled;
-            gameInfoValuesOutlineCheckBox.Checked = GameInfoController.Instance.ValueOutlineEnabled;
+            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Checked = GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineEnabled : GameInfoController.Instance.SimpleFontOutlineEnabled;
+            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Checked = GameInfoController.Instance.ValueOutlineEnabled;
 
-            gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineEnabled : GameProgressController.Instance.SimpleFontOutlineEnabled;
-            gameProgressValuesOutlineCheckBox.Checked = GameProgressController.Instance.ValueOutlineEnabled;
+            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Checked = GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineEnabled : GameProgressController.Instance.SimpleFontOutlineEnabled;
+            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Checked = GameProgressController.Instance.ValueOutlineEnabled;
 
-            userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineEnabled : UserInfoController.Instance.SimpleFontOutlineEnabled;
-            userInfoValuesOutlineCheckBox.Checked = UserInfoController.Instance.ValueOutlineEnabled;
+            userInfoTabPage.userInfoNamesOutlineCheckBox.Checked = UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineEnabled : UserInfoController.Instance.SimpleFontOutlineEnabled;
+            userInfoTabPage.userInfoValuesOutlineCheckBox.Checked = UserInfoController.Instance.ValueOutlineEnabled;
 
-            recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineEnabled : RecentUnlocksController.Instance.SimpleFontOutlineEnabled;
-            recentAchievementsDateFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.DescriptionOutlineEnabled;
-            recentAchievementsPointsFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.PointsOutlineEnabled;
-            recentAchievementsLineOutlineCheckBox.Checked = RecentUnlocksController.Instance.LineOutlineEnabled;
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineEnabled : RecentUnlocksController.Instance.SimpleFontOutlineEnabled;
+            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.DescriptionOutlineEnabled;
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Checked = RecentUnlocksController.Instance.PointsOutlineEnabled;
+            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Checked = RecentUnlocksController.Instance.LineOutlineEnabled;
 
             // Font Color PictureBox Assignment
-            focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleColor : FocusController.Instance.SimpleFontColor);
-            focusDescriptionFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.DescriptionColor);
-            focusPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.PointsColor);
-            focusLineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.LineColor);
+            focusTabPage.focusTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleColor : FocusController.Instance.SimpleFontColor);
+            focusTabPage.focusDescriptionFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.DescriptionColor);
+            focusTabPage.focusPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.PointsColor);
+            focusTabPage.focusLineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.LineColor);
 
-            focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineColor : FocusController.Instance.SimpleFontOutlineColor);
-            focusDescriptionFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.DescriptionOutlineColor);
-            focusPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.PointsOutlineColor);
-            focusLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.LineOutlineColor);
+            focusTabPage.focusTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineColor : FocusController.Instance.SimpleFontOutlineColor);
+            focusTabPage.focusDescriptionFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.DescriptionOutlineColor);
+            focusTabPage.focusPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.PointsOutlineColor);
+            focusTabPage.focusLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(FocusController.Instance.LineOutlineColor);
 
-            alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleColor : AlertsController.Instance.SimpleFontColor);
-            alertsDescriptionFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.DescriptionColor);
-            alertsPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.PointsColor);
-            alertsLineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.LineColor);
+            alertsTabPage.alertsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleColor : AlertsController.Instance.SimpleFontColor);
+            alertsTabPage.alertsDescriptionFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.DescriptionColor);
+            alertsTabPage.alertsPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.PointsColor);
+            alertsTabPage.alertsLineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.LineColor);
 
-            alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineColor : AlertsController.Instance.SimpleFontOutlineColor);
-            alertsDescriptionFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.DescriptionOutlineColor);
-            alertsPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.PointsOutlineColor);
-            alertsLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.LineColor);
+            alertsTabPage.alertsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineColor : AlertsController.Instance.SimpleFontOutlineColor);
+            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.DescriptionOutlineColor);
+            alertsTabPage.alertsPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.PointsOutlineColor);
+            alertsTabPage.alertsLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(AlertsController.Instance.LineColor);
 
-            userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameColor : UserInfoController.Instance.SimpleFontColor);
-            userInfoValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.ValueColor);
+            userInfoTabPage.userInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameColor : UserInfoController.Instance.SimpleFontColor);
+            userInfoTabPage.userInfoValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.ValueColor);
 
-            userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineColor : UserInfoController.Instance.SimpleFontOutlineColor);
-            userInfoValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.ValueOutlineColor);
+            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineColor : UserInfoController.Instance.SimpleFontOutlineColor);
+            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(UserInfoController.Instance.ValueOutlineColor);
 
-            gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameColor : GameInfoController.Instance.SimpleFontColor);
-            gameInfoValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.ValueColor);
+            gameInfoTabPage.gameInfoNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameColor : GameInfoController.Instance.SimpleFontColor);
+            gameInfoTabPage.gameInfoValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.ValueColor);
 
-            gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineColor : GameInfoController.Instance.SimpleFontOutlineColor);
-            gameInfoValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.ValueOutlineColor);
+            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineColor : GameInfoController.Instance.SimpleFontOutlineColor);
+            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameInfoController.Instance.ValueOutlineColor);
 
-            gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameColor : GameProgressController.Instance.SimpleFontColor);
-            gameProgressValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.ValueColor);
+            gameProgressTabPage.gameProgressNamesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameColor : GameProgressController.Instance.SimpleFontColor);
+            gameProgressTabPage.gameProgressValuesFontColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.ValueColor);
 
-            gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineColor : GameProgressController.Instance.SimpleFontOutlineColor);
-            gameProgressValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.ValueOutlineColor);
+            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineColor : GameProgressController.Instance.SimpleFontOutlineColor);
+            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(GameProgressController.Instance.ValueOutlineColor);
 
-            recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleColor : RecentUnlocksController.Instance.SimpleFontColor);
-            recentAchievementsDateFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.DateColor);
-            recentAchievementsPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.PointsColor);
-            recentAchievementsLineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.LineColor);
+            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleColor : RecentUnlocksController.Instance.SimpleFontColor);
+            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.DateColor);
+            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.PointsColor);
+            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.LineColor);
 
-            recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineColor : RecentUnlocksController.Instance.SimpleFontOutlineColor);
-            recentAchievementsDateFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.DateOutlineColor);
-            recentAchievementsPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.PointsOutlineColor);
-            recentAchievementsLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.LineOutlineColor);
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineColor : RecentUnlocksController.Instance.SimpleFontOutlineColor);
+            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.DateOutlineColor);
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.PointsOutlineColor);
+            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.BackColor = ColorTranslator.FromHtml(RecentUnlocksController.Instance.LineOutlineColor);
 
             // Font Outline Size NumericUpDown Assignment
-            focusTitleFontOutlineNumericUpDown.Value = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineSize : FocusController.Instance.SimpleFontOutlineSize;
-            focusDescriptionFontOutlineNumericUpDown.Value = FocusController.Instance.DescriptionOutlineSize;
-            focusPointsFontOutlineNumericUpDown.Value = FocusController.Instance.PointsOutlineSize;
-            focusLineOutlineNumericUpDown.Value = FocusController.Instance.LineOutlineSize;
+            focusTabPage.focusTitleFontOutlineNumericUpDown.Value = FocusController.Instance.AdvancedSettingsEnabled ? FocusController.Instance.TitleOutlineSize : FocusController.Instance.SimpleFontOutlineSize;
+            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Value = FocusController.Instance.DescriptionOutlineSize;
+            focusTabPage.focusPointsFontOutlineNumericUpDown.Value = FocusController.Instance.PointsOutlineSize;
+            focusTabPage.focusLineOutlineNumericUpDown.Value = FocusController.Instance.LineOutlineSize;
 
-            alertsTitleFontOutlineNumericUpDown.Value = AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineSize : AlertsController.Instance.SimpleFontOutlineSize;
-            alertsDescriptionFontOutlineNumericUpDown.Value = AlertsController.Instance.DescriptionOutlineSize;
-            alertsPointsFontOutlineNumericUpDown.Value = AlertsController.Instance.PointsOutlineSize;
-            alertsLineOutlineNumericUpDown.Value = AlertsController.Instance.LineOutlineSize;
+            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Value = AlertsController.Instance.AdvancedSettingsEnabled ? AlertsController.Instance.TitleOutlineSize : AlertsController.Instance.SimpleFontOutlineSize;
+            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Value = AlertsController.Instance.DescriptionOutlineSize;
+            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Value = AlertsController.Instance.PointsOutlineSize;
+            alertsTabPage.alertsLineOutlineNumericUpDown.Value = AlertsController.Instance.LineOutlineSize;
 
-            userInfoNamesFontOutlineNumericUpDown.Value = UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineSize : UserInfoController.Instance.SimpleFontOutlineSize;
-            userInfoValuesFontOutlineNumericUpDown.Value = UserInfoController.Instance.ValueOutlineSize;
+            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Value = UserInfoController.Instance.AdvancedSettingsEnabled ? UserInfoController.Instance.NameOutlineSize : UserInfoController.Instance.SimpleFontOutlineSize;
+            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Value = UserInfoController.Instance.ValueOutlineSize;
 
-            gameInfoNamesFontOutlineNumericUpDown.Value = GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineSize : GameInfoController.Instance.SimpleFontOutlineSize;
-            gameInfoValuesFontOutlineNumericUpDown.Value = GameInfoController.Instance.ValueOutlineSize;
+            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Value = GameInfoController.Instance.AdvancedSettingsEnabled ? GameInfoController.Instance.NameOutlineSize : GameInfoController.Instance.SimpleFontOutlineSize;
+            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Value = GameInfoController.Instance.ValueOutlineSize;
 
-            gameProgressNamesFontOutlineNumericUpDown.Value = GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineSize : GameProgressController.Instance.SimpleFontOutlineSize;
-            gameProgressValuesFontOutlineNumericUpDown.Value = GameProgressController.Instance.ValueOutlineSize;
+            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Value = GameProgressController.Instance.AdvancedSettingsEnabled ? GameProgressController.Instance.NameOutlineSize : GameProgressController.Instance.SimpleFontOutlineSize;
+            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Value = GameProgressController.Instance.ValueOutlineSize;
 
-            recentAchievementsTitleFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineSize : RecentUnlocksController.Instance.SimpleFontOutlineSize;
-            recentAchievementsDescriptionFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.DescriptionOutlineSize;
-            recentAchievementsPointsFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.PointsOutlineSize;
-            recentAchievementsLineOutlineNumericUpDown.Value = RecentUnlocksController.Instance.LineOutlineSize;
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.AdvancedSettingsEnabled ? RecentUnlocksController.Instance.TitleOutlineSize : RecentUnlocksController.Instance.SimpleFontOutlineSize;
+            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.DescriptionOutlineSize;
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Value = RecentUnlocksController.Instance.PointsOutlineSize;
+            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Value = RecentUnlocksController.Instance.LineOutlineSize;
 
-            recentAchievementsMaxListNumericUpDown.Value = RecentUnlocksController.Instance.MaxListSize;
+            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Value = RecentUnlocksController.Instance.MaxListSize;
 
-            if (AlertsController.Instance.CustomAchievementScale > alertsCustomAchievementScaleNumericUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementScale > alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomAchievementScale = alertsCustomAchievementScaleNumericUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementScale = alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomAchievementScale < alertsCustomAchievementScaleNumericUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementScale < alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomAchievementScale = alertsCustomAchievementScaleNumericUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomAchievementX > alertsCustomAchievementXNumericUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomAchievementX = (int)alertsCustomAchievementXNumericUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomAchievementX < alertsCustomAchievementXNumericUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomAchievementX = (int)alertsCustomAchievementXNumericUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementScale = alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomAchievementY > alertsCustomAchievementYNumericUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementX > alertsTabPage.alertsCustomAchievementXNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomAchievementY = (int)alertsCustomAchievementYNumericUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementX = (int)alertsTabPage.alertsCustomAchievementXNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomAchievementY < alertsCustomAchievementYNumericUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementX < alertsTabPage.alertsCustomAchievementXNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomAchievementY = (int)alertsCustomAchievementYNumericUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomAchievementInTime > alertsCustomAchievementInNumericUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomAchievementInTime = (int)alertsCustomAchievementInNumericUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomAchievementInTime < alertsCustomAchievementInNumericUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomAchievementInTime = (int)alertsCustomAchievementInNumericUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementX = (int)alertsTabPage.alertsCustomAchievementXNumericUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomAchievementOutTime > alertsCustomAchievementOutNumericUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementY > alertsTabPage.alertsCustomAchievementYNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomAchievementOutTime = (int)alertsCustomAchievementOutNumericUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementY = (int)alertsTabPage.alertsCustomAchievementYNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomAchievementOutTime < alertsCustomAchievementOutNumericUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementY < alertsTabPage.alertsCustomAchievementYNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomAchievementOutTime = (int)alertsCustomAchievementOutNumericUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomAchievementInSpeed > alertsCustomAchievementInSpeedUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomAchievementInSpeed = (int)alertsCustomAchievementInSpeedUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomAchievementInSpeed < alertsCustomAchievementInSpeedUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomAchievementInSpeed = (int)alertsCustomAchievementInSpeedUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementY = (int)alertsTabPage.alertsCustomAchievementYNumericUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomAchievementOutSpeed > alertsCustomAchievementOutSpeedUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementInTime > alertsTabPage.alertsCustomAchievementInNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomAchievementOutSpeed = (int)alertsCustomAchievementOutSpeedUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementInTime = (int)alertsTabPage.alertsCustomAchievementInNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomAchievementOutSpeed < alertsCustomAchievementOutSpeedUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementInTime < alertsTabPage.alertsCustomAchievementInNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomAchievementOutSpeed = (int)alertsCustomAchievementOutSpeedUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomMasteryScale > alertsCustomMasteryScaleNumericUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomMasteryScale = alertsCustomMasteryScaleNumericUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomMasteryScale < alertsCustomMasteryScaleNumericUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomMasteryScale = alertsCustomMasteryScaleNumericUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementInTime = (int)alertsTabPage.alertsCustomAchievementInNumericUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomMasteryX > alertsCustomMasteryXNumericUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementOutTime > alertsTabPage.alertsCustomAchievementOutNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomMasteryX = (int)alertsCustomMasteryXNumericUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementOutTime = (int)alertsTabPage.alertsCustomAchievementOutNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomMasteryX < alertsCustomMasteryXNumericUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementOutTime < alertsTabPage.alertsCustomAchievementOutNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomMasteryX = (int)alertsCustomMasteryXNumericUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomMasteryY > alertsCustomMasteryYNumericUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomMasteryY = (int)alertsCustomMasteryYNumericUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomMasteryY < alertsCustomMasteryYNumericUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomMasteryY = (int)alertsCustomMasteryYNumericUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementOutTime = (int)alertsTabPage.alertsCustomAchievementOutNumericUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomMasteryInTime > alertsCustomMasteryInNumericUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementInSpeed > alertsTabPage.alertsCustomAchievementInSpeedUpDown.Maximum)
             {
-                AlertsController.Instance.CustomMasteryInTime = (int)alertsCustomMasteryInNumericUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementInSpeed = (int)alertsTabPage.alertsCustomAchievementInSpeedUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomMasteryInTime < alertsCustomMasteryInNumericUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementInSpeed < alertsTabPage.alertsCustomAchievementInSpeedUpDown.Minimum)
             {
-                AlertsController.Instance.CustomMasteryInTime = (int)alertsCustomMasteryInNumericUpDown.Minimum;
-            }
-
-            if (AlertsController.Instance.CustomMasteryOutTime > alertsCustomMasteryOutNumericUpDown.Maximum)
-            {
-                AlertsController.Instance.CustomMasteryOutTime = (int)alertsCustomMasteryOutNumericUpDown.Maximum;
-            }
-            else if (AlertsController.Instance.CustomMasteryOutTime < alertsCustomMasteryOutNumericUpDown.Minimum)
-            {
-                AlertsController.Instance.CustomMasteryOutTime = (int)alertsCustomMasteryOutNumericUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementInSpeed = (int)alertsTabPage.alertsCustomAchievementInSpeedUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomMasteryInSpeed > alertsCustomMasteryInSpeedUpDown.Maximum)
+            if (AlertsController.Instance.CustomAchievementOutSpeed > alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Maximum)
             {
-                AlertsController.Instance.CustomMasteryInSpeed = (int)alertsCustomMasteryInSpeedUpDown.Maximum;
+                AlertsController.Instance.CustomAchievementOutSpeed = (int)alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomMasteryInSpeed < alertsCustomMasteryInSpeedUpDown.Minimum)
+            else if (AlertsController.Instance.CustomAchievementOutSpeed < alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Minimum)
             {
-                AlertsController.Instance.CustomMasteryInSpeed = (int)alertsCustomMasteryInSpeedUpDown.Minimum;
+                AlertsController.Instance.CustomAchievementOutSpeed = (int)alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Minimum;
             }
 
-            if (AlertsController.Instance.CustomMasteryOutSpeed > alertsCustomMasteryOutSpeedUpDown.Maximum)
+            if (AlertsController.Instance.CustomMasteryScale > alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Maximum)
             {
-                AlertsController.Instance.CustomMasteryOutSpeed = (int)alertsCustomMasteryOutSpeedUpDown.Maximum;
+                AlertsController.Instance.CustomMasteryScale = alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Maximum;
             }
-            else if (AlertsController.Instance.CustomMasteryOutSpeed < alertsCustomMasteryOutSpeedUpDown.Minimum)
+            else if (AlertsController.Instance.CustomMasteryScale < alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Minimum)
             {
-                AlertsController.Instance.CustomMasteryOutSpeed = (int)alertsCustomMasteryOutSpeedUpDown.Minimum;
+                AlertsController.Instance.CustomMasteryScale = alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryX > alertsTabPage.alertsCustomMasteryXNumericUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryX = (int)alertsTabPage.alertsCustomMasteryXNumericUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryX < alertsTabPage.alertsCustomMasteryXNumericUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryX = (int)alertsTabPage.alertsCustomMasteryXNumericUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryY > alertsTabPage.alertsCustomMasteryYNumericUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryY = (int)alertsTabPage.alertsCustomMasteryYNumericUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryY < alertsTabPage.alertsCustomMasteryYNumericUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryY = (int)alertsTabPage.alertsCustomMasteryYNumericUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryInTime > alertsTabPage.alertsCustomMasteryInNumericUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryInTime = (int)alertsTabPage.alertsCustomMasteryInNumericUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryInTime < alertsTabPage.alertsCustomMasteryInNumericUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryInTime = (int)alertsTabPage.alertsCustomMasteryInNumericUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryOutTime > alertsTabPage.alertsCustomMasteryOutNumericUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryOutTime = (int)alertsTabPage.alertsCustomMasteryOutNumericUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryOutTime < alertsTabPage.alertsCustomMasteryOutNumericUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryOutTime = (int)alertsTabPage.alertsCustomMasteryOutNumericUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryInSpeed > alertsTabPage.alertsCustomMasteryInSpeedUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryInSpeed = (int)alertsTabPage.alertsCustomMasteryInSpeedUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryInSpeed < alertsTabPage.alertsCustomMasteryInSpeedUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryInSpeed = (int)alertsTabPage.alertsCustomMasteryInSpeedUpDown.Minimum;
+            }
+
+            if (AlertsController.Instance.CustomMasteryOutSpeed > alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Maximum)
+            {
+                AlertsController.Instance.CustomMasteryOutSpeed = (int)alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Maximum;
+            }
+            else if (AlertsController.Instance.CustomMasteryOutSpeed < alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Minimum)
+            {
+                AlertsController.Instance.CustomMasteryOutSpeed = (int)alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Minimum;
             }
 
             foreach (AnimationDirection direction in Enum.GetValues(typeof(AnimationDirection)))
             {
                 string value = direction.ToString();
-                alertsCustomAchievementAnimationInComboBox.Items.Add(value);
-                alertsCustomAchievementAnimationOutComboBox.Items.Add(value);
-                alertsCustomMasteryAnimationInComboBox.Items.Add(value);
-                alertsCustomMasteryAnimationOutComboBox.Items.Add(value);
+                alertsTabPage.alertsCustomAchievementAnimationInComboBox.Items.Add(value);
+                alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Items.Add(value);
+                alertsTabPage.alertsCustomMasteryAnimationInComboBox.Items.Add(value);
+                alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Items.Add(value);
             }
 
-            alertsCustomAchievementAnimationInComboBox.SelectedIndex = alertsCustomAchievementAnimationInComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationIn.ToString());
-            alertsCustomAchievementAnimationOutComboBox.SelectedIndex = alertsCustomAchievementAnimationOutComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationOut.ToString());
-            alertsCustomMasteryAnimationInComboBox.SelectedIndex = alertsCustomMasteryAnimationInComboBox.Items.IndexOf(AlertsController.Instance.MasteryAnimationIn.ToString());
-            alertsCustomMasteryAnimationOutComboBox.SelectedIndex = alertsCustomMasteryAnimationOutComboBox.Items.IndexOf(AlertsController.Instance.MasteryAnimationOut.ToString());
+            alertsTabPage.alertsCustomAchievementAnimationInComboBox.SelectedIndex = alertsTabPage.alertsCustomAchievementAnimationInComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationIn.ToString());
+            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.SelectedIndex = alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Items.IndexOf(AlertsController.Instance.AchievementAnimationOut.ToString());
+            alertsTabPage.alertsCustomMasteryAnimationInComboBox.SelectedIndex = alertsTabPage.alertsCustomMasteryAnimationInComboBox.Items.IndexOf(AlertsController.Instance.MasteryAnimationIn.ToString());
+            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.SelectedIndex = alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Items.IndexOf(AlertsController.Instance.MasteryAnimationOut.ToString());
 
-            alertsCustomAchievementScaleNumericUpDown.Value = AlertsController.Instance.CustomAchievementScale;
-            alertsCustomMasteryScaleNumericUpDown.Value = AlertsController.Instance.CustomMasteryScale;
+            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Value = AlertsController.Instance.CustomAchievementScale;
+            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Value = AlertsController.Instance.CustomMasteryScale;
 
-            alertsCustomAchievementInNumericUpDown.Value = AlertsController.Instance.CustomAchievementInTime;
-            alertsCustomAchievementOutNumericUpDown.Value = AlertsController.Instance.CustomAchievementOutTime;
+            alertsTabPage.alertsCustomAchievementInNumericUpDown.Value = AlertsController.Instance.CustomAchievementInTime;
+            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Value = AlertsController.Instance.CustomAchievementOutTime;
 
-            alertsCustomMasteryInNumericUpDown.Value = AlertsController.Instance.CustomMasteryInTime;
-            alertsCustomMasteryOutNumericUpDown.Value = AlertsController.Instance.CustomMasteryOutTime;
+            alertsTabPage.alertsCustomMasteryInNumericUpDown.Value = AlertsController.Instance.CustomMasteryInTime;
+            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Value = AlertsController.Instance.CustomMasteryOutTime;
 
-            alertsCustomAchievementInSpeedUpDown.Value = AlertsController.Instance.CustomAchievementInSpeed;
-            alertsCustomAchievementOutSpeedUpDown.Value = AlertsController.Instance.CustomAchievementOutSpeed;
+            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Value = AlertsController.Instance.CustomAchievementInSpeed;
+            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Value = AlertsController.Instance.CustomAchievementOutSpeed;
 
-            alertsCustomMasteryInSpeedUpDown.Value = AlertsController.Instance.CustomMasteryInSpeed;
-            alertsCustomMasteryOutSpeedUpDown.Value = AlertsController.Instance.CustomMasteryOutSpeed;
+            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Value = AlertsController.Instance.CustomMasteryInSpeed;
+            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Value = AlertsController.Instance.CustomMasteryOutSpeed;
 
-            alertsCustomAchievementXNumericUpDown.Value = AlertsController.Instance.CustomAchievementX;
-            alertsCustomAchievementYNumericUpDown.Value = AlertsController.Instance.CustomAchievementY;
+            alertsTabPage.alertsCustomAchievementXNumericUpDown.Value = AlertsController.Instance.CustomAchievementX;
+            alertsTabPage.alertsCustomAchievementYNumericUpDown.Value = AlertsController.Instance.CustomAchievementY;
 
-            alertsCustomMasteryXNumericUpDown.Value = AlertsController.Instance.CustomMasteryX;
-            alertsCustomMasteryYNumericUpDown.Value = AlertsController.Instance.CustomMasteryY;
+            alertsTabPage.alertsCustomMasteryXNumericUpDown.Value = AlertsController.Instance.CustomMasteryX;
+            alertsTabPage.alertsCustomMasteryYNumericUpDown.Value = AlertsController.Instance.CustomMasteryY;
 
             // Auto-Scrolling
-            recentAchievementsAutoScrollCheckBox.Checked = RecentUnlocksController.Instance.AutoScroll;
-            achievementListAutoScrollCheckBox.Checked = AchievementListController.Instance.AutoScroll;
+            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Checked = RecentUnlocksController.Instance.AutoScroll;
+            achievementsListTabPage.achievementListAutoScrollCheckBox.Checked = AchievementListController.Instance.AutoScroll;
 
             UpdateAdvancedSettings();
             UpdateAlertsEnabledControls();
