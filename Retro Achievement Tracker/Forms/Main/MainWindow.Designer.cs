@@ -50,6 +50,7 @@ namespace Retro_Achievement_Tracker
             // Main tabs
             mainTabControl = new TabControl();
             focusTabPage = new FocusTab();
+            focusTabPage.InitElements();
             alertsTabPage = new AlertsTab();
             alertTabControl = new TabControl();
             achievementTabPage = new TabPage();
@@ -62,12 +63,6 @@ namespace Retro_Achievement_Tracker
             relatedMediaTabPage = new RelatedMediaTab();
 
             // Elements
-            focusTabPage.focusAchievementPictureBox = new PictureBox();
-            focusTabPage.focusAchievementTitleLabel = new Label();
-            focusTabPage.focusAchievementDescriptionLabel = new Label();
-            focusTabPage.focusSetButton = new Button();
-            focusTabPage.focusAchievementButtonPrevious = new Button();
-            focusTabPage.focusAchievementButtonNext = new Button();
             gameInfoTabPage.gameInfoPictureBox = new PictureBox();
             autoPollingStatusPictureBox = new PictureBox();
             alertsTabPage.alertsPlayAchievementButton = new Button();
@@ -109,10 +104,10 @@ namespace Retro_Achievement_Tracker
             userInfoTabPage.userInfoRankCheckBox = new CheckBox();
             openFileDialog = new OpenFileDialog();
             colorDialog = new ColorDialog();
-            focusTabPage.focusBehaviorGoToLastRadioButton = new RadioButton();
-            focusTabPage.focusBehaviorGoToNextRadioButton = new RadioButton();
-            focusTabPage.focusBehaviorGoToPreviousRadioButton = new RadioButton();
-            focusTabPage.focusBehaviorGoToFirstRadioButton = new RadioButton();
+
+
+
+
             recentAchievementsTabPage.recentAchievementsMaxListLabel = new Label();
             recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown = new NumericUpDown();
             panel64 = new Panel();
@@ -123,58 +118,58 @@ namespace Retro_Achievement_Tracker
             label111 = new Label();
             pictureBox10 = new PictureBox();
             panel51 = new Panel();
-            focusTabPage.focusLinePanel = new Panel();
+
             label106 = new Label();
-            focusTabPage.focusLineColorPictureBox = new PictureBox();
+
             label96 = new Label();
             panel59 = new Panel();
-            focusTabPage.focusBorderCheckBox = new CheckBox();
-            focusTabPage.focusBorderColorPictureBox = new PictureBox();
+
+
             label107 = new Label();
-            focusTabPage.focusPointsPanel = new Panel();
+
             label108 = new Label();
-            focusTabPage.focusPointsFontColorPictureBox = new PictureBox();
-            focusTabPage.focusPointsFontComboBox = new ComboBox();
+
+
             panel52 = new Panel();
-            focusTabPage.focusAdvancedCheckBox = new CheckBox();
+
             label97 = new Label();
             label98 = new Label();
             label99 = new Label();
             label100 = new Label();
             panel61 = new Panel();
-            focusTabPage.focusTitleFontOutlineNumericUpDown = new NumericUpDown();
-            focusTabPage.focusTitleOutlineCheckBox = new CheckBox();
-            focusTabPage.focusTitleOutlineLabel = new Label();
-            focusTabPage.focusTitleFontOutlineColorPictureBox = new PictureBox();
-            focusTabPage.focusOpenWindowButton = new Button();
-            focusTabPage.focusDescriptionOutlinePanel = new Panel();
+
+
+
+
+
+
             label110 = new Label();
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox = new PictureBox();
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown = new NumericUpDown();
-            focusTabPage.focusDescriptionOutlineCheckBox = new CheckBox();
-            focusTabPage.focusDescriptionPanel = new Panel();
+
+
+
+
             label101 = new Label();
-            focusTabPage.focusDescriptionFontColorPictureBox = new PictureBox();
-            focusTabPage.focusDescriptionFontComboBox = new ComboBox();
-            focusTabPage.focusAutoOpenWindowCheckBox = new CheckBox();
+
+
+
             pictureBox11 = new PictureBox();
             panel54 = new Panel();
-            focusTabPage.focusBackgroundColorPictureBox = new PictureBox();
+
             label102 = new Label();
             panel55 = new Panel();
-            focusTabPage.focusTitleLabel = new Label();
-            focusTabPage.focusTitleFontColorPictureBox = new PictureBox();
-            focusTabPage.focusTitleFontComboBox = new ComboBox();
-            focusTabPage.focusPointsOutlinePanel = new Panel();
-            focusTabPage.focusPointsFontOutlineNumericUpDown = new NumericUpDown();
-            focusTabPage.focusPointsOutlineCheckBox = new CheckBox();
+
+
+
+
+
+
             label104 = new Label();
-            focusTabPage.focusPointsFontOutlineColorPictureBox = new PictureBox();
-            focusTabPage.focusLineOutlinePanel = new Panel();
+
+
             label105 = new Label();
-            focusTabPage.focusLineOutlineColorPictureBox = new PictureBox();
-            focusTabPage.focusLineOutlineNumericUpDown = new NumericUpDown();
-            focusTabPage.focusLineOutlineCheckBox = new CheckBox();
+
+
+
             panel65 = new Panel();
             alertsTabPage.alertsLinePanel = new Panel();
             label113 = new Label();
@@ -637,30 +632,30 @@ namespace Retro_Achievement_Tracker
             panel63.SuspendLayout();
             ((ISupportInitialize)(pictureBox10)).BeginInit();
             panel51.SuspendLayout();
-            focusTabPage.focusLinePanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusLineColorPictureBox)).BeginInit();
             panel59.SuspendLayout();
             ((ISupportInitialize)(focusTabPage.focusBorderColorPictureBox)).BeginInit();
-            focusTabPage.focusPointsPanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusPointsFontColorPictureBox)).BeginInit();
             panel52.SuspendLayout();
             panel61.SuspendLayout();
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineColorPictureBox)).BeginInit();
-            focusTabPage.focusDescriptionOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineNumericUpDown)).BeginInit();
-            focusTabPage.focusDescriptionPanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox11)).BeginInit();
             panel54.SuspendLayout();
             ((ISupportInitialize)(focusTabPage.focusBackgroundColorPictureBox)).BeginInit();
             panel55.SuspendLayout();
             ((ISupportInitialize)(focusTabPage.focusTitleFontColorPictureBox)).BeginInit();
-            focusTabPage.focusPointsOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineColorPictureBox)).BeginInit();
-            focusTabPage.focusLineOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(focusTabPage.focusLineOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(focusTabPage.focusLineOutlineNumericUpDown)).BeginInit();
             panel65.SuspendLayout();
@@ -1029,91 +1024,91 @@ namespace Retro_Achievement_Tracker
             // 
             // focusAchievementPictureBox
             // 
-            focusTabPage.focusAchievementPictureBox.BackColor = Color.Transparent;
-            focusTabPage.focusAchievementPictureBox.Cursor = Cursors.Hand;
-            focusTabPage.focusAchievementPictureBox.InitialImage = null;
-            focusTabPage.focusAchievementPictureBox.Location = new Point(4, 62);
-            focusTabPage.focusAchievementPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusAchievementPictureBox.Name = "focusAchievementPictureBox";
-            focusTabPage.focusAchievementPictureBox.Size = new Size(168, 172);
-            focusTabPage.focusAchievementPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            focusTabPage.focusAchievementPictureBox.TabIndex = 10030;
-            focusTabPage.focusAchievementPictureBox.TabStop = false;
-            focusTabPage.focusAchievementPictureBox.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusAchievementTitleLabel
             // 
-            focusTabPage.focusAchievementTitleLabel.BackColor = Color.Transparent;
-            focusTabPage.focusAchievementTitleLabel.BorderStyle = BorderStyle.FixedSingle;
-            focusTabPage.focusAchievementTitleLabel.Cursor = Cursors.Hand;
-            focusTabPage.focusAchievementTitleLabel.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAchievementTitleLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusAchievementTitleLabel.Location = new Point(182, 129);
-            focusTabPage.focusAchievementTitleLabel.Margin = new Padding(4, 0, 4, 0);
-            focusTabPage.focusAchievementTitleLabel.Name = "focusAchievementTitleLabel";
-            focusTabPage.focusAchievementTitleLabel.Size = new Size(246, 104);
-            focusTabPage.focusAchievementTitleLabel.TabIndex = 10027;
-            focusTabPage.focusAchievementTitleLabel.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusAchievementDescriptionLabel
             // 
-            focusTabPage.focusAchievementDescriptionLabel.BackColor = Color.Transparent;
-            focusTabPage.focusAchievementDescriptionLabel.BorderStyle = BorderStyle.FixedSingle;
-            focusTabPage.focusAchievementDescriptionLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAchievementDescriptionLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusAchievementDescriptionLabel.Location = new Point(3, 238);
-            focusTabPage.focusAchievementDescriptionLabel.Margin = new Padding(4, 0, 4, 0);
-            focusTabPage.focusAchievementDescriptionLabel.Name = "focusAchievementDescriptionLabel";
-            focusTabPage.focusAchievementDescriptionLabel.Size = new Size(425, 156);
-            focusTabPage.focusAchievementDescriptionLabel.TabIndex = 10026;
+
+
+
+
+
+
+
+
+
             // 
             // focusSetButton
             // 
-            focusTabPage.focusSetButton.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusSetButton.FlatAppearance.BorderColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusSetButton.FlatStyle = FlatStyle.Flat;
-            focusTabPage.focusSetButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusSetButton.ForeColor = Color.FromArgb(204, 153, 0);
-            focusTabPage.focusSetButton.Location = new Point(316, 405);
-            focusTabPage.focusSetButton.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusSetButton.Name = "focusSetButton";
-            focusTabPage.focusSetButton.Size = new Size(112, 42);
-            focusTabPage.focusSetButton.TabIndex = 10031;
-            focusTabPage.focusSetButton.Text = "Set";
-            focusTabPage.focusSetButton.UseVisualStyleBackColor = false;
-            focusTabPage.focusSetButton.Click += new System.EventHandler(SetFocusButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusAchievementButtonPrevious
             // 
-            focusTabPage.focusAchievementButtonPrevious.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusAchievementButtonPrevious.FlatAppearance.BorderColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusAchievementButtonPrevious.FlatStyle = FlatStyle.Flat;
-            focusTabPage.focusAchievementButtonPrevious.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAchievementButtonPrevious.ForeColor = Color.FromArgb(204, 153, 0);
-            focusTabPage.focusAchievementButtonPrevious.Location = new Point(6, 405);
-            focusTabPage.focusAchievementButtonPrevious.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusAchievementButtonPrevious.Name = "focusAchievementButtonPrevious";
-            focusTabPage.focusAchievementButtonPrevious.Size = new Size(112, 42);
-            focusTabPage.focusAchievementButtonPrevious.TabIndex = 10028;
-            focusTabPage.focusAchievementButtonPrevious.Text = "<";
-            focusTabPage.focusAchievementButtonPrevious.UseVisualStyleBackColor = false;
-            focusTabPage.focusAchievementButtonPrevious.Click += new System.EventHandler(MoveFocusIndexPrev_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusAchievementButtonNext
             // 
-            focusTabPage.focusAchievementButtonNext.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusAchievementButtonNext.FlatAppearance.BorderColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusAchievementButtonNext.FlatStyle = FlatStyle.Flat;
-            focusTabPage.focusAchievementButtonNext.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAchievementButtonNext.ForeColor = Color.FromArgb(204, 153, 0);
-            focusTabPage.focusAchievementButtonNext.Location = new Point(128, 405);
-            focusTabPage.focusAchievementButtonNext.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusAchievementButtonNext.Name = "focusAchievementButtonNext";
-            focusTabPage.focusAchievementButtonNext.Size = new Size(112, 42);
-            focusTabPage.focusAchievementButtonNext.TabIndex = 10029;
-            focusTabPage.focusAchievementButtonNext.Text = ">";
-            focusTabPage.focusAchievementButtonNext.UseVisualStyleBackColor = false;
-            focusTabPage.focusAchievementButtonNext.Click += new System.EventHandler(MoveFocusIndexNext_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoPictureBox
             // 
@@ -1675,61 +1670,61 @@ namespace Retro_Achievement_Tracker
             // 
             // focusBehaviorGoToLastRadioButton
             // 
-            focusTabPage.focusBehaviorGoToLastRadioButton.AutoSize = true;
-            focusTabPage.focusBehaviorGoToLastRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusBehaviorGoToLastRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusBehaviorGoToLastRadioButton.Location = new Point(334, 62);
-            focusTabPage.focusBehaviorGoToLastRadioButton.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBehaviorGoToLastRadioButton.Name = "focusBehaviorGoToLastRadioButton";
-            focusTabPage.focusBehaviorGoToLastRadioButton.Size = new Size(78, 29);
-            focusTabPage.focusBehaviorGoToLastRadioButton.TabIndex = 3;
-            focusTabPage.focusBehaviorGoToLastRadioButton.Text = "Last";
-            focusTabPage.focusBehaviorGoToLastRadioButton.UseVisualStyleBackColor = true;
-            focusTabPage.focusBehaviorGoToLastRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusBehaviorGoToNextRadioButton
             // 
-            focusTabPage.focusBehaviorGoToNextRadioButton.AutoSize = true;
-            focusTabPage.focusBehaviorGoToNextRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusBehaviorGoToNextRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusBehaviorGoToNextRadioButton.Location = new Point(102, 62);
-            focusTabPage.focusBehaviorGoToNextRadioButton.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBehaviorGoToNextRadioButton.Name = "focusBehaviorGoToNextRadioButton";
-            focusTabPage.focusBehaviorGoToNextRadioButton.Size = new Size(84, 29);
-            focusTabPage.focusBehaviorGoToNextRadioButton.TabIndex = 2;
-            focusTabPage.focusBehaviorGoToNextRadioButton.Text = "Next";
-            focusTabPage.focusBehaviorGoToNextRadioButton.UseVisualStyleBackColor = true;
-            focusTabPage.focusBehaviorGoToNextRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusBehaviorGoToPreviousRadioButton
             // 
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.AutoSize = true;
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Location = new Point(206, 62);
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Name = "focusBehaviorGoToPreviousRadioButton";
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Size = new Size(123, 29);
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.TabIndex = 1;
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.Text = "Previous";
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.UseVisualStyleBackColor = true;
-            focusTabPage.focusBehaviorGoToPreviousRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusBehaviorGoToFirstRadioButton
             // 
-            focusTabPage.focusBehaviorGoToFirstRadioButton.AutoSize = true;
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Checked = true;
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusBehaviorGoToFirstRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Location = new Point(12, 62);
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Name = "focusBehaviorGoToFirstRadioButton";
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Size = new Size(82, 29);
-            focusTabPage.focusBehaviorGoToFirstRadioButton.TabIndex = 0;
-            focusTabPage.focusBehaviorGoToFirstRadioButton.TabStop = true;
-            focusTabPage.focusBehaviorGoToFirstRadioButton.Text = "First";
-            focusTabPage.focusBehaviorGoToFirstRadioButton.UseVisualStyleBackColor = true;
-            focusTabPage.focusBehaviorGoToFirstRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsMaxListLabel
             // 
@@ -1878,14 +1873,14 @@ namespace Retro_Achievement_Tracker
             // 
             // focusLinePanel
             // 
-            focusTabPage.focusLinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            focusTabPage.focusLinePanel.Controls.Add(label106);
-            focusTabPage.focusLinePanel.Controls.Add(focusTabPage.focusLineColorPictureBox);
-            focusTabPage.focusLinePanel.Location = new Point(3, 265);
-            focusTabPage.focusLinePanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLinePanel.Name = "focusLinePanel";
-            focusTabPage.focusLinePanel.Size = new Size(694, 35);
-            focusTabPage.focusLinePanel.TabIndex = 10068;
+
+
+
+
+
+
+
+
             // 
             // label106
             // 
@@ -1901,15 +1896,15 @@ namespace Retro_Achievement_Tracker
             // 
             // focusLineColorPictureBox
             // 
-            focusTabPage.focusLineColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusLineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusLineColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusLineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLineColorPictureBox.Name = "focusLineColorPictureBox";
-            focusTabPage.focusLineColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusLineColorPictureBox.TabIndex = 45;
-            focusTabPage.focusLineColorPictureBox.TabStop = false;
-            focusTabPage.focusLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label96
             // 
@@ -1937,28 +1932,28 @@ namespace Retro_Achievement_Tracker
             // 
             // focusBorderCheckBox
             // 
-            focusTabPage.focusBorderCheckBox.AutoSize = true;
-            focusTabPage.focusBorderCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusBorderCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusBorderCheckBox.Location = new Point(620, 8);
-            focusTabPage.focusBorderCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBorderCheckBox.Name = "focusBorderCheckBox";
-            focusTabPage.focusBorderCheckBox.Size = new Size(22, 21);
-            focusTabPage.focusBorderCheckBox.TabIndex = 10065;
-            focusTabPage.focusBorderCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // focusBorderColorPictureBox
             // 
-            focusTabPage.focusBorderColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusBorderColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusBorderColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusBorderColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBorderColorPictureBox.Name = "focusBorderColorPictureBox";
-            focusTabPage.focusBorderColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusBorderColorPictureBox.TabIndex = 42;
-            focusTabPage.focusBorderColorPictureBox.TabStop = false;
-            focusTabPage.focusBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label107
             // 
@@ -1974,15 +1969,15 @@ namespace Retro_Achievement_Tracker
             // 
             // focusPointsPanel
             // 
-            focusTabPage.focusPointsPanel.BackColor = Color.FromArgb(26, 26, 26);
-            focusTabPage.focusPointsPanel.Controls.Add(label108);
-            focusTabPage.focusPointsPanel.Controls.Add(focusTabPage.focusPointsFontColorPictureBox);
-            focusTabPage.focusPointsPanel.Controls.Add(focusTabPage.focusPointsFontComboBox);
-            focusTabPage.focusPointsPanel.Location = new Point(3, 231);
-            focusTabPage.focusPointsPanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsPanel.Name = "focusPointsPanel";
-            focusTabPage.focusPointsPanel.Size = new Size(694, 35);
-            focusTabPage.focusPointsPanel.TabIndex = 10070;
+
+
+
+
+
+
+
+
+
             // 
             // label108
             // 
@@ -1998,28 +1993,28 @@ namespace Retro_Achievement_Tracker
             // 
             // focusPointsFontColorPictureBox
             // 
-            focusTabPage.focusPointsFontColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusPointsFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusPointsFontColorPictureBox.Location = new Point(230, 6);
-            focusTabPage.focusPointsFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsFontColorPictureBox.Name = "focusPointsFontColorPictureBox";
-            focusTabPage.focusPointsFontColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusPointsFontColorPictureBox.TabIndex = 45;
-            focusTabPage.focusPointsFontColorPictureBox.TabStop = false;
-            focusTabPage.focusPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusPointsFontComboBox
             // 
-            focusTabPage.focusPointsFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusPointsFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusPointsFontComboBox.ForeColor = Color.White;
-            focusTabPage.focusPointsFontComboBox.FormattingEnabled = true;
-            focusTabPage.focusPointsFontComboBox.Location = new Point(290, 3);
-            focusTabPage.focusPointsFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsFontComboBox.Name = "focusPointsFontComboBox";
-            focusTabPage.focusPointsFontComboBox.Size = new Size(301, 28);
-            focusTabPage.focusPointsFontComboBox.TabIndex = 45;
-            focusTabPage.focusPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel52
             // 
@@ -2037,19 +2032,19 @@ namespace Retro_Achievement_Tracker
             // 
             // focusAdvancedCheckBox
             // 
-            focusTabPage.focusAdvancedCheckBox.AutoSize = true;
-            focusTabPage.focusAdvancedCheckBox.BackColor = Color.Transparent;
-            focusTabPage.focusAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            focusTabPage.focusAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusAdvancedCheckBox.Location = new Point(8, 3);
-            focusTabPage.focusAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusAdvancedCheckBox.Name = "focusAdvancedCheckBox";
-            focusTabPage.focusAdvancedCheckBox.Size = new Size(135, 29);
-            focusTabPage.focusAdvancedCheckBox.TabIndex = 10053;
-            focusTabPage.focusAdvancedCheckBox.Text = "Advanced";
-            focusTabPage.focusAdvancedCheckBox.UseVisualStyleBackColor = false;
-            focusTabPage.focusAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // label97
             // 
@@ -2114,85 +2109,85 @@ namespace Retro_Achievement_Tracker
             // 
             // focusTitleFontOutlineNumericUpDown
             // 
-            focusTabPage.focusTitleFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            focusTabPage.focusTitleFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusTitleFontOutlineNumericUpDown.ForeColor = Color.White;
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Location = new Point(528, 6);
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Name = "focusTitleFontOutlineNumericUpDown";
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Size = new Size(64, 24);
-            focusTabPage.focusTitleFontOutlineNumericUpDown.TabIndex = 45;
-            focusTabPage.focusTitleFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusTitleOutlineCheckBox
             // 
-            focusTabPage.focusTitleOutlineCheckBox.AutoSize = true;
-            focusTabPage.focusTitleOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusTitleOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusTitleOutlineCheckBox.Location = new Point(620, 8);
-            focusTabPage.focusTitleOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusTitleOutlineCheckBox.Name = "focusTitleOutlineCheckBox";
-            focusTabPage.focusTitleOutlineCheckBox.Size = new Size(22, 21);
-            focusTabPage.focusTitleOutlineCheckBox.TabIndex = 45;
-            focusTabPage.focusTitleOutlineCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusTitleOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // focusTitleOutlineLabel
             // 
-            focusTabPage.focusTitleOutlineLabel.BackColor = Color.Transparent;
-            focusTabPage.focusTitleOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusTitleOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusTitleOutlineLabel.Location = new Point(4, 5);
-            focusTabPage.focusTitleOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            focusTabPage.focusTitleOutlineLabel.Name = "focusTitleOutlineLabel";
-            focusTabPage.focusTitleOutlineLabel.Size = new Size(216, 25);
-            focusTabPage.focusTitleOutlineLabel.TabIndex = 10066;
-            focusTabPage.focusTitleOutlineLabel.Text = "Title OutlineColor";
+
+
+
+
+
+
+
+
+
             // 
             // focusTitleFontOutlineColorPictureBox
             // 
-            focusTabPage.focusTitleFontOutlineColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusTitleFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusTitleFontOutlineColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusTitleFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusTitleFontOutlineColorPictureBox.Name = "focusTitleFontOutlineColorPictureBox";
-            focusTabPage.focusTitleFontOutlineColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusTitleFontOutlineColorPictureBox.TabIndex = 45;
-            focusTabPage.focusTitleFontOutlineColorPictureBox.TabStop = false;
-            focusTabPage.focusTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusOpenWindowButton
             // 
-            focusTabPage.focusOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            focusTabPage.focusOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            focusTabPage.focusOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            focusTabPage.focusOpenWindowButton.Location = new Point(573, 3);
-            focusTabPage.focusOpenWindowButton.Margin = new Padding(0);
-            focusTabPage.focusOpenWindowButton.Name = "focusOpenWindowButton";
-            focusTabPage.focusOpenWindowButton.Size = new Size(112, 42);
-            focusTabPage.focusOpenWindowButton.TabIndex = 10021;
-            focusTabPage.focusOpenWindowButton.Text = "Open";
-            focusTabPage.focusOpenWindowButton.UseVisualStyleBackColor = false;
-            focusTabPage.focusOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusDescriptionOutlinePanel
             // 
-            focusTabPage.focusDescriptionOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(label110);
-            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionFontOutlineColorPictureBox);
-            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionFontOutlineNumericUpDown);
-            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionOutlineCheckBox);
-            focusTabPage.focusDescriptionOutlinePanel.Location = new Point(3, 332);
-            focusTabPage.focusDescriptionOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionOutlinePanel.Name = "focusDescriptionOutlinePanel";
-            focusTabPage.focusDescriptionOutlinePanel.Size = new Size(694, 35);
-            focusTabPage.focusDescriptionOutlinePanel.TabIndex = 10072;
+
+
+
+
+
+
+
+
+
+
             // 
             // label110
             // 
@@ -2208,56 +2203,56 @@ namespace Retro_Achievement_Tracker
             // 
             // focusDescriptionFontOutlineColorPictureBox
             // 
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Location = new Point(230, 6);
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Name = "focusDescriptionFontOutlineColorPictureBox";
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.TabIndex = 45;
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.TabStop = false;
-            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusDescriptionFontOutlineNumericUpDown
             // 
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.ForeColor = Color.White;
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Location = new Point(528, 6);
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Name = "focusDescriptionFontOutlineNumericUpDown";
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Size = new Size(64, 24);
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.TabIndex = 45;
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusDescriptionOutlineCheckBox
             // 
-            focusTabPage.focusDescriptionOutlineCheckBox.AutoSize = true;
-            focusTabPage.focusDescriptionOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusDescriptionOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusDescriptionOutlineCheckBox.Location = new Point(620, 9);
-            focusTabPage.focusDescriptionOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionOutlineCheckBox.Name = "focusDescriptionOutlineCheckBox";
-            focusTabPage.focusDescriptionOutlineCheckBox.Size = new Size(22, 21);
-            focusTabPage.focusDescriptionOutlineCheckBox.TabIndex = 45;
-            focusTabPage.focusDescriptionOutlineCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusDescriptionOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // focusDescriptionPanel
             // 
-            focusTabPage.focusDescriptionPanel.BackColor = Color.FromArgb(32, 32, 32);
-            focusTabPage.focusDescriptionPanel.Controls.Add(label101);
-            focusTabPage.focusDescriptionPanel.Controls.Add(focusTabPage.focusDescriptionFontColorPictureBox);
-            focusTabPage.focusDescriptionPanel.Controls.Add(focusTabPage.focusDescriptionFontComboBox);
-            focusTabPage.focusDescriptionPanel.Location = new Point(3, 197);
-            focusTabPage.focusDescriptionPanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionPanel.Name = "focusDescriptionPanel";
-            focusTabPage.focusDescriptionPanel.Size = new Size(694, 35);
-            focusTabPage.focusDescriptionPanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
             // 
             // label101
             // 
@@ -2273,43 +2268,43 @@ namespace Retro_Achievement_Tracker
             // 
             // focusDescriptionFontColorPictureBox
             // 
-            focusTabPage.focusDescriptionFontColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusDescriptionFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusDescriptionFontColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusDescriptionFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionFontColorPictureBox.Name = "focusDescriptionFontColorPictureBox";
-            focusTabPage.focusDescriptionFontColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusDescriptionFontColorPictureBox.TabIndex = 45;
-            focusTabPage.focusDescriptionFontColorPictureBox.TabStop = false;
-            focusTabPage.focusDescriptionFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusDescriptionFontComboBox
             // 
-            focusTabPage.focusDescriptionFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusDescriptionFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusDescriptionFontComboBox.ForeColor = Color.White;
-            focusTabPage.focusDescriptionFontComboBox.FormattingEnabled = true;
-            focusTabPage.focusDescriptionFontComboBox.Location = new Point(290, 3);
-            focusTabPage.focusDescriptionFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusDescriptionFontComboBox.Name = "focusDescriptionFontComboBox";
-            focusTabPage.focusDescriptionFontComboBox.Size = new Size(301, 28);
-            focusTabPage.focusDescriptionFontComboBox.TabIndex = 45;
-            focusTabPage.focusDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // focusAutoOpenWindowCheckBox
             // 
-            focusTabPage.focusAutoOpenWindowCheckBox.AutoSize = true;
-            focusTabPage.focusAutoOpenWindowCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            focusTabPage.focusAutoOpenWindowCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusAutoOpenWindowCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusAutoOpenWindowCheckBox.Location = new Point(378, 14);
-            focusTabPage.focusAutoOpenWindowCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusAutoOpenWindowCheckBox.Name = "focusAutoOpenWindowCheckBox";
-            focusTabPage.focusAutoOpenWindowCheckBox.Size = new Size(147, 29);
-            focusTabPage.focusAutoOpenWindowCheckBox.TabIndex = 10022;
-            focusTabPage.focusAutoOpenWindowCheckBox.Text = "Auto-Open";
-            focusTabPage.focusAutoOpenWindowCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusAutoOpenWindowCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox11
             // 
@@ -2334,15 +2329,15 @@ namespace Retro_Achievement_Tracker
             // 
             // focusBackgroundColorPictureBox
             // 
-            focusTabPage.focusBackgroundColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusBackgroundColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusBackgroundColorPictureBox.Name = "focusBackgroundColorPictureBox";
-            focusTabPage.focusBackgroundColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusBackgroundColorPictureBox.TabIndex = 42;
-            focusTabPage.focusBackgroundColorPictureBox.TabStop = false;
-            focusTabPage.focusBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label102
             // 
@@ -2370,82 +2365,82 @@ namespace Retro_Achievement_Tracker
             // 
             // focusTitleLabel
             // 
-            focusTabPage.focusTitleLabel.BackColor = Color.Transparent;
-            focusTabPage.focusTitleLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusTitleLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusTitleLabel.Location = new Point(4, 6);
-            focusTabPage.focusTitleLabel.Margin = new Padding(4, 0, 4, 0);
-            focusTabPage.focusTitleLabel.Name = "focusTitleLabel";
-            focusTabPage.focusTitleLabel.Size = new Size(216, 25);
-            focusTabPage.focusTitleLabel.TabIndex = 10065;
-            focusTabPage.focusTitleLabel.Text = "Title";
+
+
+
+
+
+
+
+
+
             // 
             // focusTitleFontColorPictureBox
             // 
-            focusTabPage.focusTitleFontColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusTitleFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusTitleFontColorPictureBox.Location = new Point(230, 6);
-            focusTabPage.focusTitleFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusTitleFontColorPictureBox.Name = "focusTitleFontColorPictureBox";
-            focusTabPage.focusTitleFontColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusTitleFontColorPictureBox.TabIndex = 45;
-            focusTabPage.focusTitleFontColorPictureBox.TabStop = false;
-            focusTabPage.focusTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusTitleFontComboBox
             // 
-            focusTabPage.focusTitleFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            focusTabPage.focusTitleFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusTitleFontComboBox.ForeColor = Color.White;
-            focusTabPage.focusTitleFontComboBox.FormattingEnabled = true;
-            focusTabPage.focusTitleFontComboBox.Location = new Point(290, 3);
-            focusTabPage.focusTitleFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusTitleFontComboBox.Name = "focusTitleFontComboBox";
-            focusTabPage.focusTitleFontComboBox.Size = new Size(301, 28);
-            focusTabPage.focusTitleFontComboBox.TabIndex = 45;
-            focusTabPage.focusTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // focusPointsOutlinePanel
             // 
-            focusTabPage.focusPointsOutlinePanel.BackColor = Color.FromArgb(26, 26, 26);
-            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsFontOutlineNumericUpDown);
-            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsOutlineCheckBox);
-            focusTabPage.focusPointsOutlinePanel.Controls.Add(label104);
-            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsFontOutlineColorPictureBox);
-            focusTabPage.focusPointsOutlinePanel.Location = new Point(3, 366);
-            focusTabPage.focusPointsOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsOutlinePanel.Name = "focusPointsOutlinePanel";
-            focusTabPage.focusPointsOutlinePanel.Size = new Size(694, 35);
-            focusTabPage.focusPointsOutlinePanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
+
             // 
             // focusPointsFontOutlineNumericUpDown
             // 
-            focusTabPage.focusPointsFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            focusTabPage.focusPointsFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusPointsFontOutlineNumericUpDown.ForeColor = Color.White;
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Location = new Point(528, 6);
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Name = "focusPointsFontOutlineNumericUpDown";
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Size = new Size(64, 24);
-            focusTabPage.focusPointsFontOutlineNumericUpDown.TabIndex = 45;
-            focusTabPage.focusPointsFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusPointsOutlineCheckBox
             // 
-            focusTabPage.focusPointsOutlineCheckBox.AutoSize = true;
-            focusTabPage.focusPointsOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusPointsOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusPointsOutlineCheckBox.Location = new Point(620, 8);
-            focusTabPage.focusPointsOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsOutlineCheckBox.Name = "focusPointsOutlineCheckBox";
-            focusTabPage.focusPointsOutlineCheckBox.Size = new Size(22, 21);
-            focusTabPage.focusPointsOutlineCheckBox.TabIndex = 45;
-            focusTabPage.focusPointsOutlineCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusPointsOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // label104
             // 
@@ -2461,28 +2456,28 @@ namespace Retro_Achievement_Tracker
             // 
             // focusPointsFontOutlineColorPictureBox
             // 
-            focusTabPage.focusPointsFontOutlineColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusPointsFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusPointsFontOutlineColorPictureBox.Location = new Point(230, 5);
-            focusTabPage.focusPointsFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusPointsFontOutlineColorPictureBox.Name = "focusPointsFontOutlineColorPictureBox";
-            focusTabPage.focusPointsFontOutlineColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusPointsFontOutlineColorPictureBox.TabIndex = 45;
-            focusTabPage.focusPointsFontOutlineColorPictureBox.TabStop = false;
-            focusTabPage.focusPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusLineOutlinePanel
             // 
-            focusTabPage.focusLineOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            focusTabPage.focusLineOutlinePanel.Controls.Add(label105);
-            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineColorPictureBox);
-            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineNumericUpDown);
-            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineCheckBox);
-            focusTabPage.focusLineOutlinePanel.Location = new Point(3, 400);
-            focusTabPage.focusLineOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLineOutlinePanel.Name = "focusLineOutlinePanel";
-            focusTabPage.focusLineOutlinePanel.Size = new Size(694, 35);
-            focusTabPage.focusLineOutlinePanel.TabIndex = 10067;
+
+
+
+
+
+
+
+
+
+
             // 
             // label105
             // 
@@ -2498,44 +2493,44 @@ namespace Retro_Achievement_Tracker
             // 
             // focusLineOutlineColorPictureBox
             // 
-            focusTabPage.focusLineOutlineColorPictureBox.BackColor = Color.White;
-            focusTabPage.focusLineOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            focusTabPage.focusLineOutlineColorPictureBox.Location = new Point(230, 6);
-            focusTabPage.focusLineOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLineOutlineColorPictureBox.Name = "focusLineOutlineColorPictureBox";
-            focusTabPage.focusLineOutlineColorPictureBox.Size = new Size(22, 22);
-            focusTabPage.focusLineOutlineColorPictureBox.TabIndex = 45;
-            focusTabPage.focusLineOutlineColorPictureBox.TabStop = false;
-            focusTabPage.focusLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // focusLineOutlineNumericUpDown
             // 
-            focusTabPage.focusLineOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            focusTabPage.focusLineOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            focusTabPage.focusLineOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusLineOutlineNumericUpDown.ForeColor = Color.White;
-            focusTabPage.focusLineOutlineNumericUpDown.Location = new Point(528, 6);
-            focusTabPage.focusLineOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLineOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            focusTabPage.focusLineOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusLineOutlineNumericUpDown.Name = "focusLineOutlineNumericUpDown";
-            focusTabPage.focusLineOutlineNumericUpDown.Size = new Size(64, 24);
-            focusTabPage.focusLineOutlineNumericUpDown.TabIndex = 45;
-            focusTabPage.focusLineOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            focusTabPage.focusLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // focusLineOutlineCheckBox
             // 
-            focusTabPage.focusLineOutlineCheckBox.AutoSize = true;
-            focusTabPage.focusLineOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            focusTabPage.focusLineOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            focusTabPage.focusLineOutlineCheckBox.Location = new Point(620, 9);
-            focusTabPage.focusLineOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            focusTabPage.focusLineOutlineCheckBox.Name = "focusLineOutlineCheckBox";
-            focusTabPage.focusLineOutlineCheckBox.Size = new Size(22, 21);
-            focusTabPage.focusLineOutlineCheckBox.TabIndex = 45;
-            focusTabPage.focusLineOutlineCheckBox.UseVisualStyleBackColor = true;
-            focusTabPage.focusLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel65
             // 
@@ -8291,6 +8286,62 @@ namespace Retro_Achievement_Tracker
             Name = "MainWindow";
             Text = "Retro Achievements Tracker";
 
+            focusTabPage.focusLinePanel.Controls.Add(label106);
+            focusTabPage.focusLinePanel.Controls.Add(focusTabPage.focusLineColorPictureBox);
+            focusTabPage.focusPointsPanel.Controls.Add(label108);
+            focusTabPage.focusPointsPanel.Controls.Add(focusTabPage.focusPointsFontColorPictureBox);
+            focusTabPage.focusPointsPanel.Controls.Add(focusTabPage.focusPointsFontComboBox);
+            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(label110);
+            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionFontOutlineColorPictureBox);
+            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionFontOutlineNumericUpDown);
+            focusTabPage.focusDescriptionOutlinePanel.Controls.Add(focusTabPage.focusDescriptionOutlineCheckBox);
+            focusTabPage.focusDescriptionPanel.Controls.Add(label101);
+            focusTabPage.focusDescriptionPanel.Controls.Add(focusTabPage.focusDescriptionFontColorPictureBox);
+            focusTabPage.focusDescriptionPanel.Controls.Add(focusTabPage.focusDescriptionFontComboBox);
+            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsFontOutlineNumericUpDown);
+            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsOutlineCheckBox);
+            focusTabPage.focusPointsOutlinePanel.Controls.Add(label104);
+            focusTabPage.focusPointsOutlinePanel.Controls.Add(focusTabPage.focusPointsFontOutlineColorPictureBox);
+            focusTabPage.focusLineOutlinePanel.Controls.Add(label105);
+            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineColorPictureBox);
+            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineNumericUpDown);
+            focusTabPage.focusLineOutlinePanel.Controls.Add(focusTabPage.focusLineOutlineCheckBox);
+
+            focusTabPage.focusAchievementPictureBox.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+            focusTabPage.focusAchievementTitleLabel.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+            focusTabPage.focusSetButton.Click += new System.EventHandler(SetFocusButton_Click);
+            focusTabPage.focusAchievementButtonPrevious.Click += new System.EventHandler(MoveFocusIndexPrev_Click);
+            focusTabPage.focusAchievementButtonNext.Click += new System.EventHandler(MoveFocusIndexNext_Click);
+            focusTabPage.focusBehaviorGoToLastRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+            focusTabPage.focusBehaviorGoToNextRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+            focusTabPage.focusBehaviorGoToPreviousRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+            focusTabPage.focusBehaviorGoToFirstRadioButton.CheckedChanged += new System.EventHandler(RefocusBehavior_RadioButtonCheckChanged);
+            focusTabPage.focusLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            focusTabPage.focusBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            focusTabPage.focusAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            focusTabPage.focusTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            focusTabPage.focusTitleOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            focusTabPage.focusTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            focusTabPage.focusDescriptionFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            focusTabPage.focusDescriptionOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            focusTabPage.focusDescriptionFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            focusTabPage.focusAutoOpenWindowCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            focusTabPage.focusBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            focusTabPage.focusPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            focusTabPage.focusPointsOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            focusTabPage.focusPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            focusTabPage.focusLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            focusTabPage.focusLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoPictureBox)).EndInit();
@@ -8317,12 +8368,12 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(pictureBox10)).EndInit();
             panel51.ResumeLayout(false);
             panel51.PerformLayout();
-            focusTabPage.focusLinePanel.ResumeLayout(false);
+
             ((ISupportInitialize)(focusTabPage.focusLineColorPictureBox)).EndInit();
             panel59.ResumeLayout(false);
             panel59.PerformLayout();
             ((ISupportInitialize)(focusTabPage.focusBorderColorPictureBox)).EndInit();
-            focusTabPage.focusPointsPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(focusTabPage.focusPointsFontColorPictureBox)).EndInit();
             panel52.ResumeLayout(false);
             panel52.PerformLayout();
@@ -8330,23 +8381,23 @@ namespace Retro_Achievement_Tracker
             panel61.PerformLayout();
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineColorPictureBox)).EndInit();
-            focusTabPage.focusDescriptionOutlinePanel.ResumeLayout(false);
-            focusTabPage.focusDescriptionOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineNumericUpDown)).EndInit();
-            focusTabPage.focusDescriptionPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox11)).EndInit();
             panel54.ResumeLayout(false);
             ((ISupportInitialize)(focusTabPage.focusBackgroundColorPictureBox)).EndInit();
             panel55.ResumeLayout(false);
             ((ISupportInitialize)(focusTabPage.focusTitleFontColorPictureBox)).EndInit();
-            focusTabPage.focusPointsOutlinePanel.ResumeLayout(false);
-            focusTabPage.focusPointsOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineColorPictureBox)).EndInit();
-            focusTabPage.focusLineOutlinePanel.ResumeLayout(false);
-            focusTabPage.focusLineOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(focusTabPage.focusLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusLineOutlineNumericUpDown)).EndInit();
             panel65.ResumeLayout(false);

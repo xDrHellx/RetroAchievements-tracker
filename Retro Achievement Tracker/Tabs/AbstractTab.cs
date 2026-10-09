@@ -12,6 +12,9 @@ namespace Retro_Achievement_Tracker.Tabs
         /// <param name="enable">True / False to enable / disable elements</param>
         public abstract void ToggleTabElements(bool enable);
 
+        /// <summary>Initialize tab elements</summary>
+        public virtual void InitElements() { }
+
         protected void SetFontFamilyBox(ComboBox comboBox, FontFamily fontFamily)
         {
             comboBox.Items.Clear();
