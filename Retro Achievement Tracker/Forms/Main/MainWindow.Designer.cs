@@ -64,7 +64,7 @@ namespace Retro_Achievement_Tracker
             gameProgressTabPage = new GameProgressTab();
 
             recentAchievementsTabPage = new RecentAchievementsTab();
-
+            recentAchievementsTabPage.InitElements();
             achievementsListTabPage = new AchievementsListTab();
 
             relatedMediaTabPage = new RelatedMediaTab();
@@ -115,8 +115,8 @@ namespace Retro_Achievement_Tracker
 
 
 
-            recentAchievementsTabPage.recentAchievementsMaxListLabel = new Label();
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown = new NumericUpDown();
+
+
             panel64 = new Panel();
             label112 = new Label();
             pictureBox12 = new PictureBox();
@@ -505,60 +505,60 @@ namespace Retro_Achievement_Tracker
             panel113 = new Panel();
             label155 = new Label();
             pictureBox15 = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox = new CheckBox();
+
             panel99 = new Panel();
-            recentAchievementsTabPage.recentAchievementsLinePanel = new Panel();
+
             label16 = new Label();
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox = new PictureBox();
+
             label17 = new Label();
             panel101 = new Panel();
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox = new CheckBox();
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox = new PictureBox();
+
+
             label18 = new Label();
-            recentAchievementsTabPage.recentAchievementsPointsPanel = new Panel();
+
             label19 = new Label();
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox = new ComboBox();
+
+
             panel103 = new Panel();
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox = new CheckBox();
+
             label20 = new Label();
             label21 = new Label();
             label22 = new Label();
             label23 = new Label();
             panel104 = new Panel();
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown = new NumericUpDown();
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox = new CheckBox();
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel = new Label();
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton = new Button();
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel = new Panel();
+
+
+
+
+
+
             label144 = new Label();
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown = new NumericUpDown();
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox = new CheckBox();
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel = new Panel();
+
+
+
+
             label145 = new Label();
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox = new ComboBox();
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox = new CheckBox();
+
+
+
             pictureBox23 = new PictureBox();
             panel107 = new Panel();
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox = new PictureBox();
+
             label146 = new Label();
             panel108 = new Panel();
-            recentAchievementsTabPage.recentAchievementsTitleLabel = new Label();
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox = new ComboBox();
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel = new Panel();
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown = new NumericUpDown();
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox = new CheckBox();
+
+
+
+
+
+
             label148 = new Label();
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel = new Panel();
+
+
             label149 = new Label();
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox = new PictureBox();
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown = new NumericUpDown();
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox = new CheckBox();
+
+
+
             panel115 = new Panel();
             label152 = new Label();
             pictureBox18 = new PictureBox();
@@ -802,30 +802,30 @@ namespace Retro_Achievement_Tracker
             panel113.SuspendLayout();
             ((ISupportInitialize)(pictureBox15)).BeginInit();
             panel99.SuspendLayout();
-            recentAchievementsTabPage.recentAchievementsLinePanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineColorPictureBox)).BeginInit();
             panel101.SuspendLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsBorderColorPictureBox)).BeginInit();
-            recentAchievementsTabPage.recentAchievementsPointsPanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox)).BeginInit();
             panel103.SuspendLayout();
             panel104.SuspendLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox)).BeginInit();
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown)).BeginInit();
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox23)).BeginInit();
             panel107.SuspendLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox)).BeginInit();
             panel108.SuspendLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox)).BeginInit();
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox)).BeginInit();
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown)).BeginInit();
             panel115.SuspendLayout();
@@ -1735,31 +1735,31 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsMaxListLabel
             // 
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.BackColor = Color.Transparent;
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Location = new Point(190, 63);
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Margin = new Padding(4, 0, 4, 0);
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Name = "recentAchievementsMaxListLabel";
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Size = new Size(145, 25);
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.TabIndex = 10015;
-            recentAchievementsTabPage.recentAchievementsMaxListLabel.Text = "Max List Size";
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsMaxListNumericUpDown
             // 
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Font = new Font("Verdana", 8.25F);
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Location = new Point(339, 62);
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Maximum = new decimal(new int[] {20, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Name = "recentAchievementsMaxListNumericUpDown";
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Size = new Size(76, 28);
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.TabIndex = 22;
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel64
             // 
@@ -6684,19 +6684,19 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsAutoScrollCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.BackColor = Color.Transparent;
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Location = new Point(4, 60);
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Name = "recentAchievementsAutoScrollCheckBox";
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Size = new Size(147, 29);
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.TabIndex = 10055;
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.Text = "Auto-scroll";
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.UseVisualStyleBackColor = false;
-            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel99
             // 
@@ -6724,14 +6724,14 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsLinePanel
             // 
-            recentAchievementsTabPage.recentAchievementsLinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(label16);
-            recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsLinePanel.Location = new Point(3, 265);
-            recentAchievementsTabPage.recentAchievementsLinePanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLinePanel.Name = "recentAchievementsLinePanel";
-            recentAchievementsTabPage.recentAchievementsLinePanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsLinePanel.TabIndex = 10068;
+
+
+
+
+
+
+
+
             // 
             // label16
             // 
@@ -6747,15 +6747,15 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsLineColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Name = "recentAchievementsLineColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label17
             // 
@@ -6783,28 +6783,28 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsBorderCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Location = new Point(620, 8);
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Name = "recentAchievementsBorderCheckBox";
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.Size = new Size(22, 21);
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.TabIndex = 10065;
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsBorderColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Name = "recentAchievementsBorderColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.TabIndex = 42;
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label18
             // 
@@ -6820,15 +6820,15 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsPointsPanel
             // 
-            recentAchievementsTabPage.recentAchievementsPointsPanel.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(label19);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontComboBox);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Location = new Point(3, 231);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Name = "recentAchievementsPointsPanel";
-            recentAchievementsTabPage.recentAchievementsPointsPanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsPointsPanel.TabIndex = 10070;
+
+
+
+
+
+
+
+
+
             // 
             // label19
             // 
@@ -6844,28 +6844,28 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsPointsFontColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Location = new Point(230, 6);
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Name = "recentAchievementsPointsFontColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsPointsFontComboBox
             // 
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.FormattingEnabled = true;
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.Location = new Point(290, 3);
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.Name = "recentAchievementsPointsFontComboBox";
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.Size = new Size(301, 28);
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel103
             // 
@@ -6883,19 +6883,19 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsAdvancedCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.BackColor = Color.Transparent;
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Location = new Point(8, 3);
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Name = "recentAchievementsAdvancedCheckBox";
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Size = new Size(135, 29);
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.TabIndex = 10053;
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.Text = "Advanced";
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.UseVisualStyleBackColor = false;
-            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // label20
             // 
@@ -6960,85 +6960,85 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsTitleFontOutlineNumericUpDown
             // 
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Location = new Point(528, 6);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Name = "recentAchievementsTitleFontOutlineNumericUpDown";
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Size = new Size(64, 24);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsTitleFontOutlineCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Location = new Point(620, 8);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Name = "recentAchievementsTitleFontOutlineCheckBox";
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.Size = new Size(22, 21);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsTitleOutlineLabel
             // 
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.BackColor = Color.Transparent;
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Location = new Point(4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Name = "recentAchievementsTitleOutlineLabel";
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Size = new Size(216, 25);
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.TabIndex = 10066;
-            recentAchievementsTabPage.recentAchievementsTitleOutlineLabel.Text = "Title OutlineColor";
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsTitleFontOutlineColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Name = "recentAchievementsTitleFontOutlineColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsOpenWindowButton
             // 
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Location = new Point(573, 3);
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Margin = new Padding(0);
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Name = "recentAchievementsOpenWindowButton";
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Size = new Size(112, 42);
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.TabIndex = 10021;
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Text = "Open";
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.UseVisualStyleBackColor = false;
-            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsDescriptionOutlinePanel
             // 
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(label144);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Location = new Point(3, 332);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Name = "recentAchievementsDescriptionOutlinePanel";
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.TabIndex = 10072;
+
+
+
+
+
+
+
+
+
+
             // 
             // label144
             // 
@@ -7054,56 +7054,56 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsDateFontOutlineColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Location = new Point(230, 6);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Name = "recentAchievementsDateFontOutlineColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsDescriptionFontOutlineNumericUpDown
             // 
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Location = new Point(528, 6);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Name = "recentAchievementsDescriptionFontOutlineNumericUpDown";
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Size = new Size(64, 24);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsDateFontOutlineCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Location = new Point(620, 9);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Name = "recentAchievementsDateFontOutlineCheckBox";
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.Size = new Size(22, 21);
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsDescriptionPanel
             // 
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.BackColor = Color.FromArgb(32, 32, 32);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(label145);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Location = new Point(3, 197);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Name = "recentAchievementsDescriptionPanel";
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
             // 
             // label145
             // 
@@ -7119,43 +7119,43 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsDateFontColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Name = "recentAchievementsDateFontColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsDescriptionFontComboBox
             // 
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.FormattingEnabled = true;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.Location = new Point(290, 3);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.Name = "recentAchievementsDescriptionFontComboBox";
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.Size = new Size(301, 28);
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsAutoOpenWindowCheckbox
             // 
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Name = "recentAchievementsAutoOpenWindowCheckbox";
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.TabIndex = 10022;
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.Text = "Auto-Open";
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox23
             // 
@@ -7180,15 +7180,15 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsBackgroundColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Name = "recentAchievementsBackgroundColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.TabIndex = 42;
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label146
             // 
@@ -7216,82 +7216,82 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsTitleLabel
             // 
-            recentAchievementsTabPage.recentAchievementsTitleLabel.BackColor = Color.Transparent;
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsTitleLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Location = new Point(4, 6);
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Margin = new Padding(4, 0, 4, 0);
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Name = "recentAchievementsTitleLabel";
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Size = new Size(216, 25);
-            recentAchievementsTabPage.recentAchievementsTitleLabel.TabIndex = 10065;
-            recentAchievementsTabPage.recentAchievementsTitleLabel.Text = "Title";
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsTitleFontColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Location = new Point(230, 6);
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Name = "recentAchievementsTitleFontColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsTitleFontComboBox
             // 
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.FormattingEnabled = true;
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.Location = new Point(290, 3);
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.Name = "recentAchievementsTitleFontComboBox";
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.Size = new Size(301, 28);
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsPointsOutlinePanel
             // 
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.BackColor = Color.FromArgb(22, 22, 22);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(label148);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Location = new Point(3, 366);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Name = "recentAchievementsPointsOutlinePanel";
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsPointsFontOutlineNumericUpDown
             // 
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Location = new Point(528, 6);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Name = "recentAchievementsPointsFontOutlineNumericUpDown";
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Size = new Size(64, 24);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsPointsFontOutlineCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Location = new Point(620, 8);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Name = "recentAchievementsPointsFontOutlineCheckBox";
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.Size = new Size(22, 21);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // label148
             // 
@@ -7307,28 +7307,28 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsPointsFontOutlineColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Location = new Point(230, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Name = "recentAchievementsPointsFontOutlineColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsLineOutlinePanel
             // 
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(label149);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Location = new Point(3, 400);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Name = "recentAchievementsLineOutlinePanel";
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Size = new Size(694, 35);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.TabIndex = 10067;
+
+
+
+
+
+
+
+
+
+
             // 
             // label149
             // 
@@ -7344,44 +7344,44 @@ namespace Retro_Achievement_Tracker
             // 
             // recentAchievementsLineOutlineColorPictureBox
             // 
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.BackColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Location = new Point(230, 6);
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Name = "recentAchievementsLineOutlineColorPictureBox";
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Size = new Size(22, 22);
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.TabStop = false;
-            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsLineOutlineNumericUpDown
             // 
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.ForeColor = Color.White;
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Location = new Point(528, 6);
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Name = "recentAchievementsLineOutlineNumericUpDown";
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Size = new Size(64, 24);
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // recentAchievementsLineOutlineCheckBox
             // 
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.AutoSize = true;
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Location = new Point(620, 9);
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Name = "recentAchievementsLineOutlineCheckBox";
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.Size = new Size(22, 21);
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.TabIndex = 45;
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.UseVisualStyleBackColor = true;
-            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel115
             // 
@@ -8521,6 +8521,55 @@ namespace Retro_Achievement_Tracker
             gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
             gameInfoTabPage.gameInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
 
+            recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(label16);
+            recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(label19);
+            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontComboBox);
+            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(label144);
+            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown);
+            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox);
+            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(label145);
+            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsDescriptionPanel.Controls.Add(recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox);
+            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown);
+            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox);
+            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(label148);
+            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(label149);
+            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox);
+            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown);
+            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox);
+
+            recentAchievementsTabPage.recentAchievementsMaxListNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            recentAchievementsTabPage.recentAchievementsAutoScrollCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            recentAchievementsTabPage.recentAchievementsAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            recentAchievementsTabPage.recentAchievementsDateFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            recentAchievementsTabPage.recentAchievementsAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoPictureBox)).EndInit();
@@ -8755,12 +8804,12 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(pictureBox15)).EndInit();
             panel99.ResumeLayout(false);
             panel99.PerformLayout();
-            recentAchievementsTabPage.recentAchievementsLinePanel.ResumeLayout(false);
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineColorPictureBox)).EndInit();
             panel101.ResumeLayout(false);
             panel101.PerformLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsBorderColorPictureBox)).EndInit();
-            recentAchievementsTabPage.recentAchievementsPointsPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontColorPictureBox)).EndInit();
             panel103.ResumeLayout(false);
             panel103.PerformLayout();
@@ -8768,23 +8817,23 @@ namespace Retro_Achievement_Tracker
             panel104.PerformLayout();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox)).EndInit();
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.ResumeLayout(false);
-            recentAchievementsTabPage.recentAchievementsDescriptionOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown)).EndInit();
-            recentAchievementsTabPage.recentAchievementsDescriptionPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDateFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox23)).EndInit();
             panel107.ResumeLayout(false);
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox)).EndInit();
             panel108.ResumeLayout(false);
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox)).EndInit();
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.ResumeLayout(false);
-            recentAchievementsTabPage.recentAchievementsPointsOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox)).EndInit();
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.ResumeLayout(false);
-            recentAchievementsTabPage.recentAchievementsLineOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown)).EndInit();
             panel115.ResumeLayout(false);
