@@ -52,6 +52,7 @@ namespace Retro_Achievement_Tracker
             focusTabPage = new FocusTab();
             focusTabPage.InitElements();
             alertsTabPage = new AlertsTab();
+            alertsTabPage.InitElements();
             alertTabControl = new TabControl();
             achievementTabPage = new TabPage();
             masteryTabPage = new TabPage();
@@ -65,32 +66,32 @@ namespace Retro_Achievement_Tracker
             // Elements
             gameInfoTabPage.gameInfoPictureBox = new PictureBox();
             autoPollingStatusPictureBox = new PictureBox();
-            alertsTabPage.alertsPlayAchievementButton = new Button();
-            alertsTabPage.alertsSelectCustomAchievementFileButton = new Button();
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementXNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementYNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsAchievementEditOutlineCheckbox = new CheckBox();
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox = new ComboBox();
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementInNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox = new ComboBox();
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomAchievementEnableCheckbox = new CheckBox();
-            alertsTabPage.alertsPlayMasteryButton = new Button();
-            alertsTabPage.alertsSelectCustomMasteryFileButton = new Button();
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryXNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryYNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsMasteryEditOutlineCheckbox = new CheckBox();
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox = new ComboBox();
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryInNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox = new ComboBox();
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown = new NumericUpDown();
-            alertsTabPage.alertsCustomMasteryEnableCheckbox = new CheckBox();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             userInfoTabPage.userInfoAutoOpenWindowCheckbox = new CheckBox();
             userInfoTabPage.userInfoOpenWindowButton = new Button();
             userInfoTabPage.userInfoTruePointsTextBox = new TextBox();
@@ -171,59 +172,59 @@ namespace Retro_Achievement_Tracker
 
 
             panel65 = new Panel();
-            alertsTabPage.alertsLinePanel = new Panel();
+
             label113 = new Label();
-            alertsTabPage.alertsLineColorPictureBox = new PictureBox();
+
             label114 = new Label();
             panel67 = new Panel();
-            alertsTabPage.alertsBorderCheckBox = new CheckBox();
-            alertsTabPage.alertsBorderColorPictureBox = new PictureBox();
+
+
             label115 = new Label();
-            alertsTabPage.alertsPointsPanel = new Panel();
+
             label116 = new Label();
-            alertsTabPage.alertsPointsFontColorPictureBox = new PictureBox();
-            alertsTabPage.alertsPointsFontComboBox = new ComboBox();
+
+
             panel69 = new Panel();
-            alertsTabPage.alertsAdvancedCheckBox = new CheckBox();
+
             label117 = new Label();
             label118 = new Label();
             label119 = new Label();
             label120 = new Label();
             panel70 = new Panel();
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsTitleOutlineCheckBox = new CheckBox();
-            alertsTabPage.alertsTitleOutlineLabel = new Label();
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox = new PictureBox();
-            alertsTabPage.alertsOpenWindowButton = new Button();
-            alertsTabPage.alertsDescriptionOutlinePanel = new Panel();
+
+
+
+
+
+
             label122 = new Label();
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox = new PictureBox();
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsDescriptionOutlineCheckBox = new CheckBox();
-            alertsTabPage.alertsDescriptionPanel = new Panel();
+
+
+
+
             label123 = new Label();
-            alertsTabPage.alertsDescriptionFontColorPictureBox = new PictureBox();
-            alertsTabPage.alertsDescriptionFontComboBox = new ComboBox();
-            alertsTabPage.alertsAutoOpenWindowCheckbox = new CheckBox();
+
+
+
             pictureBox20 = new PictureBox();
             panel73 = new Panel();
-            alertsTabPage.alertsBackgroundColorPictureBox = new PictureBox();
+
             label124 = new Label();
             panel74 = new Panel();
-            alertsTabPage.alertsTitleLabel = new Label();
-            alertsTabPage.alertsTitleFontColorPictureBox = new PictureBox();
-            alertsTabPage.alertsTitleFontComboBox = new ComboBox();
-            alertsTabPage.alertsPointsOutlinePanel = new Panel();
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsPointsOutlineCheckBox = new CheckBox();
+
+
+
+
+
+
             label126 = new Label();
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox = new PictureBox();
-            alertsTabPage.alertsLineOutlinePanel = new Panel();
+
+
             label127 = new Label();
-            alertsTabPage.alertsLineOutlineColorPictureBox = new PictureBox();
-            alertsTabPage.alertsLineOutlineNumericUpDown = new NumericUpDown();
-            alertsTabPage.alertsLineOutlineCheckBox = new CheckBox();
-            alertsTabPage.alertsCustomAchievementPanel = new Panel();
+
+
+
+
             panel85 = new Panel();
             label136 = new Label();
             panel84 = new Panel();
@@ -247,8 +248,8 @@ namespace Retro_Achievement_Tracker
             label133 = new Label();
             panel82 = new Panel();
             label134 = new Label();
-            alertsTabPage.alertsAchievementEnableCheckbox = new CheckBox();
-            alertsTabPage.alertsCustomMasteryPanel = new Panel();
+
+
             panel89 = new Panel();
             label6 = new Label();
             panel90 = new Panel();
@@ -272,7 +273,7 @@ namespace Retro_Achievement_Tracker
             label142 = new Label();
             panel98 = new Panel();
             label143 = new Label();
-            alertsTabPage.alertsMasteryEnableCheckbox = new CheckBox();
+
             panel14 = new Panel();
             userInfoTabPage.userInfoUsernameLabel = new Label();
             userInfoTabPage.userInfoRankLabel = new Label();
@@ -659,33 +660,33 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(focusTabPage.focusLineOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(focusTabPage.focusLineOutlineNumericUpDown)).BeginInit();
             panel65.SuspendLayout();
-            alertsTabPage.alertsLinePanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsLineColorPictureBox)).BeginInit();
             panel67.SuspendLayout();
             ((ISupportInitialize)(alertsTabPage.alertsBorderColorPictureBox)).BeginInit();
-            alertsTabPage.alertsPointsPanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontColorPictureBox)).BeginInit();
             panel69.SuspendLayout();
             panel70.SuspendLayout();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineColorPictureBox)).BeginInit();
-            alertsTabPage.alertsDescriptionOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineNumericUpDown)).BeginInit();
-            alertsTabPage.alertsDescriptionPanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox20)).BeginInit();
             panel73.SuspendLayout();
             ((ISupportInitialize)(alertsTabPage.alertsBackgroundColorPictureBox)).BeginInit();
             panel74.SuspendLayout();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontColorPictureBox)).BeginInit();
-            alertsTabPage.alertsPointsOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineColorPictureBox)).BeginInit();
-            alertsTabPage.alertsLineOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineNumericUpDown)).BeginInit();
-            alertsTabPage.alertsCustomAchievementPanel.SuspendLayout();
+
             panel85.SuspendLayout();
             panel84.SuspendLayout();
             panel86.SuspendLayout();
@@ -697,7 +698,7 @@ namespace Retro_Achievement_Tracker
             panel80.SuspendLayout();
             panel81.SuspendLayout();
             panel82.SuspendLayout();
-            alertsTabPage.alertsCustomMasteryPanel.SuspendLayout();
+
             panel89.SuspendLayout();
             panel90.SuspendLayout();
             panel91.SuspendLayout();
@@ -1138,399 +1139,399 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsPlayAchievementButton
             // 
-            alertsTabPage.alertsPlayAchievementButton.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsPlayAchievementButton.FlatAppearance.BorderColor = Color.Black;
-            alertsTabPage.alertsPlayAchievementButton.FlatStyle = FlatStyle.Flat;
-            alertsTabPage.alertsPlayAchievementButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsPlayAchievementButton.ForeColor = Color.FromArgb(204, 153, 0);
-            alertsTabPage.alertsPlayAchievementButton.Location = new Point(318, 5);
-            alertsTabPage.alertsPlayAchievementButton.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPlayAchievementButton.Name = "alertsPlayAchievementButton";
-            alertsTabPage.alertsPlayAchievementButton.Size = new Size(98, 38);
-            alertsTabPage.alertsPlayAchievementButton.TabIndex = 2;
-            alertsTabPage.alertsPlayAchievementButton.Text = "Play";
-            alertsTabPage.alertsPlayAchievementButton.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsPlayAchievementButton.Click += new System.EventHandler(ShowAlertButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsSelectCustomAchievementFileButton
             // 
-            alertsTabPage.alertsSelectCustomAchievementFileButton.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsSelectCustomAchievementFileButton.FlatAppearance.BorderColor = Color.Black;
-            alertsTabPage.alertsSelectCustomAchievementFileButton.FlatStyle = FlatStyle.Flat;
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsSelectCustomAchievementFileButton.ForeColor = Color.FromArgb(204, 153, 0);
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Location = new Point(314, 409);
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Name = "alertsSelectCustomAchievementFileButton";
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Size = new Size(98, 38);
-            alertsTabPage.alertsSelectCustomAchievementFileButton.TabIndex = 14;
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Text = "File";
-            alertsTabPage.alertsSelectCustomAchievementFileButton.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsSelectCustomAchievementFileButton.Click += new System.EventHandler(SelectCustomAlertButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementScaleNumericUpDown
             // 
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.DecimalPlaces = 2;
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Increment = new decimal(new int[] {1, 0, 0, 131072});
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 131072});
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Name = "alertsCustomAchievementScaleNumericUpDown";
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.TabIndex = 20;
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementXNumericUpDown
             // 
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Maximum = new decimal(new int[] {2000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Minimum = new decimal(new int[] {2000, 0, 0, -2147483648});
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Name = "alertsCustomAchievementXNumericUpDown";
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.TabIndex = 15;
-            alertsTabPage.alertsCustomAchievementXNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementYNumericUpDown
             // 
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Maximum = new decimal(new int[] {2000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Minimum = new decimal(new int[] {2000, 0, 0, -2147483648});
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Name = "alertsCustomAchievementYNumericUpDown";
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.TabIndex = 16;
-            alertsTabPage.alertsCustomAchievementYNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsAchievementEditOutlineCheckbox
             // 
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.AutoSize = true;
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Location = new Point(12, 414);
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Name = "alertsAchievementEditOutlineCheckbox";
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Size = new Size(137, 29);
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.TabIndex = 47;
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.Text = "Edit Mode";
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsAchievementEditOutlineCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementOutNumericUpDown
             // 
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Maximum = new decimal(new int[] {100000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Minimum = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Name = "alertsCustomAchievementOutNumericUpDown";
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.TabIndex = 26;
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.Value = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementAnimationOutComboBox
             // 
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Location = new Point(252, 2);
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Name = "alertsCustomAchievementAnimationOutComboBox";
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.Size = new Size(144, 28);
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.TabIndex = 39;
-            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementOutSpeedUpDown
             // 
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Maximum = new decimal(new int[] {10000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Minimum = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Name = "alertsCustomAchievementOutSpeedUpDown";
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.TabIndex = 48;
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.Value = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementInNumericUpDown
             // 
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Maximum = new decimal(new int[] {100000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Minimum = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Name = "alertsCustomAchievementInNumericUpDown";
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.TabIndex = 26;
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.Value = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementAnimationInComboBox
             // 
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.Location = new Point(252, 2);
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.Name = "alertsCustomAchievementAnimationInComboBox";
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.Size = new Size(144, 28);
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.TabIndex = 39;
-            alertsTabPage.alertsCustomAchievementAnimationInComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementInSpeedUpDown
             // 
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Maximum = new decimal(new int[] {10000, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Minimum = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Name = "alertsCustomAchievementInSpeedUpDown";
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.TabIndex = 48;
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.Value = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomAchievementInSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementEnableCheckbox
             // 
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.AutoSize = true;
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Location = new Point(129, 9);
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Name = "alertsCustomAchievementEnableCheckbox";
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Size = new Size(114, 29);
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.TabIndex = 13;
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.Text = "Custom";
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsCustomAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsPlayMasteryButton
             // 
-            alertsTabPage.alertsPlayMasteryButton.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsPlayMasteryButton.FlatAppearance.BorderColor = Color.Black;
-            alertsTabPage.alertsPlayMasteryButton.FlatStyle = FlatStyle.Flat;
-            alertsTabPage.alertsPlayMasteryButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsPlayMasteryButton.ForeColor = Color.FromArgb(204, 153, 0);
-            alertsTabPage.alertsPlayMasteryButton.Location = new Point(318, 5);
-            alertsTabPage.alertsPlayMasteryButton.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPlayMasteryButton.Name = "alertsPlayMasteryButton";
-            alertsTabPage.alertsPlayMasteryButton.Size = new Size(98, 38);
-            alertsTabPage.alertsPlayMasteryButton.TabIndex = 2;
-            alertsTabPage.alertsPlayMasteryButton.Text = "Play";
-            alertsTabPage.alertsPlayMasteryButton.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsPlayMasteryButton.Click += new System.EventHandler(ShowAlertButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsSelectCustomMasteryFileButton
             // 
-            alertsTabPage.alertsSelectCustomMasteryFileButton.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsSelectCustomMasteryFileButton.FlatAppearance.BorderColor = Color.Black;
-            alertsTabPage.alertsSelectCustomMasteryFileButton.FlatStyle = FlatStyle.Flat;
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsSelectCustomMasteryFileButton.ForeColor = Color.FromArgb(204, 153, 0);
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Location = new Point(314, 409);
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Name = "alertsSelectCustomMasteryFileButton";
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Size = new Size(98, 38);
-            alertsTabPage.alertsSelectCustomMasteryFileButton.TabIndex = 14;
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Text = "File";
-            alertsTabPage.alertsSelectCustomMasteryFileButton.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsSelectCustomMasteryFileButton.Click += new System.EventHandler(SelectCustomAlertButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryScaleNumericUpDown
             // 
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.DecimalPlaces = 2;
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Increment = new decimal(new int[] {1, 0, 0, 131072});
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 131072});
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Name = "alertsCustomMasteryScaleNumericUpDown";
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.TabIndex = 20;
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryXNumericUpDown
             // 
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Maximum = new decimal(new int[] {2000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Minimum = new decimal(new int[] {2000, 0, 0, -2147483648});
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Name = "alertsCustomMasteryXNumericUpDown";
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.TabIndex = 15;
-            alertsTabPage.alertsCustomMasteryXNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryYNumericUpDown
             // 
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Maximum = new decimal(new int[] {2000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Minimum = new decimal(new int[] {2000, 0, 0, -2147483648});
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Name = "alertsCustomMasteryYNumericUpDown";
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.TabIndex = 16;
-            alertsTabPage.alertsCustomMasteryYNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsMasteryEditOutlineCheckbox
             // 
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.AutoSize = true;
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Location = new Point(12, 414);
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Name = "alertsMasteryEditOutlineCheckbox";
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Size = new Size(137, 29);
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.TabIndex = 47;
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.Text = "Edit Mode";
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsMasteryEditOutlineCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryOutNumericUpDown
             // 
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Maximum = new decimal(new int[] {100000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Minimum = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Name = "alertsCustomMasteryOutNumericUpDown";
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.TabIndex = 26;
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.Value = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryAnimationOutComboBox
             // 
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Location = new Point(252, 2);
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Name = "alertsCustomMasteryAnimationOutComboBox";
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.Size = new Size(144, 28);
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.TabIndex = 39;
-            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryOutSpeedUpDown
             // 
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Maximum = new decimal(new int[] {10000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Minimum = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Name = "alertsCustomMasteryOutSpeedUpDown";
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.TabIndex = 48;
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.Value = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryInNumericUpDown
             // 
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Maximum = new decimal(new int[] {100000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Minimum = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Name = "alertsCustomMasteryInNumericUpDown";
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.TabIndex = 26;
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.Value = new decimal(new int[] {300, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryAnimationInComboBox
             // 
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.Location = new Point(252, 2);
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.Name = "alertsCustomMasteryAnimationInComboBox";
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.Size = new Size(144, 28);
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.TabIndex = 39;
-            alertsTabPage.alertsCustomMasteryAnimationInComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryInSpeedUpDown
             // 
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Font = new Font("Verdana", 8.25F);
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Location = new Point(252, 6);
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Maximum = new decimal(new int[] {10000, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Minimum = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Name = "alertsCustomMasteryInSpeedUpDown";
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Size = new Size(146, 24);
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.TabIndex = 48;
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.Value = new decimal(new int[] {50, 0, 0, 0});
-            alertsTabPage.alertsCustomMasteryInSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryEnableCheckbox
             // 
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.AutoSize = true;
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Location = new Point(129, 9);
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Name = "alertsCustomMasteryEnableCheckbox";
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Size = new Size(114, 29);
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.TabIndex = 13;
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.Text = "Custom";
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsCustomMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // userInfoTruePointsTextBox
             // 
@@ -2558,14 +2559,14 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsLinePanel
             // 
-            alertsTabPage.alertsLinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsLinePanel.Controls.Add(label113);
-            alertsTabPage.alertsLinePanel.Controls.Add(alertsTabPage.alertsLineColorPictureBox);
-            alertsTabPage.alertsLinePanel.Location = new Point(3, 265);
-            alertsTabPage.alertsLinePanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLinePanel.Name = "alertsLinePanel";
-            alertsTabPage.alertsLinePanel.Size = new Size(694, 35);
-            alertsTabPage.alertsLinePanel.TabIndex = 10068;
+
+
+
+
+
+
+
+
             // 
             // label113
             // 
@@ -2581,15 +2582,15 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsLineColorPictureBox
             // 
-            alertsTabPage.alertsLineColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsLineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsLineColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsLineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLineColorPictureBox.Name = "alertsLineColorPictureBox";
-            alertsTabPage.alertsLineColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsLineColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsLineColorPictureBox.TabStop = false;
-            alertsTabPage.alertsLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label114
             // 
@@ -2617,28 +2618,28 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsBorderCheckBox
             // 
-            alertsTabPage.alertsBorderCheckBox.AutoSize = true;
-            alertsTabPage.alertsBorderCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsBorderCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsBorderCheckBox.Location = new Point(620, 8);
-            alertsTabPage.alertsBorderCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsBorderCheckBox.Name = "alertsBorderCheckBox";
-            alertsTabPage.alertsBorderCheckBox.Size = new Size(22, 21);
-            alertsTabPage.alertsBorderCheckBox.TabIndex = 10065;
-            alertsTabPage.alertsBorderCheckBox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsBorderColorPictureBox
             // 
-            alertsTabPage.alertsBorderColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsBorderColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsBorderColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsBorderColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsBorderColorPictureBox.Name = "alertsBorderColorPictureBox";
-            alertsTabPage.alertsBorderColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsBorderColorPictureBox.TabIndex = 42;
-            alertsTabPage.alertsBorderColorPictureBox.TabStop = false;
-            alertsTabPage.alertsBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label115
             // 
@@ -2654,15 +2655,15 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsPointsPanel
             // 
-            alertsTabPage.alertsPointsPanel.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsPointsPanel.Controls.Add(label116);
-            alertsTabPage.alertsPointsPanel.Controls.Add(alertsTabPage.alertsPointsFontColorPictureBox);
-            alertsTabPage.alertsPointsPanel.Controls.Add(alertsTabPage.alertsPointsFontComboBox);
-            alertsTabPage.alertsPointsPanel.Location = new Point(3, 231);
-            alertsTabPage.alertsPointsPanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsPanel.Name = "alertsPointsPanel";
-            alertsTabPage.alertsPointsPanel.Size = new Size(694, 35);
-            alertsTabPage.alertsPointsPanel.TabIndex = 10070;
+
+
+
+
+
+
+
+
+
             // 
             // label116
             // 
@@ -2678,29 +2679,29 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsPointsFontColorPictureBox
             // 
-            alertsTabPage.alertsPointsFontColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsPointsFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsPointsFontColorPictureBox.Location = new Point(230, 6);
-            alertsTabPage.alertsPointsFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsFontColorPictureBox.Name = "alertsPointsFontColorPictureBox";
-            alertsTabPage.alertsPointsFontColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsPointsFontColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsPointsFontColorPictureBox.TabStop = false;
-            alertsTabPage.alertsPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsPointsFontComboBox
             // 
-            alertsTabPage.alertsPointsFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsPointsFontComboBox.FlatStyle = FlatStyle.System;
-            alertsTabPage.alertsPointsFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsPointsFontComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsPointsFontComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsPointsFontComboBox.Location = new Point(290, 3);
-            alertsTabPage.alertsPointsFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsFontComboBox.Name = "alertsPointsFontComboBox";
-            alertsTabPage.alertsPointsFontComboBox.Size = new Size(301, 28);
-            alertsTabPage.alertsPointsFontComboBox.TabIndex = 45;
-            alertsTabPage.alertsPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel69
             // 
@@ -2718,19 +2719,19 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsAdvancedCheckBox
             // 
-            alertsTabPage.alertsAdvancedCheckBox.AutoSize = true;
-            alertsTabPage.alertsAdvancedCheckBox.BackColor = Color.Transparent;
-            alertsTabPage.alertsAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            alertsTabPage.alertsAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsAdvancedCheckBox.Location = new Point(8, 3);
-            alertsTabPage.alertsAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsAdvancedCheckBox.Name = "alertsAdvancedCheckBox";
-            alertsTabPage.alertsAdvancedCheckBox.Size = new Size(135, 29);
-            alertsTabPage.alertsAdvancedCheckBox.TabIndex = 10053;
-            alertsTabPage.alertsAdvancedCheckBox.Text = "Advanced";
-            alertsTabPage.alertsAdvancedCheckBox.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // label117
             // 
@@ -2795,85 +2796,85 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsTitleFontOutlineNumericUpDown
             // 
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Location = new Point(528, 6);
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Name = "alertsTitleFontOutlineNumericUpDown";
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Size = new Size(64, 24);
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.TabIndex = 45;
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsTitleOutlineCheckBox
             // 
-            alertsTabPage.alertsTitleOutlineCheckBox.AutoSize = true;
-            alertsTabPage.alertsTitleOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsTitleOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsTitleOutlineCheckBox.Location = new Point(620, 8);
-            alertsTabPage.alertsTitleOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsTitleOutlineCheckBox.Name = "alertsTitleOutlineCheckBox";
-            alertsTabPage.alertsTitleOutlineCheckBox.Size = new Size(22, 21);
-            alertsTabPage.alertsTitleOutlineCheckBox.TabIndex = 45;
-            alertsTabPage.alertsTitleOutlineCheckBox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsTitleOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsTitleOutlineLabel
             // 
-            alertsTabPage.alertsTitleOutlineLabel.BackColor = Color.Transparent;
-            alertsTabPage.alertsTitleOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsTitleOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsTitleOutlineLabel.Location = new Point(4, 5);
-            alertsTabPage.alertsTitleOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            alertsTabPage.alertsTitleOutlineLabel.Name = "alertsTitleOutlineLabel";
-            alertsTabPage.alertsTitleOutlineLabel.Size = new Size(216, 25);
-            alertsTabPage.alertsTitleOutlineLabel.TabIndex = 10066;
-            alertsTabPage.alertsTitleOutlineLabel.Text = "Title OutlineColor";
+
+
+
+
+
+
+
+
+
             // 
             // alertsTitleFontOutlineColorPictureBox
             // 
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Name = "alertsTitleFontOutlineColorPictureBox";
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.TabStop = false;
-            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsOpenWindowButton
             // 
-            alertsTabPage.alertsOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            alertsTabPage.alertsOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            alertsTabPage.alertsOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            alertsTabPage.alertsOpenWindowButton.Location = new Point(573, 3);
-            alertsTabPage.alertsOpenWindowButton.Margin = new Padding(0);
-            alertsTabPage.alertsOpenWindowButton.Name = "alertsOpenWindowButton";
-            alertsTabPage.alertsOpenWindowButton.Size = new Size(112, 42);
-            alertsTabPage.alertsOpenWindowButton.TabIndex = 10021;
-            alertsTabPage.alertsOpenWindowButton.Text = "Open";
-            alertsTabPage.alertsOpenWindowButton.UseVisualStyleBackColor = false;
-            alertsTabPage.alertsOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsDescriptionOutlinePanel
             // 
-            alertsTabPage.alertsDescriptionOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(label122);
-            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionFontOutlineColorPictureBox);
-            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionFontOutlineNumericUpDown);
-            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionOutlineCheckBox);
-            alertsTabPage.alertsDescriptionOutlinePanel.Location = new Point(3, 332);
-            alertsTabPage.alertsDescriptionOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionOutlinePanel.Name = "alertsDescriptionOutlinePanel";
-            alertsTabPage.alertsDescriptionOutlinePanel.Size = new Size(694, 35);
-            alertsTabPage.alertsDescriptionOutlinePanel.TabIndex = 10072;
+
+
+
+
+
+
+
+
+
+
             // 
             // label122
             // 
@@ -2889,56 +2890,56 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsDescriptionFontOutlineColorPictureBox
             // 
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Location = new Point(230, 6);
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Name = "alertsDescriptionFontOutlineColorPictureBox";
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.TabStop = false;
-            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsDescriptionFontOutlineNumericUpDown
             // 
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Location = new Point(528, 6);
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Name = "alertsDescriptionFontOutlineNumericUpDown";
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Size = new Size(64, 24);
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.TabIndex = 45;
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsDescriptionOutlineCheckBox
             // 
-            alertsTabPage.alertsDescriptionOutlineCheckBox.AutoSize = true;
-            alertsTabPage.alertsDescriptionOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsDescriptionOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsDescriptionOutlineCheckBox.Location = new Point(620, 9);
-            alertsTabPage.alertsDescriptionOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionOutlineCheckBox.Name = "alertsDescriptionOutlineCheckBox";
-            alertsTabPage.alertsDescriptionOutlineCheckBox.Size = new Size(22, 21);
-            alertsTabPage.alertsDescriptionOutlineCheckBox.TabIndex = 45;
-            alertsTabPage.alertsDescriptionOutlineCheckBox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsDescriptionOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsDescriptionPanel
             // 
-            alertsTabPage.alertsDescriptionPanel.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsDescriptionPanel.Controls.Add(label123);
-            alertsTabPage.alertsDescriptionPanel.Controls.Add(alertsTabPage.alertsDescriptionFontColorPictureBox);
-            alertsTabPage.alertsDescriptionPanel.Controls.Add(alertsTabPage.alertsDescriptionFontComboBox);
-            alertsTabPage.alertsDescriptionPanel.Location = new Point(3, 197);
-            alertsTabPage.alertsDescriptionPanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionPanel.Name = "alertsDescriptionPanel";
-            alertsTabPage.alertsDescriptionPanel.Size = new Size(694, 35);
-            alertsTabPage.alertsDescriptionPanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
             // 
             // label123
             // 
@@ -2954,44 +2955,44 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsDescriptionFontColorPictureBox
             // 
-            alertsTabPage.alertsDescriptionFontColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsDescriptionFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsDescriptionFontColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsDescriptionFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionFontColorPictureBox.Name = "alertsDescriptionFontColorPictureBox";
-            alertsTabPage.alertsDescriptionFontColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsDescriptionFontColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsDescriptionFontColorPictureBox.TabStop = false;
-            alertsTabPage.alertsDescriptionFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsDescriptionFontComboBox
             // 
-            alertsTabPage.alertsDescriptionFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsDescriptionFontComboBox.FlatStyle = FlatStyle.System;
-            alertsTabPage.alertsDescriptionFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsDescriptionFontComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsDescriptionFontComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsDescriptionFontComboBox.Location = new Point(290, 3);
-            alertsTabPage.alertsDescriptionFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsDescriptionFontComboBox.Name = "alertsDescriptionFontComboBox";
-            alertsTabPage.alertsDescriptionFontComboBox.Size = new Size(301, 28);
-            alertsTabPage.alertsDescriptionFontComboBox.TabIndex = 45;
-            alertsTabPage.alertsDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsAutoOpenWindowCheckbox
             // 
-            alertsTabPage.alertsAutoOpenWindowCheckbox.AutoSize = true;
-            alertsTabPage.alertsAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Name = "alertsAutoOpenWindowCheckbox";
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            alertsTabPage.alertsAutoOpenWindowCheckbox.TabIndex = 10022;
-            alertsTabPage.alertsAutoOpenWindowCheckbox.Text = "Auto-Open";
-            alertsTabPage.alertsAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox20
             // 
@@ -3016,15 +3017,15 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsBackgroundColorPictureBox
             // 
-            alertsTabPage.alertsBackgroundColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsBackgroundColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsBackgroundColorPictureBox.Name = "alertsBackgroundColorPictureBox";
-            alertsTabPage.alertsBackgroundColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsBackgroundColorPictureBox.TabIndex = 42;
-            alertsTabPage.alertsBackgroundColorPictureBox.TabStop = false;
-            alertsTabPage.alertsBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label124
             // 
@@ -3052,83 +3053,83 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsTitleLabel
             // 
-            alertsTabPage.alertsTitleLabel.BackColor = Color.Transparent;
-            alertsTabPage.alertsTitleLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsTitleLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsTitleLabel.Location = new Point(4, 6);
-            alertsTabPage.alertsTitleLabel.Margin = new Padding(4, 0, 4, 0);
-            alertsTabPage.alertsTitleLabel.Name = "alertsTitleLabel";
-            alertsTabPage.alertsTitleLabel.Size = new Size(216, 25);
-            alertsTabPage.alertsTitleLabel.TabIndex = 10065;
-            alertsTabPage.alertsTitleLabel.Text = "Title";
+
+
+
+
+
+
+
+
+
             // 
             // alertsTitleFontColorPictureBox
             // 
-            alertsTabPage.alertsTitleFontColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsTitleFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsTitleFontColorPictureBox.Location = new Point(230, 6);
-            alertsTabPage.alertsTitleFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsTitleFontColorPictureBox.Name = "alertsTitleFontColorPictureBox";
-            alertsTabPage.alertsTitleFontColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsTitleFontColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsTitleFontColorPictureBox.TabStop = false;
-            alertsTabPage.alertsTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsTitleFontComboBox
             // 
-            alertsTabPage.alertsTitleFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsTitleFontComboBox.FlatStyle = FlatStyle.System;
-            alertsTabPage.alertsTitleFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsTitleFontComboBox.ForeColor = Color.White;
-            alertsTabPage.alertsTitleFontComboBox.FormattingEnabled = true;
-            alertsTabPage.alertsTitleFontComboBox.Location = new Point(290, 3);
-            alertsTabPage.alertsTitleFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsTitleFontComboBox.Name = "alertsTitleFontComboBox";
-            alertsTabPage.alertsTitleFontComboBox.Size = new Size(301, 28);
-            alertsTabPage.alertsTitleFontComboBox.TabIndex = 45;
-            alertsTabPage.alertsTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsPointsOutlinePanel
             // 
-            alertsTabPage.alertsPointsOutlinePanel.BackColor = Color.FromArgb(22, 22, 22);
-            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsFontOutlineNumericUpDown);
-            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsOutlineCheckBox);
-            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(label126);
-            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsFontOutlineColorPictureBox);
-            alertsTabPage.alertsPointsOutlinePanel.Location = new Point(3, 366);
-            alertsTabPage.alertsPointsOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsOutlinePanel.Name = "alertsPointsOutlinePanel";
-            alertsTabPage.alertsPointsOutlinePanel.Size = new Size(694, 35);
-            alertsTabPage.alertsPointsOutlinePanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsPointsFontOutlineNumericUpDown
             // 
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Location = new Point(528, 6);
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Name = "alertsPointsFontOutlineNumericUpDown";
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Size = new Size(64, 24);
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.TabIndex = 45;
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsPointsOutlineCheckBox
             // 
-            alertsTabPage.alertsPointsOutlineCheckBox.AutoSize = true;
-            alertsTabPage.alertsPointsOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsPointsOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsPointsOutlineCheckBox.Location = new Point(620, 8);
-            alertsTabPage.alertsPointsOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsOutlineCheckBox.Name = "alertsPointsOutlineCheckBox";
-            alertsTabPage.alertsPointsOutlineCheckBox.Size = new Size(22, 21);
-            alertsTabPage.alertsPointsOutlineCheckBox.TabIndex = 45;
-            alertsTabPage.alertsPointsOutlineCheckBox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsPointsOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // label126
             // 
@@ -3144,28 +3145,28 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsPointsFontOutlineColorPictureBox
             // 
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Location = new Point(230, 5);
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Name = "alertsPointsFontOutlineColorPictureBox";
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.TabStop = false;
-            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsLineOutlinePanel
             // 
-            alertsTabPage.alertsLineOutlinePanel.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsLineOutlinePanel.Controls.Add(label127);
-            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineColorPictureBox);
-            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineNumericUpDown);
-            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineCheckBox);
-            alertsTabPage.alertsLineOutlinePanel.Location = new Point(3, 400);
-            alertsTabPage.alertsLineOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLineOutlinePanel.Name = "alertsLineOutlinePanel";
-            alertsTabPage.alertsLineOutlinePanel.Size = new Size(694, 35);
-            alertsTabPage.alertsLineOutlinePanel.TabIndex = 10067;
+
+
+
+
+
+
+
+
+
+
             // 
             // label127
             // 
@@ -3181,66 +3182,66 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsLineOutlineColorPictureBox
             // 
-            alertsTabPage.alertsLineOutlineColorPictureBox.BackColor = Color.White;
-            alertsTabPage.alertsLineOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            alertsTabPage.alertsLineOutlineColorPictureBox.Location = new Point(230, 6);
-            alertsTabPage.alertsLineOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLineOutlineColorPictureBox.Name = "alertsLineOutlineColorPictureBox";
-            alertsTabPage.alertsLineOutlineColorPictureBox.Size = new Size(22, 22);
-            alertsTabPage.alertsLineOutlineColorPictureBox.TabIndex = 45;
-            alertsTabPage.alertsLineOutlineColorPictureBox.TabStop = false;
-            alertsTabPage.alertsLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // alertsLineOutlineNumericUpDown
             // 
-            alertsTabPage.alertsLineOutlineNumericUpDown.BackColor = Color.FromArgb(32, 32, 32);
-            alertsTabPage.alertsLineOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            alertsTabPage.alertsLineOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsLineOutlineNumericUpDown.ForeColor = Color.White;
-            alertsTabPage.alertsLineOutlineNumericUpDown.Location = new Point(528, 6);
-            alertsTabPage.alertsLineOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLineOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            alertsTabPage.alertsLineOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsLineOutlineNumericUpDown.Name = "alertsLineOutlineNumericUpDown";
-            alertsTabPage.alertsLineOutlineNumericUpDown.Size = new Size(64, 24);
-            alertsTabPage.alertsLineOutlineNumericUpDown.TabIndex = 45;
-            alertsTabPage.alertsLineOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            alertsTabPage.alertsLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsLineOutlineCheckBox
             // 
-            alertsTabPage.alertsLineOutlineCheckBox.AutoSize = true;
-            alertsTabPage.alertsLineOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsLineOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsLineOutlineCheckBox.Location = new Point(620, 9);
-            alertsTabPage.alertsLineOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsLineOutlineCheckBox.Name = "alertsLineOutlineCheckBox";
-            alertsTabPage.alertsLineOutlineCheckBox.Size = new Size(22, 21);
-            alertsTabPage.alertsLineOutlineCheckBox.TabIndex = 45;
-            alertsTabPage.alertsLineOutlineCheckBox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomAchievementPanel
             // 
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel85);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel84);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel86);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(alertsTabPage.alertsSelectCustomAchievementFileButton);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel83);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(alertsTabPage.alertsAchievementEditOutlineCheckbox);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel87);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel78);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(label130);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(pictureBox13);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel79);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel80);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel81);
-            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel82);
-            alertsTabPage.alertsCustomAchievementPanel.Location = new Point(4, 49);
-            alertsTabPage.alertsCustomAchievementPanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomAchievementPanel.Name = "alertsCustomAchievementPanel";
-            alertsTabPage.alertsCustomAchievementPanel.Size = new Size(417, 452);
-            alertsTabPage.alertsCustomAchievementPanel.TabIndex = 10082;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel85
             // 
@@ -3508,39 +3509,39 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsAchievementEnableCheckbox
             // 
-            alertsTabPage.alertsAchievementEnableCheckbox.AutoSize = true;
-            alertsTabPage.alertsAchievementEnableCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsAchievementEnableCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsAchievementEnableCheckbox.Location = new Point(16, 9);
-            alertsTabPage.alertsAchievementEnableCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsAchievementEnableCheckbox.Name = "alertsAchievementEnableCheckbox";
-            alertsTabPage.alertsAchievementEnableCheckbox.Size = new Size(106, 29);
-            alertsTabPage.alertsAchievementEnableCheckbox.TabIndex = 54;
-            alertsTabPage.alertsAchievementEnableCheckbox.Text = "Enable";
-            alertsTabPage.alertsAchievementEnableCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // alertsCustomMasteryPanel
             // 
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel89);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel90);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel91);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(alertsTabPage.alertsMasteryEditOutlineCheckbox);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(alertsTabPage.alertsSelectCustomMasteryFileButton);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel92);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel93);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel94);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(label139);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(pictureBox14);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel95);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel96);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel97);
-            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel98);
-            alertsTabPage.alertsCustomMasteryPanel.Location = new Point(4, 49);
-            alertsTabPage.alertsCustomMasteryPanel.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsCustomMasteryPanel.Name = "alertsCustomMasteryPanel";
-            alertsTabPage.alertsCustomMasteryPanel.Size = new Size(418, 452);
-            alertsTabPage.alertsCustomMasteryPanel.TabIndex = 10083;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel89
             // 
@@ -3808,17 +3809,17 @@ namespace Retro_Achievement_Tracker
             // 
             // alertsMasteryEnableCheckbox
             // 
-            alertsTabPage.alertsMasteryEnableCheckbox.AutoSize = true;
-            alertsTabPage.alertsMasteryEnableCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            alertsTabPage.alertsMasteryEnableCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            alertsTabPage.alertsMasteryEnableCheckbox.Location = new Point(16, 9);
-            alertsTabPage.alertsMasteryEnableCheckbox.Margin = new Padding(4, 5, 4, 5);
-            alertsTabPage.alertsMasteryEnableCheckbox.Name = "alertsMasteryEnableCheckbox";
-            alertsTabPage.alertsMasteryEnableCheckbox.Size = new Size(106, 29);
-            alertsTabPage.alertsMasteryEnableCheckbox.TabIndex = 54;
-            alertsTabPage.alertsMasteryEnableCheckbox.Text = "Enable";
-            alertsTabPage.alertsMasteryEnableCheckbox.UseVisualStyleBackColor = true;
-            alertsTabPage.alertsMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel14
             // 
@@ -8342,6 +8343,109 @@ namespace Retro_Achievement_Tracker
             focusTabPage.focusLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
             focusTabPage.focusLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
 
+            alertsTabPage.alertsLinePanel.Controls.Add(label113);
+            alertsTabPage.alertsLinePanel.Controls.Add(alertsTabPage.alertsLineColorPictureBox);
+            alertsTabPage.alertsPointsPanel.Controls.Add(label116);
+            alertsTabPage.alertsPointsPanel.Controls.Add(alertsTabPage.alertsPointsFontColorPictureBox);
+            alertsTabPage.alertsPointsPanel.Controls.Add(alertsTabPage.alertsPointsFontComboBox);
+            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(label122);
+            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionFontOutlineColorPictureBox);
+            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionFontOutlineNumericUpDown);
+            alertsTabPage.alertsDescriptionOutlinePanel.Controls.Add(alertsTabPage.alertsDescriptionOutlineCheckBox);
+            alertsTabPage.alertsDescriptionPanel.Controls.Add(label123);
+            alertsTabPage.alertsDescriptionPanel.Controls.Add(alertsTabPage.alertsDescriptionFontColorPictureBox);
+            alertsTabPage.alertsDescriptionPanel.Controls.Add(alertsTabPage.alertsDescriptionFontComboBox);
+            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsFontOutlineNumericUpDown);
+            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsOutlineCheckBox);
+            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(label126);
+            alertsTabPage.alertsPointsOutlinePanel.Controls.Add(alertsTabPage.alertsPointsFontOutlineColorPictureBox);
+            alertsTabPage.alertsLineOutlinePanel.Controls.Add(label127);
+            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineColorPictureBox);
+            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineNumericUpDown);
+            alertsTabPage.alertsLineOutlinePanel.Controls.Add(alertsTabPage.alertsLineOutlineCheckBox);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel85);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel84);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel86);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(alertsTabPage.alertsSelectCustomAchievementFileButton);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel83);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(alertsTabPage.alertsAchievementEditOutlineCheckbox);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel87);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel78);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(label130);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(pictureBox13);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel79);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel80);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel81);
+            alertsTabPage.alertsCustomAchievementPanel.Controls.Add(panel82);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel89);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel90);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel91);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(alertsTabPage.alertsMasteryEditOutlineCheckbox);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(alertsTabPage.alertsSelectCustomMasteryFileButton);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel92);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel93);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel94);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(label139);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(pictureBox14);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel95);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel96);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel97);
+            alertsTabPage.alertsCustomMasteryPanel.Controls.Add(panel98);
+
+            alertsTabPage.alertsPlayAchievementButton.Click += new System.EventHandler(ShowAlertButton_Click);
+            alertsTabPage.alertsSelectCustomAchievementFileButton.Click += new System.EventHandler(SelectCustomAlertButton_Click);
+            alertsTabPage.alertsCustomAchievementScaleNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementXNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementYNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsAchievementEditOutlineCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+            alertsTabPage.alertsCustomAchievementOutNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementAnimationOutComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsCustomAchievementOutSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementInNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementAnimationInComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsCustomAchievementInSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+            alertsTabPage.alertsPlayMasteryButton.Click += new System.EventHandler(ShowAlertButton_Click);
+            alertsTabPage.alertsSelectCustomMasteryFileButton.Click += new System.EventHandler(SelectCustomAlertButton_Click);
+            alertsTabPage.alertsCustomMasteryScaleNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryXNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryYNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsMasteryEditOutlineCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+            alertsTabPage.alertsCustomMasteryOutNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryAnimationOutComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsCustomMasteryOutSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryInNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryAnimationInComboBox.SelectedIndexChanged += new System.EventHandler(NotificationAnimationComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsCustomMasteryInSpeedUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsCustomMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+            alertsTabPage.alertsLineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsBorderCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsBorderColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsPointsFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsPointsFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            alertsTabPage.alertsTitleFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsTitleOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsTitleFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            alertsTabPage.alertsDescriptionFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsDescriptionFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsDescriptionOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsDescriptionFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsDescriptionFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsTitleFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsTitleFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            alertsTabPage.alertsPointsFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsPointsOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsPointsFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            alertsTabPage.alertsLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            alertsTabPage.alertsLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            alertsTabPage.alertsAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+            alertsTabPage.alertsMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
+
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoPictureBox)).EndInit();
@@ -8402,12 +8506,12 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(focusTabPage.focusLineOutlineNumericUpDown)).EndInit();
             panel65.ResumeLayout(false);
             panel65.PerformLayout();
-            alertsTabPage.alertsLinePanel.ResumeLayout(false);
+
             ((ISupportInitialize)(alertsTabPage.alertsLineColorPictureBox)).EndInit();
             panel67.ResumeLayout(false);
             panel67.PerformLayout();
             ((ISupportInitialize)(alertsTabPage.alertsBorderColorPictureBox)).EndInit();
-            alertsTabPage.alertsPointsPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontColorPictureBox)).EndInit();
             panel69.ResumeLayout(false);
             panel69.PerformLayout();
@@ -8415,27 +8519,27 @@ namespace Retro_Achievement_Tracker
             panel70.PerformLayout();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineColorPictureBox)).EndInit();
-            alertsTabPage.alertsDescriptionOutlinePanel.ResumeLayout(false);
-            alertsTabPage.alertsDescriptionOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineNumericUpDown)).EndInit();
-            alertsTabPage.alertsDescriptionPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox20)).EndInit();
             panel73.ResumeLayout(false);
             ((ISupportInitialize)(alertsTabPage.alertsBackgroundColorPictureBox)).EndInit();
             panel74.ResumeLayout(false);
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontColorPictureBox)).EndInit();
-            alertsTabPage.alertsPointsOutlinePanel.ResumeLayout(false);
-            alertsTabPage.alertsPointsOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineColorPictureBox)).EndInit();
-            alertsTabPage.alertsLineOutlinePanel.ResumeLayout(false);
-            alertsTabPage.alertsLineOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineNumericUpDown)).EndInit();
-            alertsTabPage.alertsCustomAchievementPanel.ResumeLayout(false);
-            alertsTabPage.alertsCustomAchievementPanel.PerformLayout();
+
+
             panel85.ResumeLayout(false);
             panel84.ResumeLayout(false);
             panel86.ResumeLayout(false);
@@ -8447,8 +8551,8 @@ namespace Retro_Achievement_Tracker
             panel80.ResumeLayout(false);
             panel81.ResumeLayout(false);
             panel82.ResumeLayout(false);
-            alertsTabPage.alertsCustomMasteryPanel.ResumeLayout(false);
-            alertsTabPage.alertsCustomMasteryPanel.PerformLayout();
+
+
             panel89.ResumeLayout(false);
             panel90.ResumeLayout(false);
             panel91.ResumeLayout(false);
