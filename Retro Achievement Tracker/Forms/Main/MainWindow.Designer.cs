@@ -49,22 +49,28 @@ namespace Retro_Achievement_Tracker
 
             // Main tabs
             mainTabControl = new TabControl();
+            alertTabControl = new TabControl();
+            achievementTabPage = new TabPage();
+            masteryTabPage = new TabPage();
+
             focusTabPage = new FocusTab();
             focusTabPage.InitElements();
             alertsTabPage = new AlertsTab();
             alertsTabPage.InitElements();
-            alertTabControl = new TabControl();
-            achievementTabPage = new TabPage();
-            masteryTabPage = new TabPage();
             userInfoTabPage = new UserInfoTab();
+
             gameInfoTabPage = new GameInfoTab();
+            gameInfoTabPage.InitElements();
             gameProgressTabPage = new GameProgressTab();
+
             recentAchievementsTabPage = new RecentAchievementsTab();
+
             achievementsListTabPage = new AchievementsListTab();
+
             relatedMediaTabPage = new RelatedMediaTab();
 
             // Elements
-            gameInfoTabPage.gameInfoPictureBox = new PictureBox();
+
             autoPollingStatusPictureBox = new PictureBox();
 
 
@@ -330,84 +336,84 @@ namespace Retro_Achievement_Tracker
             userInfoTabPage.userInfoValuesOutlineCheckBox = new CheckBox();
             panel50 = new Panel();
             panel119 = new Panel();
-            gameInfoTabPage.gameInfoGenreLabel = new Label();
+
             label62 = new Label();
             label36 = new Label();
             panel117 = new Panel();
             label89 = new Label();
-            gameInfoTabPage.gameInfoReleasedLabel = new Label();
+
             panel118 = new Panel();
             label61 = new Label();
-            gameInfoTabPage.gameInfoPublisherLabel = new Label();
+
             panel116 = new Panel();
             label57 = new Label();
-            gameInfoTabPage.gameInfoDeveloperLabel = new Label();
-            gameInfoTabPage.gameInfoTitleLabel = new Label();
+
+
             pictureBox8 = new PictureBox();
             panel29 = new Panel();
             panel49 = new Panel();
             label88 = new Label();
-            gameInfoTabPage.gameInfoReleasedCheckBox = new CheckBox();
-            gameInfoTabPage.gameInfoReleaseDateTextBox = new TextBox();
+
+
             panel48 = new Panel();
             label87 = new Label();
-            gameInfoTabPage.gameInfoGenreCheckBox = new CheckBox();
-            gameInfoTabPage.gameInfoGenreTextBox = new TextBox();
+
+
             panel30 = new Panel();
             label63 = new Label();
             label64 = new Label();
             label65 = new Label();
             label66 = new Label();
-            gameInfoTabPage.gameInfoDefaultButton = new Button();
+
             pictureBox7 = new PictureBox();
             panel31 = new Panel();
             label67 = new Label();
-            gameInfoTabPage.gameInfoTitleCheckBox = new CheckBox();
-            gameInfoTabPage.gameInfoTitleTextBox = new TextBox();
+
+
             panel32 = new Panel();
             label68 = new Label();
-            gameInfoTabPage.gameInfoConsoleCheckBox = new CheckBox();
-            gameInfoTabPage.gameInfoConsoleTextBox = new TextBox();
+
+
             panel33 = new Panel();
             label69 = new Label();
-            gameInfoTabPage.gameInfoPublisherTextBox = new TextBox();
-            gameInfoTabPage.gameInfoPublisherCheckBox = new CheckBox();
+
+
             panel34 = new Panel();
             label70 = new Label();
-            gameInfoTabPage.gameInfoDeveloperTextBox = new TextBox();
-            gameInfoTabPage.gameInfoDeveloperCheckBox = new CheckBox();
+
+
             panel35 = new Panel();
             label71 = new Label();
             panel42 = new Panel();
-            gameInfoTabPage.gameInfoAdvancedCheckBox = new CheckBox();
+
             label78 = new Label();
             label79 = new Label();
             label80 = new Label();
             label81 = new Label();
-            gameInfoTabPage.gameInfoOpenWindowButton = new Button();
-            gameInfoTabPage.gameInfoValuesPanel = new Panel();
+
+
             label82 = new Label();
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox = new PictureBox();
-            gameInfoTabPage.gameInfoValuesFontComboBox = new ComboBox();
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox = new CheckBox();
+
+
+
             pictureBox9 = new PictureBox();
             panel44 = new Panel();
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox = new PictureBox();
+
             label83 = new Label();
             panel45 = new Panel();
-            gameInfoTabPage.gameInfoNamesLabel = new Label();
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox = new PictureBox();
-            gameInfoTabPage.gameInfoNamesFontComboBox = new ComboBox();
+
+
+
             panel46 = new Panel();
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown = new NumericUpDown();
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox = new CheckBox();
-            gameInfoTabPage.gameInfoNamesOutlineLabel = new Label();
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox = new PictureBox();
-            gameInfoTabPage.gameInfoValuesOutlinePanel = new Panel();
+
+
+
+
+
             label86 = new Label();
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox = new PictureBox();
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown = new NumericUpDown();
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox = new CheckBox();
+
+
+
             panel28 = new Panel();
             gameProgressTabPage.gameProgressPointsTextLabel = new Label();
             gameProgressTabPage.gameProgressHardcoreWorthLabel = new Label();
@@ -751,7 +757,7 @@ namespace Retro_Achievement_Tracker
             panel34.SuspendLayout();
             panel35.SuspendLayout();
             panel42.SuspendLayout();
-            gameInfoTabPage.gameInfoValuesPanel.SuspendLayout();
+
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox9)).BeginInit();
             panel44.SuspendLayout();
@@ -761,7 +767,7 @@ namespace Retro_Achievement_Tracker
             panel46.SuspendLayout();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox)).BeginInit();
-            gameInfoTabPage.gameInfoValuesOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown)).BeginInit();
             panel28.SuspendLayout();
@@ -1113,17 +1119,17 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoPictureBox
             // 
-            gameInfoTabPage.gameInfoPictureBox.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoPictureBox.Cursor = Cursors.Hand;
-            gameInfoTabPage.gameInfoPictureBox.InitialImage = null;
-            gameInfoTabPage.gameInfoPictureBox.Location = new Point(12, 80);
-            gameInfoTabPage.gameInfoPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoPictureBox.Name = "gameInfoPictureBox";
-            gameInfoTabPage.gameInfoPictureBox.Size = new Size(144, 148);
-            gameInfoTabPage.gameInfoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            gameInfoTabPage.gameInfoPictureBox.TabIndex = 10004;
-            gameInfoTabPage.gameInfoPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoPictureBox.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // autoPollingStatusPictureBox
             // 
@@ -4540,15 +4546,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoGenreLabel
             // 
-            gameInfoTabPage.gameInfoGenreLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoGenreLabel.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoGenreLabel.ForeColor = Color.FromArgb(204, 153, 0);
-            gameInfoTabPage.gameInfoGenreLabel.Location = new Point(154, 8);
-            gameInfoTabPage.gameInfoGenreLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoGenreLabel.Name = "gameInfoGenreLabel";
-            gameInfoTabPage.gameInfoGenreLabel.Size = new Size(363, 25);
-            gameInfoTabPage.gameInfoGenreLabel.TabIndex = 10066;
-            gameInfoTabPage.gameInfoGenreLabel.UseMnemonic = false;
+
+
+
+
+
+
+
+
+
             // 
             // label62
             // 
@@ -4599,15 +4605,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoReleasedLabel
             // 
-            gameInfoTabPage.gameInfoReleasedLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoReleasedLabel.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoReleasedLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoReleasedLabel.Location = new Point(154, 8);
-            gameInfoTabPage.gameInfoReleasedLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoReleasedLabel.Name = "gameInfoReleasedLabel";
-            gameInfoTabPage.gameInfoReleasedLabel.Size = new Size(363, 25);
-            gameInfoTabPage.gameInfoReleasedLabel.TabIndex = 10067;
-            gameInfoTabPage.gameInfoReleasedLabel.UseMnemonic = false;
+
+
+
+
+
+
+
+
+
             // 
             // panel118
             // 
@@ -4634,15 +4640,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoPublisherLabel
             // 
-            gameInfoTabPage.gameInfoPublisherLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoPublisherLabel.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoPublisherLabel.ForeColor = Color.FromArgb(204, 153, 0);
-            gameInfoTabPage.gameInfoPublisherLabel.Location = new Point(154, 9);
-            gameInfoTabPage.gameInfoPublisherLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoPublisherLabel.Name = "gameInfoPublisherLabel";
-            gameInfoTabPage.gameInfoPublisherLabel.Size = new Size(363, 25);
-            gameInfoTabPage.gameInfoPublisherLabel.TabIndex = 10064;
-            gameInfoTabPage.gameInfoPublisherLabel.UseMnemonic = false;
+
+
+
+
+
+
+
+
+
             // 
             // panel116
             // 
@@ -4669,28 +4675,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoDeveloperLabel
             // 
-            gameInfoTabPage.gameInfoDeveloperLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoDeveloperLabel.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoDeveloperLabel.ForeColor = Color.FromArgb(204, 153, 0);
-            gameInfoTabPage.gameInfoDeveloperLabel.Location = new Point(154, 5);
-            gameInfoTabPage.gameInfoDeveloperLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoDeveloperLabel.Name = "gameInfoDeveloperLabel";
-            gameInfoTabPage.gameInfoDeveloperLabel.Size = new Size(363, 25);
-            gameInfoTabPage.gameInfoDeveloperLabel.TabIndex = 10063;
-            gameInfoTabPage.gameInfoDeveloperLabel.UseMnemonic = false;
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoTitleLabel
             // 
-            gameInfoTabPage.gameInfoTitleLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoTitleLabel.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoTitleLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoTitleLabel.Location = new Point(4, 5);
-            gameInfoTabPage.gameInfoTitleLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoTitleLabel.Name = "gameInfoTitleLabel";
-            gameInfoTabPage.gameInfoTitleLabel.Size = new Size(688, 58);
-            gameInfoTabPage.gameInfoTitleLabel.TabIndex = 10058;
-            gameInfoTabPage.gameInfoTitleLabel.Text = "Game Info Title";
-            gameInfoTabPage.gameInfoTitleLabel.UseMnemonic = false;
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox8
             // 
@@ -4747,28 +4753,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoReleasedCheckBox
             // 
-            gameInfoTabPage.gameInfoReleasedCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoReleasedCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoReleasedCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoReleasedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoReleasedCheckBox.Name = "gameInfoReleasedCheckBox";
-            gameInfoTabPage.gameInfoReleasedCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoReleasedCheckBox.TabIndex = 55;
-            gameInfoTabPage.gameInfoReleasedCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoReleasedCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoReleaseDateTextBox
             // 
-            gameInfoTabPage.gameInfoReleaseDateTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoReleaseDateTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Name = "gameInfoReleaseDateTextBox";
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoReleaseDateTextBox.TabIndex = 5;
-            gameInfoTabPage.gameInfoReleaseDateTextBox.Text = "Released";
-            gameInfoTabPage.gameInfoReleaseDateTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel48
             // 
@@ -4796,28 +4802,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoGenreCheckBox
             // 
-            gameInfoTabPage.gameInfoGenreCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoGenreCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoGenreCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoGenreCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoGenreCheckBox.Name = "gameInfoGenreCheckBox";
-            gameInfoTabPage.gameInfoGenreCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoGenreCheckBox.TabIndex = 55;
-            gameInfoTabPage.gameInfoGenreCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoGenreCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoGenreTextBox
             // 
-            gameInfoTabPage.gameInfoGenreTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoGenreTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoGenreTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoGenreTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoGenreTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoGenreTextBox.Name = "gameInfoGenreTextBox";
-            gameInfoTabPage.gameInfoGenreTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoGenreTextBox.TabIndex = 5;
-            gameInfoTabPage.gameInfoGenreTextBox.Text = "Genre";
-            gameInfoTabPage.gameInfoGenreTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel30
             // 
@@ -4881,19 +4887,19 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoDefaultButton
             // 
-            gameInfoTabPage.gameInfoDefaultButton.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoDefaultButton.FlatAppearance.BorderColor = Color.FromArgb(239, 68, 68);
-            gameInfoTabPage.gameInfoDefaultButton.FlatStyle = FlatStyle.Flat;
-            gameInfoTabPage.gameInfoDefaultButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoDefaultButton.ForeColor = Color.FromArgb(239, 68, 68);
-            gameInfoTabPage.gameInfoDefaultButton.Location = new Point(306, 3);
-            gameInfoTabPage.gameInfoDefaultButton.Margin = new Padding(0);
-            gameInfoTabPage.gameInfoDefaultButton.Name = "gameInfoDefaultButton";
-            gameInfoTabPage.gameInfoDefaultButton.Size = new Size(112, 42);
-            gameInfoTabPage.gameInfoDefaultButton.TabIndex = 39;
-            gameInfoTabPage.gameInfoDefaultButton.Text = "Default";
-            gameInfoTabPage.gameInfoDefaultButton.UseVisualStyleBackColor = false;
-            gameInfoTabPage.gameInfoDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox7
             // 
@@ -4931,28 +4937,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoTitleCheckBox
             // 
-            gameInfoTabPage.gameInfoTitleCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoTitleCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoTitleCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoTitleCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoTitleCheckBox.Name = "gameInfoTitleCheckBox";
-            gameInfoTabPage.gameInfoTitleCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoTitleCheckBox.TabIndex = 52;
-            gameInfoTabPage.gameInfoTitleCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoTitleCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoTitleTextBox
             // 
-            gameInfoTabPage.gameInfoTitleTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoTitleTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoTitleTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoTitleTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoTitleTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoTitleTextBox.Name = "gameInfoTitleTextBox";
-            gameInfoTabPage.gameInfoTitleTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoTitleTextBox.TabIndex = 1;
-            gameInfoTabPage.gameInfoTitleTextBox.Text = "Title";
-            gameInfoTabPage.gameInfoTitleTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel32
             // 
@@ -4980,28 +4986,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoConsoleCheckBox
             // 
-            gameInfoTabPage.gameInfoConsoleCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoConsoleCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoConsoleCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoConsoleCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoConsoleCheckBox.Name = "gameInfoConsoleCheckBox";
-            gameInfoTabPage.gameInfoConsoleCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoConsoleCheckBox.TabIndex = 55;
-            gameInfoTabPage.gameInfoConsoleCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoConsoleCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoConsoleTextBox
             // 
-            gameInfoTabPage.gameInfoConsoleTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoConsoleTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoConsoleTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoConsoleTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoConsoleTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoConsoleTextBox.Name = "gameInfoConsoleTextBox";
-            gameInfoTabPage.gameInfoConsoleTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoConsoleTextBox.TabIndex = 5;
-            gameInfoTabPage.gameInfoConsoleTextBox.Text = "Console";
-            gameInfoTabPage.gameInfoConsoleTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel33
             // 
@@ -5029,28 +5035,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoPublisherTextBox
             // 
-            gameInfoTabPage.gameInfoPublisherTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoPublisherTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoPublisherTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoPublisherTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoPublisherTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoPublisherTextBox.Name = "gameInfoPublisherTextBox";
-            gameInfoTabPage.gameInfoPublisherTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoPublisherTextBox.TabIndex = 7;
-            gameInfoTabPage.gameInfoPublisherTextBox.Text = "Publisher";
-            gameInfoTabPage.gameInfoPublisherTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoPublisherCheckBox
             // 
-            gameInfoTabPage.gameInfoPublisherCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoPublisherCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoPublisherCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoPublisherCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoPublisherCheckBox.Name = "gameInfoPublisherCheckBox";
-            gameInfoTabPage.gameInfoPublisherCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoPublisherCheckBox.TabIndex = 56;
-            gameInfoTabPage.gameInfoPublisherCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoPublisherCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // panel34
             // 
@@ -5078,28 +5084,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoDeveloperTextBox
             // 
-            gameInfoTabPage.gameInfoDeveloperTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoDeveloperTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoDeveloperTextBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoDeveloperTextBox.Location = new Point(174, 0);
-            gameInfoTabPage.gameInfoDeveloperTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoDeveloperTextBox.Name = "gameInfoDeveloperTextBox";
-            gameInfoTabPage.gameInfoDeveloperTextBox.Size = new Size(146, 31);
-            gameInfoTabPage.gameInfoDeveloperTextBox.TabIndex = 6;
-            gameInfoTabPage.gameInfoDeveloperTextBox.Text = "Developer";
-            gameInfoTabPage.gameInfoDeveloperTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoDeveloperCheckBox
             // 
-            gameInfoTabPage.gameInfoDeveloperCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoDeveloperCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoDeveloperCheckBox.Location = new Point(338, 8);
-            gameInfoTabPage.gameInfoDeveloperCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoDeveloperCheckBox.Name = "gameInfoDeveloperCheckBox";
-            gameInfoTabPage.gameInfoDeveloperCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoDeveloperCheckBox.TabIndex = 54;
-            gameInfoTabPage.gameInfoDeveloperCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoDeveloperCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // panel35
             // 
@@ -5148,19 +5154,19 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoAdvancedCheckBox
             // 
-            gameInfoTabPage.gameInfoAdvancedCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoAdvancedCheckBox.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Location = new Point(8, 3);
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Name = "gameInfoAdvancedCheckBox";
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Size = new Size(135, 29);
-            gameInfoTabPage.gameInfoAdvancedCheckBox.TabIndex = 10053;
-            gameInfoTabPage.gameInfoAdvancedCheckBox.Text = "Advanced";
-            gameInfoTabPage.gameInfoAdvancedCheckBox.UseVisualStyleBackColor = false;
-            gameInfoTabPage.gameInfoAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // label78
             // 
@@ -5212,31 +5218,31 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoOpenWindowButton
             // 
-            gameInfoTabPage.gameInfoOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            gameInfoTabPage.gameInfoOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            gameInfoTabPage.gameInfoOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            gameInfoTabPage.gameInfoOpenWindowButton.Location = new Point(573, 3);
-            gameInfoTabPage.gameInfoOpenWindowButton.Margin = new Padding(0);
-            gameInfoTabPage.gameInfoOpenWindowButton.Name = "gameInfoOpenWindowButton";
-            gameInfoTabPage.gameInfoOpenWindowButton.Size = new Size(112, 42);
-            gameInfoTabPage.gameInfoOpenWindowButton.TabIndex = 10021;
-            gameInfoTabPage.gameInfoOpenWindowButton.Text = "Open";
-            gameInfoTabPage.gameInfoOpenWindowButton.UseVisualStyleBackColor = false;
-            gameInfoTabPage.gameInfoOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoValuesPanel
             // 
-            gameInfoTabPage.gameInfoValuesPanel.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(label82);
-            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontColorPictureBox);
-            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontComboBox);
-            gameInfoTabPage.gameInfoValuesPanel.Location = new Point(3, 163);
-            gameInfoTabPage.gameInfoValuesPanel.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesPanel.Name = "gameInfoValuesPanel";
-            gameInfoTabPage.gameInfoValuesPanel.Size = new Size(694, 35);
-            gameInfoTabPage.gameInfoValuesPanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
             // 
             // label82
             // 
@@ -5252,43 +5258,43 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoValuesFontColorPictureBox
             // 
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.BackColor = Color.White;
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Location = new Point(230, 5);
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Name = "gameInfoValuesFontColorPictureBox";
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Size = new Size(22, 22);
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoValuesFontComboBox
             // 
-            gameInfoTabPage.gameInfoValuesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoValuesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoValuesFontComboBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoValuesFontComboBox.FormattingEnabled = true;
-            gameInfoTabPage.gameInfoValuesFontComboBox.Location = new Point(290, 3);
-            gameInfoTabPage.gameInfoValuesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesFontComboBox.Name = "gameInfoValuesFontComboBox";
-            gameInfoTabPage.gameInfoValuesFontComboBox.Size = new Size(301, 28);
-            gameInfoTabPage.gameInfoValuesFontComboBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoAutoOpenWindowCheckbox
             // 
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.AutoSize = true;
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Name = "gameInfoAutoOpenWindowCheckbox";
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.TabIndex = 10022;
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.Text = "Auto-Open";
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox9
             // 
@@ -5313,15 +5319,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoBackgroundColorPictureBox
             // 
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.BackColor = Color.White;
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Location = new Point(230, 5);
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Name = "gameInfoBackgroundColorPictureBox";
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Size = new Size(22, 22);
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.TabIndex = 42;
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label83
             // 
@@ -5349,40 +5355,40 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoNamesLabel
             // 
-            gameInfoTabPage.gameInfoNamesLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoNamesLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoNamesLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoNamesLabel.Location = new Point(4, 6);
-            gameInfoTabPage.gameInfoNamesLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoNamesLabel.Name = "gameInfoNamesLabel";
-            gameInfoTabPage.gameInfoNamesLabel.Size = new Size(216, 25);
-            gameInfoTabPage.gameInfoNamesLabel.TabIndex = 10065;
-            gameInfoTabPage.gameInfoNamesLabel.Text = "Names";
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoNamesFontColorPictureBox
             // 
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.BackColor = Color.White;
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Location = new Point(230, 6);
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Name = "gameInfoNamesFontColorPictureBox";
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Size = new Size(22, 22);
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoNamesFontComboBox
             // 
-            gameInfoTabPage.gameInfoNamesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoNamesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoNamesFontComboBox.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoNamesFontComboBox.FormattingEnabled = true;
-            gameInfoTabPage.gameInfoNamesFontComboBox.Location = new Point(290, 3);
-            gameInfoTabPage.gameInfoNamesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoNamesFontComboBox.Name = "gameInfoNamesFontComboBox";
-            gameInfoTabPage.gameInfoNamesFontComboBox.Size = new Size(301, 28);
-            gameInfoTabPage.gameInfoNamesFontComboBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel46
             // 
@@ -5399,69 +5405,69 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoNamesFontOutlineNumericUpDown
             // 
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Name = "gameInfoNamesFontOutlineNumericUpDown";
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.TabIndex = 45;
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoNamesOutlineCheckBox
             // 
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Location = new Point(620, 8);
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Name = "gameInfoNamesOutlineCheckBox";
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoNamesOutlineLabel
             // 
-            gameInfoTabPage.gameInfoNamesOutlineLabel.BackColor = Color.Transparent;
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoNamesOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Location = new Point(4, 5);
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Name = "gameInfoNamesOutlineLabel";
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Size = new Size(216, 25);
-            gameInfoTabPage.gameInfoNamesOutlineLabel.TabIndex = 10066;
-            gameInfoTabPage.gameInfoNamesOutlineLabel.Text = "Names OutlineColor";
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoNamesFontOutlineColorPictureBox
             // 
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.BackColor = Color.White;
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Location = new Point(230, 5);
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Name = "gameInfoNamesFontOutlineColorPictureBox";
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoValuesOutlinePanel
             // 
-            gameInfoTabPage.gameInfoValuesOutlinePanel.BackColor = Color.FromArgb(22, 22, 22);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(label86);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesOutlineCheckBox);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Location = new Point(3, 231);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Name = "gameInfoValuesOutlinePanel";
-            gameInfoTabPage.gameInfoValuesOutlinePanel.Size = new Size(694, 35);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.TabIndex = 10067;
+
+
+
+
+
+
+
+
+
+
             // 
             // label86
             // 
@@ -5477,44 +5483,44 @@ namespace Retro_Achievement_Tracker
             // 
             // gameInfoValuesFontOutlineColorPictureBox
             // 
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.BackColor = Color.White;
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Location = new Point(230, 6);
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Name = "gameInfoValuesFontOutlineColorPictureBox";
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.TabStop = false;
-            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoValuesFontOutlineNumericUpDown
             // 
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.ForeColor = Color.White;
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Name = "gameInfoValuesFontOutlineNumericUpDown";
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.TabIndex = 45;
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameInfoValuesOutlineCheckBox
             // 
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.AutoSize = true;
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Location = new Point(620, 9);
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Name = "gameInfoValuesOutlineCheckBox";
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.Size = new Size(22, 21);
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.TabIndex = 45;
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.UseVisualStyleBackColor = true;
-            gameInfoTabPage.gameInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel28
             // 
@@ -8446,6 +8452,43 @@ namespace Retro_Achievement_Tracker
             alertsTabPage.alertsAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
             alertsTabPage.alertsMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
 
+            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(label82);
+            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontColorPictureBox);
+            gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontComboBox);
+            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(label86);
+            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox);
+            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown);
+            gameInfoTabPage.gameInfoValuesOutlinePanel.Controls.Add(gameInfoTabPage.gameInfoValuesOutlineCheckBox);
+
+            gameInfoTabPage.gameInfoPictureBox.Click += new System.EventHandler(BrowserSensitiveControl_Click);
+            gameInfoTabPage.gameInfoReleasedCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoReleaseDateTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoGenreCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoGenreTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+            gameInfoTabPage.gameInfoTitleCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoTitleTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoConsoleCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoConsoleTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoPublisherTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoPublisherCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoDeveloperTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameInfoTabPage.gameInfoDeveloperCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            gameInfoTabPage.gameInfoOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            gameInfoTabPage.gameInfoValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameInfoTabPage.gameInfoValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            gameInfoTabPage.gameInfoAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameInfoTabPage.gameInfoNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameInfoTabPage.gameInfoNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            gameInfoTabPage.gameInfoNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            gameInfoTabPage.gameInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoPictureBox)).EndInit();
@@ -8620,7 +8663,7 @@ namespace Retro_Achievement_Tracker
             panel35.PerformLayout();
             panel42.ResumeLayout(false);
             panel42.PerformLayout();
-            gameInfoTabPage.gameInfoValuesPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox9)).EndInit();
             panel44.ResumeLayout(false);
@@ -8631,8 +8674,8 @@ namespace Retro_Achievement_Tracker
             panel46.PerformLayout();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox)).EndInit();
-            gameInfoTabPage.gameInfoValuesOutlinePanel.ResumeLayout(false);
-            gameInfoTabPage.gameInfoValuesOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown)).EndInit();
             panel28.ResumeLayout(false);
