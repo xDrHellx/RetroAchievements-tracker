@@ -58,7 +58,7 @@ namespace Retro_Achievement_Tracker
             alertsTabPage = new AlertsTab();
             alertsTabPage.InitElements();
             userInfoTabPage = new UserInfoTab();
-
+            userInfoTabPage.InitElements();
             gameInfoTabPage = new GameInfoTab();
             gameInfoTabPage.InitElements();
             gameProgressTabPage = new GameProgressTab();
@@ -98,17 +98,17 @@ namespace Retro_Achievement_Tracker
 
 
 
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox = new CheckBox();
-            userInfoTabPage.userInfoOpenWindowButton = new Button();
-            userInfoTabPage.userInfoTruePointsTextBox = new TextBox();
-            userInfoTabPage.userInfoPointsTextBox = new TextBox();
-            userInfoTabPage.userInfoRatioTextBox = new TextBox();
-            userInfoTabPage.userInfoRankTextBox = new TextBox();
-            userInfoTabPage.userInfoTruePointsCheckBox = new CheckBox();
-            userInfoTabPage.userInfoRatioCheckBox = new CheckBox();
-            userInfoTabPage.userInfoPointsCheckBox = new CheckBox();
-            userInfoTabPage.userInfoDefaultButton = new Button();
-            userInfoTabPage.userInfoRankCheckBox = new CheckBox();
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             openFileDialog = new OpenFileDialog();
             colorDialog = new ColorDialog();
 
@@ -281,13 +281,13 @@ namespace Retro_Achievement_Tracker
             label143 = new Label();
 
             panel14 = new Panel();
-            userInfoTabPage.userInfoUsernameLabel = new Label();
-            userInfoTabPage.userInfoRankLabel = new Label();
-            userInfoTabPage.userInfoPointsLabel = new Label();
+            
+            
+            
             label37 = new Label();
-            userInfoTabPage.userInfoTruePointsLabel = new Label();
-            userInfoTabPage.userInfoMottoLabel = new Label();
-            userInfoTabPage.userInfoRatioLabel = new Label();
+            
+            
+            
             pictureBox2 = new PictureBox();
             panel21 = new Panel();
             panel22 = new Panel();
@@ -307,33 +307,33 @@ namespace Retro_Achievement_Tracker
             panel20 = new Panel();
             label2 = new Label();
             panel4 = new Panel();
-            userInfoTabPage.userInfoAdvancedCheckBox = new CheckBox();
+            
             label4 = new Label();
             label9 = new Label();
             label25 = new Label();
             label15 = new Label();
-            userInfoTabPage.userInfoValuesPanel = new Panel();
+            
             label26 = new Label();
-            userInfoTabPage.userInfoValuesFontColorPictureBox = new PictureBox();
-            userInfoTabPage.userInfoValuesFontComboBox = new ComboBox();
+            
+            
             pictureBox3 = new PictureBox();
             panel5 = new Panel();
-            userInfoTabPage.userInfoBackgroundColorPictureBox = new PictureBox();
+            
             label3 = new Label();
             panel6 = new Panel();
-            userInfoTabPage.userInfoNamesLabel = new Label();
-            userInfoTabPage.userInfoNamesFontColorPictureBox = new PictureBox();
-            userInfoTabPage.userInfoNamesFontComboBox = new ComboBox();
+            
+            
+            
             panel7 = new Panel();
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown = new NumericUpDown();
-            userInfoTabPage.userInfoNamesOutlineCheckBox = new CheckBox();
-            userInfoTabPage.userInfoNamesOutlineLabel = new Label();
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox = new PictureBox();
-            userInfoTabPage.userInfoValuesOutlinePanel = new Panel();
+            
+            
+            
+            
+            
             label27 = new Label();
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox = new PictureBox();
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown = new NumericUpDown();
-            userInfoTabPage.userInfoValuesOutlineCheckBox = new CheckBox();
+            
+            
+            
             panel50 = new Panel();
             panel119 = new Panel();
 
@@ -727,7 +727,7 @@ namespace Retro_Achievement_Tracker
             panel11.SuspendLayout();
             panel20.SuspendLayout();
             panel4.SuspendLayout();
-            userInfoTabPage.userInfoValuesPanel.SuspendLayout();
+            
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox3)).BeginInit();
             panel5.SuspendLayout();
@@ -737,7 +737,7 @@ namespace Retro_Achievement_Tracker
             panel7.SuspendLayout();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineColorPictureBox)).BeginInit();
-            userInfoTabPage.userInfoValuesOutlinePanel.SuspendLayout();
+            
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown)).BeginInit();
             panel50.SuspendLayout();
@@ -984,34 +984,34 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoAutoOpenWindowCheckbox
             // 
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.AutoSize = true;
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Name = "userInfoAutoOpenWindowCheckbox";
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.TabIndex = 10022;
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.Text = "Auto-Open";
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoOpenWindowButton
             // 
-            userInfoTabPage.userInfoOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            userInfoTabPage.userInfoOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            userInfoTabPage.userInfoOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            userInfoTabPage.userInfoOpenWindowButton.Location = new Point(573, 3);
-            userInfoTabPage.userInfoOpenWindowButton.Margin = new Padding(0);
-            userInfoTabPage.userInfoOpenWindowButton.Name = "userInfoOpenWindowButton";
-            userInfoTabPage.userInfoOpenWindowButton.Size = new Size(112, 42);
-            userInfoTabPage.userInfoOpenWindowButton.TabIndex = 10021;
-            userInfoTabPage.userInfoOpenWindowButton.Text = "Open";
-            userInfoTabPage.userInfoOpenWindowButton.UseVisualStyleBackColor = false;
-            userInfoTabPage.userInfoOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // startButton
             // 
@@ -1541,135 +1541,135 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoTruePointsTextBox
             // 
-            userInfoTabPage.userInfoTruePointsTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoTruePointsTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoTruePointsTextBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoTruePointsTextBox.Location = new Point(174, 0);
-            userInfoTabPage.userInfoTruePointsTextBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoTruePointsTextBox.Name = "userInfoTruePointsTextBox";
-            userInfoTabPage.userInfoTruePointsTextBox.Size = new Size(146, 31);
-            userInfoTabPage.userInfoTruePointsTextBox.TabIndex = 7;
-            userInfoTabPage.userInfoTruePointsTextBox.Text = "True Points";
-            userInfoTabPage.userInfoTruePointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoPointsTextBox
             // 
-            userInfoTabPage.userInfoPointsTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoPointsTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoPointsTextBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoPointsTextBox.Location = new Point(174, 0);
-            userInfoTabPage.userInfoPointsTextBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoPointsTextBox.Name = "userInfoPointsTextBox";
-            userInfoTabPage.userInfoPointsTextBox.Size = new Size(146, 31);
-            userInfoTabPage.userInfoPointsTextBox.TabIndex = 6;
-            userInfoTabPage.userInfoPointsTextBox.Text = "Points";
-            userInfoTabPage.userInfoPointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRatioTextBox
             // 
-            userInfoTabPage.userInfoRatioTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoRatioTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRatioTextBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoRatioTextBox.Location = new Point(174, 0);
-            userInfoTabPage.userInfoRatioTextBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoRatioTextBox.Name = "userInfoRatioTextBox";
-            userInfoTabPage.userInfoRatioTextBox.Size = new Size(146, 31);
-            userInfoTabPage.userInfoRatioTextBox.TabIndex = 5;
-            userInfoTabPage.userInfoRatioTextBox.Text = "Retro Ratio";
-            userInfoTabPage.userInfoRatioTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRankTextBox
             // 
-            userInfoTabPage.userInfoRankTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoRankTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRankTextBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoRankTextBox.Location = new Point(174, 0);
-            userInfoTabPage.userInfoRankTextBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoRankTextBox.Name = "userInfoRankTextBox";
-            userInfoTabPage.userInfoRankTextBox.Size = new Size(146, 31);
-            userInfoTabPage.userInfoRankTextBox.TabIndex = 1;
-            userInfoTabPage.userInfoRankTextBox.Text = "Rank";
-            userInfoTabPage.userInfoRankTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoTruePointsCheckBox
             // 
-            userInfoTabPage.userInfoTruePointsCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoTruePointsCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoTruePointsCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoTruePointsCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoTruePointsCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoTruePointsCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoTruePointsCheckBox.Location = new Point(338, 8);
-            userInfoTabPage.userInfoTruePointsCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoTruePointsCheckBox.Name = "userInfoTruePointsCheckBox";
-            userInfoTabPage.userInfoTruePointsCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoTruePointsCheckBox.TabIndex = 56;
-            userInfoTabPage.userInfoTruePointsCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoTruePointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRatioCheckBox
             // 
-            userInfoTabPage.userInfoRatioCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoRatioCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoRatioCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoRatioCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoRatioCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRatioCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoRatioCheckBox.Location = new Point(338, 8);
-            userInfoTabPage.userInfoRatioCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoRatioCheckBox.Name = "userInfoRatioCheckBox";
-            userInfoTabPage.userInfoRatioCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoRatioCheckBox.TabIndex = 55;
-            userInfoTabPage.userInfoRatioCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoRatioCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoPointsCheckBox
             // 
-            userInfoTabPage.userInfoPointsCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoPointsCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoPointsCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoPointsCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoPointsCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoPointsCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoPointsCheckBox.Location = new Point(338, 8);
-            userInfoTabPage.userInfoPointsCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoPointsCheckBox.Name = "userInfoPointsCheckBox";
-            userInfoTabPage.userInfoPointsCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoPointsCheckBox.TabIndex = 54;
-            userInfoTabPage.userInfoPointsCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoPointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoDefaultButton
             // 
-            userInfoTabPage.userInfoDefaultButton.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoDefaultButton.FlatAppearance.BorderColor = Color.FromArgb(239, 68, 68);
-            userInfoTabPage.userInfoDefaultButton.FlatStyle = FlatStyle.Flat;
-            userInfoTabPage.userInfoDefaultButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoDefaultButton.ForeColor = Color.FromArgb(239, 68, 68);
-            userInfoTabPage.userInfoDefaultButton.Location = new Point(306, 3);
-            userInfoTabPage.userInfoDefaultButton.Margin = new Padding(0);
-            userInfoTabPage.userInfoDefaultButton.Name = "userInfoDefaultButton";
-            userInfoTabPage.userInfoDefaultButton.Size = new Size(112, 42);
-            userInfoTabPage.userInfoDefaultButton.TabIndex = 39;
-            userInfoTabPage.userInfoDefaultButton.Text = "Default";
-            userInfoTabPage.userInfoDefaultButton.UseVisualStyleBackColor = false;
-            userInfoTabPage.userInfoDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRankCheckBox
             // 
-            userInfoTabPage.userInfoRankCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoRankCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoRankCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoRankCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoRankCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRankCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoRankCheckBox.Location = new Point(338, 8);
-            userInfoTabPage.userInfoRankCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoRankCheckBox.Name = "userInfoRankCheckBox";
-            userInfoTabPage.userInfoRankCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoRankCheckBox.TabIndex = 52;
-            userInfoTabPage.userInfoRankCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoRankCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // openFileDialog
             // 
@@ -3847,39 +3847,39 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoUsernameLabel
             // 
-            userInfoTabPage.userInfoUsernameLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoUsernameLabel.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoUsernameLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoUsernameLabel.Location = new Point(4, 5);
-            userInfoTabPage.userInfoUsernameLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoUsernameLabel.Name = "userInfoUsernameLabel";
-            userInfoTabPage.userInfoUsernameLabel.Size = new Size(688, 40);
-            userInfoTabPage.userInfoUsernameLabel.TabIndex = 10058;
-            userInfoTabPage.userInfoUsernameLabel.Text = "Username";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRankLabel
             // 
-            userInfoTabPage.userInfoRankLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoRankLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRankLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoRankLabel.Location = new Point(9, 120);
-            userInfoTabPage.userInfoRankLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoRankLabel.Name = "userInfoRankLabel";
-            userInfoTabPage.userInfoRankLabel.Size = new Size(303, 25);
-            userInfoTabPage.userInfoRankLabel.TabIndex = 10054;
-            userInfoTabPage.userInfoRankLabel.Text = "Site Rank: 15000";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoPointsLabel
             // 
-            userInfoTabPage.userInfoPointsLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoPointsLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoPointsLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoPointsLabel.Location = new Point(9, 95);
-            userInfoTabPage.userInfoPointsLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoPointsLabel.Name = "userInfoPointsLabel";
-            userInfoTabPage.userInfoPointsLabel.Size = new Size(280, 25);
-            userInfoTabPage.userInfoPointsLabel.TabIndex = 10055;
-            userInfoTabPage.userInfoPointsLabel.Text = "Hardcore Points: 348897";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // label37
             // 
@@ -3895,41 +3895,41 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoTruePointsLabel
             // 
-            userInfoTabPage.userInfoTruePointsLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoTruePointsLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoTruePointsLabel.ForeColor = Color.White;
-            userInfoTabPage.userInfoTruePointsLabel.Location = new Point(291, 95);
-            userInfoTabPage.userInfoTruePointsLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoTruePointsLabel.Name = "userInfoTruePointsLabel";
-            userInfoTabPage.userInfoTruePointsLabel.Size = new Size(128, 25);
-            userInfoTabPage.userInfoTruePointsLabel.TabIndex = 10056;
-            userInfoTabPage.userInfoTruePointsLabel.Text = "(10019920)";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoMottoLabel
             // 
-            userInfoTabPage.userInfoMottoLabel.AutoSize = true;
-            userInfoTabPage.userInfoMottoLabel.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoMottoLabel.Font = new Font("Verdana", 9.75F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoMottoLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoMottoLabel.Location = new Point(9, 57);
-            userInfoTabPage.userInfoMottoLabel.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoMottoLabel.Name = "userInfoMottoLabel";
-            userInfoTabPage.userInfoMottoLabel.Padding = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoMottoLabel.Size = new Size(240, 35);
-            userInfoTabPage.userInfoMottoLabel.TabIndex = 10074;
-            userInfoTabPage.userInfoMottoLabel.Text = "twitch.tv/RetroS3xual";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoRatioLabel
             // 
-            userInfoTabPage.userInfoRatioLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoRatioLabel.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoRatioLabel.ForeColor = Color.White;
-            userInfoTabPage.userInfoRatioLabel.Location = new Point(146, 145);
-            userInfoTabPage.userInfoRatioLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoRatioLabel.Name = "userInfoRatioLabel";
-            userInfoTabPage.userInfoRatioLabel.Size = new Size(110, 25);
-            userInfoTabPage.userInfoRatioLabel.TabIndex = 10057;
-            userInfoTabPage.userInfoRatioLabel.Text = "3.62";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // pictureBox2
             // 
@@ -4171,21 +4171,21 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoAdvancedCheckBox
             // 
-            userInfoTabPage.userInfoAdvancedCheckBox.AutoSize = true;
-            userInfoTabPage.userInfoAdvancedCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            userInfoTabPage.userInfoAdvancedCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoAdvancedCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(118, 118, 118);
-            userInfoTabPage.userInfoAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoAdvancedCheckBox.Location = new Point(8, 3);
-            userInfoTabPage.userInfoAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoAdvancedCheckBox.Name = "userInfoAdvancedCheckBox";
-            userInfoTabPage.userInfoAdvancedCheckBox.Size = new Size(135, 29);
-            userInfoTabPage.userInfoAdvancedCheckBox.TabIndex = 10053;
-            userInfoTabPage.userInfoAdvancedCheckBox.Text = "Advanced";
-            userInfoTabPage.userInfoAdvancedCheckBox.UseVisualStyleBackColor = false;
-            userInfoTabPage.userInfoAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // label4
             // 
@@ -4237,15 +4237,15 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoValuesPanel
             // 
-            userInfoTabPage.userInfoValuesPanel.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoValuesPanel.Controls.Add(label26);
-            userInfoTabPage.userInfoValuesPanel.Controls.Add(userInfoTabPage.userInfoValuesFontColorPictureBox);
-            userInfoTabPage.userInfoValuesPanel.Controls.Add(userInfoTabPage.userInfoValuesFontComboBox);
-            userInfoTabPage.userInfoValuesPanel.Location = new Point(3, 163);
-            userInfoTabPage.userInfoValuesPanel.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesPanel.Name = "userInfoValuesPanel";
-            userInfoTabPage.userInfoValuesPanel.Size = new Size(694, 35);
-            userInfoTabPage.userInfoValuesPanel.TabIndex = 10061;
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // label26
             // 
@@ -4261,28 +4261,28 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoValuesFontColorPictureBox
             // 
-            userInfoTabPage.userInfoValuesFontColorPictureBox.BackColor = Color.White;
-            userInfoTabPage.userInfoValuesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            userInfoTabPage.userInfoValuesFontColorPictureBox.Location = new Point(230, 5);
-            userInfoTabPage.userInfoValuesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesFontColorPictureBox.Name = "userInfoValuesFontColorPictureBox";
-            userInfoTabPage.userInfoValuesFontColorPictureBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoValuesFontColorPictureBox.TabIndex = 45;
-            userInfoTabPage.userInfoValuesFontColorPictureBox.TabStop = false;
-            userInfoTabPage.userInfoValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoValuesFontComboBox
             // 
-            userInfoTabPage.userInfoValuesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoValuesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoValuesFontComboBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoValuesFontComboBox.FormattingEnabled = true;
-            userInfoTabPage.userInfoValuesFontComboBox.Location = new Point(290, 3);
-            userInfoTabPage.userInfoValuesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesFontComboBox.Name = "userInfoValuesFontComboBox";
-            userInfoTabPage.userInfoValuesFontComboBox.Size = new Size(301, 28);
-            userInfoTabPage.userInfoValuesFontComboBox.TabIndex = 45;
-            userInfoTabPage.userInfoValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // pictureBox3
             // 
@@ -4307,15 +4307,15 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoBackgroundColorPictureBox
             // 
-            userInfoTabPage.userInfoBackgroundColorPictureBox.BackColor = Color.White;
-            userInfoTabPage.userInfoBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            userInfoTabPage.userInfoBackgroundColorPictureBox.Location = new Point(230, 5);
-            userInfoTabPage.userInfoBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoBackgroundColorPictureBox.Name = "userInfoBackgroundColorPictureBox";
-            userInfoTabPage.userInfoBackgroundColorPictureBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoBackgroundColorPictureBox.TabIndex = 42;
-            userInfoTabPage.userInfoBackgroundColorPictureBox.TabStop = false;
-            userInfoTabPage.userInfoBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // label3
             // 
@@ -4343,40 +4343,40 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoNamesLabel
             // 
-            userInfoTabPage.userInfoNamesLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoNamesLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoNamesLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoNamesLabel.Location = new Point(4, 6);
-            userInfoTabPage.userInfoNamesLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoNamesLabel.Name = "userInfoNamesLabel";
-            userInfoTabPage.userInfoNamesLabel.Size = new Size(216, 25);
-            userInfoTabPage.userInfoNamesLabel.TabIndex = 10065;
-            userInfoTabPage.userInfoNamesLabel.Text = "Names";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoNamesFontColorPictureBox
             // 
-            userInfoTabPage.userInfoNamesFontColorPictureBox.BackColor = Color.White;
-            userInfoTabPage.userInfoNamesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            userInfoTabPage.userInfoNamesFontColorPictureBox.Location = new Point(230, 6);
-            userInfoTabPage.userInfoNamesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoNamesFontColorPictureBox.Name = "userInfoNamesFontColorPictureBox";
-            userInfoTabPage.userInfoNamesFontColorPictureBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoNamesFontColorPictureBox.TabIndex = 45;
-            userInfoTabPage.userInfoNamesFontColorPictureBox.TabStop = false;
-            userInfoTabPage.userInfoNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoNamesFontComboBox
             // 
-            userInfoTabPage.userInfoNamesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoNamesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoNamesFontComboBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoNamesFontComboBox.FormattingEnabled = true;
-            userInfoTabPage.userInfoNamesFontComboBox.Location = new Point(290, 3);
-            userInfoTabPage.userInfoNamesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoNamesFontComboBox.Name = "userInfoNamesFontComboBox";
-            userInfoTabPage.userInfoNamesFontComboBox.Size = new Size(301, 28);
-            userInfoTabPage.userInfoNamesFontComboBox.TabIndex = 45;
-            userInfoTabPage.userInfoNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // panel7
             // 
@@ -4393,72 +4393,72 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoNamesFontOutlineNumericUpDown
             // 
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.ForeColor = Color.White;
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Name = "userInfoNamesFontOutlineNumericUpDown";
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.TabIndex = 45;
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoNamesOutlineCheckBox
             // 
-            userInfoTabPage.userInfoNamesOutlineCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoNamesOutlineCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoNamesOutlineCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.Location = new Point(620, 8);
-            userInfoTabPage.userInfoNamesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoNamesOutlineCheckBox.Name = "userInfoNamesOutlineCheckBox";
-            userInfoTabPage.userInfoNamesOutlineCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoNamesOutlineCheckBox.TabIndex = 45;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoNamesOutlineLabel
             // 
-            userInfoTabPage.userInfoNamesOutlineLabel.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoNamesOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoNamesOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            userInfoTabPage.userInfoNamesOutlineLabel.Location = new Point(4, 5);
-            userInfoTabPage.userInfoNamesOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            userInfoTabPage.userInfoNamesOutlineLabel.Name = "userInfoNamesOutlineLabel";
-            userInfoTabPage.userInfoNamesOutlineLabel.Size = new Size(216, 25);
-            userInfoTabPage.userInfoNamesOutlineLabel.TabIndex = 10066;
-            userInfoTabPage.userInfoNamesOutlineLabel.Text = "Names OutlineColor";
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoNamesFontOutlineColorPictureBox
             // 
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.BackColor = Color.White;
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Location = new Point(230, 5);
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Name = "userInfoNamesFontOutlineColorPictureBox";
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.TabIndex = 45;
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.TabStop = false;
-            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoValuesOutlinePanel
             // 
-            userInfoTabPage.userInfoValuesOutlinePanel.BackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(label27);
-            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox);
-            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown);
-            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesOutlineCheckBox);
-            userInfoTabPage.userInfoValuesOutlinePanel.Location = new Point(3, 231);
-            userInfoTabPage.userInfoValuesOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesOutlinePanel.Name = "userInfoValuesOutlinePanel";
-            userInfoTabPage.userInfoValuesOutlinePanel.Size = new Size(694, 35);
-            userInfoTabPage.userInfoValuesOutlinePanel.TabIndex = 10067;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // label27
             // 
@@ -4474,47 +4474,47 @@ namespace Retro_Achievement_Tracker
             // 
             // userInfoValuesFontOutlineColorPictureBox
             // 
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.BackColor = Color.White;
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Location = new Point(230, 6);
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Name = "userInfoValuesFontOutlineColorPictureBox";
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.TabIndex = 45;
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.TabStop = false;
-            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoValuesFontOutlineNumericUpDown
             // 
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.ForeColor = Color.White;
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Name = "userInfoValuesFontOutlineNumericUpDown";
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.TabIndex = 45;
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // userInfoValuesOutlineCheckBox
             // 
-            userInfoTabPage.userInfoValuesOutlineCheckBox.BackColor = Color.Transparent;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.FlatAppearance.BorderSize = 0;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(22, 22, 22);
-            userInfoTabPage.userInfoValuesOutlineCheckBox.FlatStyle = FlatStyle.System;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            userInfoTabPage.userInfoValuesOutlineCheckBox.ForeColor = Color.White;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.Location = new Point(620, 9);
-            userInfoTabPage.userInfoValuesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            userInfoTabPage.userInfoValuesOutlineCheckBox.Name = "userInfoValuesOutlineCheckBox";
-            userInfoTabPage.userInfoValuesOutlineCheckBox.Size = new Size(22, 22);
-            userInfoTabPage.userInfoValuesOutlineCheckBox.TabIndex = 45;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.UseVisualStyleBackColor = true;
-            userInfoTabPage.userInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // 
             // panel50
             // 
@@ -8452,6 +8452,38 @@ namespace Retro_Achievement_Tracker
             alertsTabPage.alertsAchievementEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
             alertsTabPage.alertsMasteryEnableCheckbox.CheckedChanged += new System.EventHandler(CustomAlertsCheckBox_CheckedChanged);
 
+            userInfoTabPage.userInfoValuesPanel.Controls.Add(label26);
+            userInfoTabPage.userInfoValuesPanel.Controls.Add(userInfoTabPage.userInfoValuesFontColorPictureBox);
+            userInfoTabPage.userInfoValuesPanel.Controls.Add(userInfoTabPage.userInfoValuesFontComboBox);
+            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(label27);
+            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox);
+            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown);
+            userInfoTabPage.userInfoValuesOutlinePanel.Controls.Add(userInfoTabPage.userInfoValuesOutlineCheckBox);
+
+            userInfoTabPage.userInfoAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            userInfoTabPage.userInfoTruePointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            userInfoTabPage.userInfoPointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            userInfoTabPage.userInfoRatioTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            userInfoTabPage.userInfoRankTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            userInfoTabPage.userInfoTruePointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoRatioCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoPointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+            userInfoTabPage.userInfoRankCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            userInfoTabPage.userInfoValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            userInfoTabPage.userInfoValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            userInfoTabPage.userInfoBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            userInfoTabPage.userInfoNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            userInfoTabPage.userInfoNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            userInfoTabPage.userInfoNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            userInfoTabPage.userInfoNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            userInfoTabPage.userInfoNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            userInfoTabPage.userInfoValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            userInfoTabPage.userInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            userInfoTabPage.userInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
             gameInfoTabPage.gameInfoValuesPanel.Controls.Add(label82);
             gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontColorPictureBox);
             gameInfoTabPage.gameInfoValuesPanel.Controls.Add(gameInfoTabPage.gameInfoValuesFontComboBox);
@@ -8625,7 +8657,7 @@ namespace Retro_Achievement_Tracker
             panel20.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            userInfoTabPage.userInfoValuesPanel.ResumeLayout(false);
+            
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox3)).EndInit();
             panel5.ResumeLayout(false);
@@ -8635,7 +8667,7 @@ namespace Retro_Achievement_Tracker
             panel7.ResumeLayout(false);
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineColorPictureBox)).EndInit();
-            userInfoTabPage.userInfoValuesOutlinePanel.ResumeLayout(false);
+            
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown)).EndInit();
             panel50.ResumeLayout(false);
