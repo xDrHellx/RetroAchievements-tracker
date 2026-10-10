@@ -68,6 +68,7 @@ namespace Retro_Achievement_Tracker
             achievementsListTabPage = new AchievementsListTab();
             achievementsListTabPage.InitElements();
             relatedMediaTabPage = new RelatedMediaTab();
+            relatedMediaTabPage.InitElements();
 
             // Elements
 
@@ -581,38 +582,38 @@ namespace Retro_Achievement_Tracker
             panel3 = new Panel();
             panel2 = new Panel();
             panel120 = new Panel();
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton = new RadioButton();
+
+
+
+
             pictureBox19 = new PictureBox();
             label1 = new Label();
             panel121 = new Panel();
             label90 = new Label();
             panel122 = new Panel();
             label91 = new Label();
-            relatedMediaTabPage.relatedMediaOpenWindowButton = new Button();
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox = new CheckBox();
+
+
             pictureBox22 = new PictureBox();
             panel123 = new Panel();
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox = new PictureBox();
+
             label92 = new Label();
             panel124 = new Panel();
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton = new Button();
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton = new RadioButton();
-            relatedMediaTabPage.relatedMediaLBLinePictureBox = new PictureBox();
-            relatedMediaTabPage.relatedMediaLBLabel = new Label();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             panel8 = new Panel();
 
             ((ISupportInitialize)(userProfilePictureBox)).BeginInit();
@@ -7678,61 +7679,61 @@ namespace Retro_Achievement_Tracker
             // 
             // relatedMediaRAScreenshotRadioButton
             // 
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Location = new Point(12, 182);
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Name = "relatedMediaRAScreenshotRadioButton";
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Size = new Size(150, 29);
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.TabIndex = 10075;
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.Text = "Screenshot";
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaRABadgeIconRadioButton
             // 
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Checked = true;
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Location = new Point(12, 62);
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Name = "relatedMediaRABadgeIconRadioButton";
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Size = new Size(149, 29);
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.TabIndex = 10072;
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.TabStop = true;
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.Text = "Badge Icon";
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaRABoxArtRadioButton
             // 
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Location = new Point(12, 102);
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Name = "relatedMediaRABoxArtRadioButton";
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Size = new Size(113, 29);
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.TabIndex = 10074;
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.Text = "Box Art";
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaRATitleScreenRadioButton
             // 
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Location = new Point(12, 142);
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Name = "relatedMediaRATitleScreenRadioButton";
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Size = new Size(158, 29);
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.TabIndex = 10073;
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.Text = "Title Screen";
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox19
             // 
@@ -7807,34 +7808,34 @@ namespace Retro_Achievement_Tracker
             // 
             // relatedMediaOpenWindowButton
             // 
-            relatedMediaTabPage.relatedMediaOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            relatedMediaTabPage.relatedMediaOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            relatedMediaTabPage.relatedMediaOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Location = new Point(573, 3);
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Margin = new Padding(0);
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Name = "relatedMediaOpenWindowButton";
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Size = new Size(112, 42);
-            relatedMediaTabPage.relatedMediaOpenWindowButton.TabIndex = 10021;
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Text = "Open";
-            relatedMediaTabPage.relatedMediaOpenWindowButton.UseVisualStyleBackColor = false;
-            relatedMediaTabPage.relatedMediaOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaAutoOpenWindowCheckbox
             // 
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.AutoSize = true;
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Name = "relatedMediaAutoOpenWindowCheckbox";
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.TabIndex = 10022;
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.Text = "Auto-Open";
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox22
             // 
@@ -7859,15 +7860,15 @@ namespace Retro_Achievement_Tracker
             // 
             // relatedMediaBackgroundColorPictureBox
             // 
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.BackColor = Color.White;
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Location = new Point(230, 5);
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Name = "relatedMediaBackgroundColorPictureBox";
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Size = new Size(22, 22);
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.TabIndex = 42;
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.TabStop = false;
-            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label92
             // 
@@ -7907,209 +7908,209 @@ namespace Retro_Achievement_Tracker
             // 
             // relatedMediaLBCartFrontRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Location = new Point(260, 222);
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Name = "relatedMediaLBCartFrontRadioButton";
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Size = new Size(157, 29);
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.TabIndex = 10084;
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Text = "Cart - Front";
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBCartBackRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Location = new Point(260, 262);
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Name = "relatedMediaLBCartBackRadioButton";
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Size = new Size(151, 29);
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.TabIndex = 10085;
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Text = "Cart - Back";
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxBackReconRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Location = new Point(10, 222);
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Name = "relatedMediaLBBoxBackReconRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Size = new Size(232, 29);
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.TabIndex = 10082;
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Text = "Box - Back (Recon)";
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxFullRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Location = new Point(10, 262);
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Name = "relatedMediaLBBoxFullRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Size = new Size(135, 29);
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.TabIndex = 10083;
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Text = "Box - Full";
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxSpineRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Location = new Point(260, 62);
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Name = "relatedMediaLBBoxSpineRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Size = new Size(155, 29);
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.TabIndex = 10081;
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Text = "Box - Spine";
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBClearLogoRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Location = new Point(260, 182);
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Name = "relatedMediaLBClearLogoRadioButton";
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Size = new Size(144, 29);
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.TabIndex = 10078;
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Text = "Clear Logo";
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBannerRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Location = new Point(260, 102);
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Name = "relatedMediaLBBannerRadioButton";
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Size = new Size(110, 29);
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.TabIndex = 10080;
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Text = "Banner";
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBTitleScreenRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Location = new Point(260, 142);
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Name = "relatedMediaLBTitleScreenRadioButton";
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Size = new Size(158, 29);
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.TabIndex = 10079;
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Text = "Title Screen";
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaSetLaunchBoxPathButton
             // 
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.BackColor = Color.FromArgb(22, 22, 22);
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.FlatAppearance.BorderColor = Color.Black;
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.FlatStyle = FlatStyle.Flat;
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.ForeColor = Color.FromArgb(204, 153, 0);
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Location = new Point(303, 5);
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Margin = new Padding(0);
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Name = "relatedMediaSetLaunchBoxPathButton";
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Size = new Size(112, 42);
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.TabIndex = 10077;
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Text = "Set...";
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.UseVisualStyleBackColor = false;
-            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Click += new System.EventHandler(SetRelatedMediaPathButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxFrontReconRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Location = new Point(10, 182);
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Name = "relatedMediaLBBoxFrontReconRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Size = new Size(238, 29);
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.TabIndex = 10075;
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Text = "Box - Front (Recon)";
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxFrontRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Location = new Point(10, 62);
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Name = "relatedMediaLBBoxFrontRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Size = new Size(152, 29);
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.TabIndex = 10072;
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Text = "Box - Front";
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBoxBackRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Location = new Point(10, 102);
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Name = "relatedMediaLBBoxBackRadioButton";
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Size = new Size(146, 29);
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.TabIndex = 10074;
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Text = "Box - Back";
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBBox3DRadioButton
             // 
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.AutoSize = true;
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Location = new Point(10, 142);
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Name = "relatedMediaLBBox3DRadioButton";
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Size = new Size(126, 29);
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.TabIndex = 10073;
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Text = "Box - 3D";
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.UseVisualStyleBackColor = true;
-            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+
+
+
+
+
+
+
+
+
+
+
             // 
             // relatedMediaLBLinePictureBox
             // 
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.BackColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.Location = new Point(3, 49);
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.Margin = new Padding(4, 5, 4, 5);
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.Name = "relatedMediaLBLinePictureBox";
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.Size = new Size(412, 3);
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.TabIndex = 10071;
-            relatedMediaTabPage.relatedMediaLBLinePictureBox.TabStop = false;
+
+
+
+
+
+
+
             // 
             // relatedMediaLBLabel
             // 
-            relatedMediaTabPage.relatedMediaLBLabel.BackColor = Color.Transparent;
-            relatedMediaTabPage.relatedMediaLBLabel.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            relatedMediaTabPage.relatedMediaLBLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            relatedMediaTabPage.relatedMediaLBLabel.Location = new Point(4, 5);
-            relatedMediaTabPage.relatedMediaLBLabel.Margin = new Padding(4, 0, 4, 0);
-            relatedMediaTabPage.relatedMediaLBLabel.Name = "relatedMediaLBLabel";
-            relatedMediaTabPage.relatedMediaLBLabel.Size = new Size(294, 40);
-            relatedMediaTabPage.relatedMediaLBLabel.TabIndex = 10063;
-            relatedMediaTabPage.relatedMediaLBLabel.Text = "LaunchBox";
+
+
+
+
+
+
+
+
+
             // 
             // mainTabControl
             // 
@@ -8613,6 +8614,27 @@ namespace Retro_Achievement_Tracker
             achievementsListTabPage.achievementListOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
             achievementsListTabPage.achievementListAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
             achievementsListTabPage.achievementListBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+            relatedMediaTabPage.relatedMediaRAScreenshotRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaRABadgeIconRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaRABoxArtRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaRATitleScreenRadioButton.CheckedChanged += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            relatedMediaTabPage.relatedMediaAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            relatedMediaTabPage.relatedMediaBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            relatedMediaTabPage.relatedMediaLBCartFrontRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBCartBackRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBoxBackReconRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBoxFullRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBoxSpineRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBClearLogoRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBannerRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBTitleScreenRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaSetLaunchBoxPathButton.Click += new System.EventHandler(SetRelatedMediaPathButton_Click);
+            relatedMediaTabPage.relatedMediaLBBoxFrontReconRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBoxFrontRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBoxBackRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
+            relatedMediaTabPage.relatedMediaLBBox3DRadioButton.Click += new System.EventHandler(RelatedMedia_RadioButtonCheckChanged);
 
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
