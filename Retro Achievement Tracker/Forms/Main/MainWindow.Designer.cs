@@ -62,7 +62,7 @@ namespace Retro_Achievement_Tracker
             gameInfoTabPage = new GameInfoTab();
             gameInfoTabPage.InitElements();
             gameProgressTabPage = new GameProgressTab();
-
+            gameProgressTabPage.InitElements();
             recentAchievementsTabPage = new RecentAchievementsTab();
             recentAchievementsTabPage.InitElements();
             achievementsListTabPage = new AchievementsListTab();
@@ -415,64 +415,64 @@ namespace Retro_Achievement_Tracker
 
 
             panel28 = new Panel();
-            gameProgressTabPage.gameProgressPointsTextLabel = new Label();
-            gameProgressTabPage.gameProgressHardcoreWorthLabel = new Label();
-            gameProgressTabPage.gameProgressPoints2Label = new Label();
-            gameProgressTabPage.gameProgressTruePoints2Label = new Label();
-            gameProgressTabPage.gameProgressAchievements2Label = new Label();
-            gameProgressTabPage.gameProgressHaveEarnedLabel = new Label();
-            gameProgressTabPage.gameProgressPercentCompletePictureBox = new PictureBox();
-            gameProgressTabPage.gameProgressMasteryPictureBox = new PictureBox();
+
+
+
+
+
+
+
+
             pictureBox21 = new PictureBox();
             label60 = new Label();
             label59 = new Label();
             label58 = new Label();
             label56 = new Label();
             pictureBox5 = new PictureBox();
-            gameProgressTabPage.gameProgressAchievements1Label = new Label();
-            gameProgressTabPage.gameProgressPoints1Label = new Label();
-            gameProgressTabPage.gameProgressCompletedLabel = new Label();
-            gameProgressTabPage.gameProgressTruePoints1Label = new Label();
+
+
+
+
             panel15 = new Panel();
             label38 = new Label();
             panel16 = new Panel();
-            gameProgressTabPage.gameProgressAdvancedCheckBox = new CheckBox();
+
             label41 = new Label();
             label43 = new Label();
             label44 = new Label();
             label45 = new Label();
-            gameProgressTabPage.gameProgressOpenWindowButton = new Button();
-            gameProgressTabPage.gameProgressValuesPanel = new Panel();
+
+
             label46 = new Label();
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox = new PictureBox();
-            gameProgressTabPage.gameProgressValuesFontComboBox = new ComboBox();
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox = new CheckBox();
+
+
+
             pictureBox6 = new PictureBox();
             panel18 = new Panel();
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox = new PictureBox();
+
             label47 = new Label();
             panel19 = new Panel();
-            gameProgressTabPage.gameProgressNamesLabel = new Label();
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox = new PictureBox();
-            gameProgressTabPage.gameProgressNamesFontComboBox = new ComboBox();
+
+
+
             panel23 = new Panel();
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown = new NumericUpDown();
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox = new CheckBox();
-            gameProgressTabPage.gameProgressNamesOutlineLabel = new Label();
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox = new PictureBox();
-            gameProgressTabPage.gameProgressValuesOutlinePanel = new Panel();
+
+
+
+
+
             label50 = new Label();
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox = new PictureBox();
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown = new NumericUpDown();
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox = new CheckBox();
+
+
+
             panel36 = new Panel();
             panel27 = new Panel();
             label55 = new Label();
-            gameProgressTabPage.gameProgressRadioButtonPeriod = new RadioButton();
+
             label54 = new Label();
-            gameProgressTabPage.gameProgressRadioButtonColon = new RadioButton();
+
             label53 = new Label();
-            gameProgressTabPage.gameProgressRadioButtonBackslash = new RadioButton();
+
             label51 = new Label();
             panel25 = new Panel();
             panel37 = new Panel();
@@ -481,27 +481,27 @@ namespace Retro_Achievement_Tracker
             label72 = new Label();
             panel26 = new Panel();
             label52 = new Label();
-            gameProgressTabPage.gameProgressCompletedTextBox = new TextBox();
-            gameProgressTabPage.gameProgressCompletedCheckBox = new CheckBox();
+
+
             label73 = new Label();
-            gameProgressTabPage.gameProgressDefaultButton = new Button();
+
             pictureBox17 = new PictureBox();
             panel38 = new Panel();
             label74 = new Label();
-            gameProgressTabPage.gameProgressAchievementsCheckBox = new CheckBox();
-            gameProgressTabPage.gameProgressAchievementsTextBox = new TextBox();
+
+
             panel39 = new Panel();
             label75 = new Label();
-            gameProgressTabPage.gameProgressRatioCheckBox = new CheckBox();
-            gameProgressTabPage.gameProgressRatioTextBox = new TextBox();
+
+
             panel40 = new Panel();
             label76 = new Label();
-            gameProgressTabPage.gameProgressTruePointsTextBox = new TextBox();
-            gameProgressTabPage.gameProgressTruePointsCheckBox = new CheckBox();
+
+
             panel41 = new Panel();
             label77 = new Label();
-            gameProgressTabPage.gameProgressPointsTextBox = new TextBox();
-            gameProgressTabPage.gameProgressPointsCheckBox = new CheckBox();
+
+
             panel113 = new Panel();
             label155 = new Label();
             pictureBox15 = new PictureBox();
@@ -777,7 +777,7 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(pictureBox5)).BeginInit();
             panel15.SuspendLayout();
             panel16.SuspendLayout();
-            gameProgressTabPage.gameProgressValuesPanel.SuspendLayout();
+
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox6)).BeginInit();
             panel18.SuspendLayout();
@@ -787,7 +787,7 @@ namespace Retro_Achievement_Tracker
             panel23.SuspendLayout();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox)).BeginInit();
-            gameProgressTabPage.gameProgressValuesOutlinePanel.SuspendLayout();
+
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown)).BeginInit();
             panel36.SuspendLayout();
@@ -5551,102 +5551,102 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressPointsTextLabel
             // 
-            gameProgressTabPage.gameProgressPointsTextLabel.AutoSize = true;
-            gameProgressTabPage.gameProgressPointsTextLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressPointsTextLabel.Font = new Font("Verdana", 9.75F);
-            gameProgressTabPage.gameProgressPointsTextLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressPointsTextLabel.Location = new Point(178, 126);
-            gameProgressTabPage.gameProgressPointsTextLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressPointsTextLabel.Name = "gameProgressPointsTextLabel";
-            gameProgressTabPage.gameProgressPointsTextLabel.Size = new Size(80, 25);
-            gameProgressTabPage.gameProgressPointsTextLabel.TabIndex = 10074;
-            gameProgressTabPage.gameProgressPointsTextLabel.Text = "points.";
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressHardcoreWorthLabel
             // 
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.AutoSize = true;
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Font = new Font("Verdana", 9.75F);
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Location = new Point(231, 95);
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Name = "gameProgressHardcoreWorthLabel";
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Size = new Size(345, 25);
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.TabIndex = 10073;
-            gameProgressTabPage.gameProgressHardcoreWorthLabel.Text = "HARDCORE achievements, worth";
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressPoints2Label
             // 
-            gameProgressTabPage.gameProgressPoints2Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressPoints2Label.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressPoints2Label.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressPoints2Label.Location = new Point(8, 126);
-            gameProgressTabPage.gameProgressPoints2Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressPoints2Label.Name = "gameProgressPoints2Label";
-            gameProgressTabPage.gameProgressPoints2Label.Size = new Size(82, 25);
-            gameProgressTabPage.gameProgressPoints2Label.TabIndex = 10071;
-            gameProgressTabPage.gameProgressPoints2Label.Text = "99999";
-            gameProgressTabPage.gameProgressPoints2Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressTruePoints2Label
             // 
-            gameProgressTabPage.gameProgressTruePoints2Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressTruePoints2Label.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressTruePoints2Label.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressTruePoints2Label.Location = new Point(81, 126);
-            gameProgressTabPage.gameProgressTruePoints2Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressTruePoints2Label.Name = "gameProgressTruePoints2Label";
-            gameProgressTabPage.gameProgressTruePoints2Label.Size = new Size(108, 25);
-            gameProgressTabPage.gameProgressTruePoints2Label.TabIndex = 10072;
-            gameProgressTabPage.gameProgressTruePoints2Label.Text = "(999999)";
-            gameProgressTabPage.gameProgressTruePoints2Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressAchievements2Label
             // 
-            gameProgressTabPage.gameProgressAchievements2Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressAchievements2Label.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAchievements2Label.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressAchievements2Label.Location = new Point(180, 95);
-            gameProgressTabPage.gameProgressAchievements2Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressAchievements2Label.Name = "gameProgressAchievements2Label";
-            gameProgressTabPage.gameProgressAchievements2Label.Size = new Size(52, 25);
-            gameProgressTabPage.gameProgressAchievements2Label.TabIndex = 10070;
-            gameProgressTabPage.gameProgressAchievements2Label.Text = "999";
-            gameProgressTabPage.gameProgressAchievements2Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressHaveEarnedLabel
             // 
-            gameProgressTabPage.gameProgressHaveEarnedLabel.AutoSize = true;
-            gameProgressTabPage.gameProgressHaveEarnedLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Font = new Font("Verdana", 9.75F);
-            gameProgressTabPage.gameProgressHaveEarnedLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Location = new Point(8, 95);
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Name = "gameProgressHaveEarnedLabel";
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Size = new Size(181, 25);
-            gameProgressTabPage.gameProgressHaveEarnedLabel.TabIndex = 10069;
-            gameProgressTabPage.gameProgressHaveEarnedLabel.Text = "You have earned";
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressPercentCompletePictureBox
             // 
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.BackColor = Color.FromArgb(204, 153, 0);
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.Location = new Point(381, 220);
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.Name = "gameProgressPercentCompletePictureBox";
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.Size = new Size(273, 5);
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.TabIndex = 10066;
-            gameProgressTabPage.gameProgressPercentCompletePictureBox.TabStop = false;
+
+
+
+
+
+
+
             // 
             // gameProgressMasteryPictureBox
             // 
-            gameProgressTabPage.gameProgressMasteryPictureBox.Image = global::Retro_Achievement_Tracker.Properties.Resources.mastered_icon;
-            gameProgressTabPage.gameProgressMasteryPictureBox.Location = new Point(656, 208);
-            gameProgressTabPage.gameProgressMasteryPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressMasteryPictureBox.Name = "gameProgressMasteryPictureBox";
-            gameProgressTabPage.gameProgressMasteryPictureBox.Size = new Size(30, 31);
-            gameProgressTabPage.gameProgressMasteryPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            gameProgressTabPage.gameProgressMasteryPictureBox.TabIndex = 10068;
-            gameProgressTabPage.gameProgressMasteryPictureBox.TabStop = false;
+
+
+
+
+
+
+
+
             // 
             // pictureBox21
             // 
@@ -5722,54 +5722,54 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressAchievements1Label
             // 
-            gameProgressTabPage.gameProgressAchievements1Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressAchievements1Label.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAchievements1Label.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressAchievements1Label.Location = new Point(111, 63);
-            gameProgressTabPage.gameProgressAchievements1Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressAchievements1Label.Name = "gameProgressAchievements1Label";
-            gameProgressTabPage.gameProgressAchievements1Label.Size = new Size(52, 25);
-            gameProgressTabPage.gameProgressAchievements1Label.TabIndex = 10058;
-            gameProgressTabPage.gameProgressAchievements1Label.Text = "999";
-            gameProgressTabPage.gameProgressAchievements1Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressPoints1Label
             // 
-            gameProgressTabPage.gameProgressPoints1Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressPoints1Label.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressPoints1Label.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressPoints1Label.Location = new Point(374, 63);
-            gameProgressTabPage.gameProgressPoints1Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressPoints1Label.Name = "gameProgressPoints1Label";
-            gameProgressTabPage.gameProgressPoints1Label.Size = new Size(82, 25);
-            gameProgressTabPage.gameProgressPoints1Label.TabIndex = 10059;
-            gameProgressTabPage.gameProgressPoints1Label.Text = "99999";
-            gameProgressTabPage.gameProgressPoints1Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressCompletedLabel
             // 
-            gameProgressTabPage.gameProgressCompletedLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressCompletedLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressCompletedLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressCompletedLabel.Location = new Point(448, 245);
-            gameProgressTabPage.gameProgressCompletedLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressCompletedLabel.Name = "gameProgressCompletedLabel";
-            gameProgressTabPage.gameProgressCompletedLabel.Size = new Size(168, 25);
-            gameProgressTabPage.gameProgressCompletedLabel.TabIndex = 10061;
-            gameProgressTabPage.gameProgressCompletedLabel.Text = "0% Complete";
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressTruePoints1Label
             // 
-            gameProgressTabPage.gameProgressTruePoints1Label.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressTruePoints1Label.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressTruePoints1Label.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressTruePoints1Label.Location = new Point(448, 63);
-            gameProgressTabPage.gameProgressTruePoints1Label.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressTruePoints1Label.Name = "gameProgressTruePoints1Label";
-            gameProgressTabPage.gameProgressTruePoints1Label.Size = new Size(114, 25);
-            gameProgressTabPage.gameProgressTruePoints1Label.TabIndex = 10060;
-            gameProgressTabPage.gameProgressTruePoints1Label.Text = "(999999)";
-            gameProgressTabPage.gameProgressTruePoints1Label.TextAlign = ContentAlignment.MiddleCenter;
+
+
+
+
+
+
+
+
+
+
             // 
             // panel15
             // 
@@ -5818,19 +5818,19 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressAdvancedCheckBox
             // 
-            gameProgressTabPage.gameProgressAdvancedCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressAdvancedCheckBox.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressAdvancedCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAdvancedCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Location = new Point(8, 3);
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Name = "gameProgressAdvancedCheckBox";
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Size = new Size(135, 29);
-            gameProgressTabPage.gameProgressAdvancedCheckBox.TabIndex = 10053;
-            gameProgressTabPage.gameProgressAdvancedCheckBox.Text = "Advanced";
-            gameProgressTabPage.gameProgressAdvancedCheckBox.UseVisualStyleBackColor = false;
-            gameProgressTabPage.gameProgressAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // label41
             // 
@@ -5882,31 +5882,31 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressOpenWindowButton
             // 
-            gameProgressTabPage.gameProgressOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            gameProgressTabPage.gameProgressOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            gameProgressTabPage.gameProgressOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            gameProgressTabPage.gameProgressOpenWindowButton.Location = new Point(573, 3);
-            gameProgressTabPage.gameProgressOpenWindowButton.Margin = new Padding(0);
-            gameProgressTabPage.gameProgressOpenWindowButton.Name = "gameProgressOpenWindowButton";
-            gameProgressTabPage.gameProgressOpenWindowButton.Size = new Size(112, 42);
-            gameProgressTabPage.gameProgressOpenWindowButton.TabIndex = 10021;
-            gameProgressTabPage.gameProgressOpenWindowButton.Text = "Open";
-            gameProgressTabPage.gameProgressOpenWindowButton.UseVisualStyleBackColor = false;
-            gameProgressTabPage.gameProgressOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressValuesPanel
             // 
-            gameProgressTabPage.gameProgressValuesPanel.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(label46);
-            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontColorPictureBox);
-            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontComboBox);
-            gameProgressTabPage.gameProgressValuesPanel.Location = new Point(3, 163);
-            gameProgressTabPage.gameProgressValuesPanel.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesPanel.Name = "gameProgressValuesPanel";
-            gameProgressTabPage.gameProgressValuesPanel.Size = new Size(694, 35);
-            gameProgressTabPage.gameProgressValuesPanel.TabIndex = 10061;
+
+
+
+
+
+
+
+
+
             // 
             // label46
             // 
@@ -5922,43 +5922,43 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressValuesFontColorPictureBox
             // 
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.BackColor = Color.White;
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Location = new Point(230, 5);
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Name = "gameProgressValuesFontColorPictureBox";
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Size = new Size(22, 22);
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.TabStop = false;
-            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressValuesFontComboBox
             // 
-            gameProgressTabPage.gameProgressValuesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressValuesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressValuesFontComboBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressValuesFontComboBox.FormattingEnabled = true;
-            gameProgressTabPage.gameProgressValuesFontComboBox.Location = new Point(290, 3);
-            gameProgressTabPage.gameProgressValuesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesFontComboBox.Name = "gameProgressValuesFontComboBox";
-            gameProgressTabPage.gameProgressValuesFontComboBox.Size = new Size(301, 28);
-            gameProgressTabPage.gameProgressValuesFontComboBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressAutoOpenWindowCheckbox
             // 
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.AutoSize = true;
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Name = "gameProgressAutoOpenWindowCheckbox";
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.TabIndex = 10022;
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.Text = "Auto-Open";
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox6
             // 
@@ -5983,15 +5983,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressBackgroundColorPictureBox
             // 
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.BackColor = Color.White;
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Location = new Point(230, 5);
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Name = "gameProgressBackgroundColorPictureBox";
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Size = new Size(22, 22);
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.TabIndex = 42;
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.TabStop = false;
-            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label47
             // 
@@ -6019,40 +6019,40 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressNamesLabel
             // 
-            gameProgressTabPage.gameProgressNamesLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressNamesLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressNamesLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressNamesLabel.Location = new Point(4, 6);
-            gameProgressTabPage.gameProgressNamesLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressNamesLabel.Name = "gameProgressNamesLabel";
-            gameProgressTabPage.gameProgressNamesLabel.Size = new Size(216, 25);
-            gameProgressTabPage.gameProgressNamesLabel.TabIndex = 10065;
-            gameProgressTabPage.gameProgressNamesLabel.Text = "Names";
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressNamesFontColorPictureBox
             // 
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.BackColor = Color.White;
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Location = new Point(230, 6);
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Name = "gameProgressNamesFontColorPictureBox";
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Size = new Size(22, 22);
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.TabStop = false;
-            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressNamesFontComboBox
             // 
-            gameProgressTabPage.gameProgressNamesFontComboBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressNamesFontComboBox.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressNamesFontComboBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressNamesFontComboBox.FormattingEnabled = true;
-            gameProgressTabPage.gameProgressNamesFontComboBox.Location = new Point(290, 3);
-            gameProgressTabPage.gameProgressNamesFontComboBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressNamesFontComboBox.Name = "gameProgressNamesFontComboBox";
-            gameProgressTabPage.gameProgressNamesFontComboBox.Size = new Size(301, 28);
-            gameProgressTabPage.gameProgressNamesFontComboBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel23
             // 
@@ -6069,69 +6069,69 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressNamesFontOutlineNumericUpDown
             // 
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Name = "gameProgressNamesFontOutlineNumericUpDown";
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.TabIndex = 45;
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressNamesOutlineCheckBox
             // 
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Location = new Point(620, 8);
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Name = "gameProgressNamesOutlineCheckBox";
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressNamesOutlineLabel
             // 
-            gameProgressTabPage.gameProgressNamesOutlineLabel.BackColor = Color.Transparent;
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressNamesOutlineLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Location = new Point(4, 5);
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Margin = new Padding(4, 0, 4, 0);
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Name = "gameProgressNamesOutlineLabel";
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Size = new Size(216, 25);
-            gameProgressTabPage.gameProgressNamesOutlineLabel.TabIndex = 10066;
-            gameProgressTabPage.gameProgressNamesOutlineLabel.Text = "Names OutlineColor";
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressNamesFontOutlineColorPictureBox
             // 
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.BackColor = Color.White;
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Location = new Point(230, 5);
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Name = "gameProgressNamesFontOutlineColorPictureBox";
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.TabStop = false;
-            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressValuesOutlinePanel
             // 
-            gameProgressTabPage.gameProgressValuesOutlinePanel.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(label50);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesOutlineCheckBox);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Location = new Point(3, 231);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Name = "gameProgressValuesOutlinePanel";
-            gameProgressTabPage.gameProgressValuesOutlinePanel.Size = new Size(694, 35);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.TabIndex = 10067;
+
+
+
+
+
+
+
+
+
+
             // 
             // label50
             // 
@@ -6147,44 +6147,44 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressValuesFontOutlineColorPictureBox
             // 
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.BackColor = Color.White;
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Location = new Point(230, 6);
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Name = "gameProgressValuesFontOutlineColorPictureBox";
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Size = new Size(22, 22);
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.TabStop = false;
-            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressValuesFontOutlineNumericUpDown
             // 
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.BackColor = Color.FromArgb(42, 42, 42);
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.BorderStyle = BorderStyle.None;
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Location = new Point(528, 6);
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Maximum = new decimal(new int[] {5, 0, 0, 0});
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Minimum = new decimal(new int[] {1, 0, 0, 0});
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Name = "gameProgressValuesFontOutlineNumericUpDown";
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Size = new Size(64, 24);
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.TabIndex = 45;
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.Value = new decimal(new int[] {1, 0, 0, 0});
-            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressValuesOutlineCheckBox
             // 
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Location = new Point(620, 9);
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Name = "gameProgressValuesOutlineCheckBox";
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.TabIndex = 45;
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel36
             // 
@@ -6236,15 +6236,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressRadioButtonPeriod
             // 
-            gameProgressTabPage.gameProgressRadioButtonPeriod.AutoSize = true;
-            gameProgressTabPage.gameProgressRadioButtonPeriod.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressRadioButtonPeriod.Location = new Point(320, 8);
-            gameProgressTabPage.gameProgressRadioButtonPeriod.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressRadioButtonPeriod.Name = "gameProgressRadioButtonPeriod";
-            gameProgressTabPage.gameProgressRadioButtonPeriod.Size = new Size(21, 20);
-            gameProgressTabPage.gameProgressRadioButtonPeriod.TabIndex = 10073;
-            gameProgressTabPage.gameProgressRadioButtonPeriod.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressRadioButtonPeriod.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+
+
+
+
+
+
+
+
+
             // 
             // label54
             // 
@@ -6260,15 +6260,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressRadioButtonColon
             // 
-            gameProgressTabPage.gameProgressRadioButtonColon.AutoSize = true;
-            gameProgressTabPage.gameProgressRadioButtonColon.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressRadioButtonColon.Location = new Point(237, 8);
-            gameProgressTabPage.gameProgressRadioButtonColon.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressRadioButtonColon.Name = "gameProgressRadioButtonColon";
-            gameProgressTabPage.gameProgressRadioButtonColon.Size = new Size(21, 20);
-            gameProgressTabPage.gameProgressRadioButtonColon.TabIndex = 10071;
-            gameProgressTabPage.gameProgressRadioButtonColon.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressRadioButtonColon.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+
+
+
+
+
+
+
+
+
             // 
             // label53
             // 
@@ -6284,15 +6284,15 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressRadioButtonBackslash
             // 
-            gameProgressTabPage.gameProgressRadioButtonBackslash.AutoSize = true;
-            gameProgressTabPage.gameProgressRadioButtonBackslash.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressRadioButtonBackslash.Location = new Point(150, 8);
-            gameProgressTabPage.gameProgressRadioButtonBackslash.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressRadioButtonBackslash.Name = "gameProgressRadioButtonBackslash";
-            gameProgressTabPage.gameProgressRadioButtonBackslash.Size = new Size(21, 20);
-            gameProgressTabPage.gameProgressRadioButtonBackslash.TabIndex = 10067;
-            gameProgressTabPage.gameProgressRadioButtonBackslash.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressRadioButtonBackslash.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+
+
+
+
+
+
+
+
+
             // 
             // label51
             // 
@@ -6389,28 +6389,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressCompletedTextBox
             // 
-            gameProgressTabPage.gameProgressCompletedTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressCompletedTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressCompletedTextBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressCompletedTextBox.Location = new Point(174, 0);
-            gameProgressTabPage.gameProgressCompletedTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressCompletedTextBox.Name = "gameProgressCompletedTextBox";
-            gameProgressTabPage.gameProgressCompletedTextBox.Size = new Size(146, 31);
-            gameProgressTabPage.gameProgressCompletedTextBox.TabIndex = 7;
-            gameProgressTabPage.gameProgressCompletedTextBox.Text = "Completed";
-            gameProgressTabPage.gameProgressCompletedTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressCompletedCheckBox
             // 
-            gameProgressTabPage.gameProgressCompletedCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressCompletedCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressCompletedCheckBox.Location = new Point(338, 8);
-            gameProgressTabPage.gameProgressCompletedCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressCompletedCheckBox.Name = "gameProgressCompletedCheckBox";
-            gameProgressTabPage.gameProgressCompletedCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressCompletedCheckBox.TabIndex = 56;
-            gameProgressTabPage.gameProgressCompletedCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressCompletedCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // label73
             // 
@@ -6426,19 +6426,19 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressDefaultButton
             // 
-            gameProgressTabPage.gameProgressDefaultButton.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressDefaultButton.FlatAppearance.BorderColor = Color.FromArgb(239, 68, 68);
-            gameProgressTabPage.gameProgressDefaultButton.FlatStyle = FlatStyle.Flat;
-            gameProgressTabPage.gameProgressDefaultButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressDefaultButton.ForeColor = Color.FromArgb(239, 68, 68);
-            gameProgressTabPage.gameProgressDefaultButton.Location = new Point(306, 3);
-            gameProgressTabPage.gameProgressDefaultButton.Margin = new Padding(0);
-            gameProgressTabPage.gameProgressDefaultButton.Name = "gameProgressDefaultButton";
-            gameProgressTabPage.gameProgressDefaultButton.Size = new Size(112, 42);
-            gameProgressTabPage.gameProgressDefaultButton.TabIndex = 39;
-            gameProgressTabPage.gameProgressDefaultButton.Text = "Default";
-            gameProgressTabPage.gameProgressDefaultButton.UseVisualStyleBackColor = false;
-            gameProgressTabPage.gameProgressDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox17
             // 
@@ -6476,28 +6476,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressAchievementsCheckBox
             // 
-            gameProgressTabPage.gameProgressAchievementsCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressAchievementsCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAchievementsCheckBox.Location = new Point(338, 8);
-            gameProgressTabPage.gameProgressAchievementsCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressAchievementsCheckBox.Name = "gameProgressAchievementsCheckBox";
-            gameProgressTabPage.gameProgressAchievementsCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressAchievementsCheckBox.TabIndex = 52;
-            gameProgressTabPage.gameProgressAchievementsCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressAchievementsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressAchievementsTextBox
             // 
-            gameProgressTabPage.gameProgressAchievementsTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressAchievementsTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressAchievementsTextBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressAchievementsTextBox.Location = new Point(174, 0);
-            gameProgressTabPage.gameProgressAchievementsTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressAchievementsTextBox.Name = "gameProgressAchievementsTextBox";
-            gameProgressTabPage.gameProgressAchievementsTextBox.Size = new Size(146, 31);
-            gameProgressTabPage.gameProgressAchievementsTextBox.TabIndex = 1;
-            gameProgressTabPage.gameProgressAchievementsTextBox.Text = "Achievements";
-            gameProgressTabPage.gameProgressAchievementsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel39
             // 
@@ -6525,28 +6525,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressRatioCheckBox
             // 
-            gameProgressTabPage.gameProgressRatioCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressRatioCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressRatioCheckBox.Location = new Point(338, 8);
-            gameProgressTabPage.gameProgressRatioCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressRatioCheckBox.Name = "gameProgressRatioCheckBox";
-            gameProgressTabPage.gameProgressRatioCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressRatioCheckBox.TabIndex = 55;
-            gameProgressTabPage.gameProgressRatioCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressRatioCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressRatioTextBox
             // 
-            gameProgressTabPage.gameProgressRatioTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressRatioTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressRatioTextBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressRatioTextBox.Location = new Point(174, 0);
-            gameProgressTabPage.gameProgressRatioTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressRatioTextBox.Name = "gameProgressRatioTextBox";
-            gameProgressTabPage.gameProgressRatioTextBox.Size = new Size(146, 31);
-            gameProgressTabPage.gameProgressRatioTextBox.TabIndex = 5;
-            gameProgressTabPage.gameProgressRatioTextBox.Text = "Retro Ratio";
-            gameProgressTabPage.gameProgressRatioTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // panel40
             // 
@@ -6574,28 +6574,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressTruePointsTextBox
             // 
-            gameProgressTabPage.gameProgressTruePointsTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressTruePointsTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressTruePointsTextBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressTruePointsTextBox.Location = new Point(174, 0);
-            gameProgressTabPage.gameProgressTruePointsTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressTruePointsTextBox.Name = "gameProgressTruePointsTextBox";
-            gameProgressTabPage.gameProgressTruePointsTextBox.Size = new Size(146, 31);
-            gameProgressTabPage.gameProgressTruePointsTextBox.TabIndex = 7;
-            gameProgressTabPage.gameProgressTruePointsTextBox.Text = "True Points";
-            gameProgressTabPage.gameProgressTruePointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressTruePointsCheckBox
             // 
-            gameProgressTabPage.gameProgressTruePointsCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressTruePointsCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressTruePointsCheckBox.Location = new Point(338, 8);
-            gameProgressTabPage.gameProgressTruePointsCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressTruePointsCheckBox.Name = "gameProgressTruePointsCheckBox";
-            gameProgressTabPage.gameProgressTruePointsCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressTruePointsCheckBox.TabIndex = 56;
-            gameProgressTabPage.gameProgressTruePointsCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressTruePointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // panel41
             // 
@@ -6623,28 +6623,28 @@ namespace Retro_Achievement_Tracker
             // 
             // gameProgressPointsTextBox
             // 
-            gameProgressTabPage.gameProgressPointsTextBox.BackColor = Color.FromArgb(22, 22, 22);
-            gameProgressTabPage.gameProgressPointsTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressPointsTextBox.ForeColor = Color.White;
-            gameProgressTabPage.gameProgressPointsTextBox.Location = new Point(174, 0);
-            gameProgressTabPage.gameProgressPointsTextBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressPointsTextBox.Name = "gameProgressPointsTextBox";
-            gameProgressTabPage.gameProgressPointsTextBox.Size = new Size(146, 31);
-            gameProgressTabPage.gameProgressPointsTextBox.TabIndex = 6;
-            gameProgressTabPage.gameProgressPointsTextBox.Text = "Points";
-            gameProgressTabPage.gameProgressPointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+
+
+
+
+
+
+
+
+
+
             // 
             // gameProgressPointsCheckBox
             // 
-            gameProgressTabPage.gameProgressPointsCheckBox.AutoSize = true;
-            gameProgressTabPage.gameProgressPointsCheckBox.Font = new Font("Lucida Console", 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            gameProgressTabPage.gameProgressPointsCheckBox.Location = new Point(338, 8);
-            gameProgressTabPage.gameProgressPointsCheckBox.Margin = new Padding(4, 5, 4, 5);
-            gameProgressTabPage.gameProgressPointsCheckBox.Name = "gameProgressPointsCheckBox";
-            gameProgressTabPage.gameProgressPointsCheckBox.Size = new Size(22, 21);
-            gameProgressTabPage.gameProgressPointsCheckBox.TabIndex = 54;
-            gameProgressTabPage.gameProgressPointsCheckBox.UseVisualStyleBackColor = true;
-            gameProgressTabPage.gameProgressPointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
             // 
             // panel113
             // 
@@ -8521,6 +8521,43 @@ namespace Retro_Achievement_Tracker
             gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
             gameInfoTabPage.gameInfoValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
 
+            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(label46);
+            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontColorPictureBox);
+            gameProgressTabPage.gameProgressValuesPanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontComboBox);
+            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(label50);
+            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox);
+            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown);
+            gameProgressTabPage.gameProgressValuesOutlinePanel.Controls.Add(gameProgressTabPage.gameProgressValuesOutlineCheckBox);
+
+            gameProgressTabPage.gameProgressAdvancedCheckBox.CheckedChanged += new System.EventHandler(AdvancedCheckBox_Click);
+            gameProgressTabPage.gameProgressOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            gameProgressTabPage.gameProgressValuesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameProgressTabPage.gameProgressValuesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            gameProgressTabPage.gameProgressAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameProgressTabPage.gameProgressNamesFontColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameProgressTabPage.gameProgressNamesFontComboBox.SelectedIndexChanged += new System.EventHandler(FontFamilyComboBox_SelectedIndexChanged);
+            gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            gameProgressTabPage.gameProgressNamesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+            gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            gameProgressTabPage.gameProgressValuesOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressRadioButtonPeriod.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+            gameProgressTabPage.gameProgressRadioButtonColon.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+            gameProgressTabPage.gameProgressRadioButtonBackslash.CheckedChanged += new System.EventHandler(DividerCharacter_RadioButtonClicked);
+            gameProgressTabPage.gameProgressCompletedTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameProgressTabPage.gameProgressCompletedCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressDefaultButton.Click += new System.EventHandler(DefaultButton_Click);
+            gameProgressTabPage.gameProgressAchievementsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressAchievementsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameProgressTabPage.gameProgressRatioCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressRatioTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameProgressTabPage.gameProgressTruePointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameProgressTabPage.gameProgressTruePointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            gameProgressTabPage.gameProgressPointsTextBox.TextChanged += new System.EventHandler(OverrideTextBox_TextChanged);
+            gameProgressTabPage.gameProgressPointsCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
             recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(label16);
             recentAchievementsTabPage.recentAchievementsLinePanel.Controls.Add(recentAchievementsTabPage.recentAchievementsLineColorPictureBox);
             recentAchievementsTabPage.recentAchievementsPointsPanel.Controls.Add(label19);
@@ -8769,7 +8806,7 @@ namespace Retro_Achievement_Tracker
             panel15.PerformLayout();
             panel16.ResumeLayout(false);
             panel16.PerformLayout();
-            gameProgressTabPage.gameProgressValuesPanel.ResumeLayout(false);
+
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox6)).EndInit();
             panel18.ResumeLayout(false);
@@ -8780,8 +8817,8 @@ namespace Retro_Achievement_Tracker
             panel23.PerformLayout();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox)).EndInit();
-            gameProgressTabPage.gameProgressValuesOutlinePanel.ResumeLayout(false);
-            gameProgressTabPage.gameProgressValuesOutlinePanel.PerformLayout();
+
+
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown)).EndInit();
             panel36.ResumeLayout(false);
