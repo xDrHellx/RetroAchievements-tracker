@@ -32,7 +32,7 @@ namespace Retro_Achievement_Tracker
             manualSearchLabel = new Label();
             manualSearchTextBox = new TextBox();
             manualSearchButton = new Button();
-            
+
             // RA account & API interactions
             usernameLabel = new Label();
             usernameTextBox = new TextBox();
@@ -48,75 +48,18 @@ namespace Retro_Achievement_Tracker
             userProfilePictureBox = new PictureBox();
 
             // Main tabs
+            InitTabs();
+
             mainTabControl = new TabControl();
             alertTabControl = new TabControl();
             achievementTabPage = new TabPage();
             masteryTabPage = new TabPage();
 
-            focusTabPage = new FocusTab();
-            focusTabPage.InitElements();
-            alertsTabPage = new AlertsTab();
-            alertsTabPage.InitElements();
-            userInfoTabPage = new UserInfoTab();
-            userInfoTabPage.InitElements();
-            gameInfoTabPage = new GameInfoTab();
-            gameInfoTabPage.InitElements();
-            gameProgressTabPage = new GameProgressTab();
-            gameProgressTabPage.InitElements();
-            recentAchievementsTabPage = new RecentAchievementsTab();
-            recentAchievementsTabPage.InitElements();
-            achievementsListTabPage = new AchievementsListTab();
-            achievementsListTabPage.InitElements();
-            relatedMediaTabPage = new RelatedMediaTab();
-            relatedMediaTabPage.InitElements();
-
             // Elements
-
             autoPollingStatusPictureBox = new PictureBox();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             openFileDialog = new OpenFileDialog();
             colorDialog = new ColorDialog();
-
-
-
-
-
 
             panel64 = new Panel();
             label112 = new Label();
@@ -132,11 +75,9 @@ namespace Retro_Achievement_Tracker
             label96 = new Label();
             panel59 = new Panel();
 
-
             label107 = new Label();
 
             label108 = new Label();
-
 
             panel52 = new Panel();
 
@@ -146,19 +87,9 @@ namespace Retro_Achievement_Tracker
             label100 = new Label();
             panel61 = new Panel();
 
-
-
-
-
-
             label110 = new Label();
 
-
-
-
             label101 = new Label();
-
-
 
             pictureBox11 = new PictureBox();
             panel54 = new Panel();
@@ -166,17 +97,9 @@ namespace Retro_Achievement_Tracker
             label102 = new Label();
             panel55 = new Panel();
 
-
-
-
-
-
             label104 = new Label();
 
-
             label105 = new Label();
-
-
 
             panel65 = new Panel();
 
@@ -185,11 +108,9 @@ namespace Retro_Achievement_Tracker
             label114 = new Label();
             panel67 = new Panel();
 
-
             label115 = new Label();
 
             label116 = new Label();
-
 
             panel69 = new Panel();
 
@@ -199,19 +120,9 @@ namespace Retro_Achievement_Tracker
             label120 = new Label();
             panel70 = new Panel();
 
-
-
-
-
-
             label122 = new Label();
 
-
-
-
             label123 = new Label();
-
-
 
             pictureBox20 = new PictureBox();
             panel73 = new Panel();
@@ -219,18 +130,9 @@ namespace Retro_Achievement_Tracker
             label124 = new Label();
             panel74 = new Panel();
 
-
-
-
-
-
             label126 = new Label();
 
-
             label127 = new Label();
-
-
-
 
             panel85 = new Panel();
             label136 = new Label();
@@ -255,7 +157,6 @@ namespace Retro_Achievement_Tracker
             label133 = new Label();
             panel82 = new Panel();
             label134 = new Label();
-
 
             panel89 = new Panel();
             label6 = new Label();
@@ -282,13 +183,9 @@ namespace Retro_Achievement_Tracker
             label143 = new Label();
 
             panel14 = new Panel();
-            
-            
-            
+
             label37 = new Label();
-            
-            
-            
+
             pictureBox2 = new PictureBox();
             panel21 = new Panel();
             panel22 = new Panel();
@@ -308,33 +205,24 @@ namespace Retro_Achievement_Tracker
             panel20 = new Panel();
             label2 = new Label();
             panel4 = new Panel();
-            
+
             label4 = new Label();
             label9 = new Label();
             label25 = new Label();
             label15 = new Label();
-            
+
             label26 = new Label();
-            
-            
+
             pictureBox3 = new PictureBox();
             panel5 = new Panel();
-            
+
             label3 = new Label();
             panel6 = new Panel();
-            
-            
-            
+
             panel7 = new Panel();
-            
-            
-            
-            
-            
+
             label27 = new Label();
-            
-            
-            
+
             panel50 = new Panel();
             panel119 = new Panel();
 
@@ -349,16 +237,13 @@ namespace Retro_Achievement_Tracker
             panel116 = new Panel();
             label57 = new Label();
 
-
             pictureBox8 = new PictureBox();
             panel29 = new Panel();
             panel49 = new Panel();
             label88 = new Label();
 
-
             panel48 = new Panel();
             label87 = new Label();
-
 
             panel30 = new Panel();
             label63 = new Label();
@@ -370,18 +255,14 @@ namespace Retro_Achievement_Tracker
             panel31 = new Panel();
             label67 = new Label();
 
-
             panel32 = new Panel();
             label68 = new Label();
-
 
             panel33 = new Panel();
             label69 = new Label();
 
-
             panel34 = new Panel();
             label70 = new Label();
-
 
             panel35 = new Panel();
             label71 = new Label();
@@ -392,10 +273,7 @@ namespace Retro_Achievement_Tracker
             label80 = new Label();
             label81 = new Label();
 
-
             label82 = new Label();
-
-
 
             pictureBox9 = new PictureBox();
             panel44 = new Panel();
@@ -403,26 +281,11 @@ namespace Retro_Achievement_Tracker
             label83 = new Label();
             panel45 = new Panel();
 
-
-
             panel46 = new Panel();
-
-
-
-
 
             label86 = new Label();
 
-
-
             panel28 = new Panel();
-
-
-
-
-
-
-
 
             pictureBox21 = new PictureBox();
             label60 = new Label();
@@ -430,9 +293,6 @@ namespace Retro_Achievement_Tracker
             label58 = new Label();
             label56 = new Label();
             pictureBox5 = new PictureBox();
-
-
-
 
             panel15 = new Panel();
             label38 = new Label();
@@ -443,10 +303,7 @@ namespace Retro_Achievement_Tracker
             label44 = new Label();
             label45 = new Label();
 
-
             label46 = new Label();
-
-
 
             pictureBox6 = new PictureBox();
             panel18 = new Panel();
@@ -454,17 +311,9 @@ namespace Retro_Achievement_Tracker
             label47 = new Label();
             panel19 = new Panel();
 
-
-
             panel23 = new Panel();
 
-
-
-
-
             label50 = new Label();
-
-
 
             panel36 = new Panel();
             panel27 = new Panel();
@@ -483,25 +332,20 @@ namespace Retro_Achievement_Tracker
             panel26 = new Panel();
             label52 = new Label();
 
-
             label73 = new Label();
 
             pictureBox17 = new PictureBox();
             panel38 = new Panel();
             label74 = new Label();
 
-
             panel39 = new Panel();
             label75 = new Label();
-
 
             panel40 = new Panel();
             label76 = new Label();
 
-
             panel41 = new Panel();
             label77 = new Label();
-
 
             panel113 = new Panel();
             label155 = new Label();
@@ -514,11 +358,9 @@ namespace Retro_Achievement_Tracker
             label17 = new Label();
             panel101 = new Panel();
 
-
             label18 = new Label();
 
             label19 = new Label();
-
 
             panel103 = new Panel();
 
@@ -528,19 +370,9 @@ namespace Retro_Achievement_Tracker
             label23 = new Label();
             panel104 = new Panel();
 
-
-
-
-
-
             label144 = new Label();
 
-
-
-
             label145 = new Label();
-
-
 
             pictureBox23 = new PictureBox();
             panel107 = new Panel();
@@ -548,17 +380,9 @@ namespace Retro_Achievement_Tracker
             label146 = new Label();
             panel108 = new Panel();
 
-
-
-
-
-
             label148 = new Label();
 
-
             label149 = new Label();
-
-
 
             panel115 = new Panel();
             label152 = new Label();
@@ -567,12 +391,9 @@ namespace Retro_Achievement_Tracker
             panel111 = new Panel();
             panel9 = new Panel();
 
-
-
             label150 = new Label();
             panel112 = new Panel();
             label151 = new Label();
-
 
             pictureBox16 = new PictureBox();
             panel114 = new Panel();
@@ -583,9 +404,6 @@ namespace Retro_Achievement_Tracker
             panel2 = new Panel();
             panel120 = new Panel();
 
-
-
-
             pictureBox19 = new PictureBox();
             label1 = new Label();
             panel121 = new Panel();
@@ -593,26 +411,11 @@ namespace Retro_Achievement_Tracker
             panel122 = new Panel();
             label91 = new Label();
 
-
             pictureBox22 = new PictureBox();
             panel123 = new Panel();
 
             label92 = new Label();
             panel124 = new Panel();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             panel8 = new Panel();
 
@@ -728,7 +531,7 @@ namespace Retro_Achievement_Tracker
             panel11.SuspendLayout();
             panel20.SuspendLayout();
             panel4.SuspendLayout();
-            
+
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontColorPictureBox)).BeginInit();
             ((ISupportInitialize)(pictureBox3)).BeginInit();
             panel5.SuspendLayout();
@@ -738,7 +541,7 @@ namespace Retro_Achievement_Tracker
             panel7.SuspendLayout();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineNumericUpDown)).BeginInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineColorPictureBox)).BeginInit();
-            
+
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox)).BeginInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown)).BeginInit();
             panel50.SuspendLayout();
@@ -866,9 +669,6 @@ namespace Retro_Achievement_Tracker
             panel8.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // apiKeyLabel
-            // 
             apiKeyLabel.AutoSize = true;
             apiKeyLabel.BackColor = Color.Transparent;
             apiKeyLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -879,9 +679,6 @@ namespace Retro_Achievement_Tracker
             apiKeyLabel.Size = new Size(140, 25);
             apiKeyLabel.TabIndex = 31;
             apiKeyLabel.Text = "Web API Key";
-            // 
-            // apiKeyTextBox
-            // 
             apiKeyTextBox.BackColor = Color.FromArgb(22, 22, 22);
             apiKeyTextBox.BorderStyle = BorderStyle.FixedSingle;
             apiKeyTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -894,9 +691,6 @@ namespace Retro_Achievement_Tracker
             apiKeyTextBox.TabIndex = 1;
             apiKeyTextBox.WordWrap = false;
             apiKeyTextBox.TextChanged += new System.EventHandler(RequiredField_TextChanged);
-            // 
-            // usernameLabel
-            // 
             usernameLabel.AutoSize = true;
             usernameLabel.BackColor = Color.Transparent;
             usernameLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -907,9 +701,6 @@ namespace Retro_Achievement_Tracker
             usernameLabel.Size = new Size(114, 25);
             usernameLabel.TabIndex = 26;
             usernameLabel.Text = "Username";
-            // 
-            // usernameTextBox
-            // 
             usernameTextBox.BackColor = Color.FromArgb(22, 22, 22);
             usernameTextBox.BorderStyle = BorderStyle.FixedSingle;
             usernameTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -921,9 +712,6 @@ namespace Retro_Achievement_Tracker
             usernameTextBox.TabIndex = 0;
             usernameTextBox.WordWrap = false;
             usernameTextBox.TextChanged += new System.EventHandler(RequiredField_TextChanged);
-            // 
-            // userProfilePictureBox
-            // 
             userProfilePictureBox.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             userProfilePictureBox.BackColor = Color.Transparent;
             userProfilePictureBox.Cursor = Cursors.Hand;
@@ -935,9 +723,6 @@ namespace Retro_Achievement_Tracker
             userProfilePictureBox.TabIndex = 20;
             userProfilePictureBox.TabStop = false;
             userProfilePictureBox.Click += new System.EventHandler(BrowserSensitiveControl_Click);
-            // 
-            // autoStartCheckbox
-            // 
             autoStartCheckbox.AutoSize = true;
             autoStartCheckbox.BackColor = Color.Transparent;
             autoStartCheckbox.CheckAlign = ContentAlignment.MiddleRight;
@@ -954,9 +739,6 @@ namespace Retro_Achievement_Tracker
             autoStartCheckbox.Text = "Auto-Start";
             autoStartCheckbox.UseVisualStyleBackColor = false;
             autoStartCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
-            // 
-            // stopButton
-            // 
             stopButton.BackColor = Color.FromArgb(22, 22, 22);
             stopButton.FlatAppearance.BorderColor = Color.Black;
             stopButton.FlatStyle = FlatStyle.Flat;
@@ -970,9 +752,6 @@ namespace Retro_Achievement_Tracker
             stopButton.Text = "Stop";
             stopButton.UseVisualStyleBackColor = false;
             stopButton.Click += new System.EventHandler(StopButton_Click);
-            // 
-            // autoPollingStatusLabel
-            // 
             autoPollingStatusLabel.BackColor = Color.Transparent;
             autoPollingStatusLabel.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             autoPollingStatusLabel.ForeColor = Color.FromArgb(44, 151, 250);
@@ -982,40 +761,7 @@ namespace Retro_Achievement_Tracker
             autoPollingStatusLabel.Size = new Size(498, 43);
             autoPollingStatusLabel.TabIndex = 10024;
             autoPollingStatusLabel.Text = "Offline";
-            // 
-            // userInfoAutoOpenWindowCheckbox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoOpenWindowButton
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // startButton
-            // 
+
             startButton.BackColor = Color.FromArgb(22, 22, 22);
             startButton.FlatAppearance.BorderColor = Color.Black;
             startButton.FlatStyle = FlatStyle.Flat;
@@ -1029,111 +775,7 @@ namespace Retro_Achievement_Tracker
             startButton.Text = "Start";
             startButton.UseVisualStyleBackColor = false;
             startButton.Click += new System.EventHandler(StartButton_Click);
-            // 
-            // focusAchievementPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusAchievementTitleLabel
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusAchievementDescriptionLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // focusSetButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusAchievementButtonPrevious
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusAchievementButtonNext
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // autoPollingStatusPictureBox
-            // 
             autoPollingStatusPictureBox.BackColor = Color.Transparent;
             autoPollingStatusPictureBox.Image = global::Retro_Achievement_Tracker.Properties.Resources.red_button;
             autoPollingStatusPictureBox.Location = new Point(6, 14);
@@ -1143,627 +785,9 @@ namespace Retro_Achievement_Tracker
             autoPollingStatusPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             autoPollingStatusPictureBox.TabIndex = 10025;
             autoPollingStatusPictureBox.TabStop = false;
-            // 
-            // alertsPlayAchievementButton
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsSelectCustomAchievementFileButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementScaleNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementXNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementYNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsAchievementEditOutlineCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementOutNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementAnimationOutComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementOutSpeedUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementInNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementAnimationInComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementInSpeedUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementEnableCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsPlayMasteryButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsSelectCustomMasteryFileButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryScaleNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryXNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryYNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsMasteryEditOutlineCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryOutNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryAnimationOutComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryOutSpeedUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryInNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryAnimationInComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryInSpeedUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryEnableCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // userInfoTruePointsTextBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoPointsTextBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRatioTextBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRankTextBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoTruePointsCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRatioCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoPointsCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoDefaultButton
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRankCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // openFileDialog
-            // 
             openFileDialog.FileName = "openFileDialog";
-            // 
-            // focusBehaviorGoToLastRadioButton
-            // 
 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusBehaviorGoToNextRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusBehaviorGoToPreviousRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusBehaviorGoToFirstRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsMaxListLabel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsMaxListNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel64
-            // 
             panel64.BackColor = Color.FromArgb(32, 32, 32);
             panel64.Controls.Add(label112);
             panel64.Controls.Add(focusTabPage.focusBehaviorGoToLastRadioButton);
@@ -1776,9 +800,6 @@ namespace Retro_Achievement_Tracker
             panel64.Name = "panel64";
             panel64.Size = new Size(434, 97);
             panel64.TabIndex = 10084;
-            // 
-            // label112
-            // 
             label112.BackColor = Color.Transparent;
             label112.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label112.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1788,9 +809,6 @@ namespace Retro_Achievement_Tracker
             label112.Size = new Size(410, 40);
             label112.TabIndex = 10082;
             label112.Text = "Auto-Focus Rule";
-            // 
-            // pictureBox12
-            // 
             pictureBox12.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox12.Location = new Point(3, 49);
             pictureBox12.Margin = new Padding(4, 5, 4, 5);
@@ -1798,9 +816,6 @@ namespace Retro_Achievement_Tracker
             pictureBox12.Size = new Size(412, 3);
             pictureBox12.TabIndex = 10083;
             pictureBox12.TabStop = false;
-            // 
-            // panel63
-            // 
             panel63.BackColor = Color.FromArgb(32, 32, 32);
             panel63.Controls.Add(unlockAchievementButton);
             panel63.Controls.Add(label111);
@@ -1816,9 +831,6 @@ namespace Retro_Achievement_Tracker
             panel63.Name = "panel63";
             panel63.Size = new Size(434, 451);
             panel63.TabIndex = 10081;
-            // 
-            // unlockAchievementButton
-            // 
             unlockAchievementButton.BackColor = Color.FromArgb(22, 22, 22);
             unlockAchievementButton.FlatAppearance.BorderColor = Color.FromArgb(22, 22, 22);
             unlockAchievementButton.FlatStyle = FlatStyle.Flat;
@@ -1832,9 +844,6 @@ namespace Retro_Achievement_Tracker
             unlockAchievementButton.Text = "Unlock";
             unlockAchievementButton.UseVisualStyleBackColor = false;
             unlockAchievementButton.Click += new System.EventHandler(UnlockAchievementButton_Click);
-            // 
-            // label111
-            // 
             label111.BackColor = Color.Transparent;
             label111.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label111.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1844,9 +853,6 @@ namespace Retro_Achievement_Tracker
             label111.Size = new Size(410, 40);
             label111.TabIndex = 10082;
             label111.Text = "Current Achievement";
-            // 
-            // pictureBox10
-            // 
             pictureBox10.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox10.Location = new Point(3, 49);
             pictureBox10.Margin = new Padding(4, 5, 4, 5);
@@ -1854,9 +860,6 @@ namespace Retro_Achievement_Tracker
             pictureBox10.Size = new Size(420, 3);
             pictureBox10.TabIndex = 10083;
             pictureBox10.TabStop = false;
-            // 
-            // panel51
-            // 
             panel51.BackColor = Color.FromArgb(32, 32, 32);
             panel51.Controls.Add(focusTabPage.focusLinePanel);
             panel51.Controls.Add(label96);
@@ -1878,20 +881,7 @@ namespace Retro_Achievement_Tracker
             panel51.Name = "panel51";
             panel51.Size = new Size(702, 438);
             panel51.TabIndex = 10080;
-            // 
-            // focusLinePanel
-            // 
 
-
-
-
-
-
-
-
-            // 
-            // label106
-            // 
             label106.BackColor = Color.Transparent;
             label106.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label106.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1901,21 +891,7 @@ namespace Retro_Achievement_Tracker
             label106.Size = new Size(216, 25);
             label106.TabIndex = 10066;
             label106.Text = "Line";
-            // 
-            // focusLineColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label96
-            // 
             label96.BackColor = Color.Transparent;
             label96.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label96.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1925,9 +901,6 @@ namespace Retro_Achievement_Tracker
             label96.Size = new Size(364, 40);
             label96.TabIndex = 10062;
             label96.Text = "Window/Font Settings";
-            // 
-            // panel59
-            // 
             panel59.BackColor = Color.FromArgb(32, 32, 32);
             panel59.Controls.Add(focusTabPage.focusBorderCheckBox);
             panel59.Controls.Add(focusTabPage.focusBorderColorPictureBox);
@@ -1937,34 +910,7 @@ namespace Retro_Achievement_Tracker
             panel59.Name = "panel59";
             panel59.Size = new Size(694, 35);
             panel59.TabIndex = 10069;
-            // 
-            // focusBorderCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-            // 
-            // focusBorderColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label107
-            // 
             label107.BackColor = Color.Transparent;
             label107.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label107.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1974,21 +920,7 @@ namespace Retro_Achievement_Tracker
             label107.Size = new Size(216, 25);
             label107.TabIndex = 10064;
             label107.Text = "Border";
-            // 
-            // focusPointsPanel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label108
-            // 
             label108.BackColor = Color.Transparent;
             label108.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label108.ForeColor = Color.FromArgb(44, 151, 250);
@@ -1998,34 +930,8 @@ namespace Retro_Achievement_Tracker
             label108.Size = new Size(216, 25);
             label108.TabIndex = 10065;
             label108.Text = "Points";
-            // 
-            // focusPointsFontColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // focusPointsFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel52
-            // 
             panel52.BackColor = Color.FromArgb(32, 32, 32);
             panel52.Controls.Add(focusTabPage.focusAdvancedCheckBox);
             panel52.Controls.Add(label97);
@@ -2037,25 +943,7 @@ namespace Retro_Achievement_Tracker
             panel52.Name = "panel52";
             panel52.Size = new Size(694, 35);
             panel52.TabIndex = 10076;
-            // 
-            // focusAdvancedCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label97
-            // 
             label97.BackColor = Color.Transparent;
             label97.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label97.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2065,9 +953,6 @@ namespace Retro_Achievement_Tracker
             label97.Size = new Size(72, 25);
             label97.TabIndex = 10065;
             label97.Text = "Color";
-            // 
-            // label98
-            // 
             label98.BackColor = Color.Transparent;
             label98.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label98.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2077,9 +962,6 @@ namespace Retro_Achievement_Tracker
             label98.Size = new Size(75, 25);
             label98.TabIndex = 10066;
             label98.Text = "Font";
-            // 
-            // label99
-            // 
             label99.BackColor = Color.Transparent;
             label99.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label99.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2089,9 +971,6 @@ namespace Retro_Achievement_Tracker
             label99.Size = new Size(62, 25);
             label99.TabIndex = 10068;
             label99.Text = "Size";
-            // 
-            // label100
-            // 
             label100.BackColor = Color.Transparent;
             label100.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label100.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2101,9 +980,6 @@ namespace Retro_Achievement_Tracker
             label100.Size = new Size(88, 25);
             label100.TabIndex = 10067;
             label100.Text = "Enabled";
-            // 
-            // panel61
-            // 
             panel61.BackColor = Color.FromArgb(26, 26, 26);
             panel61.Controls.Add(focusTabPage.focusTitleFontOutlineNumericUpDown);
             panel61.Controls.Add(focusTabPage.focusTitleOutlineCheckBox);
@@ -2114,91 +990,12 @@ namespace Retro_Achievement_Tracker
             panel61.Name = "panel61";
             panel61.Size = new Size(694, 35);
             panel61.TabIndex = 10071;
-            // 
-            // focusTitleFontOutlineNumericUpDown
-            // 
 
 
 
 
 
 
-
-
-
-
-
-
-
-            // 
-            // focusTitleOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusTitleOutlineLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // focusTitleFontOutlineColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // focusOpenWindowButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusDescriptionOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label110
-            // 
             label110.BackColor = Color.Transparent;
             label110.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label110.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2208,62 +1005,10 @@ namespace Retro_Achievement_Tracker
             label110.Size = new Size(216, 25);
             label110.TabIndex = 10066;
             label110.Text = "Description OutlineColor";
-            // 
-            // focusDescriptionFontOutlineColorPictureBox
-            // 
 
 
 
 
-
-
-
-
-
-            // 
-            // focusDescriptionFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusDescriptionOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusDescriptionPanel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label101
-            // 
             label101.BackColor = Color.Transparent;
             label101.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label101.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2273,49 +1018,9 @@ namespace Retro_Achievement_Tracker
             label101.Size = new Size(216, 25);
             label101.TabIndex = 10066;
             label101.Text = "Description";
-            // 
-            // focusDescriptionFontColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // focusDescriptionFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusAutoOpenWindowCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox11
-            // 
             pictureBox11.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox11.Location = new Point(3, 49);
             pictureBox11.Margin = new Padding(4, 5, 4, 5);
@@ -2323,9 +1028,6 @@ namespace Retro_Achievement_Tracker
             pictureBox11.Size = new Size(690, 3);
             pictureBox11.TabIndex = 10063;
             pictureBox11.TabStop = false;
-            // 
-            // panel54
-            // 
             panel54.BackColor = Color.FromArgb(26, 26, 26);
             panel54.Controls.Add(focusTabPage.focusBackgroundColorPictureBox);
             panel54.Controls.Add(label102);
@@ -2334,21 +1036,7 @@ namespace Retro_Achievement_Tracker
             panel54.Name = "panel54";
             panel54.Size = new Size(694, 35);
             panel54.TabIndex = 10061;
-            // 
-            // focusBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label102
-            // 
             label102.BackColor = Color.Transparent;
             label102.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label102.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2358,9 +1046,6 @@ namespace Retro_Achievement_Tracker
             label102.Size = new Size(216, 25);
             label102.TabIndex = 10064;
             label102.Text = "Window Background";
-            // 
-            // panel55
-            // 
             panel55.BackColor = Color.FromArgb(26, 26, 26);
             panel55.Controls.Add(focusTabPage.focusTitleLabel);
             panel55.Controls.Add(focusTabPage.focusTitleFontColorPictureBox);
@@ -2370,88 +1055,12 @@ namespace Retro_Achievement_Tracker
             panel55.Name = "panel55";
             panel55.Size = new Size(694, 35);
             panel55.TabIndex = 10061;
-            // 
-            // focusTitleLabel
-            // 
 
 
 
 
 
 
-
-
-
-            // 
-            // focusTitleFontColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // focusTitleFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusPointsOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusPointsFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusPointsOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label104
-            // 
             label104.BackColor = Color.Transparent;
             label104.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label104.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2461,34 +1070,8 @@ namespace Retro_Achievement_Tracker
             label104.Size = new Size(216, 25);
             label104.TabIndex = 10066;
             label104.Text = "Points OutlineColor";
-            // 
-            // focusPointsFontOutlineColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // focusLineOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label105
-            // 
             label105.BackColor = Color.Transparent;
             label105.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label105.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2498,50 +1081,9 @@ namespace Retro_Achievement_Tracker
             label105.Size = new Size(216, 25);
             label105.TabIndex = 10066;
             label105.Text = "Line OutlineColor";
-            // 
-            // focusLineOutlineColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // focusLineOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // focusLineOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel65
-            // 
             panel65.BackColor = Color.FromArgb(32, 32, 32);
             panel65.Controls.Add(alertsTabPage.alertsLinePanel);
             panel65.Controls.Add(label114);
@@ -2563,20 +1105,7 @@ namespace Retro_Achievement_Tracker
             panel65.Name = "panel65";
             panel65.Size = new Size(702, 438);
             panel65.TabIndex = 10081;
-            // 
-            // alertsLinePanel
-            // 
 
-
-
-
-
-
-
-
-            // 
-            // label113
-            // 
             label113.BackColor = Color.Transparent;
             label113.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label113.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2586,21 +1115,7 @@ namespace Retro_Achievement_Tracker
             label113.Size = new Size(216, 25);
             label113.TabIndex = 10066;
             label113.Text = "Line";
-            // 
-            // alertsLineColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label114
-            // 
             label114.BackColor = Color.Transparent;
             label114.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label114.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2610,9 +1125,6 @@ namespace Retro_Achievement_Tracker
             label114.Size = new Size(364, 40);
             label114.TabIndex = 10062;
             label114.Text = "Window/Font Settings";
-            // 
-            // panel67
-            // 
             panel67.BackColor = Color.FromArgb(32, 32, 32);
             panel67.Controls.Add(alertsTabPage.alertsBorderCheckBox);
             panel67.Controls.Add(alertsTabPage.alertsBorderColorPictureBox);
@@ -2622,34 +1134,8 @@ namespace Retro_Achievement_Tracker
             panel67.Name = "panel67";
             panel67.Size = new Size(694, 35);
             panel67.TabIndex = 10069;
-            // 
-            // alertsBorderCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // alertsBorderColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label115
-            // 
             label115.BackColor = Color.Transparent;
             label115.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label115.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2659,21 +1145,7 @@ namespace Retro_Achievement_Tracker
             label115.Size = new Size(216, 25);
             label115.TabIndex = 10064;
             label115.Text = "Border";
-            // 
-            // alertsPointsPanel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label116
-            // 
             label116.BackColor = Color.Transparent;
             label116.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label116.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2683,35 +1155,8 @@ namespace Retro_Achievement_Tracker
             label116.Size = new Size(216, 25);
             label116.TabIndex = 10065;
             label116.Text = "Points";
-            // 
-            // alertsPointsFontColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // alertsPointsFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel69
-            // 
             panel69.BackColor = Color.FromArgb(32, 32, 32);
             panel69.Controls.Add(alertsTabPage.alertsAdvancedCheckBox);
             panel69.Controls.Add(label117);
@@ -2723,25 +1168,7 @@ namespace Retro_Achievement_Tracker
             panel69.Name = "panel69";
             panel69.Size = new Size(694, 35);
             panel69.TabIndex = 10076;
-            // 
-            // alertsAdvancedCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label117
-            // 
             label117.BackColor = Color.Transparent;
             label117.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label117.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2751,9 +1178,6 @@ namespace Retro_Achievement_Tracker
             label117.Size = new Size(72, 25);
             label117.TabIndex = 10065;
             label117.Text = "Color";
-            // 
-            // label118
-            // 
             label118.BackColor = Color.Transparent;
             label118.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label118.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2763,9 +1187,6 @@ namespace Retro_Achievement_Tracker
             label118.Size = new Size(75, 25);
             label118.TabIndex = 10066;
             label118.Text = "Font";
-            // 
-            // label119
-            // 
             label119.BackColor = Color.Transparent;
             label119.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label119.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2775,9 +1196,6 @@ namespace Retro_Achievement_Tracker
             label119.Size = new Size(62, 25);
             label119.TabIndex = 10068;
             label119.Text = "Size";
-            // 
-            // label120
-            // 
             label120.BackColor = Color.Transparent;
             label120.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label120.ForeColor = Color.FromArgb(200, 200, 200);
@@ -2787,9 +1205,6 @@ namespace Retro_Achievement_Tracker
             label120.Size = new Size(88, 25);
             label120.TabIndex = 10067;
             label120.Text = "Enabled";
-            // 
-            // panel70
-            // 
             panel70.BackColor = Color.FromArgb(22, 22, 22);
             panel70.Controls.Add(alertsTabPage.alertsTitleFontOutlineNumericUpDown);
             panel70.Controls.Add(alertsTabPage.alertsTitleOutlineCheckBox);
@@ -2800,91 +1215,12 @@ namespace Retro_Achievement_Tracker
             panel70.Name = "panel70";
             panel70.Size = new Size(694, 35);
             panel70.TabIndex = 10071;
-            // 
-            // alertsTitleFontOutlineNumericUpDown
-            // 
 
 
 
 
 
 
-
-
-
-
-
-
-
-            // 
-            // alertsTitleOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsTitleOutlineLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsTitleFontOutlineColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsOpenWindowButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsDescriptionOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label122
-            // 
             label122.BackColor = Color.Transparent;
             label122.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label122.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2894,62 +1230,10 @@ namespace Retro_Achievement_Tracker
             label122.Size = new Size(216, 25);
             label122.TabIndex = 10066;
             label122.Text = "Description OutlineColor";
-            // 
-            // alertsDescriptionFontOutlineColorPictureBox
-            // 
 
 
 
 
-
-
-
-
-
-            // 
-            // alertsDescriptionFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsDescriptionOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsDescriptionPanel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label123
-            // 
             label123.BackColor = Color.Transparent;
             label123.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label123.ForeColor = Color.FromArgb(44, 151, 250);
@@ -2959,50 +1243,9 @@ namespace Retro_Achievement_Tracker
             label123.Size = new Size(216, 25);
             label123.TabIndex = 10066;
             label123.Text = "Description";
-            // 
-            // alertsDescriptionFontColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // alertsDescriptionFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox20
-            // 
             pictureBox20.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox20.Location = new Point(3, 49);
             pictureBox20.Margin = new Padding(4, 5, 4, 5);
@@ -3010,9 +1253,6 @@ namespace Retro_Achievement_Tracker
             pictureBox20.Size = new Size(690, 3);
             pictureBox20.TabIndex = 10063;
             pictureBox20.TabStop = false;
-            // 
-            // panel73
-            // 
             panel73.BackColor = Color.FromArgb(22, 22, 22);
             panel73.Controls.Add(alertsTabPage.alertsBackgroundColorPictureBox);
             panel73.Controls.Add(label124);
@@ -3021,21 +1261,7 @@ namespace Retro_Achievement_Tracker
             panel73.Name = "panel73";
             panel73.Size = new Size(694, 35);
             panel73.TabIndex = 10061;
-            // 
-            // alertsBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label124
-            // 
             label124.BackColor = Color.Transparent;
             label124.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label124.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3045,9 +1271,6 @@ namespace Retro_Achievement_Tracker
             label124.Size = new Size(216, 25);
             label124.TabIndex = 10064;
             label124.Text = "Window Background";
-            // 
-            // panel74
-            // 
             panel74.BackColor = Color.FromArgb(22, 22, 22);
             panel74.Controls.Add(alertsTabPage.alertsTitleLabel);
             panel74.Controls.Add(alertsTabPage.alertsTitleFontColorPictureBox);
@@ -3057,89 +1280,12 @@ namespace Retro_Achievement_Tracker
             panel74.Name = "panel74";
             panel74.Size = new Size(694, 35);
             panel74.TabIndex = 10061;
-            // 
-            // alertsTitleLabel
-            // 
 
 
 
 
 
 
-
-
-
-            // 
-            // alertsTitleFontColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsTitleFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsPointsOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsPointsFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsPointsOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label126
-            // 
             label126.BackColor = Color.Transparent;
             label126.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label126.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3149,34 +1295,8 @@ namespace Retro_Achievement_Tracker
             label126.Size = new Size(216, 25);
             label126.TabIndex = 10066;
             label126.Text = "Points OutlineColor";
-            // 
-            // alertsPointsFontOutlineColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // alertsLineOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label127
-            // 
             label127.BackColor = Color.Transparent;
             label127.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label127.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3186,72 +1306,10 @@ namespace Retro_Achievement_Tracker
             label127.Size = new Size(216, 25);
             label127.TabIndex = 10066;
             label127.Text = "Line OutlineColor";
-            // 
-            // alertsLineOutlineColorPictureBox
-            // 
 
 
 
 
-
-
-
-
-
-            // 
-            // alertsLineOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsLineOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomAchievementPanel
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel85
-            // 
             panel85.BackColor = Color.FromArgb(22, 22, 22);
             panel85.Controls.Add(label136);
             panel85.Controls.Add(alertsTabPage.alertsCustomAchievementAnimationOutComboBox);
@@ -3260,9 +1318,6 @@ namespace Retro_Achievement_Tracker
             panel85.Name = "panel85";
             panel85.Size = new Size(408, 34);
             panel85.TabIndex = 10074;
-            // 
-            // label136
-            // 
             label136.BackColor = Color.Transparent;
             label136.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label136.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3272,9 +1327,6 @@ namespace Retro_Achievement_Tracker
             label136.Size = new Size(238, 25);
             label136.TabIndex = 10069;
             label136.Text = "Animate Out Direction";
-            // 
-            // panel84
-            // 
             panel84.BackColor = Color.FromArgb(32, 32, 32);
             panel84.Controls.Add(label135);
             panel84.Controls.Add(alertsTabPage.alertsCustomAchievementAnimationInComboBox);
@@ -3283,9 +1335,6 @@ namespace Retro_Achievement_Tracker
             panel84.Name = "panel84";
             panel84.Size = new Size(408, 34);
             panel84.TabIndex = 10071;
-            // 
-            // label135
-            // 
             label135.BackColor = Color.Transparent;
             label135.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label135.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3295,9 +1344,6 @@ namespace Retro_Achievement_Tracker
             label135.Size = new Size(225, 25);
             label135.TabIndex = 10069;
             label135.Text = "Animate In Direction";
-            // 
-            // panel86
-            // 
             panel86.BackColor = Color.FromArgb(32, 32, 32);
             panel86.Controls.Add(label137);
             panel86.Controls.Add(alertsTabPage.alertsCustomAchievementOutSpeedUpDown);
@@ -3306,9 +1352,6 @@ namespace Retro_Achievement_Tracker
             panel86.Name = "panel86";
             panel86.Size = new Size(408, 34);
             panel86.TabIndex = 10073;
-            // 
-            // label137
-            // 
             label137.BackColor = Color.Transparent;
             label137.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label137.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3318,9 +1361,6 @@ namespace Retro_Achievement_Tracker
             label137.Size = new Size(225, 25);
             label137.TabIndex = 10069;
             label137.Text = "Animate Out Duration";
-            // 
-            // panel83
-            // 
             panel83.BackColor = Color.FromArgb(22, 22, 22);
             panel83.Controls.Add(label129);
             panel83.Controls.Add(alertsTabPage.alertsCustomAchievementInSpeedUpDown);
@@ -3329,9 +1369,6 @@ namespace Retro_Achievement_Tracker
             panel83.Name = "panel83";
             panel83.Size = new Size(408, 34);
             panel83.TabIndex = 10070;
-            // 
-            // label129
-            // 
             label129.BackColor = Color.Transparent;
             label129.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label129.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3341,9 +1378,6 @@ namespace Retro_Achievement_Tracker
             label129.Size = new Size(225, 25);
             label129.TabIndex = 10069;
             label129.Text = "Animate In Duration";
-            // 
-            // panel87
-            // 
             panel87.BackColor = Color.FromArgb(22, 22, 22);
             panel87.Controls.Add(label138);
             panel87.Controls.Add(alertsTabPage.alertsCustomAchievementOutNumericUpDown);
@@ -3352,9 +1386,6 @@ namespace Retro_Achievement_Tracker
             panel87.Name = "panel87";
             panel87.Size = new Size(408, 35);
             panel87.TabIndex = 10072;
-            // 
-            // label138
-            // 
             label138.BackColor = Color.Transparent;
             label138.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label138.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3364,9 +1395,6 @@ namespace Retro_Achievement_Tracker
             label138.Size = new Size(225, 25);
             label138.TabIndex = 10069;
             label138.Text = "Animate Out Time";
-            // 
-            // panel78
-            // 
             panel78.BackColor = Color.FromArgb(32, 32, 32);
             panel78.Controls.Add(label42);
             panel78.Controls.Add(label128);
@@ -3375,9 +1403,6 @@ namespace Retro_Achievement_Tracker
             panel78.Name = "panel78";
             panel78.Size = new Size(408, 35);
             panel78.TabIndex = 10079;
-            // 
-            // label42
-            // 
             label42.BackColor = Color.Transparent;
             label42.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label42.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3387,9 +1412,6 @@ namespace Retro_Achievement_Tracker
             label42.Size = new Size(75, 25);
             label42.TabIndex = 10071;
             label42.Text = "Field";
-            // 
-            // label128
-            // 
             label128.BackColor = Color.Transparent;
             label128.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label128.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3399,9 +1421,6 @@ namespace Retro_Achievement_Tracker
             label128.Size = new Size(87, 25);
             label128.TabIndex = 10073;
             label128.Text = "Value";
-            // 
-            // label130
-            // 
             label130.BackColor = Color.Transparent;
             label130.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label130.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3411,9 +1430,6 @@ namespace Retro_Achievement_Tracker
             label130.Size = new Size(228, 40);
             label130.TabIndex = 10069;
             label130.Text = "Achievement";
-            // 
-            // pictureBox13
-            // 
             pictureBox13.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox13.Location = new Point(3, 49);
             pictureBox13.Margin = new Padding(4, 5, 4, 5);
@@ -3421,9 +1437,6 @@ namespace Retro_Achievement_Tracker
             pictureBox13.Size = new Size(398, 3);
             pictureBox13.TabIndex = 10070;
             pictureBox13.TabStop = false;
-            // 
-            // panel79
-            // 
             panel79.BackColor = Color.FromArgb(22, 22, 22);
             panel79.Controls.Add(label131);
             panel79.Controls.Add(alertsTabPage.alertsCustomAchievementXNumericUpDown);
@@ -3432,9 +1445,6 @@ namespace Retro_Achievement_Tracker
             panel79.Name = "panel79";
             panel79.Size = new Size(408, 35);
             panel79.TabIndex = 10061;
-            // 
-            // label131
-            // 
             label131.BackColor = Color.Transparent;
             label131.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label131.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3444,9 +1454,6 @@ namespace Retro_Achievement_Tracker
             label131.Size = new Size(141, 25);
             label131.TabIndex = 10066;
             label131.Text = "X position";
-            // 
-            // panel80
-            // 
             panel80.BackColor = Color.FromArgb(32, 32, 32);
             panel80.Controls.Add(label132);
             panel80.Controls.Add(alertsTabPage.alertsCustomAchievementInNumericUpDown);
@@ -3455,9 +1462,6 @@ namespace Retro_Achievement_Tracker
             panel80.Name = "panel80";
             panel80.Size = new Size(408, 35);
             panel80.TabIndex = 10061;
-            // 
-            // label132
-            // 
             label132.BackColor = Color.Transparent;
             label132.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label132.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3467,9 +1471,6 @@ namespace Retro_Achievement_Tracker
             label132.Size = new Size(225, 25);
             label132.TabIndex = 10069;
             label132.Text = "Animate In Time";
-            // 
-            // panel81
-            // 
             panel81.BackColor = Color.FromArgb(22, 22, 22);
             panel81.Controls.Add(label133);
             panel81.Controls.Add(alertsTabPage.alertsCustomAchievementScaleNumericUpDown);
@@ -3478,9 +1479,6 @@ namespace Retro_Achievement_Tracker
             panel81.Name = "panel81";
             panel81.Size = new Size(408, 35);
             panel81.TabIndex = 10061;
-            // 
-            // label133
-            // 
             label133.BackColor = Color.Transparent;
             label133.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label133.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3490,9 +1488,6 @@ namespace Retro_Achievement_Tracker
             label133.Size = new Size(141, 25);
             label133.TabIndex = 10068;
             label133.Text = "Scale";
-            // 
-            // panel82
-            // 
             panel82.BackColor = Color.FromArgb(32, 32, 32);
             panel82.Controls.Add(label134);
             panel82.Controls.Add(alertsTabPage.alertsCustomAchievementYNumericUpDown);
@@ -3501,9 +1496,6 @@ namespace Retro_Achievement_Tracker
             panel82.Name = "panel82";
             panel82.Size = new Size(408, 35);
             panel82.TabIndex = 10061;
-            // 
-            // label134
-            // 
             label134.BackColor = Color.Transparent;
             label134.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label134.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3513,45 +1505,8 @@ namespace Retro_Achievement_Tracker
             label134.Size = new Size(141, 25);
             label134.TabIndex = 10067;
             label134.Text = "Y position";
-            // 
-            // alertsAchievementEnableCheckbox
-            // 
 
 
-
-
-
-
-
-
-
-
-
-            // 
-            // alertsCustomMasteryPanel
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel89
-            // 
             panel89.BackColor = Color.FromArgb(22, 22, 22);
             panel89.Controls.Add(label6);
             panel89.Controls.Add(alertsTabPage.alertsCustomMasteryAnimationOutComboBox);
@@ -3560,9 +1515,6 @@ namespace Retro_Achievement_Tracker
             panel89.Name = "panel89";
             panel89.Size = new Size(408, 35);
             panel89.TabIndex = 10074;
-            // 
-            // label6
-            // 
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3572,9 +1524,6 @@ namespace Retro_Achievement_Tracker
             label6.Size = new Size(238, 25);
             label6.TabIndex = 10069;
             label6.Text = "Animate Out Direction";
-            // 
-            // panel90
-            // 
             panel90.BackColor = Color.FromArgb(32, 32, 32);
             panel90.Controls.Add(label7);
             panel90.Controls.Add(alertsTabPage.alertsCustomMasteryAnimationInComboBox);
@@ -3583,9 +1532,6 @@ namespace Retro_Achievement_Tracker
             panel90.Name = "panel90";
             panel90.Size = new Size(408, 35);
             panel90.TabIndex = 10071;
-            // 
-            // label7
-            // 
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3595,9 +1541,6 @@ namespace Retro_Achievement_Tracker
             label7.Size = new Size(225, 25);
             label7.TabIndex = 10069;
             label7.Text = "Animate In Direction";
-            // 
-            // panel91
-            // 
             panel91.BackColor = Color.FromArgb(32, 32, 32);
             panel91.Controls.Add(label8);
             panel91.Controls.Add(alertsTabPage.alertsCustomMasteryOutSpeedUpDown);
@@ -3606,9 +1549,6 @@ namespace Retro_Achievement_Tracker
             panel91.Name = "panel91";
             panel91.Size = new Size(408, 35);
             panel91.TabIndex = 10073;
-            // 
-            // label8
-            // 
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3618,9 +1558,6 @@ namespace Retro_Achievement_Tracker
             label8.Size = new Size(225, 25);
             label8.TabIndex = 10069;
             label8.Text = "Animate Out Duration";
-            // 
-            // panel92
-            // 
             panel92.BackColor = Color.FromArgb(22, 22, 22);
             panel92.Controls.Add(label11);
             panel92.Controls.Add(alertsTabPage.alertsCustomMasteryInSpeedUpDown);
@@ -3629,9 +1566,6 @@ namespace Retro_Achievement_Tracker
             panel92.Name = "panel92";
             panel92.Size = new Size(408, 35);
             panel92.TabIndex = 10070;
-            // 
-            // label11
-            // 
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3641,9 +1575,6 @@ namespace Retro_Achievement_Tracker
             label11.Size = new Size(225, 25);
             label11.TabIndex = 10069;
             label11.Text = "Animate In Duration";
-            // 
-            // panel93
-            // 
             panel93.BackColor = Color.FromArgb(22, 22, 22);
             panel93.Controls.Add(label12);
             panel93.Controls.Add(alertsTabPage.alertsCustomMasteryOutNumericUpDown);
@@ -3652,9 +1583,6 @@ namespace Retro_Achievement_Tracker
             panel93.Name = "panel93";
             panel93.Size = new Size(408, 35);
             panel93.TabIndex = 10072;
-            // 
-            // label12
-            // 
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label12.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3664,9 +1592,6 @@ namespace Retro_Achievement_Tracker
             label12.Size = new Size(225, 25);
             label12.TabIndex = 10069;
             label12.Text = "Animate Out Time";
-            // 
-            // panel94
-            // 
             panel94.BackColor = Color.FromArgb(32, 32, 32);
             panel94.Controls.Add(label13);
             panel94.Controls.Add(label14);
@@ -3675,9 +1600,6 @@ namespace Retro_Achievement_Tracker
             panel94.Name = "panel94";
             panel94.Size = new Size(408, 35);
             panel94.TabIndex = 10079;
-            // 
-            // label13
-            // 
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label13.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3687,9 +1609,6 @@ namespace Retro_Achievement_Tracker
             label13.Size = new Size(75, 25);
             label13.TabIndex = 10071;
             label13.Text = "Field";
-            // 
-            // label14
-            // 
             label14.BackColor = Color.Transparent;
             label14.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label14.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3699,9 +1618,6 @@ namespace Retro_Achievement_Tracker
             label14.Size = new Size(87, 25);
             label14.TabIndex = 10073;
             label14.Text = "Value";
-            // 
-            // label139
-            // 
             label139.BackColor = Color.Transparent;
             label139.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label139.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3711,9 +1627,6 @@ namespace Retro_Achievement_Tracker
             label139.Size = new Size(228, 40);
             label139.TabIndex = 10069;
             label139.Text = "Mastery";
-            // 
-            // pictureBox14
-            // 
             pictureBox14.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox14.Location = new Point(3, 49);
             pictureBox14.Margin = new Padding(4, 5, 4, 5);
@@ -3721,9 +1634,6 @@ namespace Retro_Achievement_Tracker
             pictureBox14.Size = new Size(398, 3);
             pictureBox14.TabIndex = 10070;
             pictureBox14.TabStop = false;
-            // 
-            // panel95
-            // 
             panel95.BackColor = Color.FromArgb(22, 22, 22);
             panel95.Controls.Add(label140);
             panel95.Controls.Add(alertsTabPage.alertsCustomMasteryXNumericUpDown);
@@ -3732,9 +1642,6 @@ namespace Retro_Achievement_Tracker
             panel95.Name = "panel95";
             panel95.Size = new Size(408, 35);
             panel95.TabIndex = 10061;
-            // 
-            // label140
-            // 
             label140.BackColor = Color.Transparent;
             label140.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label140.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3744,9 +1651,6 @@ namespace Retro_Achievement_Tracker
             label140.Size = new Size(141, 25);
             label140.TabIndex = 10066;
             label140.Text = "X position";
-            // 
-            // panel96
-            // 
             panel96.BackColor = Color.FromArgb(32, 32, 32);
             panel96.Controls.Add(label141);
             panel96.Controls.Add(alertsTabPage.alertsCustomMasteryInNumericUpDown);
@@ -3755,9 +1659,6 @@ namespace Retro_Achievement_Tracker
             panel96.Name = "panel96";
             panel96.Size = new Size(408, 35);
             panel96.TabIndex = 10061;
-            // 
-            // label141
-            // 
             label141.BackColor = Color.Transparent;
             label141.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label141.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3767,9 +1668,6 @@ namespace Retro_Achievement_Tracker
             label141.Size = new Size(225, 25);
             label141.TabIndex = 10069;
             label141.Text = "Animate In Time";
-            // 
-            // panel97
-            // 
             panel97.BackColor = Color.FromArgb(22, 22, 22);
             panel97.Controls.Add(label142);
             panel97.Controls.Add(alertsTabPage.alertsCustomMasteryScaleNumericUpDown);
@@ -3778,9 +1676,6 @@ namespace Retro_Achievement_Tracker
             panel97.Name = "panel97";
             panel97.Size = new Size(408, 35);
             panel97.TabIndex = 10061;
-            // 
-            // label142
-            // 
             label142.BackColor = Color.Transparent;
             label142.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label142.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3790,9 +1685,6 @@ namespace Retro_Achievement_Tracker
             label142.Size = new Size(141, 25);
             label142.TabIndex = 10068;
             label142.Text = "Scale";
-            // 
-            // panel98
-            // 
             panel98.BackColor = Color.FromArgb(32, 32, 32);
             panel98.Controls.Add(label143);
             panel98.Controls.Add(alertsTabPage.alertsCustomMasteryYNumericUpDown);
@@ -3801,9 +1693,6 @@ namespace Retro_Achievement_Tracker
             panel98.Name = "panel98";
             panel98.Size = new Size(408, 35);
             panel98.TabIndex = 10061;
-            // 
-            // label143
-            // 
             label143.BackColor = Color.Transparent;
             label143.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label143.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3813,23 +1702,7 @@ namespace Retro_Achievement_Tracker
             label143.Size = new Size(141, 25);
             label143.TabIndex = 10067;
             label143.Text = "Y position";
-            // 
-            // alertsMasteryEnableCheckbox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel14
-            // 
             panel14.BackColor = Color.FromArgb(32, 32, 32);
             panel14.Controls.Add(userInfoTabPage.userInfoUsernameLabel);
             panel14.Controls.Add(userInfoTabPage.userInfoRankLabel);
@@ -3845,45 +1718,9 @@ namespace Retro_Achievement_Tracker
             panel14.Name = "panel14";
             panel14.Size = new Size(702, 278);
             panel14.TabIndex = 10079;
-            // 
-            // userInfoUsernameLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRankLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoPointsLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // label37
-            // 
+
+
+
             label37.BackColor = Color.Transparent;
             label37.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label37.ForeColor = Color.FromArgb(44, 151, 250);
@@ -3893,47 +1730,9 @@ namespace Retro_Achievement_Tracker
             label37.Size = new Size(141, 25);
             label37.TabIndex = 10075;
             label37.Text = "Retro Ratio:";
-            // 
-            // userInfoTruePointsLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoMottoLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoRatioLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // pictureBox2
-            // 
+
+
+
             pictureBox2.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox2.Location = new Point(3, 49);
             pictureBox2.Margin = new Padding(4, 5, 4, 5);
@@ -3941,9 +1740,6 @@ namespace Retro_Achievement_Tracker
             pictureBox2.Size = new Size(690, 3);
             pictureBox2.TabIndex = 10059;
             pictureBox2.TabStop = false;
-            // 
-            // panel21
-            // 
             panel21.BackColor = Color.FromArgb(32, 32, 32);
             panel21.Controls.Add(panel22);
             panel21.Controls.Add(label28);
@@ -3958,9 +1754,6 @@ namespace Retro_Achievement_Tracker
             panel21.Name = "panel21";
             panel21.Size = new Size(430, 243);
             panel21.TabIndex = 10078;
-            // 
-            // panel22
-            // 
             panel22.BackColor = Color.FromArgb(32, 32, 32);
             panel22.Controls.Add(label29);
             panel22.Controls.Add(label32);
@@ -3970,9 +1763,6 @@ namespace Retro_Achievement_Tracker
             panel22.Name = "panel22";
             panel22.Size = new Size(417, 35);
             panel22.TabIndex = 10079;
-            // 
-            // label29
-            // 
             label29.BackColor = Color.Transparent;
             label29.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label29.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3982,9 +1772,6 @@ namespace Retro_Achievement_Tracker
             label29.Size = new Size(75, 25);
             label29.TabIndex = 10071;
             label29.Text = "Field";
-            // 
-            // label32
-            // 
             label32.BackColor = Color.Transparent;
             label32.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label32.ForeColor = Color.FromArgb(200, 200, 200);
@@ -3994,9 +1781,6 @@ namespace Retro_Achievement_Tracker
             label32.Size = new Size(153, 25);
             label32.TabIndex = 10073;
             label32.Text = "Display Text";
-            // 
-            // label30
-            // 
             label30.BackColor = Color.Transparent;
             label30.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label30.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4006,9 +1790,6 @@ namespace Retro_Achievement_Tracker
             label30.Size = new Size(92, 25);
             label30.TabIndex = 10072;
             label30.Text = "Enabled";
-            // 
-            // label28
-            // 
             label28.BackColor = Color.Transparent;
             label28.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label28.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4018,9 +1799,6 @@ namespace Retro_Achievement_Tracker
             label28.Size = new Size(285, 40);
             label28.TabIndex = 10069;
             label28.Text = "Field Overrides";
-            // 
-            // pictureBox4
-            // 
             pictureBox4.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox4.Location = new Point(3, 49);
             pictureBox4.Margin = new Padding(4, 5, 4, 5);
@@ -4028,9 +1806,6 @@ namespace Retro_Achievement_Tracker
             pictureBox4.Size = new Size(412, 3);
             pictureBox4.TabIndex = 10070;
             pictureBox4.TabStop = false;
-            // 
-            // panel10
-            // 
             panel10.BackColor = Color.FromArgb(22, 22, 22);
             panel10.Controls.Add(label31);
             panel10.Controls.Add(userInfoTabPage.userInfoRankCheckBox);
@@ -4040,9 +1815,6 @@ namespace Retro_Achievement_Tracker
             panel10.Name = "panel10";
             panel10.Size = new Size(417, 35);
             panel10.TabIndex = 10061;
-            // 
-            // label31
-            // 
             label31.BackColor = Color.Transparent;
             label31.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label31.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4052,9 +1824,6 @@ namespace Retro_Achievement_Tracker
             label31.Size = new Size(141, 25);
             label31.TabIndex = 10066;
             label31.Text = "Rank";
-            // 
-            // panel13
-            // 
             panel13.BackColor = Color.FromArgb(32, 32, 32);
             panel13.Controls.Add(label35);
             panel13.Controls.Add(userInfoTabPage.userInfoRatioCheckBox);
@@ -4064,9 +1833,6 @@ namespace Retro_Achievement_Tracker
             panel13.Name = "panel13";
             panel13.Size = new Size(417, 35);
             panel13.TabIndex = 10061;
-            // 
-            // label35
-            // 
             label35.BackColor = Color.Transparent;
             label35.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label35.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4076,9 +1842,6 @@ namespace Retro_Achievement_Tracker
             label35.Size = new Size(141, 25);
             label35.TabIndex = 10069;
             label35.Text = "Retro Ratio";
-            // 
-            // panel12
-            // 
             panel12.BackColor = Color.FromArgb(22, 22, 22);
             panel12.Controls.Add(label34);
             panel12.Controls.Add(userInfoTabPage.userInfoTruePointsTextBox);
@@ -4088,9 +1851,6 @@ namespace Retro_Achievement_Tracker
             panel12.Name = "panel12";
             panel12.Size = new Size(417, 35);
             panel12.TabIndex = 10061;
-            // 
-            // label34
-            // 
             label34.BackColor = Color.Transparent;
             label34.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label34.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4100,9 +1860,6 @@ namespace Retro_Achievement_Tracker
             label34.Size = new Size(141, 25);
             label34.TabIndex = 10068;
             label34.Text = "True Points";
-            // 
-            // panel11
-            // 
             panel11.BackColor = Color.FromArgb(32, 32, 32);
             panel11.Controls.Add(label33);
             panel11.Controls.Add(userInfoTabPage.userInfoPointsTextBox);
@@ -4112,9 +1869,6 @@ namespace Retro_Achievement_Tracker
             panel11.Name = "panel11";
             panel11.Size = new Size(417, 35);
             panel11.TabIndex = 10061;
-            // 
-            // label33
-            // 
             label33.BackColor = Color.Transparent;
             label33.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label33.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4124,9 +1878,6 @@ namespace Retro_Achievement_Tracker
             label33.Size = new Size(141, 25);
             label33.TabIndex = 10067;
             label33.Text = "Points";
-            // 
-            // panel20
-            // 
             panel20.BackColor = Color.FromArgb(32, 32, 32);
             panel20.Controls.Add(label2);
             panel20.Controls.Add(panel4);
@@ -4143,9 +1894,6 @@ namespace Retro_Achievement_Tracker
             panel20.Name = "panel20";
             panel20.Size = new Size(702, 271);
             panel20.TabIndex = 10077;
-            // 
-            // label2
-            // 
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4155,9 +1903,6 @@ namespace Retro_Achievement_Tracker
             label2.Size = new Size(364, 40);
             label2.TabIndex = 10062;
             label2.Text = "Window/Font Settings";
-            // 
-            // panel4
-            // 
             panel4.BackColor = Color.FromArgb(32, 32, 32);
             panel4.Controls.Add(userInfoTabPage.userInfoAdvancedCheckBox);
             panel4.Controls.Add(label4);
@@ -4169,27 +1914,7 @@ namespace Retro_Achievement_Tracker
             panel4.Name = "panel4";
             panel4.Size = new Size(694, 35);
             panel4.TabIndex = 10076;
-            // 
-            // userInfoAdvancedCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // label4
-            // 
+
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4199,9 +1924,6 @@ namespace Retro_Achievement_Tracker
             label4.Size = new Size(72, 25);
             label4.TabIndex = 10065;
             label4.Text = "Color";
-            // 
-            // label9
-            // 
             label9.BackColor = Color.Transparent;
             label9.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4211,9 +1933,6 @@ namespace Retro_Achievement_Tracker
             label9.Size = new Size(75, 25);
             label9.TabIndex = 10066;
             label9.Text = "Font";
-            // 
-            // label25
-            // 
             label25.BackColor = Color.Transparent;
             label25.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label25.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4223,9 +1942,6 @@ namespace Retro_Achievement_Tracker
             label25.Size = new Size(62, 25);
             label25.TabIndex = 10068;
             label25.Text = "Size";
-            // 
-            // label15
-            // 
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label15.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4235,21 +1951,7 @@ namespace Retro_Achievement_Tracker
             label15.Size = new Size(88, 25);
             label15.TabIndex = 10067;
             label15.Text = "Enabled";
-            // 
-            // userInfoValuesPanel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // label26
-            // 
+
             label26.BackColor = Color.Transparent;
             label26.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label26.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4259,34 +1961,8 @@ namespace Retro_Achievement_Tracker
             label26.Size = new Size(216, 25);
             label26.TabIndex = 10066;
             label26.Text = "Values";
-            // 
-            // userInfoValuesFontColorPictureBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoValuesFontComboBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // pictureBox3
-            // 
+
+
             pictureBox3.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox3.Location = new Point(3, 49);
             pictureBox3.Margin = new Padding(4, 5, 4, 5);
@@ -4294,9 +1970,6 @@ namespace Retro_Achievement_Tracker
             pictureBox3.Size = new Size(690, 3);
             pictureBox3.TabIndex = 10063;
             pictureBox3.TabStop = false;
-            // 
-            // panel5
-            // 
             panel5.BackColor = Color.FromArgb(22, 22, 22);
             panel5.Controls.Add(userInfoTabPage.userInfoBackgroundColorPictureBox);
             panel5.Controls.Add(label3);
@@ -4305,21 +1978,7 @@ namespace Retro_Achievement_Tracker
             panel5.Name = "panel5";
             panel5.Size = new Size(694, 35);
             panel5.TabIndex = 10061;
-            // 
-            // userInfoBackgroundColorPictureBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // label3
-            // 
+
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4329,9 +1988,6 @@ namespace Retro_Achievement_Tracker
             label3.Size = new Size(216, 25);
             label3.TabIndex = 10064;
             label3.Text = "Window Background";
-            // 
-            // panel6
-            // 
             panel6.BackColor = Color.FromArgb(32, 32, 32);
             panel6.Controls.Add(userInfoTabPage.userInfoNamesLabel);
             panel6.Controls.Add(userInfoTabPage.userInfoNamesFontColorPictureBox);
@@ -4341,46 +1997,9 @@ namespace Retro_Achievement_Tracker
             panel6.Name = "panel6";
             panel6.Size = new Size(694, 35);
             panel6.TabIndex = 10061;
-            // 
-            // userInfoNamesLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoNamesFontColorPictureBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoNamesFontComboBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // panel7
-            // 
+
+
+
             panel7.BackColor = Color.FromArgb(32, 32, 32);
             panel7.Controls.Add(userInfoTabPage.userInfoNamesFontOutlineNumericUpDown);
             panel7.Controls.Add(userInfoTabPage.userInfoNamesOutlineCheckBox);
@@ -4391,78 +2010,11 @@ namespace Retro_Achievement_Tracker
             panel7.Name = "panel7";
             panel7.Size = new Size(694, 35);
             panel7.TabIndex = 10061;
-            // 
-            // userInfoNamesFontOutlineNumericUpDown
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoNamesOutlineCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoNamesOutlineLabel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoNamesFontOutlineColorPictureBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoValuesOutlinePanel
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // label27
-            // 
+
+
+
+
+
             label27.BackColor = Color.Transparent;
             label27.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label27.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4472,53 +2024,9 @@ namespace Retro_Achievement_Tracker
             label27.Size = new Size(216, 25);
             label27.TabIndex = 10066;
             label27.Text = "Values OutlineColor";
-            // 
-            // userInfoValuesFontOutlineColorPictureBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoValuesFontOutlineNumericUpDown
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // userInfoValuesOutlineCheckBox
-            // 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // 
-            // panel50
-            // 
+
+
+
             panel50.BackColor = Color.FromArgb(32, 32, 32);
             panel50.Controls.Add(panel119);
             panel50.Controls.Add(panel117);
@@ -4532,9 +2040,6 @@ namespace Retro_Achievement_Tracker
             panel50.Name = "panel50";
             panel50.Size = new Size(702, 278);
             panel50.TabIndex = 10081;
-            // 
-            // panel119
-            // 
             panel119.BackColor = Color.FromArgb(32, 32, 32);
             panel119.Controls.Add(gameInfoTabPage.gameInfoGenreLabel);
             panel119.Controls.Add(label62);
@@ -4544,21 +2049,7 @@ namespace Retro_Achievement_Tracker
             panel119.Name = "panel119";
             panel119.Size = new Size(522, 38);
             panel119.TabIndex = 10073;
-            // 
-            // gameInfoGenreLabel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label62
-            // 
             label62.BackColor = Color.Transparent;
             label62.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label62.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4568,9 +2059,6 @@ namespace Retro_Achievement_Tracker
             label62.Size = new Size(141, 25);
             label62.TabIndex = 10070;
             label62.Text = "Genre";
-            // 
-            // label36
-            // 
             label36.BackColor = Color.Transparent;
             label36.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
             label36.ForeColor = Color.FromArgb(204, 153, 0);
@@ -4580,9 +2068,6 @@ namespace Retro_Achievement_Tracker
             label36.Size = new Size(315, 25);
             label36.TabIndex = 10066;
             label36.UseMnemonic = false;
-            // 
-            // panel117
-            // 
             panel117.BackColor = Color.FromArgb(22, 22, 22);
             panel117.Controls.Add(label89);
             panel117.Controls.Add(gameInfoTabPage.gameInfoReleasedLabel);
@@ -4591,9 +2076,6 @@ namespace Retro_Achievement_Tracker
             panel117.Name = "panel117";
             panel117.Size = new Size(522, 38);
             panel117.TabIndex = 10072;
-            // 
-            // label89
-            // 
             label89.BackColor = Color.Transparent;
             label89.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label89.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4603,21 +2085,7 @@ namespace Retro_Achievement_Tracker
             label89.Size = new Size(141, 25);
             label89.TabIndex = 10070;
             label89.Text = "Released";
-            // 
-            // gameInfoReleasedLabel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // panel118
-            // 
             panel118.BackColor = Color.FromArgb(22, 22, 22);
             panel118.Controls.Add(label61);
             panel118.Controls.Add(gameInfoTabPage.gameInfoPublisherLabel);
@@ -4626,9 +2094,6 @@ namespace Retro_Achievement_Tracker
             panel118.Name = "panel118";
             panel118.Size = new Size(522, 38);
             panel118.TabIndex = 10073;
-            // 
-            // label61
-            // 
             label61.BackColor = Color.Transparent;
             label61.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label61.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4638,21 +2103,7 @@ namespace Retro_Achievement_Tracker
             label61.Size = new Size(141, 25);
             label61.TabIndex = 10069;
             label61.Text = "Publisher";
-            // 
-            // gameInfoPublisherLabel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // panel116
-            // 
             panel116.BackColor = Color.FromArgb(32, 32, 32);
             panel116.Controls.Add(label57);
             panel116.Controls.Add(gameInfoTabPage.gameInfoDeveloperLabel);
@@ -4661,9 +2112,6 @@ namespace Retro_Achievement_Tracker
             panel116.Name = "panel116";
             panel116.Size = new Size(522, 38);
             panel116.TabIndex = 10071;
-            // 
-            // label57
-            // 
             label57.BackColor = Color.Transparent;
             label57.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label57.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4673,34 +2121,8 @@ namespace Retro_Achievement_Tracker
             label57.Size = new Size(141, 25);
             label57.TabIndex = 10070;
             label57.Text = "Developer";
-            // 
-            // gameInfoDeveloperLabel
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameInfoTitleLabel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox8
-            // 
             pictureBox8.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox8.Location = new Point(3, 68);
             pictureBox8.Margin = new Padding(4, 5, 4, 5);
@@ -4708,9 +2130,6 @@ namespace Retro_Achievement_Tracker
             pictureBox8.Size = new Size(690, 3);
             pictureBox8.TabIndex = 10059;
             pictureBox8.TabStop = false;
-            // 
-            // panel29
-            // 
             panel29.BackColor = Color.FromArgb(32, 32, 32);
             panel29.Controls.Add(panel49);
             panel29.Controls.Add(panel48);
@@ -4727,9 +2146,6 @@ namespace Retro_Achievement_Tracker
             panel29.Name = "panel29";
             panel29.Size = new Size(430, 309);
             panel29.TabIndex = 10080;
-            // 
-            // panel49
-            // 
             panel49.BackColor = Color.FromArgb(32, 32, 32);
             panel49.Controls.Add(label88);
             panel49.Controls.Add(gameInfoTabPage.gameInfoReleasedCheckBox);
@@ -4739,9 +2155,6 @@ namespace Retro_Achievement_Tracker
             panel49.Name = "panel49";
             panel49.Size = new Size(417, 35);
             panel49.TabIndex = 10071;
-            // 
-            // label88
-            // 
             label88.BackColor = Color.Transparent;
             label88.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label88.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4751,34 +2164,8 @@ namespace Retro_Achievement_Tracker
             label88.Size = new Size(141, 25);
             label88.TabIndex = 10069;
             label88.Text = "Released";
-            // 
-            // gameInfoReleasedCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameInfoReleaseDateTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel48
-            // 
             panel48.BackColor = Color.FromArgb(22, 22, 22);
             panel48.Controls.Add(label87);
             panel48.Controls.Add(gameInfoTabPage.gameInfoGenreCheckBox);
@@ -4788,9 +2175,6 @@ namespace Retro_Achievement_Tracker
             panel48.Name = "panel48";
             panel48.Size = new Size(417, 35);
             panel48.TabIndex = 10070;
-            // 
-            // label87
-            // 
             label87.BackColor = Color.Transparent;
             label87.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label87.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4800,34 +2184,8 @@ namespace Retro_Achievement_Tracker
             label87.Size = new Size(141, 25);
             label87.TabIndex = 10069;
             label87.Text = "Genre";
-            // 
-            // gameInfoGenreCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameInfoGenreTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel30
-            // 
             panel30.BackColor = Color.FromArgb(32, 32, 32);
             panel30.Controls.Add(label63);
             panel30.Controls.Add(label64);
@@ -4837,9 +2195,6 @@ namespace Retro_Achievement_Tracker
             panel30.Name = "panel30";
             panel30.Size = new Size(417, 35);
             panel30.TabIndex = 10079;
-            // 
-            // label63
-            // 
             label63.BackColor = Color.Transparent;
             label63.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label63.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4849,9 +2204,6 @@ namespace Retro_Achievement_Tracker
             label63.Size = new Size(75, 25);
             label63.TabIndex = 10071;
             label63.Text = "Field";
-            // 
-            // label64
-            // 
             label64.BackColor = Color.Transparent;
             label64.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label64.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4861,9 +2213,6 @@ namespace Retro_Achievement_Tracker
             label64.Size = new Size(153, 25);
             label64.TabIndex = 10073;
             label64.Text = "Display Text";
-            // 
-            // label65
-            // 
             label65.BackColor = Color.Transparent;
             label65.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label65.ForeColor = Color.FromArgb(200, 200, 200);
@@ -4873,9 +2222,6 @@ namespace Retro_Achievement_Tracker
             label65.Size = new Size(92, 25);
             label65.TabIndex = 10072;
             label65.Text = "Enabled";
-            // 
-            // label66
-            // 
             label66.BackColor = Color.Transparent;
             label66.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label66.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4885,25 +2231,7 @@ namespace Retro_Achievement_Tracker
             label66.Size = new Size(285, 40);
             label66.TabIndex = 10069;
             label66.Text = "Field Overrides";
-            // 
-            // gameInfoDefaultButton
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox7
-            // 
             pictureBox7.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox7.Location = new Point(3, 49);
             pictureBox7.Margin = new Padding(4, 5, 4, 5);
@@ -4911,9 +2239,6 @@ namespace Retro_Achievement_Tracker
             pictureBox7.Size = new Size(412, 3);
             pictureBox7.TabIndex = 10070;
             pictureBox7.TabStop = false;
-            // 
-            // panel31
-            // 
             panel31.BackColor = Color.FromArgb(22, 22, 22);
             panel31.Controls.Add(label67);
             panel31.Controls.Add(gameInfoTabPage.gameInfoTitleCheckBox);
@@ -4923,9 +2248,6 @@ namespace Retro_Achievement_Tracker
             panel31.Name = "panel31";
             panel31.Size = new Size(417, 35);
             panel31.TabIndex = 10061;
-            // 
-            // label67
-            // 
             label67.BackColor = Color.Transparent;
             label67.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label67.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4935,34 +2257,8 @@ namespace Retro_Achievement_Tracker
             label67.Size = new Size(141, 25);
             label67.TabIndex = 10066;
             label67.Text = "Title";
-            // 
-            // gameInfoTitleCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameInfoTitleTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel32
-            // 
             panel32.BackColor = Color.FromArgb(32, 32, 32);
             panel32.Controls.Add(label68);
             panel32.Controls.Add(gameInfoTabPage.gameInfoConsoleCheckBox);
@@ -4972,9 +2268,6 @@ namespace Retro_Achievement_Tracker
             panel32.Name = "panel32";
             panel32.Size = new Size(417, 35);
             panel32.TabIndex = 10061;
-            // 
-            // label68
-            // 
             label68.BackColor = Color.Transparent;
             label68.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label68.ForeColor = Color.FromArgb(44, 151, 250);
@@ -4984,34 +2277,8 @@ namespace Retro_Achievement_Tracker
             label68.Size = new Size(141, 25);
             label68.TabIndex = 10069;
             label68.Text = "Console";
-            // 
-            // gameInfoConsoleCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameInfoConsoleTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel33
-            // 
             panel33.BackColor = Color.FromArgb(22, 22, 22);
             panel33.Controls.Add(label69);
             panel33.Controls.Add(gameInfoTabPage.gameInfoPublisherTextBox);
@@ -5021,9 +2288,6 @@ namespace Retro_Achievement_Tracker
             panel33.Name = "panel33";
             panel33.Size = new Size(417, 35);
             panel33.TabIndex = 10061;
-            // 
-            // label69
-            // 
             label69.BackColor = Color.Transparent;
             label69.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label69.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5033,34 +2297,8 @@ namespace Retro_Achievement_Tracker
             label69.Size = new Size(141, 25);
             label69.TabIndex = 10068;
             label69.Text = "Publisher";
-            // 
-            // gameInfoPublisherTextBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoPublisherCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // panel34
-            // 
             panel34.BackColor = Color.FromArgb(32, 32, 32);
             panel34.Controls.Add(label70);
             panel34.Controls.Add(gameInfoTabPage.gameInfoDeveloperTextBox);
@@ -5070,9 +2308,6 @@ namespace Retro_Achievement_Tracker
             panel34.Name = "panel34";
             panel34.Size = new Size(417, 35);
             panel34.TabIndex = 10061;
-            // 
-            // label70
-            // 
             label70.BackColor = Color.Transparent;
             label70.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label70.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5082,34 +2317,8 @@ namespace Retro_Achievement_Tracker
             label70.Size = new Size(141, 25);
             label70.TabIndex = 10067;
             label70.Text = "Developer";
-            // 
-            // gameInfoDeveloperTextBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoDeveloperCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // panel35
-            // 
             panel35.BackColor = Color.FromArgb(32, 32, 32);
             panel35.Controls.Add(label71);
             panel35.Controls.Add(panel42);
@@ -5126,9 +2335,6 @@ namespace Retro_Achievement_Tracker
             panel35.Name = "panel35";
             panel35.Size = new Size(702, 271);
             panel35.TabIndex = 10079;
-            // 
-            // label71
-            // 
             label71.BackColor = Color.Transparent;
             label71.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label71.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5138,9 +2344,6 @@ namespace Retro_Achievement_Tracker
             label71.Size = new Size(364, 40);
             label71.TabIndex = 10062;
             label71.Text = "Window/Font Settings";
-            // 
-            // panel42
-            // 
             panel42.BackColor = Color.FromArgb(32, 32, 32);
             panel42.Controls.Add(gameInfoTabPage.gameInfoAdvancedCheckBox);
             panel42.Controls.Add(label78);
@@ -5152,25 +2355,7 @@ namespace Retro_Achievement_Tracker
             panel42.Name = "panel42";
             panel42.Size = new Size(694, 35);
             panel42.TabIndex = 10076;
-            // 
-            // gameInfoAdvancedCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label78
-            // 
             label78.BackColor = Color.Transparent;
             label78.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label78.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5180,9 +2365,6 @@ namespace Retro_Achievement_Tracker
             label78.Size = new Size(72, 25);
             label78.TabIndex = 10065;
             label78.Text = "Color";
-            // 
-            // label79
-            // 
             label79.BackColor = Color.Transparent;
             label79.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label79.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5192,9 +2374,6 @@ namespace Retro_Achievement_Tracker
             label79.Size = new Size(75, 25);
             label79.TabIndex = 10066;
             label79.Text = "Font";
-            // 
-            // label80
-            // 
             label80.BackColor = Color.Transparent;
             label80.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label80.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5204,9 +2383,6 @@ namespace Retro_Achievement_Tracker
             label80.Size = new Size(62, 25);
             label80.TabIndex = 10068;
             label80.Text = "Size";
-            // 
-            // label81
-            // 
             label81.BackColor = Color.Transparent;
             label81.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label81.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5216,37 +2392,8 @@ namespace Retro_Achievement_Tracker
             label81.Size = new Size(88, 25);
             label81.TabIndex = 10067;
             label81.Text = "Enabled";
-            // 
-            // gameInfoOpenWindowButton
-            // 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoValuesPanel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label82
-            // 
             label82.BackColor = Color.Transparent;
             label82.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label82.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5256,49 +2403,9 @@ namespace Retro_Achievement_Tracker
             label82.Size = new Size(216, 25);
             label82.TabIndex = 10066;
             label82.Text = "Values";
-            // 
-            // gameInfoValuesFontColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameInfoValuesFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox9
-            // 
             pictureBox9.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox9.Location = new Point(3, 49);
             pictureBox9.Margin = new Padding(4, 5, 4, 5);
@@ -5306,9 +2413,6 @@ namespace Retro_Achievement_Tracker
             pictureBox9.Size = new Size(690, 3);
             pictureBox9.TabIndex = 10063;
             pictureBox9.TabStop = false;
-            // 
-            // panel44
-            // 
             panel44.BackColor = Color.FromArgb(22, 22, 22);
             panel44.Controls.Add(gameInfoTabPage.gameInfoBackgroundColorPictureBox);
             panel44.Controls.Add(label83);
@@ -5317,21 +2421,7 @@ namespace Retro_Achievement_Tracker
             panel44.Name = "panel44";
             panel44.Size = new Size(694, 35);
             panel44.TabIndex = 10061;
-            // 
-            // gameInfoBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label83
-            // 
             label83.BackColor = Color.Transparent;
             label83.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label83.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5341,9 +2431,6 @@ namespace Retro_Achievement_Tracker
             label83.Size = new Size(216, 25);
             label83.TabIndex = 10064;
             label83.Text = "Window Background";
-            // 
-            // panel45
-            // 
             panel45.BackColor = Color.FromArgb(32, 32, 32);
             panel45.Controls.Add(gameInfoTabPage.gameInfoNamesLabel);
             panel45.Controls.Add(gameInfoTabPage.gameInfoNamesFontColorPictureBox);
@@ -5353,46 +2440,9 @@ namespace Retro_Achievement_Tracker
             panel45.Name = "panel45";
             panel45.Size = new Size(694, 35);
             panel45.TabIndex = 10061;
-            // 
-            // gameInfoNamesLabel
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameInfoNamesFontColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoNamesFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel46
-            // 
             panel46.BackColor = Color.FromArgb(32, 32, 32);
             panel46.Controls.Add(gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown);
             panel46.Controls.Add(gameInfoTabPage.gameInfoNamesOutlineCheckBox);
@@ -5403,75 +2453,11 @@ namespace Retro_Achievement_Tracker
             panel46.Name = "panel46";
             panel46.Size = new Size(694, 35);
             panel46.TabIndex = 10061;
-            // 
-            // gameInfoNamesFontOutlineNumericUpDown
-            // 
 
 
 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoNamesOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoNamesOutlineLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoNamesFontOutlineColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoValuesOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label86
-            // 
             label86.BackColor = Color.Transparent;
             label86.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label86.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5481,50 +2467,9 @@ namespace Retro_Achievement_Tracker
             label86.Size = new Size(216, 25);
             label86.TabIndex = 10066;
             label86.Text = "Values OutlineColor";
-            // 
-            // gameInfoValuesFontOutlineColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameInfoValuesFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameInfoValuesOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel28
-            // 
             panel28.BackColor = Color.FromArgb(32, 32, 32);
             panel28.Controls.Add(gameProgressTabPage.gameProgressPointsTextLabel);
             panel28.Controls.Add(gameProgressTabPage.gameProgressHardcoreWorthLabel);
@@ -5549,9 +2494,6 @@ namespace Retro_Achievement_Tracker
             panel28.Name = "panel28";
             panel28.Size = new Size(702, 278);
             panel28.TabIndex = 10082;
-            // 
-            // gameProgressPointsTextLabel
-            // 
 
 
 
@@ -5560,97 +2502,6 @@ namespace Retro_Achievement_Tracker
 
 
 
-
-
-            // 
-            // gameProgressHardcoreWorthLabel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressPoints2Label
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressTruePoints2Label
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressAchievements2Label
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressHaveEarnedLabel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressPercentCompletePictureBox
-            // 
-
-
-
-
-
-
-
-            // 
-            // gameProgressMasteryPictureBox
-            // 
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox21
-            // 
             pictureBox21.BackColor = Color.Transparent;
             pictureBox21.Image = global::Retro_Achievement_Tracker.Properties.Resources.progression_meter;
             pictureBox21.Location = new Point(375, 200);
@@ -5660,9 +2511,6 @@ namespace Retro_Achievement_Tracker
             pictureBox21.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox21.TabIndex = 10067;
             pictureBox21.TabStop = false;
-            // 
-            // label60
-            // 
             label60.BackColor = Color.Transparent;
             label60.Font = new Font("Verdana", 9.75F);
             label60.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5672,9 +2520,6 @@ namespace Retro_Achievement_Tracker
             label60.Size = new Size(81, 25);
             label60.TabIndex = 10065;
             label60.Text = "points.";
-            // 
-            // label59
-            // 
             label59.AutoSize = true;
             label59.BackColor = Color.Transparent;
             label59.Font = new Font("Verdana", 9.75F);
@@ -5685,9 +2530,6 @@ namespace Retro_Achievement_Tracker
             label59.Size = new Size(216, 25);
             label59.TabIndex = 10064;
             label59.Text = "achievements worth";
-            // 
-            // label58
-            // 
             label58.AutoSize = true;
             label58.BackColor = Color.Transparent;
             label58.Font = new Font("Verdana", 9.75F);
@@ -5698,9 +2540,6 @@ namespace Retro_Achievement_Tracker
             label58.Size = new Size(110, 25);
             label58.TabIndex = 10063;
             label58.Text = "There are";
-            // 
-            // label56
-            // 
             label56.BackColor = Color.Transparent;
             label56.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label56.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5710,9 +2549,6 @@ namespace Retro_Achievement_Tracker
             label56.Size = new Size(288, 40);
             label56.TabIndex = 10058;
             label56.Text = "Achievements";
-            // 
-            // pictureBox5
-            // 
             pictureBox5.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox5.Location = new Point(3, 49);
             pictureBox5.Margin = new Padding(4, 5, 4, 5);
@@ -5720,60 +2556,10 @@ namespace Retro_Achievement_Tracker
             pictureBox5.Size = new Size(690, 3);
             pictureBox5.TabIndex = 10059;
             pictureBox5.TabStop = false;
-            // 
-            // gameProgressAchievements1Label
-            // 
 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameProgressPoints1Label
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressCompletedLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressTruePoints1Label
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel15
-            // 
             panel15.BackColor = Color.FromArgb(32, 32, 32);
             panel15.Controls.Add(label38);
             panel15.Controls.Add(panel16);
@@ -5790,9 +2576,6 @@ namespace Retro_Achievement_Tracker
             panel15.Name = "panel15";
             panel15.Size = new Size(702, 271);
             panel15.TabIndex = 10081;
-            // 
-            // label38
-            // 
             label38.BackColor = Color.Transparent;
             label38.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label38.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5802,9 +2585,6 @@ namespace Retro_Achievement_Tracker
             label38.Size = new Size(364, 40);
             label38.TabIndex = 10062;
             label38.Text = "Window/Font Settings";
-            // 
-            // panel16
-            // 
             panel16.BackColor = Color.FromArgb(32, 32, 32);
             panel16.Controls.Add(gameProgressTabPage.gameProgressAdvancedCheckBox);
             panel16.Controls.Add(label41);
@@ -5816,25 +2596,7 @@ namespace Retro_Achievement_Tracker
             panel16.Name = "panel16";
             panel16.Size = new Size(694, 35);
             panel16.TabIndex = 10076;
-            // 
-            // gameProgressAdvancedCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label41
-            // 
             label41.BackColor = Color.Transparent;
             label41.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label41.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5844,9 +2606,6 @@ namespace Retro_Achievement_Tracker
             label41.Size = new Size(72, 25);
             label41.TabIndex = 10065;
             label41.Text = "Color";
-            // 
-            // label43
-            // 
             label43.BackColor = Color.Transparent;
             label43.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label43.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5856,9 +2615,6 @@ namespace Retro_Achievement_Tracker
             label43.Size = new Size(75, 25);
             label43.TabIndex = 10066;
             label43.Text = "Font";
-            // 
-            // label44
-            // 
             label44.BackColor = Color.Transparent;
             label44.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label44.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5868,9 +2624,6 @@ namespace Retro_Achievement_Tracker
             label44.Size = new Size(62, 25);
             label44.TabIndex = 10068;
             label44.Text = "Size";
-            // 
-            // label45
-            // 
             label45.BackColor = Color.Transparent;
             label45.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label45.ForeColor = Color.FromArgb(200, 200, 200);
@@ -5880,37 +2633,8 @@ namespace Retro_Achievement_Tracker
             label45.Size = new Size(88, 25);
             label45.TabIndex = 10067;
             label45.Text = "Enabled";
-            // 
-            // gameProgressOpenWindowButton
-            // 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressValuesPanel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label46
-            // 
             label46.BackColor = Color.Transparent;
             label46.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label46.ForeColor = Color.FromArgb(44, 151, 250);
@@ -5920,49 +2644,9 @@ namespace Retro_Achievement_Tracker
             label46.Size = new Size(216, 25);
             label46.TabIndex = 10066;
             label46.Text = "Values";
-            // 
-            // gameProgressValuesFontColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameProgressValuesFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox6
-            // 
             pictureBox6.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox6.Location = new Point(3, 49);
             pictureBox6.Margin = new Padding(4, 5, 4, 5);
@@ -5970,9 +2654,6 @@ namespace Retro_Achievement_Tracker
             pictureBox6.Size = new Size(690, 3);
             pictureBox6.TabIndex = 10063;
             pictureBox6.TabStop = false;
-            // 
-            // panel18
-            // 
             panel18.BackColor = Color.FromArgb(22, 22, 22);
             panel18.Controls.Add(gameProgressTabPage.gameProgressBackgroundColorPictureBox);
             panel18.Controls.Add(label47);
@@ -5981,21 +2662,7 @@ namespace Retro_Achievement_Tracker
             panel18.Name = "panel18";
             panel18.Size = new Size(694, 35);
             panel18.TabIndex = 10061;
-            // 
-            // gameProgressBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label47
-            // 
             label47.BackColor = Color.Transparent;
             label47.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label47.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6005,9 +2672,6 @@ namespace Retro_Achievement_Tracker
             label47.Size = new Size(216, 25);
             label47.TabIndex = 10064;
             label47.Text = "Window Background";
-            // 
-            // panel19
-            // 
             panel19.BackColor = Color.FromArgb(32, 32, 32);
             panel19.Controls.Add(gameProgressTabPage.gameProgressNamesLabel);
             panel19.Controls.Add(gameProgressTabPage.gameProgressNamesFontColorPictureBox);
@@ -6017,46 +2681,9 @@ namespace Retro_Achievement_Tracker
             panel19.Name = "panel19";
             panel19.Size = new Size(694, 35);
             panel19.TabIndex = 10061;
-            // 
-            // gameProgressNamesLabel
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameProgressNamesFontColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressNamesFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel23
-            // 
             panel23.BackColor = Color.FromArgb(32, 32, 32);
             panel23.Controls.Add(gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown);
             panel23.Controls.Add(gameProgressTabPage.gameProgressNamesOutlineCheckBox);
@@ -6067,75 +2694,11 @@ namespace Retro_Achievement_Tracker
             panel23.Name = "panel23";
             panel23.Size = new Size(694, 35);
             panel23.TabIndex = 10061;
-            // 
-            // gameProgressNamesFontOutlineNumericUpDown
-            // 
 
 
 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressNamesOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressNamesOutlineLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressNamesFontOutlineColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressValuesOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label50
-            // 
             label50.BackColor = Color.Transparent;
             label50.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label50.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6145,50 +2708,9 @@ namespace Retro_Achievement_Tracker
             label50.Size = new Size(216, 25);
             label50.TabIndex = 10066;
             label50.Text = "Values OutlineColor";
-            // 
-            // gameProgressValuesFontOutlineColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // gameProgressValuesFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressValuesOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel36
-            // 
             panel36.BackColor = Color.FromArgb(36, 36, 36);
             panel36.Controls.Add(panel27);
             panel36.Controls.Add(panel25);
@@ -6206,9 +2728,6 @@ namespace Retro_Achievement_Tracker
             panel36.Name = "panel36";
             panel36.Size = new Size(430, 342);
             panel36.TabIndex = 10080;
-            // 
-            // panel27
-            // 
             panel27.BackColor = Color.FromArgb(22, 22, 22);
             panel27.Controls.Add(label55);
             panel27.Controls.Add(gameProgressTabPage.gameProgressRadioButtonPeriod);
@@ -6222,9 +2741,6 @@ namespace Retro_Achievement_Tracker
             panel27.Name = "panel27";
             panel27.Size = new Size(417, 35);
             panel27.TabIndex = 10073;
-            // 
-            // label55
-            // 
             label55.BackColor = Color.Transparent;
             label55.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label55.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6234,21 +2750,7 @@ namespace Retro_Achievement_Tracker
             label55.Size = new Size(22, 25);
             label55.TabIndex = 10074;
             label55.Text = ".";
-            // 
-            // gameProgressRadioButtonPeriod
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label54
-            // 
             label54.BackColor = Color.Transparent;
             label54.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label54.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6258,21 +2760,7 @@ namespace Retro_Achievement_Tracker
             label54.Size = new Size(22, 25);
             label54.TabIndex = 10072;
             label54.Text = ":";
-            // 
-            // gameProgressRadioButtonColon
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label53
-            // 
             label53.BackColor = Color.Transparent;
             label53.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label53.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6282,21 +2770,7 @@ namespace Retro_Achievement_Tracker
             label53.Size = new Size(22, 25);
             label53.TabIndex = 10070;
             label53.Text = "/";
-            // 
-            // gameProgressRadioButtonBackslash
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label51
-            // 
             label51.BackColor = Color.Transparent;
             label51.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label51.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6306,18 +2780,12 @@ namespace Retro_Achievement_Tracker
             label51.Size = new Size(141, 25);
             label51.TabIndex = 10069;
             label51.Text = "Separator";
-            // 
-            // panel25
-            // 
             panel25.BackColor = Color.FromArgb(32, 32, 32);
             panel25.Location = new Point(3, 265);
             panel25.Margin = new Padding(4, 5, 4, 5);
             panel25.Name = "panel25";
             panel25.Size = new Size(417, 35);
             panel25.TabIndex = 10072;
-            // 
-            // panel37
-            // 
             panel37.BackColor = Color.FromArgb(32, 32, 32);
             panel37.Controls.Add(label39);
             panel37.Controls.Add(label40);
@@ -6327,9 +2795,6 @@ namespace Retro_Achievement_Tracker
             panel37.Name = "panel37";
             panel37.Size = new Size(417, 35);
             panel37.TabIndex = 10079;
-            // 
-            // label39
-            // 
             label39.BackColor = Color.Transparent;
             label39.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label39.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6339,9 +2804,6 @@ namespace Retro_Achievement_Tracker
             label39.Size = new Size(75, 25);
             label39.TabIndex = 10071;
             label39.Text = "Field";
-            // 
-            // label40
-            // 
             label40.BackColor = Color.Transparent;
             label40.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label40.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6351,9 +2813,6 @@ namespace Retro_Achievement_Tracker
             label40.Size = new Size(153, 25);
             label40.TabIndex = 10073;
             label40.Text = "Display Text";
-            // 
-            // label72
-            // 
             label72.BackColor = Color.Transparent;
             label72.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label72.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6363,9 +2822,6 @@ namespace Retro_Achievement_Tracker
             label72.Size = new Size(92, 25);
             label72.TabIndex = 10072;
             label72.Text = "Enabled";
-            // 
-            // panel26
-            // 
             panel26.BackColor = Color.FromArgb(22, 22, 22);
             panel26.Controls.Add(label52);
             panel26.Controls.Add(gameProgressTabPage.gameProgressCompletedTextBox);
@@ -6375,9 +2831,6 @@ namespace Retro_Achievement_Tracker
             panel26.Name = "panel26";
             panel26.Size = new Size(417, 35);
             panel26.TabIndex = 10071;
-            // 
-            // label52
-            // 
             label52.BackColor = Color.Transparent;
             label52.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label52.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6387,34 +2840,8 @@ namespace Retro_Achievement_Tracker
             label52.Size = new Size(141, 25);
             label52.TabIndex = 10068;
             label52.Text = "Completed";
-            // 
-            // gameProgressCompletedTextBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressCompletedCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label73
-            // 
             label73.BackColor = Color.Transparent;
             label73.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label73.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6424,25 +2851,7 @@ namespace Retro_Achievement_Tracker
             label73.Size = new Size(285, 40);
             label73.TabIndex = 10069;
             label73.Text = "Field Overrides";
-            // 
-            // gameProgressDefaultButton
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox17
-            // 
             pictureBox17.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox17.Location = new Point(3, 49);
             pictureBox17.Margin = new Padding(4, 5, 4, 5);
@@ -6450,9 +2859,6 @@ namespace Retro_Achievement_Tracker
             pictureBox17.Size = new Size(412, 3);
             pictureBox17.TabIndex = 10070;
             pictureBox17.TabStop = false;
-            // 
-            // panel38
-            // 
             panel38.BackColor = Color.FromArgb(22, 22, 22);
             panel38.Controls.Add(label74);
             panel38.Controls.Add(gameProgressTabPage.gameProgressAchievementsCheckBox);
@@ -6462,9 +2868,6 @@ namespace Retro_Achievement_Tracker
             panel38.Name = "panel38";
             panel38.Size = new Size(417, 35);
             panel38.TabIndex = 10061;
-            // 
-            // label74
-            // 
             label74.BackColor = Color.Transparent;
             label74.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label74.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6474,34 +2877,8 @@ namespace Retro_Achievement_Tracker
             label74.Size = new Size(168, 25);
             label74.TabIndex = 10066;
             label74.Text = "Achievements";
-            // 
-            // gameProgressAchievementsCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameProgressAchievementsTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel39
-            // 
             panel39.BackColor = Color.FromArgb(32, 32, 32);
             panel39.Controls.Add(label75);
             panel39.Controls.Add(gameProgressTabPage.gameProgressRatioCheckBox);
@@ -6511,9 +2888,6 @@ namespace Retro_Achievement_Tracker
             panel39.Name = "panel39";
             panel39.Size = new Size(417, 35);
             panel39.TabIndex = 10061;
-            // 
-            // label75
-            // 
             label75.BackColor = Color.Transparent;
             label75.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label75.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6523,34 +2897,8 @@ namespace Retro_Achievement_Tracker
             label75.Size = new Size(141, 25);
             label75.TabIndex = 10069;
             label75.Text = "Retro Ratio";
-            // 
-            // gameProgressRatioCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // gameProgressRatioTextBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel40
-            // 
             panel40.BackColor = Color.FromArgb(22, 22, 22);
             panel40.Controls.Add(label76);
             panel40.Controls.Add(gameProgressTabPage.gameProgressTruePointsTextBox);
@@ -6560,9 +2908,6 @@ namespace Retro_Achievement_Tracker
             panel40.Name = "panel40";
             panel40.Size = new Size(417, 35);
             panel40.TabIndex = 10061;
-            // 
-            // label76
-            // 
             label76.BackColor = Color.Transparent;
             label76.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label76.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6572,34 +2917,8 @@ namespace Retro_Achievement_Tracker
             label76.Size = new Size(141, 25);
             label76.TabIndex = 10068;
             label76.Text = "True Points";
-            // 
-            // gameProgressTruePointsTextBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressTruePointsCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // panel41
-            // 
             panel41.BackColor = Color.FromArgb(32, 32, 32);
             panel41.Controls.Add(label77);
             panel41.Controls.Add(gameProgressTabPage.gameProgressPointsTextBox);
@@ -6609,9 +2928,6 @@ namespace Retro_Achievement_Tracker
             panel41.Name = "panel41";
             panel41.Size = new Size(417, 35);
             panel41.TabIndex = 10061;
-            // 
-            // label77
-            // 
             label77.BackColor = Color.Transparent;
             label77.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label77.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6621,34 +2937,8 @@ namespace Retro_Achievement_Tracker
             label77.Size = new Size(141, 25);
             label77.TabIndex = 10067;
             label77.Text = "Points";
-            // 
-            // gameProgressPointsTextBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // gameProgressPointsCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // panel113
-            // 
             panel113.BackColor = Color.FromArgb(32, 32, 32);
             panel113.Controls.Add(label155);
             panel113.Controls.Add(pictureBox15);
@@ -6660,9 +2950,6 @@ namespace Retro_Achievement_Tracker
             panel113.Name = "panel113";
             panel113.Size = new Size(434, 98);
             panel113.TabIndex = 10083;
-            // 
-            // label155
-            // 
             label155.BackColor = Color.Transparent;
             label155.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label155.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6672,9 +2959,6 @@ namespace Retro_Achievement_Tracker
             label155.Size = new Size(285, 40);
             label155.TabIndex = 10069;
             label155.Text = "List Settings";
-            // 
-            // pictureBox15
-            // 
             pictureBox15.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox15.Location = new Point(3, 49);
             pictureBox15.Margin = new Padding(4, 5, 4, 5);
@@ -6682,25 +2966,7 @@ namespace Retro_Achievement_Tracker
             pictureBox15.Size = new Size(412, 3);
             pictureBox15.TabIndex = 10070;
             pictureBox15.TabStop = false;
-            // 
-            // recentAchievementsAutoScrollCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel99
-            // 
             panel99.BackColor = Color.FromArgb(32, 32, 32);
             panel99.Controls.Add(recentAchievementsTabPage.recentAchievementsLinePanel);
             panel99.Controls.Add(label17);
@@ -6722,20 +2988,7 @@ namespace Retro_Achievement_Tracker
             panel99.Name = "panel99";
             panel99.Size = new Size(702, 438);
             panel99.TabIndex = 10082;
-            // 
-            // recentAchievementsLinePanel
-            // 
 
-
-
-
-
-
-
-
-            // 
-            // label16
-            // 
             label16.BackColor = Color.Transparent;
             label16.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label16.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6745,21 +2998,7 @@ namespace Retro_Achievement_Tracker
             label16.Size = new Size(216, 25);
             label16.TabIndex = 10066;
             label16.Text = "Line";
-            // 
-            // recentAchievementsLineColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label17
-            // 
             label17.BackColor = Color.Transparent;
             label17.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label17.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6769,9 +3008,6 @@ namespace Retro_Achievement_Tracker
             label17.Size = new Size(364, 40);
             label17.TabIndex = 10062;
             label17.Text = "Window/Font Settings";
-            // 
-            // panel101
-            // 
             panel101.BackColor = Color.FromArgb(32, 32, 32);
             panel101.Controls.Add(recentAchievementsTabPage.recentAchievementsBorderCheckBox);
             panel101.Controls.Add(recentAchievementsTabPage.recentAchievementsBorderColorPictureBox);
@@ -6781,34 +3017,8 @@ namespace Retro_Achievement_Tracker
             panel101.Name = "panel101";
             panel101.Size = new Size(694, 35);
             panel101.TabIndex = 10069;
-            // 
-            // recentAchievementsBorderCheckBox
-            // 
 
 
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsBorderColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label18
-            // 
             label18.BackColor = Color.Transparent;
             label18.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label18.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6818,21 +3028,7 @@ namespace Retro_Achievement_Tracker
             label18.Size = new Size(216, 25);
             label18.TabIndex = 10064;
             label18.Text = "Border";
-            // 
-            // recentAchievementsPointsPanel
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label19
-            // 
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label19.ForeColor = Color.FromArgb(44, 151, 250);
@@ -6842,34 +3038,8 @@ namespace Retro_Achievement_Tracker
             label19.Size = new Size(216, 25);
             label19.TabIndex = 10065;
             label19.Text = "Points";
-            // 
-            // recentAchievementsPointsFontColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsPointsFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel103
-            // 
             panel103.BackColor = Color.FromArgb(32, 32, 32);
             panel103.Controls.Add(recentAchievementsTabPage.recentAchievementsAdvancedCheckBox);
             panel103.Controls.Add(label20);
@@ -6881,25 +3051,7 @@ namespace Retro_Achievement_Tracker
             panel103.Name = "panel103";
             panel103.Size = new Size(694, 35);
             panel103.TabIndex = 10076;
-            // 
-            // recentAchievementsAdvancedCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label20
-            // 
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label20.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6909,9 +3061,6 @@ namespace Retro_Achievement_Tracker
             label20.Size = new Size(72, 25);
             label20.TabIndex = 10065;
             label20.Text = "Color";
-            // 
-            // label21
-            // 
             label21.BackColor = Color.Transparent;
             label21.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label21.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6921,9 +3070,6 @@ namespace Retro_Achievement_Tracker
             label21.Size = new Size(75, 25);
             label21.TabIndex = 10066;
             label21.Text = "Font";
-            // 
-            // label22
-            // 
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label22.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6933,9 +3079,6 @@ namespace Retro_Achievement_Tracker
             label22.Size = new Size(62, 25);
             label22.TabIndex = 10068;
             label22.Text = "Size";
-            // 
-            // label23
-            // 
             label23.BackColor = Color.Transparent;
             label23.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label23.ForeColor = Color.FromArgb(200, 200, 200);
@@ -6945,9 +3088,6 @@ namespace Retro_Achievement_Tracker
             label23.Size = new Size(88, 25);
             label23.TabIndex = 10067;
             label23.Text = "Enabled";
-            // 
-            // panel104
-            // 
             panel104.BackColor = Color.FromArgb(22, 22, 22);
             panel104.Controls.Add(recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown);
             panel104.Controls.Add(recentAchievementsTabPage.recentAchievementsTitleFontOutlineCheckBox);
@@ -6958,91 +3098,12 @@ namespace Retro_Achievement_Tracker
             panel104.Name = "panel104";
             panel104.Size = new Size(694, 35);
             panel104.TabIndex = 10071;
-            // 
-            // recentAchievementsTitleFontOutlineNumericUpDown
-            // 
 
 
 
 
 
 
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsTitleFontOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsTitleOutlineLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsTitleFontOutlineColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsOpenWindowButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsDescriptionOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label144
-            // 
             label144.BackColor = Color.Transparent;
             label144.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label144.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7052,62 +3113,10 @@ namespace Retro_Achievement_Tracker
             label144.Size = new Size(216, 25);
             label144.TabIndex = 10066;
             label144.Text = "Date OutlineColor";
-            // 
-            // recentAchievementsDateFontOutlineColorPictureBox
-            // 
 
 
 
 
-
-
-
-
-
-            // 
-            // recentAchievementsDescriptionFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsDateFontOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsDescriptionPanel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label145
-            // 
             label145.BackColor = Color.Transparent;
             label145.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label145.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7117,49 +3126,9 @@ namespace Retro_Achievement_Tracker
             label145.Size = new Size(216, 25);
             label145.TabIndex = 10066;
             label145.Text = "Date";
-            // 
-            // recentAchievementsDateFontColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // recentAchievementsDescriptionFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox23
-            // 
             pictureBox23.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox23.Location = new Point(3, 49);
             pictureBox23.Margin = new Padding(4, 5, 4, 5);
@@ -7167,9 +3136,6 @@ namespace Retro_Achievement_Tracker
             pictureBox23.Size = new Size(690, 3);
             pictureBox23.TabIndex = 10063;
             pictureBox23.TabStop = false;
-            // 
-            // panel107
-            // 
             panel107.BackColor = Color.FromArgb(22, 22, 22);
             panel107.Controls.Add(recentAchievementsTabPage.recentAchievementsBackgroundColorPictureBox);
             panel107.Controls.Add(label146);
@@ -7178,21 +3144,7 @@ namespace Retro_Achievement_Tracker
             panel107.Name = "panel107";
             panel107.Size = new Size(694, 35);
             panel107.TabIndex = 10061;
-            // 
-            // recentAchievementsBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label146
-            // 
             label146.BackColor = Color.Transparent;
             label146.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label146.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7202,9 +3154,6 @@ namespace Retro_Achievement_Tracker
             label146.Size = new Size(216, 25);
             label146.TabIndex = 10064;
             label146.Text = "Window Background";
-            // 
-            // panel108
-            // 
             panel108.BackColor = Color.FromArgb(22, 22, 22);
             panel108.Controls.Add(recentAchievementsTabPage.recentAchievementsTitleLabel);
             panel108.Controls.Add(recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox);
@@ -7214,88 +3163,12 @@ namespace Retro_Achievement_Tracker
             panel108.Name = "panel108";
             panel108.Size = new Size(694, 35);
             panel108.TabIndex = 10061;
-            // 
-            // recentAchievementsTitleLabel
-            // 
 
 
 
 
 
 
-
-
-
-            // 
-            // recentAchievementsTitleFontColorPictureBox
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsTitleFontComboBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsPointsOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsPointsFontOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsPointsFontOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label148
-            // 
             label148.BackColor = Color.Transparent;
             label148.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label148.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7305,34 +3178,8 @@ namespace Retro_Achievement_Tracker
             label148.Size = new Size(216, 25);
             label148.TabIndex = 10066;
             label148.Text = "Points OutlineColor";
-            // 
-            // recentAchievementsPointsFontOutlineColorPictureBox
-            // 
 
 
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsLineOutlinePanel
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // label149
-            // 
             label149.BackColor = Color.Transparent;
             label149.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label149.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7342,50 +3189,9 @@ namespace Retro_Achievement_Tracker
             label149.Size = new Size(216, 25);
             label149.TabIndex = 10066;
             label149.Text = "Line OutlineColor";
-            // 
-            // recentAchievementsLineOutlineColorPictureBox
-            // 
 
 
 
-
-
-
-
-
-
-            // 
-            // recentAchievementsLineOutlineNumericUpDown
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // recentAchievementsLineOutlineCheckBox
-            // 
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel115
-            // 
             panel115.BackColor = Color.FromArgb(32, 32, 32);
             panel115.Controls.Add(label152);
             panel115.Controls.Add(pictureBox18);
@@ -7395,9 +3201,6 @@ namespace Retro_Achievement_Tracker
             panel115.Name = "panel115";
             panel115.Size = new Size(434, 97);
             panel115.TabIndex = 10084;
-            // 
-            // label152
-            // 
             label152.BackColor = Color.Transparent;
             label152.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label152.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7407,9 +3210,6 @@ namespace Retro_Achievement_Tracker
             label152.Size = new Size(285, 40);
             label152.TabIndex = 10069;
             label152.Text = "List Settings";
-            // 
-            // pictureBox18
-            // 
             pictureBox18.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox18.Location = new Point(3, 49);
             pictureBox18.Margin = new Padding(4, 5, 4, 5);
@@ -7417,25 +3217,7 @@ namespace Retro_Achievement_Tracker
             pictureBox18.Size = new Size(412, 3);
             pictureBox18.TabIndex = 10070;
             pictureBox18.TabStop = false;
-            // 
-            // achievementListAutoScrollCheckBox
-            // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // panel111
-            // 
             panel111.BackColor = Color.FromArgb(32, 32, 32);
             panel111.Controls.Add(panel9);
             panel111.Controls.Add(label150);
@@ -7449,9 +3231,6 @@ namespace Retro_Achievement_Tracker
             panel111.Name = "panel111";
             panel111.Size = new Size(702, 176);
             panel111.TabIndex = 10082;
-            // 
-            // panel9
-            // 
             panel9.BackColor = Color.FromArgb(22, 22, 22);
             panel9.Controls.Add(achievementsListTabPage.achievementListWindowSizeLabel);
             panel9.Controls.Add(achievementsListTabPage.achievementListWindowSizeXUpDown);
@@ -7461,44 +3240,9 @@ namespace Retro_Achievement_Tracker
             panel9.Name = "panel9";
             panel9.Size = new Size(693, 36);
             panel9.TabIndex = 10065;
-            // 
-            // achievementListWindowSizeLabel
-            // 
 
 
 
-
-
-
-
-
-            // 
-            // achievementListWindowSizeXUpDown
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // achievementListWindowSizeYUpDown
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // label150
-            // 
             label150.BackColor = Color.Transparent;
             label150.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label150.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7508,9 +3252,6 @@ namespace Retro_Achievement_Tracker
             label150.Size = new Size(364, 40);
             label150.TabIndex = 10062;
             label150.Text = "Window/Font Settings";
-            // 
-            // panel112
-            // 
             panel112.BackColor = Color.FromArgb(36, 36, 36);
             panel112.Controls.Add(label151);
             panel112.Location = new Point(3, 62);
@@ -7518,9 +3259,6 @@ namespace Retro_Achievement_Tracker
             panel112.Name = "panel112";
             panel112.Size = new Size(694, 35);
             panel112.TabIndex = 10076;
-            // 
-            // label151
-            // 
             label151.BackColor = Color.Transparent;
             label151.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label151.ForeColor = Color.FromArgb(200, 200, 200);
@@ -7530,40 +3268,8 @@ namespace Retro_Achievement_Tracker
             label151.Size = new Size(72, 25);
             label151.TabIndex = 10065;
             label151.Text = "Color";
-            // 
-            // achievementListOpenWindowButton
-            // 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // achievementListAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox16
-            // 
             pictureBox16.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox16.Location = new Point(3, 49);
             pictureBox16.Margin = new Padding(4, 5, 4, 5);
@@ -7571,9 +3277,6 @@ namespace Retro_Achievement_Tracker
             pictureBox16.Size = new Size(690, 3);
             pictureBox16.TabIndex = 10063;
             pictureBox16.TabStop = false;
-            // 
-            // panel114
-            // 
             panel114.BackColor = Color.FromArgb(22, 22, 22);
             panel114.Controls.Add(achievementsListTabPage.achievementListBackgroundColorPictureBox);
             panel114.Controls.Add(label156);
@@ -7582,21 +3285,7 @@ namespace Retro_Achievement_Tracker
             panel114.Name = "panel114";
             panel114.Size = new Size(694, 35);
             panel114.TabIndex = 10061;
-            // 
-            // achievementListBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label156
-            // 
             label156.BackColor = Color.Transparent;
             label156.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label156.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7606,9 +3295,6 @@ namespace Retro_Achievement_Tracker
             label156.Size = new Size(216, 25);
             label156.TabIndex = 10064;
             label156.Text = "Window Background";
-            // 
-            // panel1
-            // 
             panel1.BackColor = Color.FromArgb(32, 32, 32);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(checkForUpdatesButton);
@@ -7622,9 +3308,6 @@ namespace Retro_Achievement_Tracker
             panel1.Name = "panel1";
             panel1.Size = new Size(606, 147);
             panel1.TabIndex = 10031;
-            // 
-            // checkForUpdatesButton
-            // 
             checkForUpdatesButton.BackColor = Color.FromArgb(22, 22, 22);
             checkForUpdatesButton.FlatAppearance.BorderColor = Color.Black;
             checkForUpdatesButton.FlatStyle = FlatStyle.Flat;
@@ -7637,9 +3320,6 @@ namespace Retro_Achievement_Tracker
             checkForUpdatesButton.TabIndex = 29;
             checkForUpdatesButton.Text = "Check For Updates";
             checkForUpdatesButton.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
             panel3.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             panel3.BackColor = Color.FromArgb(30, 30, 30);
             panel3.Controls.Add(apiKeyLabel);
@@ -7649,9 +3329,6 @@ namespace Retro_Achievement_Tracker
             panel3.Name = "panel3";
             panel3.Size = new Size(596, 43);
             panel3.TabIndex = 28;
-            // 
-            // panel2
-            // 
             panel2.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
             panel2.BackColor = Color.FromArgb(35, 35, 35);
             panel2.Controls.Add(usernameLabel);
@@ -7661,9 +3338,6 @@ namespace Retro_Achievement_Tracker
             panel2.Name = "panel2";
             panel2.Size = new Size(596, 43);
             panel2.TabIndex = 27;
-            // 
-            // panel120
-            // 
             panel120.BackColor = Color.FromArgb(32, 32, 32);
             panel120.Controls.Add(relatedMediaTabPage.relatedMediaRAScreenshotRadioButton);
             panel120.Controls.Add(relatedMediaTabPage.relatedMediaRABadgeIconRadioButton);
@@ -7676,67 +3350,10 @@ namespace Retro_Achievement_Tracker
             panel120.Name = "panel120";
             panel120.Size = new Size(434, 226);
             panel120.TabIndex = 0;
-            // 
-            // relatedMediaRAScreenshotRadioButton
-            // 
 
 
 
 
-
-
-
-
-
-
-
-            // 
-            // relatedMediaRABadgeIconRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaRABoxArtRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaRATitleScreenRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox19
-            // 
             pictureBox19.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox19.Location = new Point(3, 49);
             pictureBox19.Margin = new Padding(4, 5, 4, 5);
@@ -7744,9 +3361,6 @@ namespace Retro_Achievement_Tracker
             pictureBox19.Size = new Size(412, 3);
             pictureBox19.TabIndex = 10071;
             pictureBox19.TabStop = false;
-            // 
-            // label1
-            // 
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7756,9 +3370,6 @@ namespace Retro_Achievement_Tracker
             label1.Size = new Size(411, 40);
             label1.TabIndex = 10063;
             label1.Text = "RetroAchievements.org";
-            // 
-            // panel121
-            // 
             panel121.BackColor = Color.FromArgb(32, 32, 32);
             panel121.Controls.Add(label90);
             panel121.Controls.Add(panel122);
@@ -7771,9 +3382,6 @@ namespace Retro_Achievement_Tracker
             panel121.Name = "panel121";
             panel121.Size = new Size(702, 134);
             panel121.TabIndex = 10083;
-            // 
-            // label90
-            // 
             label90.BackColor = Color.Transparent;
             label90.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label90.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7783,9 +3391,6 @@ namespace Retro_Achievement_Tracker
             label90.Size = new Size(364, 40);
             label90.TabIndex = 10062;
             label90.Text = "Window/Font Settings";
-            // 
-            // panel122
-            // 
             panel122.BackColor = Color.FromArgb(36, 36, 36);
             panel122.Controls.Add(label91);
             panel122.Location = new Point(3, 62);
@@ -7793,9 +3398,6 @@ namespace Retro_Achievement_Tracker
             panel122.Name = "panel122";
             panel122.Size = new Size(694, 35);
             panel122.TabIndex = 10076;
-            // 
-            // label91
-            // 
             label91.BackColor = Color.Transparent;
             label91.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label91.ForeColor = Color.FromArgb(200, 200, 200);
@@ -7805,40 +3407,8 @@ namespace Retro_Achievement_Tracker
             label91.Size = new Size(72, 25);
             label91.TabIndex = 10065;
             label91.Text = "Color";
-            // 
-            // relatedMediaOpenWindowButton
-            // 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaAutoOpenWindowCheckbox
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // pictureBox22
-            // 
             pictureBox22.BackColor = Color.FromArgb(44, 151, 250);
             pictureBox22.Location = new Point(3, 49);
             pictureBox22.Margin = new Padding(4, 5, 4, 5);
@@ -7846,9 +3416,6 @@ namespace Retro_Achievement_Tracker
             pictureBox22.Size = new Size(690, 3);
             pictureBox22.TabIndex = 10063;
             pictureBox22.TabStop = false;
-            // 
-            // panel123
-            // 
             panel123.BackColor = Color.FromArgb(22, 22, 22);
             panel123.Controls.Add(relatedMediaTabPage.relatedMediaBackgroundColorPictureBox);
             panel123.Controls.Add(label92);
@@ -7857,21 +3424,7 @@ namespace Retro_Achievement_Tracker
             panel123.Name = "panel123";
             panel123.Size = new Size(694, 35);
             panel123.TabIndex = 10061;
-            // 
-            // relatedMediaBackgroundColorPictureBox
-            // 
 
-
-
-
-
-
-
-
-
-            // 
-            // label92
-            // 
             label92.BackColor = Color.Transparent;
             label92.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             label92.ForeColor = Color.FromArgb(44, 151, 250);
@@ -7881,9 +3434,6 @@ namespace Retro_Achievement_Tracker
             label92.Size = new Size(216, 25);
             label92.TabIndex = 10064;
             label92.Text = "Window Background";
-            // 
-            // panel124
-            // 
             panel124.BackColor = Color.FromArgb(32, 32, 32);
             panel124.Controls.Add(relatedMediaTabPage.relatedMediaLBCartFrontRadioButton);
             panel124.Controls.Add(relatedMediaTabPage.relatedMediaLBCartBackRadioButton);
@@ -7905,9 +3455,6 @@ namespace Retro_Achievement_Tracker
             panel124.Name = "panel124";
             panel124.Size = new Size(434, 322);
             panel124.TabIndex = 10076;
-            // 
-            // relatedMediaLBCartFrontRadioButton
-            // 
 
 
 
@@ -7919,201 +3466,10 @@ namespace Retro_Achievement_Tracker
 
 
 
-            // 
-            // relatedMediaLBCartBackRadioButton
-            // 
 
 
 
 
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxBackReconRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxFullRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxSpineRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBClearLogoRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBannerRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBTitleScreenRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaSetLaunchBoxPathButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxFrontReconRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxFrontRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBoxBackRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBBox3DRadioButton
-            // 
-
-
-
-
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBLinePictureBox
-            // 
-
-
-
-
-
-
-
-            // 
-            // relatedMediaLBLabel
-            // 
-
-
-
-
-
-
-
-
-
-            // 
-            // mainTabControl
-            // 
             mainTabControl.Appearance = TabAppearance.FlatButtons;
             mainTabControl.Controls.Add(focusTabPage);
             mainTabControl.Controls.Add(alertsTabPage);
@@ -8131,20 +3487,11 @@ namespace Retro_Achievement_Tracker
             mainTabControl.SelectedIndex = 0;
             mainTabControl.Size = new Size(1166, 612);
             mainTabControl.TabIndex = 10033;
-            // 
-            // focusTabPage
-            // 
             focusTabPage.Controls.Add(panel64);
             focusTabPage.Controls.Add(panel63);
             focusTabPage.Controls.Add(panel51);
-            // 
-            // alertsTabPage
-            // 
             alertsTabPage.Controls.Add(alertTabControl);
             alertsTabPage.Controls.Add(panel65);
-            // 
-            // alertTabControl
-            // 
             alertTabControl.Alignment = TabAlignment.Bottom;
             alertTabControl.Controls.Add(achievementTabPage);
             alertTabControl.Controls.Add(masteryTabPage);
@@ -8156,9 +3503,6 @@ namespace Retro_Achievement_Tracker
             alertTabControl.SelectedIndex = 0;
             alertTabControl.Size = new Size(438, 557);
             alertTabControl.TabIndex = 10082;
-            // 
-            // achievementTabPage
-            // 
             achievementTabPage.BackColor = Color.FromArgb(22, 22, 22);
             achievementTabPage.Controls.Add(alertsTabPage.alertsCustomAchievementPanel);
             achievementTabPage.Controls.Add(alertsTabPage.alertsAchievementEnableCheckbox);
@@ -8172,9 +3516,6 @@ namespace Retro_Achievement_Tracker
             achievementTabPage.Size = new Size(430, 524);
             achievementTabPage.TabIndex = 0;
             achievementTabPage.Text = "Achievement";
-            // 
-            // masteryTabPage
-            // 
             masteryTabPage.BackColor = Color.FromArgb(22, 22, 22);
             masteryTabPage.Controls.Add(alertsTabPage.alertsCustomMasteryPanel);
             masteryTabPage.Controls.Add(alertsTabPage.alertsMasteryEnableCheckbox);
@@ -8187,43 +3528,22 @@ namespace Retro_Achievement_Tracker
             masteryTabPage.Size = new Size(430, 524);
             masteryTabPage.TabIndex = 1;
             masteryTabPage.Text = "Mastery";
-            // 
-            // userInfoTabPage
-            // 
             userInfoTabPage.Controls.Add(panel14);
             userInfoTabPage.Controls.Add(panel21);
             userInfoTabPage.Controls.Add(panel20);
-            // 
-            // gameInfoTabPage
-            // 
             gameInfoTabPage.Controls.Add(panel50);
             gameInfoTabPage.Controls.Add(panel29);
             gameInfoTabPage.Controls.Add(panel35);
-            // 
-            // gameProgressTabPage
-            // 
             gameProgressTabPage.Controls.Add(panel28);
             gameProgressTabPage.Controls.Add(panel36);
             gameProgressTabPage.Controls.Add(panel15);
-            // 
-            // recentAchievementsTabPage
-            // 
             recentAchievementsTabPage.Controls.Add(panel113);
             recentAchievementsTabPage.Controls.Add(panel99);
-            // 
-            // achievementsListTabPage
-            // 
             achievementsListTabPage.Controls.Add(panel111);
             achievementsListTabPage.Controls.Add(panel115);
-            // 
-            // relatedMediaTabPage
-            // 
             relatedMediaTabPage.Controls.Add(panel124);
             relatedMediaTabPage.Controls.Add(panel120);
             relatedMediaTabPage.Controls.Add(panel121);
-            // 
-            // manualSearchLabel
-            // 
             manualSearchLabel.AutoSize = true;
             manualSearchLabel.BackColor = Color.Transparent;
             manualSearchLabel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -8234,9 +3554,6 @@ namespace Retro_Achievement_Tracker
             manualSearchLabel.Size = new Size(98, 25);
             manualSearchLabel.TabIndex = 32;
             manualSearchLabel.Text = "Game ID";
-            // 
-            // manualSearchTextBox
-            // 
             manualSearchTextBox.BackColor = Color.FromArgb(22, 22, 22);
             manualSearchTextBox.BorderStyle = BorderStyle.FixedSingle;
             manualSearchTextBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -8248,9 +3565,6 @@ namespace Retro_Achievement_Tracker
             manualSearchTextBox.TabIndex = 30;
             manualSearchTextBox.WordWrap = false;
             manualSearchTextBox.KeyPress += new KeyPressEventHandler(ManualSearchTextBox_KeyPress);
-            // 
-            // manualSearchButton
-            // 
             manualSearchButton.BackColor = Color.FromArgb(22, 22, 22);
             manualSearchButton.FlatAppearance.BorderColor = Color.Black;
             manualSearchButton.FlatStyle = FlatStyle.Flat;
@@ -8264,9 +3578,6 @@ namespace Retro_Achievement_Tracker
             manualSearchButton.Text = "Search";
             manualSearchButton.UseVisualStyleBackColor = false;
             manualSearchButton.Click += new System.EventHandler(ManualSearchButton_Click);
-            // 
-            // panel8
-            // 
             panel8.BackColor = Color.FromArgb(46, 46, 46);
             panel8.Controls.Add(manualSearchLabel);
             panel8.Controls.Add(manualSearchTextBox);
@@ -8276,9 +3587,6 @@ namespace Retro_Achievement_Tracker
             panel8.Name = "panel8";
             panel8.Size = new Size(364, 52);
             panel8.TabIndex = 10037;
-            // 
-            // MainWindow
-            // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(22, 22, 22);
@@ -8676,7 +3984,6 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusTitleFontOutlineColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusDescriptionFontOutlineNumericUpDown)).EndInit();
 
@@ -8687,10 +3994,8 @@ namespace Retro_Achievement_Tracker
             panel55.ResumeLayout(false);
             ((ISupportInitialize)(focusTabPage.focusTitleFontColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusPointsFontOutlineColorPictureBox)).EndInit();
-
 
             ((ISupportInitialize)(focusTabPage.focusLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusLineOutlineNumericUpDown)).EndInit();
@@ -8710,7 +4015,6 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontOutlineColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsDescriptionFontOutlineNumericUpDown)).EndInit();
 
@@ -8721,14 +4025,11 @@ namespace Retro_Achievement_Tracker
             panel74.ResumeLayout(false);
             ((ISupportInitialize)(alertsTabPage.alertsTitleFontColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsPointsFontOutlineColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(alertsTabPage.alertsLineOutlineNumericUpDown)).EndInit();
-
 
             panel85.ResumeLayout(false);
             panel84.ResumeLayout(false);
@@ -8741,7 +4042,6 @@ namespace Retro_Achievement_Tracker
             panel80.ResumeLayout(false);
             panel81.ResumeLayout(false);
             panel82.ResumeLayout(false);
-
 
             panel89.ResumeLayout(false);
             panel90.ResumeLayout(false);
@@ -8772,7 +4072,7 @@ namespace Retro_Achievement_Tracker
             panel20.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            
+
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontColorPictureBox)).EndInit();
             ((ISupportInitialize)(pictureBox3)).EndInit();
             panel5.ResumeLayout(false);
@@ -8782,7 +4082,7 @@ namespace Retro_Achievement_Tracker
             panel7.ResumeLayout(false);
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoNamesFontOutlineColorPictureBox)).EndInit();
-            
+
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(userInfoTabPage.userInfoValuesFontOutlineNumericUpDown)).EndInit();
             panel50.ResumeLayout(false);
@@ -8822,7 +4122,6 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoNamesFontOutlineColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(gameInfoTabPage.gameInfoValuesFontOutlineNumericUpDown)).EndInit();
             panel28.ResumeLayout(false);
@@ -8846,7 +4145,6 @@ namespace Retro_Achievement_Tracker
             panel23.PerformLayout();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressNamesFontOutlineColorPictureBox)).EndInit();
-
 
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(gameProgressTabPage.gameProgressValuesFontOutlineNumericUpDown)).EndInit();
@@ -8884,7 +4182,6 @@ namespace Retro_Achievement_Tracker
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontOutlineColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDateFontOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsDescriptionFontOutlineNumericUpDown)).EndInit();
 
@@ -8895,10 +4192,8 @@ namespace Retro_Achievement_Tracker
             panel108.ResumeLayout(false);
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsTitleFontColorPictureBox)).EndInit();
 
-
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineNumericUpDown)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsPointsFontOutlineColorPictureBox)).EndInit();
-
 
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox)).EndInit();
             ((ISupportInitialize)(recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown)).EndInit();
@@ -8951,6 +4246,28 @@ namespace Retro_Achievement_Tracker
             panel8.PerformLayout();
             ResumeLayout(false);
         }
+
+        void InitTabs()
+        {
+            focusTabPage = new FocusTab();
+            alertsTabPage = new AlertsTab();
+            userInfoTabPage = new UserInfoTab();
+            gameInfoTabPage = new GameInfoTab();
+            gameProgressTabPage = new GameProgressTab();
+            recentAchievementsTabPage = new RecentAchievementsTab();
+            achievementsListTabPage = new AchievementsListTab();
+            relatedMediaTabPage = new RelatedMediaTab();
+
+            focusTabPage.InitElements();
+            alertsTabPage.InitElements();
+            userInfoTabPage.InitElements();
+            gameInfoTabPage.InitElements();
+            gameProgressTabPage.InitElements();
+            recentAchievementsTabPage.InitElements();
+            achievementsListTabPage.InitElements();
+            relatedMediaTabPage.InitElements();
+        }
+
 
         #endregion
     }
