@@ -66,7 +66,7 @@ namespace Retro_Achievement_Tracker
             recentAchievementsTabPage = new RecentAchievementsTab();
             recentAchievementsTabPage.InitElements();
             achievementsListTabPage = new AchievementsListTab();
-
+            achievementsListTabPage.InitElements();
             relatedMediaTabPage = new RelatedMediaTab();
 
             // Elements
@@ -562,20 +562,20 @@ namespace Retro_Achievement_Tracker
             panel115 = new Panel();
             label152 = new Label();
             pictureBox18 = new PictureBox();
-            achievementsListTabPage.achievementListAutoScrollCheckBox = new CheckBox();
+
             panel111 = new Panel();
             panel9 = new Panel();
-            achievementsListTabPage.achievementListWindowSizeLabel = new Label();
-            achievementsListTabPage.achievementListWindowSizeXUpDown = new NumericUpDown();
-            achievementsListTabPage.achievementListWindowSizeYUpDown = new NumericUpDown();
+
+
+
             label150 = new Label();
             panel112 = new Panel();
             label151 = new Label();
-            achievementsListTabPage.achievementListOpenWindowButton = new Button();
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox = new CheckBox();
+
+
             pictureBox16 = new PictureBox();
             panel114 = new Panel();
-            achievementsListTabPage.achievementListBackgroundColorPictureBox = new PictureBox();
+
             label156 = new Label();
             panel1 = new Panel();
             panel3 = new Panel();
@@ -7419,19 +7419,19 @@ namespace Retro_Achievement_Tracker
             // 
             // achievementListAutoScrollCheckBox
             // 
-            achievementsListTabPage.achievementListAutoScrollCheckBox.AutoSize = true;
-            achievementsListTabPage.achievementListAutoScrollCheckBox.BackColor = Color.Transparent;
-            achievementsListTabPage.achievementListAutoScrollCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementsListTabPage.achievementListAutoScrollCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Location = new Point(4, 60);
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Margin = new Padding(4, 5, 4, 5);
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Name = "achievementListAutoScrollCheckBox";
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Size = new Size(147, 29);
-            achievementsListTabPage.achievementListAutoScrollCheckBox.TabIndex = 10055;
-            achievementsListTabPage.achievementListAutoScrollCheckBox.Text = "Auto-scroll";
-            achievementsListTabPage.achievementListAutoScrollCheckBox.UseVisualStyleBackColor = false;
-            achievementsListTabPage.achievementListAutoScrollCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // panel111
             // 
@@ -7463,38 +7463,38 @@ namespace Retro_Achievement_Tracker
             // 
             // achievementListWindowSizeLabel
             // 
-            achievementsListTabPage.achievementListWindowSizeLabel.AutoSize = true;
-            achievementsListTabPage.achievementListWindowSizeLabel.Font = new Font("Verdana", 9.75F);
-            achievementsListTabPage.achievementListWindowSizeLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementsListTabPage.achievementListWindowSizeLabel.Location = new Point(3, 4);
-            achievementsListTabPage.achievementListWindowSizeLabel.Name = "achievementListWindowSizeLabel";
-            achievementsListTabPage.achievementListWindowSizeLabel.Size = new Size(141, 25);
-            achievementsListTabPage.achievementListWindowSizeLabel.TabIndex = 10088;
-            achievementsListTabPage.achievementListWindowSizeLabel.Text = "Window Size";
+
+
+
+
+
+
+
+
             // 
             // achievementListWindowSizeXUpDown
             // 
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Increment = new decimal(new int[] {68, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Location = new Point(230, 4);
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Maximum = new decimal(new int[] {1700, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Minimum = new decimal(new int[] {340, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Name = "achievementListWindowSizeXUpDown";
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Size = new Size(120, 28);
-            achievementsListTabPage.achievementListWindowSizeXUpDown.TabIndex = 3;
-            achievementsListTabPage.achievementListWindowSizeXUpDown.Value = new decimal(new int[] {748, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeXUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
             // 
             // achievementListWindowSizeYUpDown
             // 
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Increment = new decimal(new int[] {68, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Location = new Point(352, 4);
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Maximum = new decimal(new int[] {1700, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Minimum = new decimal(new int[] {340, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Name = "achievementListWindowSizeYUpDown";
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Size = new Size(120, 28);
-            achievementsListTabPage.achievementListWindowSizeYUpDown.TabIndex = 1;
-            achievementsListTabPage.achievementListWindowSizeYUpDown.Value = new decimal(new int[] {612, 0, 0, 0});
-            achievementsListTabPage.achievementListWindowSizeYUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+
+
+
+
+
+
+
+
+
             // 
             // label150
             // 
@@ -7532,34 +7532,34 @@ namespace Retro_Achievement_Tracker
             // 
             // achievementListOpenWindowButton
             // 
-            achievementsListTabPage.achievementListOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
-            achievementsListTabPage.achievementListOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
-            achievementsListTabPage.achievementListOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            achievementsListTabPage.achievementListOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementsListTabPage.achievementListOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            achievementsListTabPage.achievementListOpenWindowButton.Location = new Point(573, 3);
-            achievementsListTabPage.achievementListOpenWindowButton.Margin = new Padding(0);
-            achievementsListTabPage.achievementListOpenWindowButton.Name = "achievementListOpenWindowButton";
-            achievementsListTabPage.achievementListOpenWindowButton.Size = new Size(112, 42);
-            achievementsListTabPage.achievementListOpenWindowButton.TabIndex = 10021;
-            achievementsListTabPage.achievementListOpenWindowButton.Text = "Open";
-            achievementsListTabPage.achievementListOpenWindowButton.UseVisualStyleBackColor = false;
-            achievementsListTabPage.achievementListOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // achievementListAutoOpenWindowCheckbox
             // 
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.AutoSize = true;
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Name = "achievementListAutoOpenWindowCheckbox";
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.TabIndex = 10022;
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.Text = "Auto-Open";
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
-            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+
+
+
+
+
+
+
+
+
+
+
             // 
             // pictureBox16
             // 
@@ -7584,15 +7584,15 @@ namespace Retro_Achievement_Tracker
             // 
             // achievementListBackgroundColorPictureBox
             // 
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.BackColor = Color.White;
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.Location = new Point(230, 5);
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.Name = "achievementListBackgroundColorPictureBox";
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.Size = new Size(22, 22);
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.TabIndex = 42;
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.TabStop = false;
-            achievementsListTabPage.achievementListBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
+
+
+
+
+
+
+
+
+
             // 
             // label156
             // 
@@ -8606,6 +8606,13 @@ namespace Retro_Achievement_Tracker
             recentAchievementsTabPage.recentAchievementsLineOutlineColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
             recentAchievementsTabPage.recentAchievementsLineOutlineNumericUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
             recentAchievementsTabPage.recentAchievementsLineOutlineCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+
+            achievementsListTabPage.achievementListAutoScrollCheckBox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            achievementsListTabPage.achievementListWindowSizeXUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            achievementsListTabPage.achievementListWindowSizeYUpDown.ValueChanged += new System.EventHandler(CustomNumericUpDown_ValueChanged);
+            achievementsListTabPage.achievementListOpenWindowButton.Click += new System.EventHandler(ShowWindowButton_Click);
+            achievementsListTabPage.achievementListAutoOpenWindowCheckbox.CheckedChanged += new System.EventHandler(FeatureEnablementCheckBox_CheckedChanged);
+            achievementsListTabPage.achievementListBackgroundColorPictureBox.Click += new System.EventHandler(FontColorPictureBox_Click);
 
             ((ISupportInitialize)(userProfilePictureBox)).EndInit();
             ((ISupportInitialize)(focusTabPage.focusAchievementPictureBox)).EndInit();
