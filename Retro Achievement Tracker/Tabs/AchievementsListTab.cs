@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Windows.Forms;
+using Retro_Achievement_Tracker.Utils;
 
 namespace Retro_Achievement_Tracker.Tabs
 {
@@ -23,7 +24,7 @@ namespace Retro_Achievement_Tracker.Tabs
         {
             Name = "AchievementsListTabPage";
             Text = "Achievements List";
-            BackColor = Color.FromArgb(22, 22, 22);
+            BackColor = btnBackColor;
         }
 
         #endregion
@@ -34,79 +35,53 @@ namespace Retro_Achievement_Tracker.Tabs
 
         public override void InitElements()
         {
-            achievementListAutoScrollCheckBox = new CheckBox();
-            achievementListWindowSizeLabel = new Label();
-            achievementListWindowSizeXUpDown = new NumericUpDown();
-            achievementListWindowSizeYUpDown = new NumericUpDown();
-            achievementListOpenWindowButton = new Button();
-            achievementListAutoOpenWindowCheckbox = new CheckBox();
-            achievementListBackgroundColorPictureBox = new PictureBox();
-            achievementListAutoScrollCheckBox.AutoSize = true;
+            achievementListAutoScrollCheckBox = WinFormHelpers.CreateCheckBox("achievementListAutoScrollCheckBox", "Auto-scroll", new Point(4, 60), new Size(147, 29));
             achievementListAutoScrollCheckBox.BackColor = Color.Transparent;
             achievementListAutoScrollCheckBox.CheckAlign = ContentAlignment.MiddleRight;
-            achievementListAutoScrollCheckBox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementListAutoScrollCheckBox.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementListAutoScrollCheckBox.Location = new Point(4, 60);
-            achievementListAutoScrollCheckBox.Margin = new Padding(4, 5, 4, 5);
-            achievementListAutoScrollCheckBox.Name = "achievementListAutoScrollCheckBox";
-            achievementListAutoScrollCheckBox.Size = new Size(147, 29);
-            achievementListAutoScrollCheckBox.TabIndex = 10055;
-            achievementListAutoScrollCheckBox.Text = "Auto-scroll";
+            achievementListAutoScrollCheckBox.Font = labelFont;
+            achievementListAutoScrollCheckBox.ForeColor = foreColor;
+            achievementListAutoScrollCheckBox.Margin = btnPanelMargin;
+            // achievementListAutoScrollCheckBox.TabIndex = 10055;
             achievementListAutoScrollCheckBox.UseVisualStyleBackColor = false;
-            achievementListWindowSizeLabel.AutoSize = true;
+
+            achievementListAutoOpenWindowCheckbox = WinFormHelpers.CreateCheckBox("achievementListAutoOpenWindowCheckbox", "Auto-Open", new Point(378, 14), new Size(147, 29));
+            // achievementListAutoOpenWindowCheckbox.AutoSize = true;
+            achievementListAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
+            achievementListAutoOpenWindowCheckbox.Font = labelFont;
+            achievementListAutoOpenWindowCheckbox.ForeColor = foreColor;
+            achievementListAutoOpenWindowCheckbox.Margin = btnPanelMargin;
+            // achievementListAutoOpenWindowCheckbox.TabIndex = 10022;
+            achievementListAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
+
+            achievementListWindowSizeLabel = WinFormHelpers.CreateLabel("achievementListWindowSizeLabel", "Window Size", new Point(3, 4), new Size(141, 25));
+            // achievementListWindowSizeLabel.AutoSize = true;
             achievementListWindowSizeLabel.Font = new Font("Verdana", 9.75F);
-            achievementListWindowSizeLabel.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementListWindowSizeLabel.Location = new Point(3, 4);
-            achievementListWindowSizeLabel.Name = "achievementListWindowSizeLabel";
-            achievementListWindowSizeLabel.Size = new Size(141, 25);
-            achievementListWindowSizeLabel.TabIndex = 10088;
-            achievementListWindowSizeLabel.Text = "Window Size";
-            achievementListWindowSizeXUpDown.Increment = new decimal(new int[] { 68, 0, 0, 0 });
-            achievementListWindowSizeXUpDown.Location = new Point(230, 4);
-            achievementListWindowSizeXUpDown.Maximum = new decimal(new int[] { 1700, 0, 0, 0 });
-            achievementListWindowSizeXUpDown.Minimum = new decimal(new int[] { 340, 0, 0, 0 });
-            achievementListWindowSizeXUpDown.Name = "achievementListWindowSizeXUpDown";
-            achievementListWindowSizeXUpDown.Size = new Size(120, 28);
-            achievementListWindowSizeXUpDown.TabIndex = 3;
-            achievementListWindowSizeXUpDown.Value = new decimal(new int[] { 748, 0, 0, 0 });
-            achievementListWindowSizeYUpDown.Increment = new decimal(new int[] { 68, 0, 0, 0 });
-            achievementListWindowSizeYUpDown.Location = new Point(352, 4);
-            achievementListWindowSizeYUpDown.Maximum = new decimal(new int[] { 1700, 0, 0, 0 });
-            achievementListWindowSizeYUpDown.Minimum = new decimal(new int[] { 340, 0, 0, 0 });
-            achievementListWindowSizeYUpDown.Name = "achievementListWindowSizeYUpDown";
-            achievementListWindowSizeYUpDown.Size = new Size(120, 28);
-            achievementListWindowSizeYUpDown.TabIndex = 1;
-            achievementListWindowSizeYUpDown.Value = new decimal(new int[] { 612, 0, 0, 0 });
-            achievementListOpenWindowButton.BackColor = Color.FromArgb(22, 22, 22);
+            achievementListWindowSizeLabel.ForeColor = foreColor;
+            // achievementListWindowSizeLabel.TabIndex = 10088;
+
+            achievementListWindowSizeXUpDown = WinFormHelpers.CreateNumericUpDown("achievementListWindowSizeXUpDown", 748, new Point(230, 4), new Size(120, 28), 340, 1700);
+            achievementListWindowSizeXUpDown.Increment = 68;
+            // achievementListWindowSizeXUpDown.TabIndex = 3;
+
+            achievementListWindowSizeYUpDown = WinFormHelpers.CreateNumericUpDown("achievementListWindowSizeYUpDown", 612, new Point(352, 4), new Size(120, 28), 340, 1700);
+            achievementListWindowSizeYUpDown.Increment = 68;
+            // achievementListWindowSizeYUpDown.TabIndex = 1;
+
+            achievementListOpenWindowButton = WinFormHelpers.CreateButton("achievementListOpenWindowButton", "Open", new Point(573, 3), new Size(112, 42));
+            achievementListOpenWindowButton.BackColor = btnBackColor;
             achievementListOpenWindowButton.FlatAppearance.BorderColor = Color.Black;
             achievementListOpenWindowButton.FlatStyle = FlatStyle.Flat;
-            achievementListOpenWindowButton.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementListOpenWindowButton.ForeColor = Color.FromArgb(204, 153, 0);
-            achievementListOpenWindowButton.Location = new Point(573, 3);
+            achievementListOpenWindowButton.Font = labelFont;
+            achievementListOpenWindowButton.ForeColor = btnForeColor;
             achievementListOpenWindowButton.Margin = new Padding(0);
-            achievementListOpenWindowButton.Name = "achievementListOpenWindowButton";
-            achievementListOpenWindowButton.Size = new Size(112, 42);
-            achievementListOpenWindowButton.TabIndex = 10021;
-            achievementListOpenWindowButton.Text = "Open";
+            // achievementListOpenWindowButton.TabIndex = 10021;
             achievementListOpenWindowButton.UseVisualStyleBackColor = false;
-            achievementListAutoOpenWindowCheckbox.AutoSize = true;
-            achievementListAutoOpenWindowCheckbox.CheckAlign = ContentAlignment.MiddleRight;
-            achievementListAutoOpenWindowCheckbox.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            achievementListAutoOpenWindowCheckbox.ForeColor = Color.FromArgb(44, 151, 250);
-            achievementListAutoOpenWindowCheckbox.Location = new Point(378, 14);
-            achievementListAutoOpenWindowCheckbox.Margin = new Padding(4, 5, 4, 5);
-            achievementListAutoOpenWindowCheckbox.Name = "achievementListAutoOpenWindowCheckbox";
-            achievementListAutoOpenWindowCheckbox.Size = new Size(147, 29);
-            achievementListAutoOpenWindowCheckbox.TabIndex = 10022;
-            achievementListAutoOpenWindowCheckbox.Text = "Auto-Open";
-            achievementListAutoOpenWindowCheckbox.UseVisualStyleBackColor = true;
+
+            achievementListBackgroundColorPictureBox = WinFormHelpers.CreatePictureBox("achievementListBackgroundColorPictureBox", null, new Point(230, 5), width: 22, height: 22);
             achievementListBackgroundColorPictureBox.BackColor = Color.White;
             achievementListBackgroundColorPictureBox.BorderStyle = BorderStyle.Fixed3D;
-            achievementListBackgroundColorPictureBox.Location = new Point(230, 5);
-            achievementListBackgroundColorPictureBox.Margin = new Padding(4, 5, 4, 5);
-            achievementListBackgroundColorPictureBox.Name = "achievementListBackgroundColorPictureBox";
-            achievementListBackgroundColorPictureBox.Size = new Size(22, 22);
-            achievementListBackgroundColorPictureBox.TabIndex = 42;
+            achievementListBackgroundColorPictureBox.Margin = btnPanelMargin;
+            // achievementListBackgroundColorPictureBox.TabIndex = 42;
             achievementListBackgroundColorPictureBox.TabStop = false;
         }
 
