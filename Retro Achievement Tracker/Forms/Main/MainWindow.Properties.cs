@@ -70,17 +70,17 @@ namespace Retro_Achievement_Tracker
 
         #region WinForm
 
-        OpenFileDialog openFileDialog;
-        ColorDialog colorDialog;
-        FolderBrowserDialog folderBrowserDialog;
-        FocusTab focusTabPage;
-        AlertsTab alertsTabPage;
-        UserInfoTab userInfoTabPage;
-        GameInfoTab gameInfoTabPage;
-        GameProgressTab gameProgressTabPage;
-        RecentAchievementsTab recentAchievementsTabPage;
-        AchievementsListTab achievementsListTabPage;
-        RelatedMediaTab relatedMediaTabPage;
+        readonly OpenFileDialog openFileDialog = new OpenFileDialog();
+        readonly ColorDialog colorDialog = new ColorDialog();
+        readonly FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+        readonly FocusTab focusTabPage = new FocusTab();
+        readonly AlertsTab alertsTabPage = new AlertsTab();
+        readonly UserInfoTab userInfoTabPage = new UserInfoTab();
+        readonly GameInfoTab gameInfoTabPage = new GameInfoTab();
+        readonly GameProgressTab gameProgressTabPage = new GameProgressTab();
+        readonly RecentAchievementsTab recentAchievementsTabPage = new RecentAchievementsTab();
+        readonly AchievementsListTab achievementsListTabPage = new AchievementsListTab();
+        readonly RelatedMediaTab relatedMediaTabPage = new RelatedMediaTab();
         TabPage achievementTabPage,
             masteryTabPage;
         TabControl mainTabControl,
@@ -145,8 +145,8 @@ namespace Retro_Achievement_Tracker
             label83,
             label86,
             label88,
-            label106,
-            label96,
+            focusLineLabel,
+            focusWindowSettingsLabel,
             label107,
             label108,
             label97,
@@ -158,8 +158,8 @@ namespace Retro_Achievement_Tracker
             label102,
             label104,
             label105,
-            label111,
-            label112,
+            currentAchievementLabel,
+            auoFocusRuleLabel,
             label113,
             label114,
             label115,
@@ -304,7 +304,7 @@ namespace Retro_Achievement_Tracker
             panel45,
             panel46,
             panel49,
-            panel51,
+            currentAchievementPanel,
             panel59,
             panel52,
             panel61,
@@ -312,7 +312,7 @@ namespace Retro_Achievement_Tracker
             panel55,
             panel50,
             panel63,
-            panel64,
+            autoFocusRulePanel,
             panel65,
             panel67,
             panel69,
